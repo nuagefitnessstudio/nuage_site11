@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>NuAge Fitness Studio — Athletic Country Club Experience</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --ink:#111418;
+      --muted:#6a6d74;
+      --line:#e9e6e1;
+      --bone:#faf7f2;
+      --pill:#efebe6cc;
+      --navy:#002D72;
+      --coral:#EB1F48;
+    }
+    *{box-sizing:border-box} html,body{height:100%} body{margin:0;color:var(--ink);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,Helvetica,sans-serif;line-height:1.6;background:#fff}
+    h1,h2,h3{font-family:'Playfair Display',serif;letter-spacing:.02em;line-height:1.15;margin:0 0 .25em}
+    h1{font-size:clamp(32px,5vw,54px);font-weight:600} h2{font-size:clamp(28px,3.5vw,40px);font-weight:600} h3{font-size:clamp(18px,2vw,22px);font-weight:600}
+    a{color:inherit;text-decoration:none} .container{max-width:1200px;margin:0 auto;padding:0 24px}
+
+    .topbar{position:fixed;top:16px;left:50%;transform:translateX(-50%);display:flex;align-items:center;justify-content:space-between;width:min(92vw,980px);background:var(--pill);backdrop-filter:blur(8px);border:1px solid rgba(0,0,0,.08);border-radius:999px;padding:10px 16px;z-index:50}
+    .pill-link{display:inline-flex;align-items:center;gap:10px;font-size:14px;letter-spacing:.04em;color:#2c2c2c;padding:8px 14px;border-radius:999px;transition:background .25s,transform .2s}
+    .pill-link:hover{background:#ffffffb3;transform:translateY(-1px)}
+    .brand{display:flex;align-items:center;gap:10px}
+    .brand img{height:28px; width:auto}
+    .brand-name{font-weight:800;letter-spacing:.08em;color:var(--navy)}
+    .brand-name span{color:var(--coral)}
+
+    .hero{position:relative;height:100svh;min-height:560px;overflow:hidden;color:#fff}
+    .hero video,.hero .hero-image{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:contrast(1.05) saturate(1.05)}
+    .hero::after{content:'';position:absolute;inset:0;background:linear-gradient(to bottom, rgba(0,0,0,.2), rgba(0,0,0,.35) 50%, rgba(0,0,0,.25));pointer-events:none}
+    .hero-center{position:absolute;inset:0;display:grid;place-items:center;text-align:center;z-index:1;padding:0 16px}
+    .hero-center h1{text-shadow:0 2px 16px rgba(0,0,0,.35);color:#fff}
+    .video-ctrl{position:absolute;right:22px;top:22px;z-index:60;width:40px;height:40px;border-radius:50%;display:grid;place-items:center;background:#ffffffc9;color:#1a1a1a;border:1px solid rgba(0,0,0,.08);cursor:pointer;transition:transform .2s,background .25s}
+    .video-ctrl:hover{transform:scale(1.04);background:#fff}
+
+    .split{display:grid;grid-template-columns:1.15fr 1fr;min-height:100svh;background:var(--bone)}
+    .split .visual{position:relative;overflow:hidden}
+    .split .visual img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transform:scale(1.03)}
+    .split .text{padding:72px 32px;display:flex;align-items:center}
+    .stack{width:100%} .eyebrow{text-transform:uppercase;letter-spacing:.18em;font-weight:700;color:#7c756b;font-size:12px;margin-bottom:20px}
+    .divider{height:1px;background:var(--line);margin:32px 0}
+    .feature{display:grid;grid-template-columns:1fr 140px;gap:24px;align-items:center;padding:18px 0}
+    .feature img{width:140px;height:100px;object-fit:cover;border-radius:12px;box-shadow:0 4px 16px rgba(0,0,0,.08)}
+
+    .bleed{position:relative;min-height:72svh;display:grid;place-items:center;text-align:center;color:#fff;overflow:hidden}
+    .bleed img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:brightness(.7)}
+    .bleed .inner{position:relative;z-index:1;padding:48px 16px}
+    .btn{display:inline-block;border:1px solid #ffffffcc;color:#fff;padding:12px 22px;border-radius:10px;letter-spacing:.08em;font-size:14px;transition:transform .2s,background .25s}
+    .btn:hover{background:#ffffff1a;transform:translateY(-1px)}
+
+    .tiles{background:var(--bone);padding:60px 24px 80px}
+    .tile-grid{display:grid;gap:24px;grid-template-columns:repeat(2,minmax(0,1fr))}
+    .tile{position:relative;border-radius:18px;overflow:hidden;color:#fff;min-height:56svh;display:flex;align-items:flex-end;box-shadow:0 10px 28px rgba(0,0,0,.12)}
+    .tile img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:brightness(.78)}
+    .tile .copy{position:relative;z-index:1;padding:26px}
+    .tag{font-family:'Playfair Display',serif;font-size:clamp(28px,3.5vw,44px);font-weight:600;letter-spacing:.02em;margin-bottom:.4rem}
+
+    .legal{background:var(--bone);padding:56px 24px 32px;color:#51493f}
+    .footer{background:#fff;border-top:1px solid var(--line);padding:32px 0 0}
+    .links{display:grid;gap:24px;padding:24px;grid-template-columns:repeat(4,minmax(0,1fr))}
+    .links h4{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:#7b7b7b;margin:0 0 12px}
+    .links a{display:block;padding:6px 0;color:#2f2f2f;font-size:15px}
+    .links a:hover{color:var(--navy)}
+    .bottombar{padding:20px 24px 28px;display:flex;align-items:center;justify-content:space-between;gap:16px;color:#6a6d74;font-size:14px}
+    .closing{background:linear-gradient(180deg,#a8b7cc 0%,#d8cfc7 100%);color:#fff;min-height:52svh;display:grid;place-items:center;text-align:center}
+    .closing h2{color:#fff;letter-spacing:.22em;text-transform:uppercase;font-family:Inter,sans-serif;font-weight:600}
+    @media (max-width:1024px){.split{grid-template-columns:1fr} .split .text{padding:52px 22px} .feature{grid-template-columns:1fr 120px}} 
+    @media (max-width:720px){.tile{min-height:48svh} .tile-grid{grid-template-columns:1fr} .links{grid-template-columns:1fr 1fr} .bottombar{flex-direction:column;align-items:flex-start}}
+  
+/* Cookie modal */
+.cookie-overlay{position:fixed; inset:0; background:rgba(0,0,0,.45); display:none; align-items:center; justify-content:center; z-index:1000}
+.cookie-card{width:min(92vw,420px); background:linear-gradient(180deg,#e6dfd8,#d9cfc4); border-radius:12px; box-shadow:0 12px 30px rgba(0,0,0,.25); border:1px solid rgba(0,0,0,.12);}
+.cookie-inner{padding:18px}
+.cookie-body{background:#f4eee6; border:1px solid rgba(0,0,0,.1); padding:18px; border-radius:8px; color:#2e2a25; font-size:14px; line-height:1.5}
+.cookie-actions{padding:12px 0 4px; display:grid; gap:10px}
+.cookie-btn{display:block; width:100%; padding:12px 16px; border-radius:8px; border:1px solid #2b2b2b; font-weight:700; letter-spacing:.02em; cursor:pointer}
+.cookie-primary{background:#2b2b2b; color:#fff}
+.cookie-secondary{background:#fff; color:#2b2b2b}
+.cookie-link{color:#1a1a1a; text-decoration:underline}
+.cookie-close{position:absolute; right:10px; top:8px; font-size:20px; cursor:pointer; color:#4b4b4b}
+
+  </style>
+</head>
+<body>
+  <div class="topbar" role="navigation">
+    <a href="#" class="pill-link"><img src="assets/logo.png" alt="NuAge logo" style="height:20px"><span style="font-weight:600">Find a Location</span></a>
+    <div class="brand">
+      <img src="assets/logo.png" alt="NuAge logo">
+      <div class="brand-name">NuAge<span>Fitness</span><span>Studios</span></div>
+    </div>
+    <a href="#" class="pill-link" style="font-weight:700;color:var(--navy)">Member Login</a>
+  </div>
+
+  <header class="hero">
+    <video id="heroVideo" autoplay muted playsinline loop poster="assets/hero-fallback.jpg">
+      <source src="assets/workout_hero.mp4" type="video/mp4">
+      <source src="assets/workout_hero.webm" type="video/webm">
+    </video>
+    <img class="hero-image" src="assets/hero-fallback.jpg" alt="" aria-hidden="true" />
+    <button class="video-ctrl" id="videoCtrl" aria-label="Pause video">❚❚</button>
+    <div class="hero-center">
+      <h1>This is the feeling of NuAge</h1>
+    </div>
+  </header>
+
+  <section class="split">
+    <div class="visual"><img src="assets/athletic-left.jpg" alt=""></div>
+    <div class="text">
+      <div class="stack container">
+        <div class="eyebrow">Love Your Life</div>
+        <h2 style="color:var(--navy)">Athletic Country Clubs</h2>
+        <p>From the warm welcome of the studio to the cool shade of the cabana, every inch of NuAge is designed with your well-being in mind. It’s so much more than a gym.</p>
+        <div class="divider"></div>
+        <div class="feature">
+          <div>
+            <div class="eyebrow">Results-Driven Programs</div>
+            <p>Programs. Lessons. Sessions. Workouts. So many wonderful ways to spend time and reach goals.</p>
+          </div>
+          <img src="assets/feature-1.jpg" alt="Programs">
+        </div>
+        <div class="divider"></div>
+        <div class="feature">
+          <div>
+            <div class="eyebrow">Passionate People</div>
+            <p>Everyone here shares the same mission: helping you live your healthiest, happiest life.</p>
+          </div>
+          <img src="assets/feature-2.jpg" alt="People">
+        
+        <div class="divider"></div>
+        <div class="feature">
+          <div>
+            <div class="eyebrow">Recovery & Amenities</div>
+            <p>Recover harder than you train — spa, sauna, cold plunge, and café to keep you thriving.</p>
+          </div>
+          <img src="assets/spa.jpg" alt="Spa">
+        </div>
+
+        <div class="divider"></div>
+        <a class="pill-link" href="#" style="background:#fff;border:1px solid var(--line);width:max-content;padding:10px 18px;color:var(--navy)">Find a Location</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="bleed">
+    <img src="assets/work.jpg" alt="Work">
+    <div class="inner">
+      <h1>WORK</h1>
+      <p style="max-width:620px;margin:12px auto 26px;opacity:.95">A coworking concept with exceptional design and a health club experience.</p>
+      <a class="btn" href="#" style="border-color:#fff">Explore</a>
+    </div>
+  </section>
+
+  
+  <!-- Amenity collage -->
+  <section style="background:var(--bone); padding:56px 24px 72px;">
+    <div class="container">
+      <div class="eyebrow">Amenities</div>
+      <h2 style="color:var(--navy); margin-bottom:20px;">Everything You Need</h2>
+      <div style="display:grid; grid-template-columns:repeat(6,1fr); gap:14px;">
+        <img src="assets/spa.jpg" alt="Spa" style="width:100%; height:160px; object-fit:cover; border-radius:12px;">
+        <img src="assets/cafe.jpg" alt="Cafe" style="width:100%; height:160px; object-fit:cover; border-radius:12px;">
+        <img src="assets/pool.jpg" alt="Pool" style="width:100%; height:160px; object-fit:cover; border-radius:12px;">
+        <img src="assets/courts.jpg" alt="Courts" style="width:100%; height:160px; object-fit:cover; border-radius:12px;">
+        <img src="assets/runtrack.jpg" alt="Track" style="width:100%; height:160px; object-fit:cover; border-radius:12px;">
+        <img src="assets/kids.jpg" alt="Kids" style="width:100%; height:160px; object-fit:cover; border-radius:12px;">
+      </div>
+    </div>
+  </section>
+
+  <section class="tiles">
+    <div class="container" style="margin-bottom:22px">
+      <div class="eyebrow">Experience</div>
+      <h2 style="margin-bottom:18px;color:var(--navy)">Explore More</h2>
+    </div>
+    <div class="container tile-grid">
+      <article class="tile">
+        <img src="assets/digital.jpg" alt="Digital">
+        <div class="copy">
+          <div class="tag">DIGITAL</div>
+          <p>Around-the-clock access to a healthy way of life.</p>
+          <a href="#" class="btn">Learn More</a>
+        </div>
+      </article>
+      <article class="tile">
+        <img src="assets/living.jpg" alt="Living">
+        <div class="copy">
+          <div class="tag">LIVING</div>
+          <p>Luxury living that minimizes environmental impact and maximizes well-being.</p>
+          <a href="#" class="btn">Learn More</a>
+        </div>
+      </article>
+    </div>
+  </section>
+
+
+  <!-- Featured Workouts: horizontal scroller -->
+  <section style="background:var(--bone); padding:56px 0 40px;">
+    <div class="container">
+      <div class="eyebrow">Featured Workouts</div>
+      <h2 style="color:var(--navy); margin-bottom:16px;">What’s Inside NuAge</h2>
+    </div>
+    <div class="container" style="overflow-x:auto; -webkit-overflow-scrolling:touch;">
+      <div style="display:flex; gap:16px; min-width:960px; padding-bottom:8px;">
+        <a href="assets/workout-01.jpg" target="_blank" style="flex:0 0 320px; display:block; border-radius:14px; overflow:hidden; background:#000;"><img src="assets/workout-01.jpg" alt="" style="width:100%; height:220px; object-fit:cover; display:block;"><div style="padding:10px 12px; font-weight:600; color:#222;">Strength Training</div></a>
+        <a href="assets/workout-02.jpg" target="_blank" style="flex:0 0 320px; display:block; border-radius:14px; overflow:hidden; background:#000;"><img src="assets/workout-02.jpg" alt="" style="width:100%; height:220px; object-fit:cover; display:block;"><div style="padding:10px 12px; font-weight:600; color:#222;">Yoga Flow</div></a>
+        <a href="assets/workout-03.jpg" target="_blank" style="flex:0 0 320px; display:block; border-radius:14px; overflow:hidden; background:#000;"><img src="assets/workout-03.jpg" alt="" style="width:100%; height:220px; object-fit:cover; display:block;"><div style="padding:10px 12px; font-weight:600; color:#222;">HIIT Session</div></a>
+        <a href="assets/workout-04.jpg" target="_blank" style="flex:0 0 320px; display:block; border-radius:14px; overflow:hidden; background:#000;"><img src="assets/workout-04.jpg" alt="" style="width:100%; height:220px; object-fit:cover; display:block;"><div style="padding:10px 12px; font-weight:600; color:#222;">Pickleball</div></a>
+        <a href="assets/workout-05.jpg" target="_blank" style="flex:0 0 320px; display:block; border-radius:14px; overflow:hidden; background:#000;"><img src="assets/workout-05.jpg" alt="" style="width:100%; height:220px; object-fit:cover; display:block;"><div style="padding:10px 12px; font-weight:600; color:#222;">Cycling Studio</div></a>
+        <a href="assets/workout-06.jpg" target="_blank" style="flex:0 0 320px; display:block; border-radius:14px; overflow:hidden; background:#000;"><img src="assets/workout-06.jpg" alt="" style="width:100%; height:220px; object-fit:cover; display:block;"><div style="padding:10px 12px; font-weight:600; color:#222;">Pilates</div></a>
+        <a href="assets/workout-07.jpg" target="_blank" style="flex:0 0 320px; display:block; border-radius:14px; overflow:hidden; background:#000;"><img src="assets/workout-07.jpg" alt="" style="width:100%; height:220px; object-fit:cover; display:block;"><div style="padding:10px 12px; font-weight:600; color:#222;">Functional Fitness</div></a>
+        <a href="assets/workout-08.jpg" target="_blank" style="flex:0 0 320px; display:block; border-radius:14px; overflow:hidden; background:#000;"><img src="assets/workout-08.jpg" alt="" style="width:100%; height:220px; object-fit:cover; display:block;"><div style="padding:10px 12px; font-weight:600; color:#222;">Aqua Training</div></a>
+        <a href="assets/workout-09.jpg" target="_blank" style="flex:0 0 320px; display:block; border-radius:14px; overflow:hidden; background:#000;"><img src="assets/workout-09.jpg" alt="" style="width:100%; height:220px; object-fit:cover; display:block;"><div style="padding:10px 12px; font-weight:600; color:#222;">Boxing</div></a>
+        <a href="assets/workout-10.jpg" target="_blank" style="flex:0 0 320px; display:block; border-radius:14px; overflow:hidden; background:#000;"><img src="assets/workout-10.jpg" alt="" style="width:100%; height:220px; object-fit:cover; display:block;"><div style="padding:10px 12px; font-weight:600; color:#222;">Recovery</div></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="legal">
+    <div class="container">
+      <p style="max-width:940px">
+        Membership levels, types, amenities, services, programs and their associated dues, pricing, fees and/or charges may vary by location and are subject to change. Access to certain services may be limited by terms and/or supplemental fees. Always consult your physician before beginning any new exercise program.
+      </p>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="links container">
+      <div><h4>Experience</h4><a href="#">Athletic Country Clubs</a><a href="#">Work</a><a href="#">Living</a><a href="#">Stay</a><a href="#">Digital</a></div>
+      <div><h4>About</h4><a href="#">Newsroom</a><a href="#">Investor Relations</a><a href="#">Corporate Responsibility</a><a href="#">Culture of Inclusion</a><a href="#">Foundation</a></div>
+      <div><h4>Concierge</h4><a href="#">Membership</a><a href="#">Help &amp; FAQs</a></div>
+      <div><h4>Partnership</h4><a href="#">Corporate Wellness</a><a href="#">Marketing Partnerships</a><a href="#">Construction</a></div>
+    </div>
+    <div class="bottombar container">
+      <div style="display:flex;gap:14px;flex-wrap:wrap">
+        <a href="#">Privacy</a><a href="#">Terms</a><a href="#">Guest &amp; Club Policies</a><a href="#">Accessibility</a><a href="#">Sitemap</a>
+      </div>
+      <div>&copy; <span id="year"></span> NuAge Fitness Studio. All Rights Reserved.</div>
+    </div>
+  </footer>
+
+  <section class="closing"><div class="container"><h2>Healthy Way of Life</h2></div></section>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    const video = document.getElementById('heroVideo');
+    const ctrl = document.getElementById('videoCtrl');
+    function updateBtn(){ ctrl.textContent = video.paused ? '▶' : '❚❚'; ctrl.setAttribute('aria-label', video.paused ? 'Play video' : 'Pause video'); }
+    ctrl.addEventListener('click', ()=>{ video.paused ? video.play() : video.pause(); updateBtn(); });
+    video.addEventListener('play', updateBtn); video.addEventListener('pause', updateBtn);
+    updateBtn();
+    video.addEventListener('loadeddata', ()=>{ const f=document.querySelector('.hero-image'); if(f) f.style.display='none'; });
+  </script>
+
+<!-- Cookie Consent -->
+<div class="cookie-overlay" id="cookieOverlay" role="dialog" aria-modal="true" aria-labelledby="cookieTitle">
+  <div class="cookie-card">
+    <div class="cookie-inner" style="position:relative;">
+      <div class="cookie-close" id="cookieClose" aria-label="Close">×</div>
+      <div class="cookie-body">
+        <p id="cookieTitle" style="margin-top:0">This website uses cookies and other tracking technologies to enhance user experience and to analyze performance and traffic on our website. We also share information about your use of our site with our analytics, advertising and social media partners. You can exercise your privacy rights by clicking "Customize". For more information see our <a class="cookie-link" href="#" target="_blank">Privacy Policy</a>.</p>
+      </div>
+      <div class="cookie-actions">
+        <button class="cookie-btn cookie-primary" id="cookieAccept">Accept All</button>
+        <button class="cookie-btn cookie-primary" style="background:#2b2b2b; color:#fff" id="cookieReject">Reject All</button>
+        <button class="cookie-btn cookie-secondary" id="cookieCustomize">Customize</button>
+      </div>
+      <div id="cookiePanel" style="display:none; margin:8px 2px 2px; color:#2e2a25; font-size:13px;">
+        <label style="display:flex; align-items:center; gap:8px; margin:8px 0;"><input type="checkbox" checked disabled> Strictly necessary (always on)</label>
+        <label style="display:flex; align-items:center; gap:8px; margin:8px 0;"><input type="checkbox" id="ckAnalytics" checked> Analytics</label>
+        <label style="display:flex; align-items:center; gap:8px; margin:8px 0;"><input type="checkbox" id="ckMarketing"> Marketing</label>
+        <button class="cookie-btn cookie-primary" id="cookieSave" style="margin-top:8px">Save Preferences</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
