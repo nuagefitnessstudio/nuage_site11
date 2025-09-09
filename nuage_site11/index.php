@@ -63,7 +63,13 @@
     .drawer .pill-link.primary{background:#0d2a55;color:#fff;border:1px solid #0d2a55}
 
     /* ===== Rest of original styles ===== */
-    .hero{position:relative;height:92svh;min-height:520px;overflow:hidden;color:#fff}
+    .hero{position:relative;height:100dvh;min-height:620px;overflow:hidden;color:#fff}
+@media (max-width: 768px){
+  .hero{height:115dvh;min-height:720px}
+  .hero h1{font-size:clamp(2.4rem, 5.5vw, 3.2rem)}
+}
+.hero video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+
     .hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
     .hero::after{content:'';position:absolute;inset:0;background:linear-gradient(to bottom, rgba(0,0,0,.18), rgba(0,0,0,.35) 55%, rgba(0,0,0,.25));pointer-events:none}
     .hero-center{position:absolute;inset:0;display:grid;place-items:center;text-align:center;z-index:1;padding:0 16px}
