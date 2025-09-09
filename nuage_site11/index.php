@@ -3,7 +3,8 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0d2a55">
   <title>NuAge Fitness Studio — Live Stock Photos</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
@@ -207,6 +208,96 @@
     @media (max-width:540px){
       .cookie-modal{ right:12px; left:12px; width:auto; bottom:12px; }
     }
+
+    /* ====== Mobile-first responsive overrides ====== */
+
+/* Base: fluid media and type */
+img, video { max-width: 100%; height: auto; }
+video { display:block; object-fit: cover; }
+
+/* Use dynamic viewport on modern mobile for better 100vh handling */
+:root { --vh: 1vh; }  /* fallback */
+@supports (height: 100dvh) {
+  .hero { min-height: 90dvh; }
+}
+
+/* Container padding tighter on small screens */
+.container { padding-left: 16px; padding-right: 16px; }
+
+/* Topbar: full-bleed, thumb-friendly */
+.topbar{ width:calc(100% - 20px); left:50%; transform:translateX(-50%); padding:10px 12px; }
+.hamburger{ width:44px; height:44px; }
+
+/* Hero: reduce minimum height on narrow devices */
+.hero { min-height: 70svh; }
+@media (min-width: 768px){
+  .hero { min-height: 84svh; }
+}
+.hero .btn { font-size: 14px; padding: 12px 18px; }
+
+/* Split section: stack and remove sticky on mobile */
+.split { grid-template-columns: 1fr; }
+.split .visual { position: relative; height: 48svh; }
+.split .visual img{ height: 100%; }
+.split .text { padding: 28px 16px; max-height: none; overflow: visible; }
+@media (min-width: 1025px){
+  .split { grid-template-columns: 1.15fr 1fr; }
+  .split .text { padding: 72px 32px; }
+}
+
+/* Feature rows: image under text on small screens */
+.feature { grid-template-columns: 1fr; }
+.feature img { width: 100%; height: 200px; }
+@media (min-width: 640px){
+  .feature { grid-template-columns: 1fr 160px; }
+  .feature img { height: 140px; }
+}
+@media (min-width: 1024px){
+  .feature { grid-template-columns: 1fr 180px; }
+  .feature img { height: 128px; }
+}
+
+/* Tiles: single column on phones, two on tablets */
+.tile-grid { grid-template-columns: 1fr; }
+.tile { min-height: 42svh; }
+@media (min-width: 720px){
+  .tile-grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
+}
+
+/* Amenities grid: 2 cols on phones, 3 on tablets, 6 on desktop */
+.grid6 { grid-template-columns: repeat(2,1fr); }
+.grid6 img { height: 160px; }
+@media (min-width: 720px){
+  .grid6 { grid-template-columns: repeat(3,1fr); }
+  .grid6 img { height: 180px; }
+}
+@media (min-width: 1024px){
+  .grid6 { grid-template-columns: repeat(6,1fr); }
+  .grid6 img { height: 200px; }
+}
+
+/* Horizontal cards: make the track scrollable but comfy */
+.section-cards .track{ display:flex; gap:16px; overflow-x:auto; -webkit-overflow-scrolling:touch; scroll-snap-type:x mandatory; padding-bottom:8px;}
+.section-cards .card{ flex:0 0 80%; max-width:420px; scroll-snap-align:start; border-radius:14px; overflow:hidden; }
+
+/* Footer links: 2 cols on phones */
+.links { grid-template-columns: 1fr 1fr; gap:16px; }
+@media (min-width: 900px){
+  .links { grid-template-columns: repeat(4,minmax(0,1fr)); }
+}
+
+/* Cookie modal: fit phones nicely */
+.cookie-modal{ right:12px; left:12px; bottom:12px; width:auto; }
+
+/* Accessibility: larger tap targets on mobile */
+a, button { -webkit-tap-highlight-color: transparent; }
+.pill-link, .btn { padding: 12px 16px; }
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce){
+  * { animation: none !important; transition: none !important; }
+}
+
   </style>
 </head>
 <body>
