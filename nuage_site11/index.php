@@ -103,6 +103,19 @@
 
     .legal{background:var(--bone);padding:48px 24px 24px;color:#51493f}
     .footer{background:#fff;border-top:1px solid var(--line);padding:32px 0 0}
+/* --- Footer polish --- */
+.footer .links h4{margin:0 0 10px;font-size:18px;color:#111418}
+.footer .links a{display:block;margin:8px 0;line-height:1.35;color:#111418;text-decoration:none}
+.footer .links a:hover{text-decoration:underline}
+.footer .bottombar a{margin-right:12px}
+.footer .bottombar div{line-height:1.5}
+@media (max-width: 960px){
+  .footer .links{grid-template-columns:1fr 1fr}
+}
+@media (max-width: 520px){
+  .footer .links{grid-template-columns:1fr}
+}
+
     .links{display:grid;gap:24px;padding:24px;grid-template-columns:repeat(4,minmax(0,1fr))}
     .bottombar{padding:20px 24px 28px;display:flex;align-items:center;justify-content:space-between;gap:16px;color:#6a6d74;font-size:14px}
     .closing{background:linear-gradient(180deg,#a8b7cc 0%,#d8cfc7 100%);color:#fff;min-height:44svh;display:grid;place-items:center;text-align:center}
