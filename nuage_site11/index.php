@@ -298,39 +298,7 @@ a, button { -webkit-tap-highlight-color: transparent; }
   * { animation: none !important; transition: none !important; }
 }
 
-  
-.hero {
-  position: relative;
-  width: 100%;
-  height: 100vh;
-  min-height: 100vh;
-  overflow: hidden;
-}
-.hero video {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  z-index: 0;
-}
-.hero::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: linear-gradient(to bottom, rgba(0,0,0,.35), rgba(0,0,0,.55) 65%, rgba(0,0,0,.65));
-  z-index: 1;
-}
-.hero-center {
-  position: relative;
-  z-index: 2;
-}
-
-</style>
+  </style>
 </head>
 <body>
   <!-- Hamburger topbar -->
@@ -351,7 +319,7 @@ a, button { -webkit-tap-highlight-color: transparent; }
   <aside class="drawer" id="navDrawer" hidden aria-hidden="true">
     <div class="drawer-header">
       <div class="brand">
-        <img loading="lazy" src="assets/IMG_2413.png" alt="NuAge logo">
+        <img src="assets/IMG_2413.png" alt="NuAge logo">
         <div class="brand-name">NuAge<span>Fitness</span><span>Studios</span></div>
       </div>
       <button class="drawer-close" id="navClose" aria-label="Close menu">&times;</button>
@@ -380,7 +348,7 @@ a, button { -webkit-tap-highlight-color: transparent; }
   </header>
 
   <section class="split" data-reveal>
-    <div class="visual"><img loading="lazy" referrerpolicy="no-referrer" class="remote" src="assets/workout-01 2.17.36 AM.jpg" data-remote="workout-01 2.17.36 AM.jpg" data-fallback="assets/workout-01.jpg" alt="Athletic"></div>
+    <div class="visual"><img loading="lazy" referrerpolicy="no-referrer" class="remote" src="assets/workout-01 2.17.36 AM.jpg" onerror="this.onerror=null;this.src='/assets/workout-01 2.17.36 AM.jpg';" data-remote="workout-01 2.17.36 AM.jpg" data-fallback="assets/workout-01.jpg" alt="Athletic"></div>
     <div class="text">
       <div class="stack container">
         <div class="eyebrow">Love Your Life</div>
@@ -389,17 +357,17 @@ a, button { -webkit-tap-highlight-color: transparent; }
         <div class="divider"></div>
         <div class="feature">
           <div><div class="eyebrow">Results-Driven Programs</div><p>Programs. Lessons. Sessions. Workouts. So many wonderful ways to spend time and reach goals.</p></div>
-          <img loading="lazy" referrerpolicy="no-referrer" class="remote" src="assets/yoga_pic.jpeg" data-remote="feature-1.jpg" data-fallback="assets/workout-02.jpg" alt="Strength">
+          <img loading="lazy" referrerpolicy="no-referrer" class="remote" src="assets/yoga_pic.jpeg" onerror="this.onerror=null;this.src='assets/feature-1.jpg';" data-remote="feature-1.jpg" data-fallback="assets/workout-02.jpg" alt="Strength">
         </div>
         <div class="divider"></div>
         <div class="feature">
           <div><div class="eyebrow">Passionate People</div><p>Everyone here shares the same mission: helping you live your healthiest, happiest life.</p></div>
-          <img loading="lazy" referrerpolicy="no-referrer" class="remote" src="https://images.pexels.com/photos/33239683/pexels-photo-33239683.jpeg?auto=compress&cs=tinysrgb&w=1600&h=1067&dpr=1" data-remote="feature-2.jpg" data-fallback="assets/workout-03.jpg" alt="People">
+          <img loading="lazy" referrerpolicy="no-referrer" class="remote" src="https://images.pexels.com/photos/33239683/pexels-photo-33239683.jpeg?auto=compress&cs=tinysrgb&w=1600&h=1067&dpr=1" onerror="this.onerror=null;this.src='assets/feature-2.jpg';" data-remote="feature-2.jpg" data-fallback="assets/workout-03.jpg" alt="People">
         </div>
         <div class="divider"></div>
         <div class="feature">
           <div><div class="eyebrow">Recovery & Amenities</div><p>Recover harder than you train — spa, sauna, cold plunge, and café to keep you thriving.</p></div>
-          <img loading="lazy" referrerpolicy="no-referrer" class="remote" src="assets/pickleball-6940609_960_720.jpeg" data-remote="spa.jpg" data-fallback="assets/pickleball-6940609_960_720.jpeg" alt="Spa">
+          <img loading="lazy" referrerpolicy="no-referrer" class="remote" src="assets/pickleball-6940609_960_720.jpeg" onerror="this.onerror=null;this.src='assets/spa.jpg';" data-remote="spa.jpg" data-fallback="assets/pickleball-6940609_960_720.jpeg" alt="Spa">
         </div>
         <div class="divider"></div>
         <a class="pill-link" href="#" style="background:#fff;border:1px solid var(--line);width:max-content;padding:10px 18px;color:var(--navy)">Find a Location</a>
@@ -408,7 +376,7 @@ a, button { -webkit-tap-highlight-color: transparent; }
   </section>
 
   <section class="bleed" data-reveal>
-    <img loading="lazy" referrerpolicy="no-referrer" class="remote" src="assets/54A9B418-5FB3-4CEE-B321-6AE091502384_1_105_c.jpeg" data-remote="work.jpg" data-fallback="assets/workout-05.jpg" alt="WORK">
+    <img loading="lazy" referrerpolicy="no-referrer" class="remote" src="assets/54A9B418-5FB3-4CEE-B321-6AE091502384_1_105_c.jpeg" onerror="this.onerror=null;this.src='assets/work.jpg';" data-remote="work.jpg" data-fallback="assets/workout-05.jpg" alt="WORK">
     <div class="inner">
       <h1>TRAIN</h1>
       <p style="max-width:620px;margin:12px auto 26px;opacity:.95">Purpose-built studios, elite equipment, and expert coaching to move you forward.</p>
@@ -423,11 +391,11 @@ a, button { -webkit-tap-highlight-color: transparent; }
     </div>
     <div class="container tile-grid">
       <article class="tile">
-        <img loading="lazy" referrerpolicy="no-referrer" class="remote" src="assets/4D288153-7690-43EE-A7C6-489BA52C9E9B_1_105_c.jpeg" data-remote="digital.jpg" data-fallback="assets/workout-06.jpg" alt="Digital">
+        <img loading="lazy" referrerpolicy="no-referrer" class="remote" src="assets/4D288153-7690-43EE-A7C6-489BA52C9E9B_1_105_c.jpeg" onerror="this.onerror=null;this.src='assets/digital.jpg';" data-remote="digital.jpg" data-fallback="assets/workout-06.jpg" alt="Digital">
         <div class="copy" style="background:linear-gradient(180deg,transparent 20%, rgba(0,0,0,.55) 100%);"><div class="tag">DIGITAL</div><p>Around-the-clock access to a healthy way of life.</p><a href="#" class="btn">Learn More</a></div>
       </article>
       <article class="tile">
-        <img loading="lazy" referrerpolicy="no-referrer" class="remote" src="assets/E7311795-3C28-46CD-A5C3-9934B0B2181C_1_105_c.jpeg" data-remote="living.jpg" data-fallback="assets/workout-07.jpg" alt="Living">
+        <img loading="lazy" referrerpolicy="no-referrer" class="remote" src="assets/E7311795-3C28-46CD-A5C3-9934B0B2181C_1_105_c.jpeg" onerror="this.onerror=null;this.src='assets/living.jpg';" data-remote="living.jpg" data-fallback="assets/workout-07.jpg" alt="Living">
         <div class="copy" style="background:linear-gradient(180deg,transparent 20%, rgba(0,0,0,.55) 100%);"><div class="tag">LIVING</div><p>Luxury living that minimizes environmental impact and maximizes well-being.</p><a href="#" class="btn">Learn More</a></div>
       </article>
     </div>
@@ -436,12 +404,12 @@ a, button { -webkit-tap-highlight-color: transparent; }
   <section class="amen" data-reveal>
     <div class="container"><div class="eyebrow">Amenities</div><h2 style="color:var(--navy); margin-bottom:16px;">Everything You Need</h2></div>
     <div class="container grid6">
-      <img loading="lazy" referrerpolicy="no-referrer" class="remote" src="https://images.pexels.com/photos/19980238/pexels-photo-19980238.jpeg?auto=compress&cs=tinysrgb&w=1600&h=1067&dpr=1" data-remote="spa.jpg" data-fallback="assets/workout-08.jpg" alt="Spa">
-      <img loading="lazy" referrerpolicy="no-referrer" class="remote" src="assets/box-1514845_960_720.jpeg" data-remote="cafe.jpg" data-fallback="assets/box-1514845_960_720.jpeg" alt="Café">
-      <img loading="lazy" referrerpolicy="no-referrer" class="remote" src="https://images.pexels.com/photos/2611029/pexels-photo-2611029.jpeg?auto=compress&cs=tinysrgb&w=1600&h=1067&dpr=1" data-remote="living.jpg" data-fallback="assets/workout-10.jpg" alt="Pool">
-      <img loading="lazy" referrerpolicy="no-referrer" class="remote" src="https://images.unsplash.com/photo-1660779411729-80c07aca6df2?auto=format&fit=crop&w=1600&q=80" data-remote="courts.jpg" data-fallback="assets/athletic-left.jpg" alt="Courts">
-      <img loading="lazy" referrerpolicy="no-referrer" class="remote" src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&w=1600&q=80" data-remote="runtrack.jpg" data-fallback="assets/feature-1.jpg" alt="Track">
-      <img loading="lazy" referrerpolicy="no-referrer" class="remote" src="https://images.pexels.com/photos/8613362/pexels-photo-8613362.jpeg?auto=compress&cs=tinysrgb&w=1600&h=1067&dpr=1" data-remote="kids.jpg" data-fallback="assets/feature-2.jpg" alt="Kids">
+      <img loading="lazy" referrerpolicy="no-referrer" class="remote" src="https://images.pexels.com/photos/19980238/pexels-photo-19980238.jpeg?auto=compress&cs=tinysrgb&w=1600&h=1067&dpr=1" onerror="this.onerror=null;this.src='assets/spa.jpg';" data-remote="spa.jpg" data-fallback="assets/workout-08.jpg" alt="Spa">
+      <img loading="lazy" referrerpolicy="no-referrer" class="remote" src="assets/box-1514845_960_720.jpeg" onerror="this.onerror=null;this.src='assets/box-1514845_960_720.jpeg';" data-remote="cafe.jpg" data-fallback="assets/box-1514845_960_720.jpeg" alt="Café">
+      <img loading="lazy" referrerpolicy="no-referrer" class="remote" src="https://images.pexels.com/photos/2611029/pexels-photo-2611029.jpeg?auto=compress&cs=tinysrgb&w=1600&h=1067&dpr=1" onerror="this.onerror=null;this.src='assets/living.jpg';" data-remote="living.jpg" data-fallback="assets/workout-10.jpg" alt="Pool">
+      <img loading="lazy" referrerpolicy="no-referrer" class="remote" src="https://images.unsplash.com/photo-1660779411729-80c07aca6df2?auto=format&fit=crop&w=1600&q=80" onerror="this.onerror=null;this.src='assets/courts.jpg';" data-remote="courts.jpg" data-fallback="assets/athletic-left.jpg" alt="Courts">
+      <img loading="lazy" referrerpolicy="no-referrer" class="remote" src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&w=1600&q=80" onerror="this.onerror=null;this.src='assets/runtrack.jpg';" data-remote="runtrack.jpg" data-fallback="assets/feature-1.jpg" alt="Track">
+      <img loading="lazy" referrerpolicy="no-referrer" class="remote" src="https://images.pexels.com/photos/8613362/pexels-photo-8613362.jpeg?auto=compress&cs=tinysrgb&w=1600&h=1067&dpr=1" onerror="this.onerror=null;this.src='assets/kids.jpg';" data-remote="kids.jpg" data-fallback="assets/feature-2.jpg" alt="Kids">
     </div>
   </section>
 
@@ -452,9 +420,9 @@ a, button { -webkit-tap-highlight-color: transparent; }
     </div>
     <div class="container" style="overflow-x:auto; -webkit-overflow-scrolling:touch;">
       <div style="display:flex; gap:16px; min-width:960px; padding-bottom:8px;">
-        <a href="#" style="flex:0 0 320px; display:block; border-radius:14px; overflow:hidden;"><img loading="lazy" referrerpolicy="no-referrer" class="remote" src="assets/" data-remote="fw-strength.jpg" data-fallback="assets/spa.jpg" style="width:100%;height:220px;object-fit:cover;display:block"><div style="padding:10px 12px;font-weight:600;color:#222;">Strength Training</div></a>
-        <a href="#" style="flex:0 0 320px; display:block; border-radius:14px; overflow:hidden;"><img loading="lazy" referrerpolicy="no-referrer" class="remote" src="https://images.pexels.com/photos/29720736/pexels-photo-29720736.jpeg?auto=compress&cs=tinysrgb&w=1200&h=800&dpr=1" data-remote="fw-yoga.jpg" data-fallback="assets/work.jpg" style="width:100%;height:220px;object-fit:cover;display:block"><div style="padding:10px 12px;font-weight:600;color:#222;">Yoga Flow</div></a>
-        <a href="#" style="flex:0 0 320px; display:block; border-radius:14px; overflow:hidden;"><img loading="lazy" referrerpolicy="no-referrer" class="remote" src="https://images.pexels.com/photos/4498151/pexels-photo-4498151.jpeg?auto=compress&cs=tinysrgb&w=1200&h=800&dpr=1" data-remote="fw-hiit.jpg" data-fallback="assets/digital.jpg" style="width:100%;height:220px;object-fit:cover;display:block"><div style="padding:10px 12px;font-weight:600;color:#222;">HIIT Session</div></a>
+        <a href="#" style="flex:0 0 320px; display:block; border-radius:14px; overflow:hidden;"><img loading="lazy" referrerpolicy="no-referrer" class="remote" src="assets/" onerror="this.onerror=null;this.src='assets/fw-strength.jpg';" data-remote="fw-strength.jpg" data-fallback="assets/spa.jpg" style="width:100%;height:220px;object-fit:cover;display:block"><div style="padding:10px 12px;font-weight:600;color:#222;">Strength Training</div></a>
+        <a href="#" style="flex:0 0 320px; display:block; border-radius:14px; overflow:hidden;"><img loading="lazy" referrerpolicy="no-referrer" class="remote" src="https://images.pexels.com/photos/29720736/pexels-photo-29720736.jpeg?auto=compress&cs=tinysrgb&w=1200&h=800&dpr=1" onerror="this.onerror=null;this.src='assets/fw-yoga.jpg';" data-remote="fw-yoga.jpg" data-fallback="assets/work.jpg" style="width:100%;height:220px;object-fit:cover;display:block"><div style="padding:10px 12px;font-weight:600;color:#222;">Yoga Flow</div></a>
+        <a href="#" style="flex:0 0 320px; display:block; border-radius:14px; overflow:hidden;"><img loading="lazy" referrerpolicy="no-referrer" class="remote" src="https://images.pexels.com/photos/4498151/pexels-photo-4498151.jpeg?auto=compress&cs=tinysrgb&w=1200&h=800&dpr=1" onerror="this.onerror=null;this.src='assets/fw-hiit.jpg';" data-remote="fw-hiit.jpg" data-fallback="assets/digital.jpg" style="width:100%;height:220px;object-fit:cover;display:block"><div style="padding:10px 12px;font-weight:600;color:#222;">HIIT Session</div></a>
       </div>
     </div>
   </section>
