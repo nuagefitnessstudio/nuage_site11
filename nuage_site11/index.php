@@ -395,7 +395,7 @@ a, button { -webkit-tap-highlight-color: transparent; }
         <div class="copy" style="background:linear-gradient(180deg,transparent 20%, rgba(0,0,0,.55) 100%);"><div class="tag">DIGITAL</div><p>Around-the-clock access to a healthy way of life.</p><a href="#" class="btn">Learn More</a></div>
       </article>
       <article class="tile">
-        <img loading="lazy" referrerpolicy="no-referrer" class="remote" src="https://images.pexels.com/photos/2611029/pexels-photo-2611029.jpeg?auto=compress&cs=tinysrgb&w=1600&h=1067&dpr=1" onerror="this.onerror=null;this.src='assets/living.jpg';" data-remote="living.jpg" data-fallback="assets/workout-07.jpg" alt="Living">
+        <img loading="lazy" referrerpolicy="no-referrer" class="remote" src="assets/E7311795-3C28-46CD-A5C3-9934B0B2181C_1_105_c.jpeg" onerror="this.onerror=null;this.src='assets/living.jpg';" data-remote="living.jpg" data-fallback="assets/workout-07.jpg" alt="Living">
         <div class="copy" style="background:linear-gradient(180deg,transparent 20%, rgba(0,0,0,.55) 100%);"><div class="tag">LIVING</div><p>Luxury living that minimizes environmental impact and maximizes well-being.</p><a href="#" class="btn">Learn More</a></div>
       </article>
     </div>
