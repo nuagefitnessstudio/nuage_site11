@@ -391,7 +391,7 @@ a, button { -webkit-tap-highlight-color: transparent; }
     </div>
     <div class="container tile-grid">
       <article class="tile">
-        <img loading="lazy" referrerpolicy="no-referrer" class="remote" src="https://images.pexels.com/photos/4162543/pexels-photo-4162543.jpeg?auto=compress&cs=tinysrgb&w=1600&h=1067&dpr=1" onerror="this.onerror=null;this.src='assets/digital.jpg';" data-remote="digital.jpg" data-fallback="assets/workout-06.jpg" alt="Digital">
+        <img loading="lazy" referrerpolicy="no-referrer" class="remote" src="assets/4D288153-7690-43EE-A7C6-489BA52C9E9B_1_105_c.jpeg" onerror="this.onerror=null;this.src='assets/digital.jpg';" data-remote="digital.jpg" data-fallback="assets/workout-06.jpg" alt="Digital">
         <div class="copy" style="background:linear-gradient(180deg,transparent 20%, rgba(0,0,0,.55) 100%);"><div class="tag">DIGITAL</div><p>Around-the-clock access to a healthy way of life.</p><a href="#" class="btn">Learn More</a></div>
       </article>
       <article class="tile">
