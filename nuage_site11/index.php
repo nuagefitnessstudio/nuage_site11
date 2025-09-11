@@ -314,6 +314,52 @@ a, button { -webkit-tap-highlight-color: transparent; }
   object-fit: cover;
 }
 
+
+/* --- Footer Fix for Mobile --- */
+.footer {
+  background: #fff;
+  border-top: 1px solid var(--line);
+  padding: 40px 16px 80px; /* extra padding for iOS home bar */
+}
+.footer .links {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+.footer .links h4 {
+  margin-bottom: 10px;
+  font-size: 16px;
+  font-weight: 600;
+}
+.footer .links a {
+  display: block;
+  margin: 6px 0;
+  line-height: 1.4;
+}
+.footer .bottombar {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 24px;
+  font-size: 14px;
+  color: #666;
+}
+@media (max-width: 768px) {
+  .footer .links {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media (max-width: 480px) {
+  .footer .links {
+    grid-template-columns: 1fr;
+  }
+  .footer .bottombar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
 </style>
 </head>
 <body>
