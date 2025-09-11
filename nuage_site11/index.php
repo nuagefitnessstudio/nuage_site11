@@ -370,6 +370,73 @@ p{line-height:1.6}
 .btn{padding:12px 28px;border-radius:999px;font-weight:600;transition:all .3s ease}
 .btn:hover{transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,0.15)}
 
+
+/* === Brand Styling === */
+:root {
+  --navy: #002D72;
+  --coral: #EB1F48;
+  --neutral-bg: #fafafa;
+  --ink: #111418;
+  --muted: #6a6d74;
+  --line: #e9e6e1;
+}
+
+/* Headings & Typography */
+h1, h2, h3 {
+  color: var(--navy);
+}
+
+/* Buttons */
+.btn {
+  background: var(--navy);
+  color: #fff;
+  border: 2px solid var(--navy);
+  transition: all .3s ease;
+}
+.btn:hover {
+  background: var(--coral);
+  border-color: var(--coral);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 14px rgba(0,0,0,0.15);
+}
+
+/* Links */
+a {
+  color: var(--navy);
+  transition: color .2s ease;
+}
+a:hover {
+  color: var(--coral);
+}
+
+/* Section Backgrounds */
+section {
+  background: var(--neutral-bg);
+  padding: 60px 0;
+}
+
+/* Cards & Images */
+.card, .tile, .split img, .visual img {
+  border-radius: 12px;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.08);
+}
+
+/* Footer */
+.footer {
+  background: #fff;
+}
+.footer h4 {
+  color: var(--navy);
+}
+.footer a:hover {
+  color: var(--coral);
+}
+
+/* Nav/Topbar Adjustments */
+header.hero {
+  background: #000;
+}
+
 </style>
 </head>
 <body>
