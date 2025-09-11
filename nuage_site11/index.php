@@ -376,7 +376,7 @@ a, button { -webkit-tap-highlight-color: transparent; }
   </section>
 
   <section class="bleed" data-reveal>
-    <img loading="lazy" referrerpolicy="no-referrer" class="remote" src="nuage_site11/assets/5D310F03-8220-4DB9-9DD7-2CAAFD7A09B5_1_105_c.jpeg" onerror="this.onerror=null;this.src='assets/work.jpg';" data-remote="work.jpg" data-fallback="assets/workout-05.jpg" alt="WORK">
+    <img loading="lazy" referrerpolicy="no-referrer" class="remote" src="assets/5D310F03-8220-4DB9-9DD7-2CAAFD7A09B5_1_105_c.jpeg" onerror="this.onerror=null;this.src='assets/work.jpg';" data-remote="work.jpg" data-fallback="assets/workout-05.jpg" alt="WORK">
     <div class="inner">
       <h1>TRAIN</h1>
       <p style="max-width:620px;margin:12px auto 26px;opacity:.95">Purpose-built studios, elite equipment, and expert coaching to move you forward.</p>
