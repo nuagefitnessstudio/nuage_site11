@@ -680,5 +680,66 @@ a, button { -webkit-tap-highlight-color: transparent; }
     };
   })();
   </script>
+
+  <!-- Added Gym, Classes, Membership, Personal Training Info -->
+  <section>
+    <div class="container">
+      <h1>NuAge Fitness Studio</h1>
+      <p>At NuAge Fitness Studio, we believe that fitness is more than just a workout — it's a lifestyle. Founded in 2024 with a passion for health, strength, and community, our state-of-the-art facility offers a range of equipment, from free weights and machines to functional training zones and cardio stations. Whether you're a beginner, an athlete, or just looking to stay active, our certified trainers and support staff are here to help you crush your goals.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <h2>Classes</h2>
+      <div class="class-card"><h3>Core & Restore</h3><p>A hybrid class that blends dynamic core training with deep restorative stretches. The first half focuses on building strength and stability through core-focused exercises; the second half eases into flexibility, mobility, and recovery work to leave you feeling balanced.</p></div>
+      <div class="class-card"><h3>FULL BODY BOOTCAMP</h3><p>Join our full-body bootcamp for a fun, high-energy workout that combines strength, cardio, and bodyweight exercises. Boost endurance, burn calories, and tone muscles in a motivating, fast-paced session. Suitable for all fitness levels—get ready to see results!</p></div>
+      <div class="class-card"><h3>Gravity X</h3><p>Harness the power of your own bodyweight with TRX suspension training. This class focuses on strength, stability, and mobility by using gravity and leverage to challenge every muscle group. From explosive pulls and presses to core-shredding holds, you’ll build functional strength and balance like never before—all while keeping joints safe and movements adaptable to every fitness level.</p></div>
+      <div class="class-card"><h3>Ignite 45</h3><p>A high-intensity interval training (HIIT) class designed to push your limits in just 45 minutes. Using a mix of bodyweight, resistance, and cardio drills, Ignite 45 keeps your heart pumping and your muscles burning. Perfect for anyone looking for maximum results in minimal time.</p></div>
+      <div class="class-card"><h3>The Grind</h3><p>A strength-based class built around functional movement patterns. Expect kettlebells, barbells, resistance bands, and bodyweight exercises that target every muscle group. No frills—just raw, powerful training that builds strength you can feel in everyday life.</p></div>
+      <div class="class-card"><h3>Open Gym</h3><p>Unlock your potential during our Open Gym sessions at Nu Age Fitness. Enjoy full access to our state-of-the-art equipment, functional training areas, and free weights in a supportive, self-guided environment. Whether you're working on strength, cardio, or mobility, it's your time—your pace.</p></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <h2>Meet the Team</h2>
+      <p><strong>Trainer:</strong> Izeem Coleman</p>
+      <p><strong>Owner:</strong> Will Sellers</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <h2>Memberships</h2>
+      <ul>
+        <li><strong>Bronze:</strong> 4 Classes Monthly — $60</li>
+        <li><strong>Silver:</strong> 8 Classes Monthly — $110</li>
+        <li><strong>Gold:</strong> Unlimited Classes — $170</li>
+      </ul>
+      <p class="price">Discounted Add-On Classes Available</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <h2>Personal Training</h2>
+      <p>Your first step toward transformation begins here. This one-on-one introductory session is designed to get to know you—your goals, fitness background, movement patterns, and lifestyle. Together, we’ll complete a guided fitness evaluation that includes strength, mobility, and cardio assessments, followed by a personalized discussion of your results.</p>
+      <ul>
+        <li><strong>Bronze:</strong> $200 (4 sessions)</li>
+        <li><strong>Silver:</strong> $400 (8 sessions)</li>
+        <li><strong>Gold:</strong> $600 (12 sessions)</li>
+      </ul>
+      <p><strong>Intro Class:</strong> Foundations — $60 (1 session)</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <h2>Add-Ons</h2>
+      <p>2 Class Open Gym — $30</p>
+      <p class="price">Discounted Add-On Classes for Open Gym times ONLY!</p>
+    </div>
+  </section>
 </body>
 </html>
