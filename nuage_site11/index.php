@@ -362,70 +362,6 @@ a, button { -webkit-tap-highlight-color: transparent; }
 
 </style>
 </head>
-<main>
-
-  <!-- NuAge Fitness Studio Intro & Classes -->
-  <section style="padding:60px 0;background:#faf7f2;">
-    <div class="container">
-      <h1 style="color:var(--navy);margin-bottom:20px;">NuAge Fitness Studio</h1>
-      <p>At NuAge Fitness Studio, we believe that fitness is more than just a workout — it's a lifestyle. Founded in 2024 with a passion for health, strength, and community, our state-of-the-art facility offers a range of equipment, from free weights and machines to functional training zones and cardio stations. Whether you're a beginner, an athlete, or just looking to stay active, our certified trainers and support staff are here to help you crush your goals.</p>
-    </div>
-  </section>
-
-  <section style="padding:60px 0;">
-    <div class="container">
-      <h2 style="color:var(--navy);">Classes</h2>
-      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;margin-top:30px;">
-        <div class="class-card" style="background:#fff;border-radius:16px;padding:24px;box-shadow:0 4px 12px rgba(0,0,0,0.05);"><h3>Core & Restore</h3><p>A hybrid class that blends dynamic core training with deep restorative stretches. Build strength and flexibility in one session.</p></div>
-        <div class="class-card" style="background:#fff;border-radius:16px;padding:24px;box-shadow:0 4px 12px rgba(0,0,0,0.05);"><h3>Full Body Bootcamp</h3><p>High-energy strength and cardio workout, great for all levels. Burn calories and build endurance.</p></div>
-        <div class="class-card" style="background:#fff;border-radius:16px;padding:24px;box-shadow:0 4px 12px rgba(0,0,0,0.05);"><h3>Gravity X</h3><p>TRX suspension training leveraging gravity for a full-body challenge, adaptable for all fitness levels.</p></div>
-        <div class="class-card" style="background:#fff;border-radius:16px;padding:24px;box-shadow:0 4px 12px rgba(0,0,0,0.05);"><h3>Ignite 45</h3><p>Fast-paced HIIT with strength and cardio for maximum results in 45 minutes.</p></div>
-        <div class="class-card" style="background:#fff;border-radius:16px;padding:24px;box-shadow:0 4px 12px rgba(0,0,0,0.05);"><h3>The Grind</h3><p>Strength-based training using barbells, kettlebells, and bodyweight exercises for functional power.</p></div>
-        <div class="class-card" style="background:#fff;border-radius:16px;padding:24px;box-shadow:0 4px 12px rgba(0,0,0,0.05);"><h3>Open Gym</h3><p>Enjoy full access to equipment and training areas in a supportive, self-guided environment.</p></div>
-      </div>
-    </div>
-  </section>
-
-  <section style="padding:60px 0;background:#faf7f2;">
-    <div class="container">
-      <h2 style="color:var(--navy);">Memberships</h2>
-      <ul>
-        <li><strong>Bronze:</strong> 4 Classes Monthly — $60</li>
-        <li><strong>Silver:</strong> 8 Classes Monthly — $110</li>
-        <li><strong>Gold:</strong> Unlimited Classes — $170</li>
-      </ul>
-      <p>Discounted Add-On Classes Available</p>
-    </div>
-  </section>
-
-  <section style="padding:60px 0;">
-    <div class="container">
-      <h2 style="color:var(--navy);">Personal Training</h2>
-      <p>One-on-one sessions designed to assess your goals and create a personalized plan.</p>
-      <ul>
-        <li><strong>Bronze:</strong> $200 (4 sessions)</li>
-        <li><strong>Silver:</strong> $400 (8 sessions)</li>
-        <li><strong>Gold:</strong> $600 (12 sessions)</li>
-      </ul>
-      <p><strong>Intro Class:</strong> Foundations — $60 (1 session)</p>
-    </div>
-  </section>
-
-  <section style="padding:60px 0;background:#faf7f2;">
-    <div class="container">
-      <h2 style="color:var(--navy);">Add-Ons</h2>
-      <p>2 Class Open Gym — $30</p>
-      <p>Discounted Add-On Classes for Open Gym times ONLY!</p>
-    </div>
-  </section>
-
-  <section style="padding:60px 0;">
-    <div class="container">
-      <h2 style="color:var(--navy);">Meet the Team</h2>
-      <p><strong>Trainer:</strong> Izeem Coleman</p>
-      <p><strong>Owner:</strong> Will Sellers</p>
-    </div>
-  </section>
 <body>
   <!-- Hamburger topbar -->
   <div class="topbar" role="navigation" aria-label="Main">
@@ -745,5 +681,64 @@ a, button { -webkit-tap-highlight-color: transparent; }
   })();
   </script>
 
-  </body>
+  <!-- NuAge Fitness Studio Sections -->
+  <section style="padding:60px 0;border-bottom:1px solid var(--line);background:#faf7f2;">
+    <div class="container">
+      <h1 style="color:var(--navy);">NuAge Fitness Studio</h1>
+      <p>At NuAge Fitness Studio, we believe that fitness is more than just a workout — it's a lifestyle. Founded in 2024 with a passion for health, strength, and community, our state-of-the-art facility offers a range of equipment, from free weights and machines to functional training zones and cardio stations. Whether you're a beginner, an athlete, or just looking to stay active, our certified trainers and support staff are here to help you crush your goals.</p>
+    </div>
+  </section>
+
+  <section style="padding:60px 0;border-bottom:1px solid var(--line);">
+    <div class="container">
+      <h2 style="color:var(--navy);margin-bottom:20px;">Classes</h2>
+      <div class="class-card" style="margin-bottom:20px;"><h3>Core & Restore</h3><p>A hybrid class that blends dynamic core training with deep restorative stretches...</p></div>
+      <div class="class-card" style="margin-bottom:20px;"><h3>FULL BODY BOOTCAMP</h3><p>Join our full-body bootcamp for a fun, high-energy workout...</p></div>
+      <div class="class-card" style="margin-bottom:20px;"><h3>Gravity X</h3><p>Harness the power of your own bodyweight with TRX suspension training...</p></div>
+      <div class="class-card" style="margin-bottom:20px;"><h3>Ignite 45</h3><p>A high-intensity interval training (HIIT) class designed to push your limits...</p></div>
+      <div class="class-card" style="margin-bottom:20px;"><h3>The Grind</h3><p>A strength-based class built around functional movement patterns...</p></div>
+      <div class="class-card"><h3>Open Gym</h3><p>Unlock your potential during our Open Gym sessions at Nu Age Fitness...</p></div>
+    </div>
+  </section>
+
+  <section style="padding:60px 0;border-bottom:1px solid var(--line);background:#faf7f2;">
+    <div class="container">
+      <h2 style="color:var(--navy);">Meet the Team</h2>
+      <p><strong>Trainer:</strong> Izeem Coleman</p>
+      <p><strong>Owner:</strong> Will Sellers</p>
+    </div>
+  </section>
+
+  <section style="padding:60px 0;border-bottom:1px solid var(--line);">
+    <div class="container">
+      <h2 style="color:var(--navy);">Memberships</h2>
+      <ul>
+        <li><strong>Bronze:</strong> 4 Classes Monthly — $60</li>
+        <li><strong>Silver:</strong> 8 Classes Monthly — $110</li>
+        <li><strong>Gold:</strong> Unlimited Classes — $170</li>
+      </ul>
+    </div>
+  </section>
+
+  <section style="padding:60px 0;border-bottom:1px solid var(--line);background:#faf7f2;">
+    <div class="container">
+      <h2 style="color:var(--navy);">Personal Training</h2>
+      <p>NuAge Personal Training: Your first step toward transformation begins here...</p>
+      <ul>
+        <li><strong>Bronze:</strong> $200 (4 sessions)</li>
+        <li><strong>Silver:</strong> $400 (8 sessions)</li>
+        <li><strong>Gold:</strong> $600 (12 sessions)</li>
+      </ul>
+      <p><strong>Intro Class:</strong> Foundations — $60 (1 session)</p>
+    </div>
+  </section>
+
+  <section style="padding:60px 0;border-bottom:1px solid var(--line);">
+    <div class="container">
+      <h2 style="color:var(--navy);">Add-Ons</h2>
+      <p>2 Class Open Gym — $30</p>
+      <p>Discounted Add-On Classes for Open Gym times ONLY!</p>
+    </div>
+  </section>
+</body>
 </html>
