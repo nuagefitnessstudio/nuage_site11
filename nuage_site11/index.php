@@ -404,18 +404,24 @@ a, button { -webkit-tap-highlight-color: transparent; }
 </style>
 </head>
 <body>
-  <!-- Hamburger topbar -->
-  <div class="topbar" role="navigation" aria-label="Main">
-    <div class="brand" aria-label="NuAge">
-      <img loading="lazy" referrerpolicy="no-referrer" src="assets/IMG_2413.png?v=1" alt="NuAge logo">
-      <div class="brand-name">NuAge<span>Fitness</span><span>Studios</span></div>
+<!-- Hamburger topbar -->
+<div class="topbar" role="navigation" aria-label="Main">
+  <div class="brand" aria-label="NuAge">
+    <img loading="lazy" referrerpolicy="no-referrer" src="assets/IMG_2413.png?v=1" alt="NuAge logo">
+    <div class="brand-name">
+      <span style="color:var(--navy);">Nu</span>
+      <span style="color:var(--coral);">Age</span>
+      <span style="color:var(--coral);">Fitness</span>
+      <span style="color:var(--coral);">Studios</span>
     </div>
-    <button class="hamburger" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="navDrawer">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-        <path d="M3 6h18M3 12h18M3 18h18"/>
-      </svg>
-    </button>
   </div>
+  <button class="hamburger" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="navDrawer">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+      <path d="M3 6h18M3 12h18M3 18h18"/>
+    </svg>
+  </button>
+</div>
+
 
   <!-- Drawer + overlay -->
   <div class="overlay" id="navOverlay" hidden></div>
