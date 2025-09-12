@@ -409,8 +409,8 @@ a, button { -webkit-tap-highlight-color: transparent; }
   <div class="brand" aria-label="NuAge">
     <img loading="lazy" referrerpolicy="no-referrer" src="assets/IMG_2413.png?v=1" alt="NuAge logo">
     <div class="brand-name">
-      <span style="color:var(--navy);">Nu</span>
-      <span style="color:var(--coral);">Age</span>
+      <span style="color:var(--coral);">Nu</span>
+      <span style="color:var(--navy);">Age</span>
       <span style="color:var(--coral);">Fitness</span>
       <span style="color:var(--coral);">Studios</span>
     </div>
