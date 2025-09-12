@@ -358,6 +358,47 @@ a, button { -webkit-tap-highlight-color: transparent; }
     flex-direction: column;
     align-items: flex-start;
   }
+
+  /* Section Styling */
+.studio-intro, .classes, .team, .memberships, .personal-training, .addons {
+  padding: 60px 0;
+  border-bottom: 1px solid var(--line);
+}
+.highlight { background: var(--bone); }
+
+/* Headings */
+.studio-intro h1, .classes h2, .team h2, .memberships h2, .personal-training h2, .addons h2 {
+  color: var(--navy);
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* Class Grid */
+.class-grid {
+  display: grid;
+  gap: 24px;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  margin-top: 30px;
+}
+.class-card {
+  background: #fff;
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.class-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+}
+.class-card h3 {
+  color: var(--navy);
+  margin-bottom: 10px;
+}
+.class-card p { color: var(--muted); font-size: 15px; }
+
+/* Notes */
+.note { color: var(--muted); font-style: italic; }
 }
 
 </style>
@@ -409,65 +450,86 @@ a, button { -webkit-tap-highlight-color: transparent; }
     </div>
   </header>
 
-    <!-- NuAge Fitness Studio Sections -->
-    <section style="padding:60px 0;border-bottom:1px solid var(--line);background:#faf7f2;">
-    <div class="container">
-      <h1 style="color:var(--navy);">NuAge Fitness Studio</h1>
-      <p>At NuAge Fitness Studio, we believe that fitness is more than just a workout — it's a lifestyle. Founded in 2024 with a passion for health, strength, and community, our state-of-the-art facility offers a range of equipment, from free weights and machines to functional training zones and cardio stations. Whether you're a beginner, an athlete, or just looking to stay active, our certified trainers and support staff are here to help you crush your goals.</p>
-    </div>
-  </section>
+<!-- NuAge Fitness Studio Sections -->
+<section class="studio-intro">
+  <div class="container">
+    <h1>NuAge Fitness Studio</h1>
+    <p>At NuAge Fitness Studio, we believe that fitness is more than just a workout — it's a lifestyle. Founded in 2024 with a passion for health, strength, and community, our state-of-the-art facility offers a range of equipment, from free weights and machines to functional training zones and cardio stations. Whether you're a beginner, an athlete, or just looking to stay active, our certified trainers and support staff are here to help you crush your goals.</p>
+  </div>
+</section>
 
-  <section style="padding:60px 0;border-bottom:1px solid var(--line);">
-    <div class="container">
-      <h2 style="color:var(--navy);margin-bottom:20px;">Classes</h2>
-      <div class="class-card" style="margin-bottom:20px;"><h3>Core & Restore</h3><p>A hybrid class that blends dynamic core training with deep restorative stretches...</p></div>
-      <div class="class-card" style="margin-bottom:20px;"><h3>FULL BODY BOOTCAMP</h3><p>Join our full-body bootcamp for a fun, high-energy workout...</p></div>
-      <div class="class-card" style="margin-bottom:20px;"><h3>Gravity X</h3><p>Harness the power of your own bodyweight with TRX suspension training...</p></div>
-      <div class="class-card" style="margin-bottom:20px;"><h3>Ignite 45</h3><p>A high-intensity interval training (HIIT) class designed to push your limits...</p></div>
-      <div class="class-card" style="margin-bottom:20px;"><h3>The Grind</h3><p>A strength-based class built around functional movement patterns...</p></div>
-      <div class="class-card"><h3>Open Gym</h3><p>Unlock your potential during our Open Gym sessions at Nu Age Fitness...</p></div>
+<section class="classes">
+  <div class="container">
+    <h2>Classes</h2>
+    <div class="class-grid">
+      <div class="class-card">
+        <h3>Core & Restore</h3>
+        <p>A hybrid class blending core strength training with restorative stretches for balance and recovery.</p>
+      </div>
+      <div class="class-card">
+        <h3>Full Body Bootcamp</h3>
+        <p>High-energy workouts combining strength, cardio, and bodyweight exercises. Great for all levels.</p>
+      </div>
+      <div class="class-card">
+        <h3>Gravity X</h3>
+        <p>TRX suspension training leveraging gravity for a full-body challenge, adaptable for all fitness levels.</p>
+      </div>
+      <div class="class-card">
+        <h3>Ignite 45</h3>
+        <p>Fast-paced HIIT training mixing cardio and strength for maximum results in just 45 minutes.</p>
+      </div>
+      <div class="class-card">
+        <h3>The Grind</h3>
+        <p>Strength-based training using barbells, kettlebells, and functional movement patterns.</p>
+      </div>
+      <div class="class-card">
+        <h3>Open Gym</h3>
+        <p>Access all NuAge equipment, functional zones, and free weights in a self-guided session.</p>
+      </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <section style="padding:60px 0;border-bottom:1px solid var(--line);background:#faf7f2;">
-    <div class="container">
-      <h2 style="color:var(--navy);">Meet the Team</h2>
-      <p><strong>Trainer:</strong> Izeem Coleman</p>
-      <p><strong>Owner:</strong> Will Sellers</p>
-    </div>
-  </section>
+<section class="team highlight">
+  <div class="container">
+    <h2>Meet the Team</h2>
+    <p><strong>Trainer:</strong> Izeem Coleman</p>
+    <p><strong>Owner:</strong> Will Sellers</p>
+  </div>
+</section>
 
-  <section style="padding:60px 0;border-bottom:1px solid var(--line);">
-    <div class="container">
-      <h2 style="color:var(--navy);">Memberships</h2>
-      <ul>
-        <li><strong>Bronze:</strong> 4 Classes Monthly — $60</li>
-        <li><strong>Silver:</strong> 8 Classes Monthly — $110</li>
-        <li><strong>Gold:</strong> Unlimited Classes — $170</li>
-      </ul>
-    </div>
-  </section>
+<section class="memberships">
+  <div class="container">
+    <h2>Memberships</h2>
+    <ul>
+      <li><strong>Bronze:</strong> 4 Classes Monthly — $60</li>
+      <li><strong>Silver:</strong> 8 Classes Monthly — $110</li>
+      <li><strong>Gold:</strong> Unlimited Classes — $170</li>
+    </ul>
+    <p class="note">Discounted Add-On Classes Available</p>
+  </div>
+</section>
 
-  <section style="padding:60px 0;border-bottom:1px solid var(--line);background:#faf7f2;">
-    <div class="container">
-      <h2 style="color:var(--navy);">Personal Training</h2>
-      <p>NuAge Personal Training: Your first step toward transformation begins here...</p>
-      <ul>
-        <li><strong>Bronze:</strong> $200 (4 sessions)</li>
-        <li><strong>Silver:</strong> $400 (8 sessions)</li>
-        <li><strong>Gold:</strong> $600 (12 sessions)</li>
-      </ul>
-      <p><strong>Intro Class:</strong> Foundations — $60 (1 session)</p>
-    </div>
-  </section>
+<section class="personal-training highlight">
+  <div class="container">
+    <h2>Personal Training</h2>
+    <p>NuAge Personal Training offers one-on-one sessions with customized assessments and tailored programs to help you meet your goals.</p>
+    <ul>
+      <li><strong>Bronze:</strong> $200 (4 sessions)</li>
+      <li><strong>Silver:</strong> $400 (8 sessions)</li>
+      <li><strong>Gold:</strong> $600 (12 sessions)</li>
+    </ul>
+    <p><strong>Intro Class:</strong> Foundations — $60 (1 session)</p>
+  </div>
+</section>
 
-  <section style="padding:60px 0;border-bottom:1px solid var(--line);">
-    <div class="container">
-      <h2 style="color:var(--navy);">Add-Ons</h2>
-      <p>2 Class Open Gym — $30</p>
-      <p>Discounted Add-On Classes for Open Gym times ONLY!</p>
-    </div>
-  </section>
+<section class="addons">
+  <div class="container">
+    <h2>Add-Ons</h2>
+    <p>2 Class Open Gym — $30</p>
+    <p class="note">Discounted Add-On Classes for Open Gym times ONLY!</p>
+  </div>
+</section>
 
   <section class="split" data-reveal>
     <div class="visual"><img loading="lazy" referrerpolicy="no-referrer" class="remote" src="assets/workout-01 2.17.36 AM.jpg?v=1" data-remote="workout-01 2.17.36 AM.jpg" data-fallback="assets/workout-01.jpg" alt="Athletic"></div>
