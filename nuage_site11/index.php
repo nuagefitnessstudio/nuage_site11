@@ -9,6 +9,11 @@
   <title>NuAge Fitness Studio — Live Stock Photos</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
+
+.topbar {
+  background: #000 !important;
+}
+
     :root{
       --ink:#111418; --muted:#6a6d74; --line:#e9e6e1; --bone:#faf7f2;
       --pill:#efebe6cc; --navy:#002D72; --coral:#EB1F48;
