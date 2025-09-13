@@ -10,6 +10,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
 
+
     :root{
       --ink:#111418; --muted:#6a6d74; --line:#e9e6e1; --bone:#faf7f2;
       --pill:#efebe6cc; --navy:#002D72; --coral:#EB1F48;
@@ -26,6 +27,11 @@
       width:min(92vw,980px);background:var(--pill);backdrop-filter:blur(8px);
       border:1px solid rgba(0,0,0,.08);border-radius:999px;
       padding:10px 16px;z-index:60
+    }
+
+    /* Force hamburger icon lines to black */
+   .hamburger svg {
+  color: #000 !important;
     }
     .pill-link{display:inline-flex;align-items:center;gap:10px;font-size:14px;letter-spacing:.04em;color:#2c2c2c;padding:8px 14px;border-radius:999px;transition:background .25s,transform .2s}
     .pill-link:hover{background:#ffffffb3;transform:translateY(-1px)}
