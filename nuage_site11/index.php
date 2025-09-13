@@ -597,7 +597,7 @@ a, button { -webkit-tap-highlight-color: transparent; }
   </section>
 
   <section class="bleed" data-reveal>
-    <img loading="eager" referrerpolicy="no-referrer" class="remote" src="assets/man-1868632_1280.jpg" data-remote="work.jpg" alt="WORK">
+    <img loading="eager" referrerpolicy="no-referrer" class="remote" src="assets/muscle-2459720_960_720.jpeg" data-remote="work.jpg" alt="WORK">
     <div class="inner">
       <h1>TRAIN</h1>
       <p style="max-width:620px;margin:12px auto 26px;opacity:.95">Purpose-built studios, elite equipment, and expert coaching to move you forward.</p>
