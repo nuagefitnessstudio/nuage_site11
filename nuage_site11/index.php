@@ -627,8 +627,8 @@ a, button { -webkit-tap-highlight-color: transparent; }
     <div class="container" style="overflow-x:auto; -webkit-overflow-scrolling:touch;">
       <div style="display:flex; gap:16px; min-width:960px; padding-bottom:8px;">
         <a href="#" style="flex:0 0 320px; display:block; border-radius:14px; overflow:hidden;"><img loading="eager" referrerpolicy="no-referrer" class="remote" src="assets/gym-2649824_960_720.jpeg" data-remote="fw-strength.jpg" style="width:100%;height:320px;object-fit:cover;display:block"><div style="padding:10px 12px;font-weight:600;color:#222;">Strength Training</div></a>
-        <a href="#" style="flex:0 0 320px; display:block; border-radius:14px; overflow:hidden;"><img loading="eager" referrerpolicy="no-referrer" class="remote" src="assets/ai-generated-9730540_1280.jpg" data-remote="fw-yoga.jpg" style="width:100%;height:320px;object-fit:cover;display:block"><div style="padding:10px 12px;font-weight:600;color:#222;">Yoga Flow</div></a>
-        <a href="#" style="flex:0 0 320px; display:block; border-radius:14px; overflow:hidden;"><img loading="eager" referrerpolicy="no-referrer" class="remote" src="assets/man-1868632_1280.jpg" data-remote="fw-hiit.jpg" style="width:100%;height:320px;object-fit:cover;display:block"><div style="padding:10px 12px;font-weight:600;color:#222;">HIIT Session</div></a>
+        <a href="#" style="flex:0 0 320px; display:block; border-radius:14px; overflow:hidden;"><img loading="eager" referrerpolicy="no-referrer" class="remote" src="assets/ai-generated-9730540_1280.jpg" data-remote="fw-yoga.jpg" style="width:100%;height:320px;object-fit:cover;display:block"><div style="padding:10px 12px;font-weight:600;color:#222;">Full Body Targeting</div></a>
+        <a href="#" style="flex:0 0 320px; display:block; border-radius:14px; overflow:hidden;"><img loading="eager" referrerpolicy="no-referrer" class="remote" src="assets/man-1868632_1280.jpg" data-remote="fw-hiit.jpg" style="width:100%;height:320px;object-fit:cover;display:block"><div style="padding:10px 12px;font-weight:600;color:#222;">Resitance Training</div></a>
       </div>
     </div>
   </section>
