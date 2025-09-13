@@ -606,7 +606,7 @@ a, button { -webkit-tap-highlight-color: transparent; }
       </article>
     </div>
   </section>
-
+<!--
   <section class="amen" data-reveal>
     <div class="container"><div class="eyebrow">Amenities</div><h2 style="color:var(--navy); margin-bottom:16px;">Everything You Need</h2></div>
     <div class="container grid6">
@@ -618,6 +618,7 @@ a, button { -webkit-tap-highlight-color: transparent; }
       <img loading="eager" referrerpolicy="no-referrer" class="remote" src="https://images.pexels.com/photos/8613362/pexels-photo-8613362.jpeg?auto=compress&cs=tinysrgb&w=1600&h=1067&dpr=1" data-remote="kids.jpg" alt="Kids">
     </div>
   </section>
+-->
 
   <section style="background:var(--bone); padding:56px 0 40px;" data-reveal>
     <div class="container">
