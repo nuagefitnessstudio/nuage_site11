@@ -668,7 +668,7 @@ a, button { -webkit-tap-highlight-color: transparent; }
     </div>
   </footer>
 
-  <section class="closing"><div class="container"><h2>A New Way Of Life</h2></div></section>
+  <section class="closing"><div class="container"><h2>A New Age</h2></div></section>
 
   <!-- Cookie Consent -->
   <div id="ccOverlay" class="cookie-overlay" hidden></div>
