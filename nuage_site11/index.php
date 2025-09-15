@@ -491,6 +491,17 @@ a, button { -webkit-tap-highlight-color: transparent; }
   .closing-ot h2{letter-spacing:.12em;text-transform:uppercase}
   
 </style>
+<style>
+
+/* === Themed SVG icons via CSS mask (NuAge) === */
+.icon{width:48px;height:48px;display:inline-block;background-color:var(--navy);
+  -webkit-mask:no-repeat center/contain;mask:no-repeat center/contain}
+.icon--navy{background-color:var(--navy)}
+.icon--coral{background-color:var(--coral)}
+.icon-link:hover .icon{opacity:.9;transform:translateY(-1px);transition:.2s}
+/* === end icon mask rules === */
+
+</style>
 </head>
 <body>
 <!-- Hamburger topbar -->
@@ -589,6 +600,53 @@ a, button { -webkit-tap-highlight-color: transparent; }
       </div>
     </div>
   </section>
+
+<!-- Icon Features (themed to match site) -->
+<section class="previews" style="max-width:1100px">
+  <!-- Time App -->
+  <a class="preview icon-link" href="<?= isset($BASE)? $BASE : '' ?>/classes.php">
+    <div class="preview-text" style="display:flex;align-items:center;gap:12px">
+      <span class="icon icon--coral"
+        style="-webkit-mask-image:url('assets/6639bdc45130e047f53e388b_Time%20App%20icon.svg');
+               mask-image:url('assets/6639bdc45130e047f53e388b_Time%20App%20icon.svg');"></span>
+      <div>
+        <h2 style="margin:0">Schedule</h2>
+        <p style="margin:.25rem 0 0">Classes that fit your week.</p>
+        <span class="link">View classes →</span>
+      </div>
+    </div>
+  </a>
+
+  <!-- Clock -->
+  <a class="preview icon-link" href="<?= isset($BASE)? $BASE : '' ?>/pricing.php">
+    <div class="preview-text" style="display:flex;align-items:center;gap:12px">
+      <span class="icon icon--navy"
+        style="-webkit-mask-image:url('assets/6639bdc45130e047f53e3950_Clock%20icon.svg');
+               mask-image:url('assets/6639bdc45130e047f53e3950_Clock%20icon.svg');"></span>
+      <div>
+        <h2 style="margin:0">Flexible</h2>
+        <p style="margin:.25rem 0 0">Month‑to‑month • 30‑day cancel.</p>
+        <span class="link">See pricing →</span>
+      </div>
+    </div>
+  </a>
+
+  <!-- Hourglass -->
+  <a class="preview icon-link" href="<?= isset($BASE)? $BASE : '' ?>/team.php">
+    <div class="preview-text" style="display:flex;align-items:center;gap:12px">
+      <span class="icon icon--coral"
+        style="-webkit-mask-image:url('assets/6639bdc45130e047f53e381b_Hourglass%20icon.svg');
+               mask-image:url('assets/6639bdc45130e047f53e381b_Hourglass%20icon.svg');"></span>
+      <div>
+        <h2 style="margin:0">Coaches</h2>
+        <p style="margin:.25rem 0 0">Real guidance. Real results.</p>
+        <span class="link">Meet the team →</span>
+      </div>
+    </div>
+  </a>
+</section>
+
+
 
   <!-- TESTIMONIALS -->
   <section class="testimonials">
