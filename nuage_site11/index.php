@@ -425,7 +425,7 @@ a, button { -webkit-tap-highlight-color: transparent; }
 }
 
 </style>
-<link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="style.css?v=5" />
 </head>
 <body>
 <!-- Hamburger topbar -->
@@ -693,6 +693,10 @@ a, button { -webkit-tap-highlight-color: transparent; }
   </script>
 </body>
 </html>
+
+
+
+
 
 
 
