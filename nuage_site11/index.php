@@ -432,9 +432,9 @@ a, button { -webkit-tap-highlight-color: transparent; }
   <div class="brand" aria-label="NuAge">
     <img loading="eager" referrerpolicy="no-referrer" src="assets/IMG_2413.png" alt="NuAge logo">
     <div class="brand-name">
-      <span style="color:var(--coral);">Nu</span><span style="color:var(--navy);">Age</span>
-      <span style="color:var(--coral);">Fitness</span>
-      <span style="color:var(--coral);">Studios</span>
+      <span style="color:var(--navy);">Nu</span><span style="color:var(--coral);">Age</span>
+      <span style="color:var(--navy);">Fitness</span>
+      <span style="color:var(--navy);">Studios</span>
     </div>
   </div>
   <button class="hamburger" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="navDrawer">
@@ -460,6 +460,11 @@ a, button { -webkit-tap-highlight-color: transparent; }
       <a href="#" class="pill-link primary"><span style="font-weight:700">Find a Location</span></a>
       <a href="#" class="pill-link" style="font-weight:700;color:var(--navy);border:1px solid var(--line);background:#fff">Member Login</a>
       <!-- More links if needed -->
+    
+      <a href="classes.php">Classes</a>
+      <a href="team.php">Meet the Team</a>
+      <a href="pricing.php">Pricing</a>
+    
     </nav>
   </aside>
 
@@ -843,3 +848,4 @@ a, button { -webkit-tap-highlight-color: transparent; }
 
 </body>
 </html>
+
