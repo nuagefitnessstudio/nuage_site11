@@ -484,14 +484,368 @@ a, button { -webkit-tap-highlight-color: transparent; }
     </div>
   </header>
 
-<section style="padding: 2rem; text-align: center;">
-  <h2 style="color:#002D72; font-family:Inter, sans-serif;">Explore NuAge Fitness Studio</h2>
-  <div style="margin-top:1rem;">
-    <a href="classes.php" style="padding:1rem 2rem; margin:0.5rem; background:#EB1F48; color:#fff; text-decoration:none; border-radius:5px;">View Classes</a>
-    <a href="team.php" style="padding:1rem 2rem; margin:0.5rem; background:#002D72; color:#fff; text-decoration:none; border-radius:5px;">Meet the Team</a>
-    <a href="pricing.php" style="padding:1rem 2rem; margin:0.5rem; background:#EB1F48; color:#fff; text-decoration:none; border-radius:5px;">See Pricing</a>
+<!-- NuAge Fitness Studio Sections -->
+<section style="padding:80px 0;border-bottom:1px solid var(--line);background:var(--bone);">
+  <div class="container" style="max-width:900px;text-align:center;">
+    <h1 style="color:var(--navy);margin-bottom:20px;">NuAge Fitness Studio</h1>
+    <p style="color:var(--muted);font-size:18px;line-height:1.8;">
+      At NuAge Fitness Studio, we believe that fitness is more than just a workout — it's a lifestyle. 
+      Founded in 2024 with a passion for health, strength, and community, our state-of-the-art facility offers a range of equipment, 
+      from free weights and machines to functional training zones and cardio stations. 
+      Whether you're a beginner, an athlete, or just looking to stay active, our certified trainers and support staff are here to help you crush your goals.
+    </p>
   </div>
 </section>
 
+<section style="padding:80px 0;border-bottom:1px solid var(--line);">
+  <div class="container">
+    <h2 style="color:var(--navy);text-align:center;margin-bottom:50px;">Classes</h2>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:30px;">
+      <div style="background:#fff;border:1px solid var(--line);padding:24px;border-radius:16px;">
+        <h3 style="margin-bottom:10px;">Core & Restore</h3>
+        <p style="color:var(--muted);">Hybrid class blending core training and restorative stretches for balance and recovery.</p>
+      </div>
+      <div style="background:#fff;border:1px solid var(--line);padding:24px;border-radius:16px;">
+        <h3 style="margin-bottom:10px;">Full Body Bootcamp</h3>
+        <p style="color:var(--muted);">Fun, high-energy workout combining strength, cardio, and bodyweight exercises.</p>
+      </div>
+      <div style="background:#fff;border:1px solid var(--line);padding:24px;border-radius:16px;">
+        <h3 style="margin-bottom:10px;">Gravity X</h3>
+        <p style="color:var(--muted);">TRX suspension training leveraging gravity for strength, stability, and mobility.</p>
+      </div>
+      <div style="background:#fff;border:1px solid var(--line);padding:24px;border-radius:16px;">
+        <h3 style="margin-bottom:10px;">Ignite 45</h3>
+        <p style="color:var(--muted);">Fast-paced HIIT session mixing cardio and strength for max results in 45 minutes.</p>
+      </div>
+      <div style="background:#fff;border:1px solid var(--line);padding:24px;border-radius:16px;">
+        <h3 style="margin-bottom:10px;">The Grind</h3>
+        <p style="color:var(--muted);">Strength-focused training using barbells, kettlebells, and resistance for functional power.</p>
+      </div>
+      <div style="background:#fff;border:1px solid var(--line);padding:24px;border-radius:16px;">
+        <h3 style="margin-bottom:10px;">Open Gym</h3>
+        <p style="color:var(--muted);">Full access to equipment, functional zones, and free weights for self-guided workouts.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="padding:80px 0;border-bottom:1px solid var(--line);background:var(--bone);">
+  <div class="container" style="max-width:700px;text-align:center;">
+    <h2 style="color:var(--navy);margin-bottom:20px;">Meet the Team</h2>
+    <p><strong>Trainer:</strong> Izeem Coleman</p>
+    <p><strong>Owner:</strong> Will Sellers</p>
+  </div>
+</section>
+
+<section style="padding:80px 0;border-bottom:1px solid var(--line);">
+  <div class="container" style="max-width:700px;">
+    <h2 style="color:var(--navy);margin-bottom:20px;text-align:center;">Memberships</h2>
+    <ul style="list-style:none;padding:0;text-align:center;font-size:18px;">
+      <li><strong>Bronze:</strong> 4 Classes Monthly — $60</li>
+      <li><strong>Silver:</strong> 8 Classes Monthly — $110</li>
+      <li><strong>Gold:</strong> Unlimited Classes — $170</li>
+    </ul>
+    <p style="text-align:center;color:var(--muted);margin-top:10px;">Discounted Add-On Classes Available</p>
+  </div>
+</section>
+
+<section style="padding:80px 0;border-bottom:1px solid var(--line);background:var(--bone);">
+  <div class="container" style="max-width:700px;">
+    <h2 style="color:var(--navy);margin-bottom:20px;text-align:center;">Personal Training</h2>
+    <p style="text-align:center;color:var(--muted);margin-bottom:30px;">
+      One-on-one sessions tailored to your goals, movement patterns, and lifestyle. Includes full assessment and personalized plan.
+    </p>
+    <ul style="list-style:none;padding:0;text-align:center;font-size:18px;">
+      <li><strong>Bronze:</strong> $200 (4 sessions)</li>
+      <li><strong>Silver:</strong> $400 (8 sessions)</li>
+      <li><strong>Gold:</strong> $600 (12 sessions)</li>
+    </ul>
+    <p style="text-align:center;margin-top:10px;"><strong>Intro Class:</strong> Foundations — $60 (1 session)</p>
+  </div>
+</section>
+
+<section style="padding:80px 0;border-bottom:1px solid var(--line);">
+  <div class="container" style="max-width:700px;text-align:center;">
+    <h2 style="color:var(--navy);margin-bottom:20px;">Add-Ons</h2>
+    <p style="font-size:18px;">2 Class Open Gym — $30</p>
+    <p style="color:var(--muted);">Discounted Add-On Classes for Open Gym times ONLY!</p>
+  </div>
+</section>
+
+
+  <section class="split" data-reveal>
+    <div class="visual"><img loading="eager" referrerpolicy="no-referrer" class="remote" src="assets/workout-01 2.17.36 AM.jpg" data-remote="workout-01 2.17.36 AM.jpg" alt="Athletic"></div>
+    <div class="text">
+      <div class="stack container">
+        <div class="eyebrow">Love Your Life</div>
+        <h2 style="color:var(--navy)">Athletic Country Clubs</h2>
+        <p>From the warm welcome of the studio to the cool shade of the cabana, every inch of NuAge is designed with your well-being in mind. It’s so much more than a gym.</p>
+        <div class="divider"></div>
+        <div class="feature">
+          <div><div class="eyebrow">Results-Driven Programs</div><p>Programs. Lessons. Sessions. Workouts. So many wonderful ways to spend time and reach goals.</p></div>
+          <img loading="eager" referrerpolicy="no-referrer" class="remote" src="assets/yoga_pic.jpeg" data-remote="feature-1.jpg" alt="Strength">
+        </div>
+        <div class="divider"></div>
+        <div class="feature">
+          <div><div class="eyebrow">Passionate People</div><p>Everyone here shares the same mission: helping you live your healthiest, happiest life.</p></div>
+          <img loading="eager" referrerpolicy="no-referrer" class="remote" src="https://images.pexels.com/photos/33239683/pexels-photo-33239683.jpeg?auto=compress&cs=tinysrgb&w=1600&h=1067&dpr=1" data-remote="feature-2.jpg" alt="People">
+        </div>
+        <div class="divider"></div>
+        <div class="feature">
+          <div><div class="eyebrow">Recovery & Amenities</div><p>Recover harder than you train — spa, sauna, cold plunge, and café to keep you thriving.</p></div>
+          <img loading="eager" referrerpolicy="no-referrer" class="remote" src="assets/pickleball-6940609_960_720.jpeg" data-remote="spa.jpg" alt="Spa">
+        </div>
+        <div class="divider"></div>
+        <a class="pill-link" href="#" style="background:#fff;border:1px solid var(--line);width:max-content;padding:10px 18px;color:var(--navy)">Find a Location</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="bleed" data-reveal>
+    <img loading="eager" referrerpolicy="no-referrer" class="remote" src="assets/muscle-2459720_960_720.jpeg" data-remote="work.jpg" alt="WORK">
+    <div class="inner">
+      <h1>TRAIN</h1>
+      <p style="max-width:620px;margin:12px auto 26px;opacity:.95">Purpose-built studios, elite equipment, and expert coaching to move you forward.</p>
+      <a class="btn" href="#" style="border-color:#fff">Explore</a>
+    </div>
+  </section>
+
+  <section class="tiles" data-reveal>
+    <div class="container" style="margin-bottom:18px">
+      <div class="eyebrow">Experience</div>
+      <h2 style="margin-bottom:6px;color:var(--navy)">Explore More</h2>
+    </div>
+    <div class="container tile-grid">
+      <article class="tile">
+        <img loading="eager" referrerpolicy="no-referrer" class="remote" src="assets/4D288153-7690-43EE-A7C6-489BA52C9E9B_1_105_c.jpeg" data-remote="digital.jpg" alt="Digital">
+        <div class="copy" style="background:linear-gradient(180deg,transparent 20%, rgba(0,0,0,.55) 100%);"><div class="tag">DIGITAL</div><p>Around-the-clock access to a healthy way of life.</p><a href="#" class="btn">Learn More</a></div>
+      </article>
+      <article class="tile">
+        <img loading="eager" referrerpolicy="no-referrer" class="remote" src="assets/E7311795-3C28-46CD-A5C3-9934B0B2181C_1_105_c.jpeg" data-remote="living.jpg" alt="Living">
+        <div class="copy" style="background:linear-gradient(180deg,transparent 20%, rgba(0,0,0,.55) 100%);"><div class="tag">LIVING</div><p>Luxury living that minimizes environmental impact and maximizes well-being.</p><a href="#" class="btn">Learn More</a></div>
+      </article>
+    </div>
+  </section>
+<!--
+  <section class="amen" data-reveal>
+    <div class="container"><div class="eyebrow">Amenities</div><h2 style="color:var(--navy); margin-bottom:16px;">Everything You Need</h2></div>
+    <div class="container grid6">
+      <img loading="eager" referrerpolicy="no-referrer" class="remote" src="https://images.pexels.com/photos/19980238/pexels-photo-19980238.jpeg?auto=compress&cs=tinysrgb&w=1600&h=1067&dpr=1" data-remote="spa.jpg" alt="Spa">
+      <img loading="eager" referrerpolicy="no-referrer" class="remote" src="assets/box-1514845_960_720.jpeg" data-remote="cafe.jpg" alt="Café">
+      <img loading="eager" referrerpolicy="no-referrer" class="remote" src="https://images.pexels.com/photos/2611029/pexels-photo-2611029.jpeg?auto=compress&cs=tinysrgb&w=1600&h=1067&dpr=1" data-remote="living.jpg" alt="Pool">
+      <img loading="eager" referrerpolicy="no-referrer" class="remote" src="https://images.unsplash.com/photo-1660779411729-80c07aca6df2?auto=format&fit=crop&w=1600&q=80" data-remote="courts.jpg" alt="Courts">
+      <img loading="eager" referrerpolicy="no-referrer" class="remote" src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&w=1600&q=80" data-remote="runtrack.jpg" alt="Track">
+      <img loading="eager" referrerpolicy="no-referrer" class="remote" src="https://images.pexels.com/photos/8613362/pexels-photo-8613362.jpeg?auto=compress&cs=tinysrgb&w=1600&h=1067&dpr=1" data-remote="kids.jpg" alt="Kids">
+    </div>
+  </section>
+-->
+
+  <section style="background:var(--bone); padding:56px 0 40px;" data-reveal>
+    <div class="container">
+      <div class="eyebrow">Featured Workouts</div>
+      <h2 style="color:var(--navy); margin-bottom:16px;">What’s Inside NuAge</h2>
+    </div>
+    <div class="container" style="overflow-x:auto; -webkit-overflow-scrolling:touch;">
+      <div style="display:flex; gap:16px; min-width:960px; padding-bottom:8px;">
+        <a href="#" style="flex:0 0 320px; display:block; border-radius:14px; overflow:hidden;"><img loading="eager" referrerpolicy="no-referrer" class="remote" src="assets/gym-2649824_960_720.jpeg" data-remote="fw-strength.jpg" style="width:100%;height:320px;object-fit:cover;display:block"><div style="padding:10px 12px;font-weight:600;color:#222;">Strength Training</div></a>
+        <a href="#" style="flex:0 0 320px; display:block; border-radius:14px; overflow:hidden;"><img loading="eager" referrerpolicy="no-referrer" class="remote" src="assets/ai-generated-9730540_1280.jpg" data-remote="fw-yoga.jpg" style="width:100%;height:320px;object-fit:cover;display:block"><div style="padding:10px 12px;font-weight:600;color:#222;">Full Body Targeting</div></a>
+        <a href="#" style="flex:0 0 320px; display:block; border-radius:14px; overflow:hidden;"><img loading="eager" referrerpolicy="no-referrer" class="remote" src="assets/man-1868632_1280.jpg" data-remote="fw-hiit.jpg" style="width:100%;height:320px;object-fit:cover;display:block"><div style="padding:10px 12px;font-weight:600;color:#222;">Resitance Training</div></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="legal"><div class="container"><p style="max-width:940px">
+    Membership levels, types, amenities, services, programs and their associated dues, pricing, fees and/or charges may vary by location and are subject to change. Access to certain services may be limited by terms and/or supplemental fees. Always consult your physician before beginning any new exercise program.
+  </p></div></section>
+
+  <footer class="footer">
+    <div class="links container">
+      <div><h4>Experience</h4><a href="#">Athletic Country Clubs</a><a href="#">Work</a><a href="#">Living</a><a href="#">Stay</a><a href="#">Digital</a></div>
+      <div><h4>About</h4><a href="#">Newsroom</a><a href="#">Investor Relations</a><a href="#">Corporate Responsibility</a><a href="#">Culture of Inclusion</a><a href="#">Foundation</a></div>
+      <div><h4>Concierge</h4><a href="#">Membership</a><a href="#">Help &amp; FAQs</a></div>
+      <div><h4>Partnership</h4><a href="#">Corporate Wellness</a><a href="#">Marketing Partnerships</a><a href="#">Construction</a></div>
+    </div>
+    <div class="bottombar container">
+      <div style="display:flex;gap:14px;flex-wrap:wrap">
+        <a href="#">Privacy</a><a href="#">Terms</a><a href="#">Guest &amp; Club Policies</a><a href="#">Accessibility</a><a href="#">Sitemap</a>
+      </div>
+      <div>&copy; <span id="year"></span> NuAge Fitness Studio. All Rights Reserved.</div>
+    </div>
+  </footer>
+
+  <section class="closing"><div class="container"><h2>A New Age</h2></div></section>
+
+  <!-- Cookie Consent -->
+  <div id="ccOverlay" class="cookie-overlay" hidden></div>
+  <div id="ccModal" class="cookie-modal" role="dialog" aria-modal="true" aria-labelledby="ccTitle" hidden>
+    <button id="ccClose" class="cc-close" aria-label="Close">&times;</button>
+    <div class="cc-inner">
+      <h3 id="ccTitle" class="cc-title">This website uses cookies</h3>
+      <p class="cc-body">
+        We use cookies and similar technologies to enhance your experience, measure performance,
+        and analyze traffic. We also share information about your use of our site with our
+        analytics and advertising partners. You can manage your choices below. See our
+        <a href="#">Privacy Policy</a> for more.
+      </p>
+      <button id="ccAcceptAll" class="cc-btn primary">Accept All</button>
+      <button id="ccRejectAll" class="cc-btn danger">Reject All</button>
+      <button id="ccCustomizeBtn" class="cc-btn light" aria-expanded="false" aria-controls="ccCustom">Customize</button>
+      <div id="ccCustom" class="cc-custom" hidden>
+        <div class="cc-row">
+          <div class="cc-toggle"><input type="checkbox" checked disabled> <strong>Necessary</strong></div>
+          <div class="cc-note">Always active</div>
+        </div>
+        <div class="cc-row">
+          <label class="cc-toggle" for="ccAnalytics"><input id="ccAnalytics" type="checkbox" checked> <strong>Analytics</strong></label>
+          <div class="cc-note">Helps us improve the site</div>
+        </div>
+        <div class="cc-row">
+          <label class="cc-toggle" for="ccMarketing"><input id="ccMarketing" type="checkbox"> <strong>Marketing</strong></label>
+          <div class="cc-note">Personalized offers</div>
+        </div>
+        <button id="ccSave" class="cc-btn primary" style="margin-top:6px;">Save Preferences</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    // Optional: click to pause/play hero video
+    (function(){
+      const v = document.getElementById('heroVideo');
+      if(v){ v.addEventListener('click', ()=>{ v.paused ? v.play() : v.pause(); }); }
+    })();
+  </script>
+
+  <script>
+  // Ensure remote images don't break presentation if blocked by network/privacy tools
+  (function(){
+    function swapToFallback(img){
+      if(!img.dataset.fallback) return;
+      img.src = img.dataset.fallback;
+      img.removeAttribute('srcset');
+      img.classList.remove('remote');
+    }
+    document.querySelectorAll('img.remote').forEach(function(img){
+      img.addEventListener('error', function(){ swapToFallback(img); }, {once:true});
+      const t = setTimeout(function(){
+        if(!img.complete || img.naturalWidth === 0){ swapToFallback(img); }
+      }, 4000);
+      img.addEventListener('load', function(){ clearTimeout(t); }, {once:true});
+    });
+  })();
+  </script>
+
+  <script>
+  (function(){
+    const els = document.querySelectorAll('[data-reveal]');
+    const io = new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('show'); io.unobserve(e.target); } });
+    }, {threshold:0.12});
+    els.forEach(el=>io.observe(el));
+  })();
+  </script>
+
+  <!-- Drawer script: open/close + accessibility -->
+  <script>
+  (function(){
+    const toggle = document.getElementById('navToggle');
+    const drawer = document.getElementById('navDrawer');
+    const overlay = document.getElementById('navOverlay');
+    const closeBtn = document.getElementById('navClose');
+
+    function openDrawer(){
+      drawer.hidden = false; overlay.hidden = false;
+      requestAnimationFrame(()=>{
+        drawer.classList.add('show'); overlay.classList.add('show');
+        toggle.setAttribute('aria-expanded','true');
+        drawer.setAttribute('aria-hidden','false');
+      });
+      const first = drawer.querySelector('a,button'); if(first) first.focus();
+      document.documentElement.style.overflow = 'hidden';
+    }
+    function closeDrawer(){
+      drawer.classList.remove('show'); overlay.classList.remove('show');
+      toggle.setAttribute('aria-expanded','false');
+      drawer.setAttribute('aria-hidden','true');
+      setTimeout(()=>{ drawer.hidden = true; overlay.hidden = true; document.documentElement.style.overflow = ''; }, 280);
+      toggle.focus();
+    }
+    toggle.addEventListener('click', openDrawer);
+    closeBtn.addEventListener('click', closeDrawer);
+    overlay.addEventListener('click', closeDrawer);
+    document.addEventListener('keydown', (e)=>{ if(e.key === 'Escape' && !drawer.hidden) closeDrawer(); });
+  })();
+  </script>
+
+  <!-- Cookie Consent logic -->
+  <script>
+  (function(){
+    const KEY = 'nuage.cookies.v1';
+    const $ = (id)=>document.getElementById(id);
+
+    const modal   = $('ccModal');
+    const overlay = $('ccOverlay');
+    const btnX    = $('ccClose');
+    const accept  = $('ccAcceptAll');
+    const reject  = $('ccRejectAll');
+    const custom  = $('ccCustomizeBtn');
+    const panel   = $('ccCustom');
+    const save    = $('ccSave');
+    const a       = $('ccAnalytics');
+    const m       = $('ccMarketing');
+    const manageLink = document.getElementById('manageCookies'); // optional external link
+
+    let prevFocus = null;
+
+    function open(){
+      prevFocus = document.activeElement;
+      modal.hidden = false; overlay.hidden = false;
+      requestAnimationFrame(()=>{
+        modal.classList.add('show'); overlay.classList.add('show');
+      });
+      document.documentElement.style.overflow = 'hidden';
+      modal.querySelector('button, a, input')?.focus();
+    }
+    function close(){
+      modal.classList.remove('show'); overlay.classList.remove('show');
+      setTimeout(()=>{ modal.hidden = true; overlay.hidden = true; }, 250);
+      document.documentElement.style.overflow = '';
+      prevFocus?.focus();
+    }
+
+    function saveConsent(val){
+      localStorage.setItem(KEY, JSON.stringify({ ...val, ts: Date.now() }));
+      close();
+    }
+
+    accept.addEventListener('click', ()=>saveConsent({necessary:true, analytics:true, marketing:true}));
+    reject.addEventListener('click', ()=>saveConsent({necessary:true, analytics:false, marketing:false}));
+    save.addEventListener('click', ()=>saveConsent({necessary:true, analytics:a.checked, marketing:m.checked}));
+
+    custom.addEventListener('click', ()=>{
+      const show = panel.hasAttribute('hidden');
+      if(show){ panel.removeAttribute('hidden'); } else { panel.setAttribute('hidden',''); }
+      custom.setAttribute('aria-expanded', String(show));
+    });
+
+    btnX.addEventListener('click', close);
+    overlay.addEventListener('click', close);
+    document.addEventListener('keydown', (e)=>{ if(e.key === 'Escape' && !modal.hidden) close(); });
+
+    if(manageLink){ manageLink.addEventListener('click', (e)=>{ e.preventDefault(); open(); }); }
+
+    const existing = localStorage.getItem(KEY);
+    if(!existing){
+      setTimeout(open, 600);
+    }
+
+    window.getNuAgeConsent = function(){
+      try{ return JSON.parse(localStorage.getItem(KEY) || '{}'); }catch{return {}}
+    };
+  })();
+  </script>
+
 </body>
 </html>
+
