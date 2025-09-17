@@ -486,7 +486,7 @@ a, button { -webkit-tap-highlight-color: transparent; }
     padding:3rem 1rem;
     text-align:center;
     color:#fff;
-    background: linear-gradient(180deg, var(--coral) 0%, var(--navy) 100%);
+    background: coral;
   }
   .closing-ot h2{letter-spacing:.12em;text-transform:uppercase}
   
@@ -576,7 +576,7 @@ a, button { -webkit-tap-highlight-color: transparent; }
   <!-- PREVIEWS -->
   <section class="previews">
     <div class="preview">
-      <img src="assets/class_preview.jpg" alt="Classes preview" class="preview-img" />
+      <img src="assets/man-2264825_1280.jpg" alt="Classes preview" class="preview-img" />
       <div class="preview-text">
         <h2>Classes</h2>
         <p>Strength, HIIT, mobility and more — built for every level.</p>
@@ -584,7 +584,7 @@ a, button { -webkit-tap-highlight-color: transparent; }
       </div>
     </div>
     <div class="preview">
-      <img src="assets/team_preview.jpg" alt="Team preview" class="preview-img" />
+      <img src="assets/abs-1850926_1280.jpg" alt="Team preview" class="preview-img" />
       <div class="preview-text">
         <h2>Meet the Team</h2>
         <p>Certified trainers who keep you accountable and inspired.</p>
@@ -592,7 +592,7 @@ a, button { -webkit-tap-highlight-color: transparent; }
       </div>
     </div>
     <div class="preview">
-      <img src="assets/pricing_preview.jpg" alt="Pricing preview" class="preview-img" />
+      <img src="assets/4D288153-7690-43EE-A7C6-489BA52C9E9B_1_105_c.jpeg" alt="Pricing preview" class="preview-img" />
       <div class="preview-text">
         <h2>Membership Pricing</h2>
         <p>Transparent plans. Month-to-month. 30-day cancellation.</p>
