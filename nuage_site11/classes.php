@@ -41,24 +41,12 @@
   .hero-ot .hero-inner p{opacity:.92;margin-bottom:1rem}
   .hero-ot .cta-row{display:flex;gap:.75rem;justify-content:center;flex-wrap:wrap}
   
-  .previews{padding:3rem 1rem;display:grid;gap:1.25rem;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));max-width:1100px;margin:0 auto}
+  .previews{padding:3rem 1rem;display:grid;gap:1.25rem;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));max-width:1200px;margin:0 auto}
   .preview{background:#fff;border:1px solid var(--line);border-radius:1rem;overflow:hidden;display:grid;grid-template-columns:1fr}
   .preview-img{aspect-ratio:16/9;object-fit:cover;width:100%}
   .preview-text{padding:1rem 1.25rem}
   .preview-text h2{color:var(--navy);margin:0 0 .25rem}
-  .preview-text .link{color:var(--coral);font-weight:600}
-  
-  .testimonials{background:var(--bone);padding:3rem 1rem;text-align:center}
-  .testimonials h2{color:var(--navy);margin:0 0 1rem}
-  .quotes{display:grid;gap:1rem;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));max-width:1000px;margin:0 auto}
-  .quote{background:#fff;border:1px solid var(--line);border-radius:1rem;padding:1rem}
-  .quote blockquote{margin:0 0 .5rem;font-weight:600}
-  .quote figcaption{color:var(--muted)}
-  
-  .newsletter{padding:2.5rem 1rem;text-align:center}
-  .newsletter h2{color:var(--navy)}
-  .newsletter-form{display:flex;gap:.5rem;justify-content:center;flex-wrap:wrap;margin-top:.75rem}
-  .newsletter-form input{padding:.9rem 1rem;border:1px solid var(--line);border-radius:.75rem;min-width:240px}
+  .preview-text p{margin:0;color:var(--ink)}
   
   .closing-ot{
     padding:3rem 1rem;
@@ -82,33 +70,60 @@
     </div>
   </section>
 
-  <section class="previews" style="max-width:1200px">
+  <section class="previews">
     <div class="preview">
-      <img src="assets/class_strength.jpg" alt="Strength Class" class="preview-img" />
+      <img src="assets/class_core.jpg" alt="Core & Restore" class="preview-img" />
       <div class="preview-text">
-        <h2>Strength</h2>
-        <p>Compound lifts with progressive programming for power and lean mass.</p>
+        <h2>Core & Restore</h2>
+        <p>A hybrid class that blends dynamic core training with deep restorative stretches. The first half focuses on building strength and stability through core-focused exercises; the second half eases into flexibility, mobility, and recovery work to leave you feeling balanced.</p>
       </div>
     </div>
+
     <div class="preview">
-      <img src="assets/class_hiit.jpg" alt="HIIT Class" class="preview-img" />
+      <img src="assets/class_bootcamp.jpg" alt="Full Body Bootcamp" class="preview-img" />
       <div class="preview-text">
-        <h2>HIIT</h2>
-        <p>Intervals that build capacity while keeping form tight and safe.</p>
+        <h2>Full Body Bootcamp</h2>
+        <p>Join our full-body bootcamp for a fun, high-energy workout that combines strength, cardio, and bodyweight exercises. Boost endurance, burn calories, and tone muscles in a motivating, fast-paced session. Suitable for all fitness levels—get ready to see results!</p>
       </div>
     </div>
+
     <div class="preview">
-      <img src="assets/class_mobility.jpg" alt="Mobility Class" class="preview-img" />
+      <img src="assets/class_gravityx.jpg" alt="Gravity X" class="preview-img" />
       <div class="preview-text">
-        <h2>Mobility</h2>
-        <p>Restore range, move freely, and recover faster between sessions.</p>
+        <h2>Gravity X</h2>
+        <p>Harness the power of your own bodyweight with TRX suspension training. This class focuses on strength, stability, and mobility by using gravity and leverage to challenge every muscle group. From explosive pulls and presses to core-shredding holds, you’ll build functional strength and balance like never before—all while keeping joints safe and movements adaptable to every fitness level.</p>
+      </div>
+    </div>
+
+    <div class="preview">
+      <img src="assets/class_ignite45.jpg" alt="Ignite 45" class="preview-img" />
+      <div class="preview-text">
+        <h2>Ignite 45</h2>
+        <p>A high-intensity interval training (HIIT) class designed to push your limits in just 45 minutes. Using a mix of bodyweight, resistance, and cardio drills, Ignite 45 keeps your heart pumping and your muscles burning. Perfect for anyone looking for maximum results in minimal time.</p>
+      </div>
+    </div>
+
+    <div class="preview">
+      <img src="assets/class_grind.jpg" alt="The Grind" class="preview-img" />
+      <div class="preview-text">
+        <h2>The Grind</h2>
+        <p>A strength-based class built around functional movement patterns. Expect kettlebells, barbells, resistance bands, and bodyweight exercises that target every muscle group. No frills—just raw, powerful training that builds strength you can feel in everyday life.</p>
+      </div>
+    </div>
+
+    <div class="preview">
+      <img src="assets/class_open.jpg" alt="Open Gym" class="preview-img" />
+      <div class="preview-text">
+        <h2>Open Gym</h2>
+        <p>Unlock your potential during our Open Gym sessions at Nu Age Fitness. Enjoy full access to our state-of-the-art equipment, functional training areas, and free weights in a supportive, self-guided environment. Whether you're working on strength, cardio, or mobility, it's your time—your pace.</p>
       </div>
     </div>
   </section>
 
-  <section class="newsletter" style="padding-top:0">
-    <div class="quote" style="max-width:900px;margin:0 auto">
-      <strong>Additional classes coming soon!</strong>
+  <section class="closing-ot">
+    <div class="hero-inner">
+      <h2>Train with Intention</h2>
+      <p>Science-backed classes, motivating coaches, real results.</p>
     </div>
   </section>
 </body>

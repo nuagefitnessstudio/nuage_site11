@@ -112,7 +112,7 @@
 
     <div class="plan">
       <h3>Bronze PT</h3>
-      <div class="price">$220<span class="small">/mo</span></div>
+      <div class="price">$220<span class="small"></span></div>
       <ul>
         <li>4 Personal Training Sessions</li>
       </ul>
@@ -122,7 +122,7 @@
 
     <div class="plan">
       <h3>Silver PT</h3>
-      <div class="price">$400<span class="small">/mo</span></div>
+      <div class="price">$400<span class="small"></span></div>
       <ul>
         <li>8 Personal Training Sessions</li>
       </ul>
@@ -132,7 +132,7 @@
 
     <div class="plan">
       <h3>Gold PT</h3>
-      <div class="price">$560<span class="small">/mo</span></div>
+      <div class="price">$560<span class="small"></span></div>
       <ul>
         <li>12 Personal Training Sessions</li>
       </ul>
