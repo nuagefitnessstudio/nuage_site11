@@ -1,5 +1,5 @@
-
-<!DOCTYPE html>
+<?php
+?><!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -41,41 +41,12 @@
   .hero-ot .hero-inner p{opacity:.92;margin-bottom:1rem}
   .hero-ot .cta-row{display:flex;gap:.75rem;justify-content:center;flex-wrap:wrap}
   
-  .previews{padding:3rem 1rem;display:grid;gap:1.25rem;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));max-width:1100px;margin:0 auto}
-  .preview{background:#fff;border:1px solid var(--line);border-radius:1rem;overflow:hidden;display:grid;grid-template-columns:1fr}
-  .preview-img{aspect-ratio:16/9;object-fit:cover;width:100%}
-  .preview-text{padding:1rem 1.25rem}
-  .preview-text h2{color:var(--navy);margin:0 0 .25rem}
-  .preview-text .link{color:var(--coral);font-weight:600}
-  
-  .testimonials{background:var(--bone);padding:3rem 1rem;text-align:center}
-  .testimonials h2{color:var(--navy);margin:0 0 1rem}
-  .quotes{display:grid;gap:1rem;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));max-width:1000px;margin:0 auto}
-  .quote{background:#fff;border:1px solid var(--line);border-radius:1rem;padding:1rem}
-  .quote blockquote{margin:0 0 .5rem;font-weight:600}
-  .quote figcaption{color:var(--muted)}
-  
-  .newsletter{padding:2.5rem 1rem;text-align:center}
-  .newsletter h2{color:var(--navy)}
-  .newsletter-form{display:flex;gap:.5rem;justify-content:center;flex-wrap:wrap;margin-top:.75rem}
-  .newsletter-form input{padding:.9rem 1rem;border:1px solid var(--line);border-radius:.75rem;min-width:240px}
-  
-  .closing-ot{
-    padding:3rem 1rem;
-    text-align:center;
-    color:#fff;
-    background: linear-gradient(180deg, var(--coral) 0%, var(--navy) 100%);
-  }
-  .closing-ot h2{letter-spacing:.12em;text-transform:uppercase}
-  
-</style>
-  <style>
-    .plans{display:grid;gap:1rem;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));max-width:1100px;margin:2rem auto;padding:0 1rem}
-    .plan{background:#fff;border:1px solid var(--line);border-radius:1rem;padding:1.25rem}
-    .plan h3{margin:.25rem 0;color:var(--navy)}
-    .plan .price{font-size:1.75rem;font-weight:800;color:var(--coral)}
-    .plan ul{padding-left:1rem;margin:.5rem 0 1rem}
-    .small{color:var(--muted);font-size:.9rem}
+  .plans{display:grid;gap:1rem;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));max-width:1100px;margin:2rem auto;padding:0 1rem}
+  .plan{background:#fff;border:1px solid var(--line);border-radius:1rem;padding:1.25rem}
+  .plan h3{margin:.25rem 0;color:var(--navy)}
+  .plan .price{font-size:1.75rem;font-weight:800;color:var(--coral)}
+  .plan ul{padding-left:1rem;margin:.5rem 0 1rem}
+  .small{color:var(--muted);font-size:.9rem}
   </style>
 </head>
 <body>
@@ -91,6 +62,7 @@
   </section>
 
   <section class="plans">
+    <!-- Memberships -->
     <div class="plan">
       <h3>Bronze</h3>
       <div class="price">$60<span class="small">/mo</span></div>
@@ -126,6 +98,58 @@
       <p class="small">Best for regular training</p>
       <a class="btn btn-primary" href="#">Choose Gold</a>
     </div>
-</section>
+
+    <!-- Personal Training & Add-Ons -->
+    <div class="plan">
+      <h3>Intro Training</h3>
+      <div class="price">$60<span class="small">/session</span></div>
+      <ul>
+        <li>1 Personal Training Session</li>
+      </ul>
+      <p class="small">Perfect for beginners</p>
+      <a class="btn btn-primary" href="#">Choose Intro</a>
+    </div>
+
+    <div class="plan">
+      <h3>Bronze PT</h3>
+      <div class="price">$220<span class="small">/mo</span></div>
+      <ul>
+        <li>4 Personal Training Sessions</li>
+      </ul>
+      <p class="small">Monthly training support</p>
+      <a class="btn btn-primary" href="#">Choose Bronze PT</a>
+    </div>
+
+    <div class="plan">
+      <h3>Silver PT</h3>
+      <div class="price">$400<span class="small">/mo</span></div>
+      <ul>
+        <li>8 Personal Training Sessions</li>
+      </ul>
+      <p class="small">For steady progress</p>
+      <a class="btn btn-primary" href="#">Choose Silver PT</a>
+    </div>
+
+    <div class="plan">
+      <h3>Gold PT</h3>
+      <div class="price">$560<span class="small">/mo</span></div>
+      <ul>
+        <li>12 Personal Training Sessions</li>
+      </ul>
+      <p class="small">Best for committed clients</p>
+      <a class="btn btn-primary" href="#">Choose Gold PT</a>
+    </div>
+
+    <div class="plan">
+      <h3>Add-Ons</h3>
+      <div class="price">$30<span class="small"></span></div>
+      <ul>
+        <li>2 Class Open Gym Pass</li>
+        <li>Discounted Extra Classes</li>
+      </ul>
+      <p class="small">Flexible extras</p>
+      <a class="btn btn-primary" href="#">Choose Add-On</a>
+    </div>
+  </section>
 </body>
 </html>
