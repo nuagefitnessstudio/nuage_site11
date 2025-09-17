@@ -86,25 +86,9 @@
     <div class="preview">
       <img src="assets/trainer1.jpg" alt="Trainer J. Smith" class="preview-img" />
       <div class="preview-text">
-        <h2>Izeem Coleman</h2>
+        <h2>Izeem </h2>
         <p>HIIT & Strength Coach. NASM CPT.</p>
         <p class="muted"><em>“Your only limit is you.”</em></p>
-      </div>
-    </div>
-    <div class="preview">
-      <img src="assets/trainer2.jpg" alt="Trainer A. Johnson" class="preview-img" />
-      <div className="preview-text">
-        <h2>A. Johnson</h2>
-        <p>Yoga & Mobility Specialist. RYT‑200.</p>
-        <p class="muted"><em>“Breathe. Flow. Strength.”</em></p>
-      </div>
-    </div>
-    <div class="preview">
-      <img src="assets/trainer3.jpg" alt="Trainer K. Patel" class="preview-img" />
-      <div class="preview-text">
-        <h2>K. Patel</h2>
-        <p>Strength & Conditioning. CSCS.</p>
-        <p class="muted"><em>“Consistency compounds.”</em></p>
       </div>
     </div>
   </section>
