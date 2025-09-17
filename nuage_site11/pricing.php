@@ -79,7 +79,7 @@
   </style>
 </head>
 <body>
-  <section class="hero-ot" style="min-height:40vh">
+  <section class="closing-ot" style="min-height:40vh">
     <div class="hero-inner">
       <h1>Membership Pricing</h1>
       <p>Month-to-Month Contract • 30-Day Cancellation</p>
