@@ -562,7 +562,7 @@ a, button { -webkit-tap-highlight-color: transparent; }
   </header>
 
   <!-- HERO -->
-  <section class="hero-ot">
+  <section class="closing-ot">
     <div class="hero-inner">
       <h1>Train with Intention</h1>
       <p>Science-backed classes, motivating coaches, real results.</p>
