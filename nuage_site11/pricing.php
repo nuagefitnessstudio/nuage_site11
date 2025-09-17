@@ -35,7 +35,7 @@
     place-items:center;
     text-align:center;
     color:#fff;
-    background: radial-gradient(100% 80% at 50% 20%, rgba(235,31,72,.35), rgba(0,45,114,.9)), url('assets/hero.jpg') center/cover no-repeat;
+    background: linear-gradient(180deg, var(--coral) 0%, var(--navy) 100%);
   }
   .hero-ot .hero-inner h1{font-size:clamp(2rem,5vw,3.5rem);margin:.25rem 0}
   .hero-ot .hero-inner p{opacity:.92;margin-bottom:1rem}
@@ -79,7 +79,7 @@
   </style>
 </head>
 <body>
-  <section class="closing-ot" style="min-height:40vh">
+  <section class="hero-ot" style="min-height:40vh">
     <div class="hero-inner">
       <h1>Membership Pricing</h1>
       <p>Month-to-Month Contract • 30-Day Cancellation</p>
