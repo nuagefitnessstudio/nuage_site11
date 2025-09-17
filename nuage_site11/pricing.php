@@ -1,4 +1,4 @@
-<?php
+
 ?><!DOCTYPE html>
 <html lang="en">
 <head>
@@ -92,39 +92,40 @@
 
   <section class="plans">
     <div class="plan">
-      <h3>Basic</h3>
+      <h3>Bronze</h3>
       <div class="price">$60<span class="small">/mo</span></div>
       <ul>
-        <li>8 classes / month</li>
-        <li>Open gym access</li>
-        <li>Coach check-ins</li>
+        <li>4 Classes Monthly</li>
+        <li class="small">avg. usage of 1x/week</li>
+        <li>Discounted Add-On Classes</li>
       </ul>
-      <p class="small">~$7.50 per class</p>
-      <a class="btn btn-primary" href="#">Choose Basic</a>
+      <p class="small">Great starter plan</p>
+      <a class="btn btn-primary" href="#">Choose Bronze</a>
     </div>
 
     <div class="plan">
-      <h3>Premium</h3>
-      <div class="price">$100<span class="small">/mo</span></div>
+      <h3>Silver</h3>
+      <div class="price">$110<span class="small">/mo</span></div>
       <ul>
-        <li>Unlimited classes</li>
-        <li>Open gym + priority booking</li>
-        <li>Monthly progress review</li>
+        <li>8 Classes Monthly</li>
+        <li class="small">avg. usage of 2x/week</li>
+        <li>Discounted Add-On Classes</li>
       </ul>
-      <p class="small">Best value for frequent training</p>
-      <a class="btn btn-primary" href="#">Choose Premium</a>
+      <p class="small">Balanced flexibility & value</p>
+      <a class="btn btn-primary" href="#">Choose Silver</a>
     </div>
 
     <div class="plan">
-      <h3>Drop-In</h3>
-      <div class="price">$20<span class="small">/class</span></div>
+      <h3>Gold</h3>
+      <div class="price">$170<span class="small">/mo</span></div>
       <ul>
-        <li>No commitment</li>
-        <li>Great for visitors</li>
+        <li>Unlimited Classes</li>
+        <li class="small">recommended for usage of 3x/week or more</li>
+        <li>Discounted Add-On Classes</li>
       </ul>
-      <p class="small">Pay as you go</p>
-      <a class="btn btn-primary" href="#">Choose Drop-In</a>
+      <p class="small">Best for regular training</p>
+      <a class="btn btn-primary" href="#">Choose Gold</a>
     </div>
-  </section>
+</section>
 </body>
 </html>
