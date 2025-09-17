@@ -486,7 +486,7 @@ a, button { -webkit-tap-highlight-color: transparent; }
     padding:3rem 1rem;
     text-align:center;
     color:#fff;
-    background: coral;
+    background: linear-gradient(180deg, var(--red) 0%, var(--navy) ;
   }
   .closing-ot h2{letter-spacing:.12em;text-transform:uppercase}
   
