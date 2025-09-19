@@ -582,7 +582,7 @@ a, button { -webkit-tap-highlight-color: transparent; }
 
 <!-- NuAge App Preview Section -->
 <section class="app-preview" style="background:var(--bone);padding:80px 0;text-align:center;">
-  <div class="container">
+  <!--<div class="container"> -->
     <h2 style="color:var(--navy);font-family:'Playfair Display',serif;">NuAge Studio App</h2>
     <p style="max-width:640px;margin:16px auto;color:var(--muted);font-size:18px;">
       Powered by Glofox — currently in development, not yet live. Soon you’ll be able to book
@@ -597,7 +597,7 @@ a, button { -webkit-tap-highlight-color: transparent; }
       <a href="#"><img src="assets/googleplay_badge.png" alt="Get it on Google Play" style="height:60px;"></a>
     </div>
    -->
-  </div>
+  <!--</div> -->
 </section>
 
 
