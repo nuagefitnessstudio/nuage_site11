@@ -589,12 +589,14 @@ a, button { -webkit-tap-highlight-color: transparent; }
       classes, track progress, and stay connected right from your phone.
     </p>
     <div style="margin:40px auto;max-width:420px;">
-      <img src="assets/nuage_app_mockup.png" alt="NuAge Studio App Preview" style="width:100%;border-radius:28px;box-shadow:0 12px 28px rgba(0,0,0,0.25);">
+      <img src="assets/A_digital_promotional_graphic_showcases_the_NuAge_.png" alt="NuAge Studio App Preview" style="width:100%;border-radius:28px;box-shadow:0 12px 28px rgba(0,0,0,0.25);">
     </div>
+    <!--
     <div style="display:flex;justify-content:center;gap:20px;flex-wrap:wrap;">
       <a href="#"><img src="assets/appstore_badge.png" alt="Download on App Store" style="height:60px;"></a>
       <a href="#"><img src="assets/googleplay_badge.png" alt="Get it on Google Play" style="height:60px;"></a>
     </div>
+   -->
   </div>
 </section>
 
