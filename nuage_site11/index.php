@@ -582,14 +582,14 @@ a, button { -webkit-tap-highlight-color: transparent; }
 
 <!-- NuAge App Preview Section -->
 <section class="app-preview" style="background:var(--bone);padding:80px 0;text-align:center;">
-  <!--<div class="container"> -->
+  <div class="container">
     <h2 style="color:var(--navy);font-family:'Playfair Display',serif;">NuAge Studio App</h2>
     <p style="max-width:640px;margin:16px auto;color:var(--muted);font-size:18px;">
       Powered by Glofox — currently in development, not yet live. Soon you’ll be able to book
       classes, track progress, and stay connected right from your phone.
     </p>
     <div style="margin:40px auto;max-width:420px;">
-      <img src="assets/A_digital_promotional_graphic_showcases_the_NuAge_.png" alt="NuAge Studio App Preview" style="width:100%;border-radius:28px;box-shadow:0 12px 28px rgba(0,0,0,0.25);">
+      <img src="assets/A_digital_promotional_graphic_showcases_the_NuAge_.png" alt="NuAge Studio App Preview" style="width:100%;border-radius:28px; 12px 28px rgba(0,0,0,0.25);">
     </div>
     <!--
     <div style="display:flex;justify-content:center;gap:20px;flex-wrap:wrap;">
@@ -597,7 +597,7 @@ a, button { -webkit-tap-highlight-color: transparent; }
       <a href="#"><img src="assets/googleplay_badge.png" alt="Get it on Google Play" style="height:60px;"></a>
     </div>
    -->
-  <!--</div> -->
+  </div>
 </section>
 
 
