@@ -580,28 +580,24 @@ a, button { -webkit-tap-highlight-color: transparent; }
   </div>
 </section>
 
-<section style="text-align:center; padding:4rem 1rem; background:var(--bone)">
-  <h2 style="color:var(--navy); font-size:2rem; margin-bottom:1rem;">
-    NuAge Fitness Studio App
-  </h2>
-  <p style="max-width:700px; margin:0 auto 2rem; font-size:1.1rem; color:var(--muted);">
-    Our official app, powered by <strong>Glofox</strong>, is coming soon! 
-    You’ll be able to book classes, manage your membership, and stay connected 
-    with NuAge — all from your phone. The app is currently in development, 
-    but here’s a preview of what’s on the way.
-  </p>
-
-  <!-- iPhone Mockup -->
-  <div style="display:flex;justify-content:center;align-items:center;">
-    <div style="border:12px solid #000;border-radius:40px;overflow:hidden;max-width:300px;box-shadow:0 8px 20px rgba(0,0,0,0.25);">
-      <img src="assets/nuage_app_preview.png" alt="NuAge App Coming Soon Preview" style="width:100%;display:block">
+<!-- NuAge App Preview Section -->
+<section class="app-preview" style="background:var(--bone);padding:80px 0;text-align:center;">
+  <div class="container">
+    <h2 style="color:var(--navy);font-family:'Playfair Display',serif;">NuAge Studio App</h2>
+    <p style="max-width:640px;margin:16px auto;color:var(--muted);font-size:18px;">
+      Powered by Glofox — currently in development, not yet live. Soon you’ll be able to book
+      classes, track progress, and stay connected right from your phone.
+    </p>
+    <div style="margin:40px auto;max-width:420px;">
+      <img src="assets/nuage_app_mockup.png" alt="NuAge Studio App Preview" style="width:100%;border-radius:28px;box-shadow:0 12px 28px rgba(0,0,0,0.25);">
+    </div>
+    <div style="display:flex;justify-content:center;gap:20px;flex-wrap:wrap;">
+      <a href="#"><img src="assets/appstore_badge.png" alt="Download on App Store" style="height:60px;"></a>
+      <a href="#"><img src="assets/googleplay_badge.png" alt="Get it on Google Play" style="height:60px;"></a>
     </div>
   </div>
-
-  <p style="margin-top:1.5rem; font-size:1rem; color:var(--navy); font-weight:600;">
-    📱 Coming soon on iOS & Android — stay tuned!
-  </p>
 </section>
+
 
 
   <!-- PREVIEWS -->
