@@ -589,7 +589,7 @@ a, button { -webkit-tap-highlight-color: transparent; }
       classes, track progress, and stay connected right from your phone.
     </p>
     <div style="margin:40px auto;max-width:420px;">
-    <img src="assets/A_digital_promotional_graphic_showcases_the_NuAge_.png"
+    <img src="assets/ChatGPT Image Sep 18, 2025, 11_46_05 PM.png"
      alt="NuAge Studio App Preview"
      style="width:100%;border-radius:28px;background:var(--bone);">
     </div>
