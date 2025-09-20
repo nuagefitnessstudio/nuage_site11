@@ -114,19 +114,21 @@
   </div>
 </section>
 
-<!-- Personal Training + Add-Ons -->
-<section class="personal-training" style="background:#fff;padding:80px 20px;text-align:center;">
+
+<!-- Personal Training & Add-Ons -->
+
+<!-- Personal Training & Add-Ons -->
+<section class="personal-training" style="background:var(--bone);padding:80px 20px;text-align:center;">
   <div class="container" style="max-width:1200px;margin:auto;">
     <h2 style="font-family:'Playfair Display',serif;color:var(--navy);margin-bottom:40px;">
       Personal Training & Add-Ons
     </h2>
-    <div style="background:#fff;border-radius:16px;padding:32px;box-shadow:0 6px 20px rgba(0,0,0,0.08);">
-
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px;">
       
       <!-- Intro Training -->
-      <div style="background:var(--bone);border-radius:16px;padding:32px;box-shadow:0 6px 20px rgba(0,0,0,0.05);">
+      <div style="background:#fff;border-radius:16px;padding:32px;box-shadow:0 6px 20px rgba(0,0,0,0.08);">
         <h3 style="color:var(--navy);margin-bottom:12px;">Intro Training</h3>
-        <p style="font-size:28px;font-weight:700;color:var(--coral);margin:0;">$60/session</p>
+        <p style="font-size:32px;font-weight:700;color:var(--coral);margin:0;">$60<span style="font-size:16px;">/session</span></p>
         <ul style="list-style:none;padding:0;margin:20px 0;color:var(--muted);line-height:1.6;">
           <li>1 Personal Training Session</li>
           <li>Perfect for beginners</li>
@@ -135,9 +137,9 @@
       </div>
 
       <!-- Bronze PT -->
-      <div style="background:var(--bone);border-radius:16px;padding:32px;box-shadow:0 6px 20px rgba(0,0,0,0.05);">
+      <div style="background:#fff;border-radius:16px;padding:32px;box-shadow:0 6px 20px rgba(0,0,0,0.08);">
         <h3 style="color:var(--navy);margin-bottom:12px;">Bronze PT</h3>
-        <p style="font-size:28px;font-weight:700;color:var(--coral);margin:0;">$220</p>
+        <p style="font-size:32px;font-weight:700;color:var(--coral);margin:0;">$220</p>
         <ul style="list-style:none;padding:0;margin:20px 0;color:var(--muted);line-height:1.6;">
           <li>4 Personal Training Sessions</li>
           <li>Monthly training support</li>
@@ -146,9 +148,9 @@
       </div>
 
       <!-- Silver PT -->
-      <div style="background:var(--bone);border-radius:16px;padding:32px;box-shadow:0 6px 20px rgba(0,0,0,0.05);">
+      <div style="background:#fff;border-radius:16px;padding:32px;box-shadow:0 6px 20px rgba(0,0,0,0.08);">
         <h3 style="color:var(--navy);margin-bottom:12px;">Silver PT</h3>
-        <p style="font-size:28px;font-weight:700;color:var(--coral);margin:0;">$400</p>
+        <p style="font-size:32px;font-weight:700;color:var(--coral);margin:0;">$400</p>
         <ul style="list-style:none;padding:0;margin:20px 0;color:var(--muted);line-height:1.6;">
           <li>8 Personal Training Sessions</li>
           <li>For steady progress</li>
@@ -157,9 +159,9 @@
       </div>
 
       <!-- Gold PT -->
-      <div style="background:var(--bone);border-radius:16px;padding:32px;box-shadow:0 6px 20px rgba(0,0,0,0.05);">
+      <div style="background:#fff;border-radius:16px;padding:32px;box-shadow:0 6px 20px rgba(0,0,0,0.08);">
         <h3 style="color:var(--navy);margin-bottom:12px;">Gold PT</h3>
-        <p style="font-size:28px;font-weight:700;color:var(--coral);margin:0;">$575</p>
+        <p style="font-size:32px;font-weight:700;color:var(--coral);margin:0;">$575</p>
         <ul style="list-style:none;padding:0;margin:20px 0;color:var(--muted);line-height:1.6;">
           <li>12 Personal Training Sessions</li>
           <li>Best for committed clients</li>
@@ -168,9 +170,9 @@
       </div>
 
       <!-- Add-Ons -->
-      <div style="background:var(--bone);border-radius:16px;padding:32px;box-shadow:0 6px 20px rgba(0,0,0,0.05);">
+      <div style="background:#fff;border-radius:16px;padding:32px;box-shadow:0 6px 20px rgba(0,0,0,0.08);">
         <h3 style="color:var(--navy);margin-bottom:12px;">Add-Ons</h3>
-        <p style="font-size:28px;font-weight:700;color:var(--coral);margin:0;">$30</p>
+        <p style="font-size:32px;font-weight:700;color:var(--coral);margin:0;">$30</p>
         <ul style="list-style:none;padding:0;margin:20px 0;color:var(--muted);line-height:1.6;">
           <li>2 Class Open Gym Pass</li>
           <li>Discounted Extra Classes</li>
@@ -178,9 +180,12 @@
         </ul>
         <a href="#" class="btn btn-primary">Choose Add-On</a>
       </div>
+
     </div>
   </div>
 </section>
+
+
 
 
 </body>
