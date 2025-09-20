@@ -554,12 +554,13 @@ a, button { -webkit-tap-highlight-color: transparent; }
   </video>
   <div class="hero-center">
     <div>
-      <h1 style="font-family:'Playfair Display',serif;color:#fff;font-size:3rem;">
+      <h1 style="font-family:'Playfair Display',serif;font-size:3rem;">
         This is the feeling of 
         <span style="color:var(--navy);">Nu</span><span style="color:var(--coral);">Age</span>
       </h1>
       <p style="max-width:720px;margin:12px auto 20px;color:#f0f0f0;opacity:.95;font-size:1.2rem;">
-        Premium <span style="color:var(--coral);">training</span>, <span style="color:var(--coral);">recovery</span>, 
+        Premium <span style="color:var(--coral);">training</span>, 
+        <span style="color:var(--coral);">recovery</span>, 
         and <span style="color:var(--coral);">community</span> — all in one elegant club experience.
       </p>
       <a href="#" class="btn" 
@@ -570,6 +571,7 @@ a, button { -webkit-tap-highlight-color: transparent; }
     </div>
   </div>
 </header>
+
 
 
   <!-- HERO -->
