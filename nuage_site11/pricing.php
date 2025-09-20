@@ -132,7 +132,7 @@
 
     <div class="plan">
       <h3>Gold PT</h3>
-      <div class="price">$560<span class="small"></span></div>
+      <div class="price">$575<span class="small"></span></div>
       <ul>
         <li>12 Personal Training Sessions</li>
       </ul>
