@@ -151,5 +151,64 @@
       <a class="btn btn-primary" href="#">Choose Add-On</a>
     </div>
   </section>
+
+<!-- Membership Pricing -->
+<section class="pricing" style="background:var(--bone);padding:80px 20px;text-align:center;">
+  <div class="container" style="max-width:1200px;margin:auto;">
+    <h2 style="font-family:'Playfair Display',serif;color:var(--navy);margin-bottom:40px;">
+      Membership Plans
+    </h2>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px;">
+      <!-- Bronze -->
+      <div style="background:#fff;border-radius:16px;padding:32px;box-shadow:0 6px 20px rgba(0,0,0,0.08);">
+        <h3 style="color:var(--navy);margin-bottom:12px;">Bronze</h3>
+        <p style="color:var(--muted);margin-bottom:16px;">Essential access to gym and cardio zones.</p>
+        <p style="font-size:32px;font-weight:700;color:var(--coral);margin:0;">$29<span style="font-size:16px;">/mo</span></p>
+      </div>
+      <!-- Silver -->
+      <div style="background:#fff;border-radius:16px;padding:32px;box-shadow:0 6px 20px rgba(0,0,0,0.08);">
+        <h3 style="color:var(--navy);margin-bottom:12px;">Silver</h3>
+        <p style="color:var(--muted);margin-bottom:16px;">Includes Bronze + group classes.</p>
+        <p style="font-size:32px;font-weight:700;color:var(--coral);margin:0;">$49<span style="font-size:16px;">/mo</span></p>
+      </div>
+      <!-- Gold -->
+      <div style="background:#fff;border-radius:16px;padding:32px;box-shadow:0 6px 20px rgba(0,0,0,0.08);">
+        <h3 style="color:var(--navy);margin-bottom:12px;">Gold</h3>
+        <p style="color:var(--muted);margin-bottom:16px;">Full access + premium amenities + classes.</p>
+        <p style="font-size:32px;font-weight:700;color:var(--coral);margin:0;">$79<span style="font-size:16px;">/mo</span></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Personal Training Pricing -->
+<section class="personal-training" style="background:#fff;padding:80px 20px;text-align:center;">
+  <div class="container" style="max-width:1200px;margin:auto;">
+    <h2 style="font-family:'Playfair Display',serif;color:var(--navy);margin-bottom:40px;">
+      Personal Training Packages
+    </h2>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px;">
+      <!-- Single Session -->
+      <div style="background:var(--bone);border-radius:16px;padding:32px;box-shadow:0 6px 20px rgba(0,0,0,0.05);">
+        <h3 style="color:var(--navy);margin-bottom:12px;">Single Session</h3>
+        <p style="color:var(--muted);margin-bottom:16px;">One-on-one personalized coaching.</p>
+        <p style="font-size:28px;font-weight:700;color:var(--coral);margin:0;">$60</p>
+      </div>
+      <!-- 5-Pack -->
+      <div style="background:var(--bone);border-radius:16px;padding:32px;box-shadow:0 6px 20px rgba(0,0,0,0.05);">
+        <h3 style="color:var(--navy);margin-bottom:12px;">5-Session Pack</h3>
+        <p style="color:var(--muted);margin-bottom:16px;">Bundle for consistent results.</p>
+        <p style="font-size:28px;font-weight:700;color:var(--coral);margin:0;">$275</p>
+      </div>
+      <!-- 10-Pack -->
+      <div style="background:var(--bone);border-radius:16px;padding:32px;box-shadow:0 6px 20px rgba(0,0,0,0.05);">
+        <h3 style="color:var(--navy);margin-bottom:12px;">10-Session Pack</h3>
+        <p style="color:var(--muted);margin-bottom:16px;">Best value for long-term training.</p>
+        <p style="font-size:28px;font-weight:700;color:var(--coral);margin:0;">$500</p>
+      </div>
+    </div>
+  </div>
+</section>
+
 </body>
 </html>
