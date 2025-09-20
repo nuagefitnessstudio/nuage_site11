@@ -61,96 +61,8 @@
     </div>
   </section>
 
-  <section class="plans">
-    <!-- Memberships -->
-    <div class="plan">
-      <h3>Bronze</h3>
-      <div class="price">$60<span class="small">/mo</span></div>
-      <ul>
-        <li>4 Classes Monthly</li>
-        <li class="small">avg. usage of 1x/week</li>
-        <li>Discounted Add-On Classes</li>
-      </ul>
-      <p class="small">Great starter plan</p>
-      <a class="btn btn-primary" href="#">Choose Bronze</a>
-    </div>
+  
 
-    <div class="plan">
-      <h3>Silver</h3>
-      <div class="price">$110<span class="small">/mo</span></div>
-      <ul>
-        <li>8 Classes Monthly</li>
-        <li class="small">avg. usage of 2x/week</li>
-        <li>Discounted Add-On Classes</li>
-      </ul>
-      <p class="small">Balanced flexibility & value</p>
-      <a class="btn btn-primary" href="#">Choose Silver</a>
-    </div>
-
-    <div class="plan">
-      <h3>Gold</h3>
-      <div class="price">$170<span class="small">/mo</span></div>
-      <ul>
-        <li>Unlimited Classes</li>
-        <li class="small">recommended for usage of 3x/week or more</li>
-        <li>Discounted Add-On Classes</li>
-      </ul>
-      <p class="small">Best for regular training</p>
-      <a class="btn btn-primary" href="#">Choose Gold</a>
-    </div>
-
-    <!-- Personal Training & Add-Ons -->
-    <div class="plan">
-      <h3>Intro Training</h3>
-      <div class="price">$60<span class="small">/session</span></div>
-      <ul>
-        <li>1 Personal Training Session</li>
-      </ul>
-      <p class="small">Perfect for beginners</p>
-      <a class="btn btn-primary" href="#">Choose Intro</a>
-    </div>
-
-    <div class="plan">
-      <h3>Bronze PT</h3>
-      <div class="price">$220<span class="small"></span></div>
-      <ul>
-        <li>4 Personal Training Sessions</li>
-      </ul>
-      <p class="small">Monthly training support</p>
-      <a class="btn btn-primary" href="#">Choose Bronze PT</a>
-    </div>
-
-    <div class="plan">
-      <h3>Silver PT</h3>
-      <div class="price">$400<span class="small"></span></div>
-      <ul>
-        <li>8 Personal Training Sessions</li>
-      </ul>
-      <p class="small">For steady progress</p>
-      <a class="btn btn-primary" href="#">Choose Silver PT</a>
-    </div>
-
-    <div class="plan">
-      <h3>Gold PT</h3>
-      <div class="price">$575<span class="small"></span></div>
-      <ul>
-        <li>12 Personal Training Sessions</li>
-      </ul>
-      <p class="small">Best for committed clients</p>
-      <a class="btn btn-primary" href="#">Choose Gold PT</a>
-    </div>
-
-    <div class="plan">
-      <h3>Add-Ons</h3>
-      <div class="price">$30<span class="small"></span></div>
-      <ul>
-        <li>2 Class Open Gym Pass</li>
-        <li>Discounted Extra Classes</li>
-      </ul>
-      <p class="small">Flexible extras</p>
-      <a class="btn btn-primary" href="#">Choose Add-On</a>
-    </div>
-  </section>
 
 <!-- Membership Pricing -->
 <section class="pricing" style="background:var(--bone);padding:80px 20px;text-align:center;">
@@ -159,56 +71,116 @@
       Membership Plans
     </h2>
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px;">
+      
       <!-- Bronze -->
       <div style="background:#fff;border-radius:16px;padding:32px;box-shadow:0 6px 20px rgba(0,0,0,0.08);">
         <h3 style="color:var(--navy);margin-bottom:12px;">Bronze</h3>
-        <p style="color:var(--muted);margin-bottom:16px;">Essential access to gym and cardio zones.</p>
-        <p style="font-size:32px;font-weight:700;color:var(--coral);margin:0;">$29<span style="font-size:16px;">/mo</span></p>
+        <p style="font-size:32px;font-weight:700;color:var(--coral);margin:0;">$60<span style="font-size:16px;">/mo</span></p>
+        <ul style="list-style:none;padding:0;margin:20px 0;color:var(--muted);line-height:1.6;">
+          <li>4 Classes Monthly</li>
+          <li>avg. usage of 1x/week</li>
+          <li>Discounted Add-On Classes</li>
+          <li>Great starter plan</li>
+        </ul>
+        <a href="#" class="btn btn-primary">Choose Bronze</a>
       </div>
+
       <!-- Silver -->
       <div style="background:#fff;border-radius:16px;padding:32px;box-shadow:0 6px 20px rgba(0,0,0,0.08);">
         <h3 style="color:var(--navy);margin-bottom:12px;">Silver</h3>
-        <p style="color:var(--muted);margin-bottom:16px;">Includes Bronze + group classes.</p>
-        <p style="font-size:32px;font-weight:700;color:var(--coral);margin:0;">$49<span style="font-size:16px;">/mo</span></p>
+        <p style="font-size:32px;font-weight:700;color:var(--coral);margin:0;">$110<span style="font-size:16px;">/mo</span></p>
+        <ul style="list-style:none;padding:0;margin:20px 0;color:var(--muted);line-height:1.6;">
+          <li>8 Classes Monthly</li>
+          <li>avg. usage of 2x/week</li>
+          <li>Discounted Add-On Classes</li>
+          <li>Balanced flexibility & value</li>
+        </ul>
+        <a href="#" class="btn btn-primary">Choose Silver</a>
       </div>
+
       <!-- Gold -->
       <div style="background:#fff;border-radius:16px;padding:32px;box-shadow:0 6px 20px rgba(0,0,0,0.08);">
         <h3 style="color:var(--navy);margin-bottom:12px;">Gold</h3>
-        <p style="color:var(--muted);margin-bottom:16px;">Full access + premium amenities + classes.</p>
-        <p style="font-size:32px;font-weight:700;color:var(--coral);margin:0;">$79<span style="font-size:16px;">/mo</span></p>
+        <p style="font-size:32px;font-weight:700;color:var(--coral);margin:0;">$170<span style="font-size:16px;">/mo</span></p>
+        <ul style="list-style:none;padding:0;margin:20px 0;color:var(--muted);line-height:1.6;">
+          <li>Unlimited Classes</li>
+          <li>recommended for 3x/week or more</li>
+          <li>Discounted Add-On Classes</li>
+          <li>Best for regular training</li>
+        </ul>
+        <a href="#" class="btn btn-primary">Choose Gold</a>
       </div>
     </div>
   </div>
 </section>
 
-<!-- Personal Training Pricing -->
+<!-- Personal Training + Add-Ons -->
 <section class="personal-training" style="background:#fff;padding:80px 20px;text-align:center;">
   <div class="container" style="max-width:1200px;margin:auto;">
     <h2 style="font-family:'Playfair Display',serif;color:var(--navy);margin-bottom:40px;">
-      Personal Training Packages
+      Personal Training & Add-Ons
     </h2>
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px;">
-      <!-- Single Session -->
+      
+      <!-- Intro Training -->
       <div style="background:var(--bone);border-radius:16px;padding:32px;box-shadow:0 6px 20px rgba(0,0,0,0.05);">
-        <h3 style="color:var(--navy);margin-bottom:12px;">Single Session</h3>
-        <p style="color:var(--muted);margin-bottom:16px;">One-on-one personalized coaching.</p>
-        <p style="font-size:28px;font-weight:700;color:var(--coral);margin:0;">$60</p>
+        <h3 style="color:var(--navy);margin-bottom:12px;">Intro Training</h3>
+        <p style="font-size:28px;font-weight:700;color:var(--coral);margin:0;">$60/session</p>
+        <ul style="list-style:none;padding:0;margin:20px 0;color:var(--muted);line-height:1.6;">
+          <li>1 Personal Training Session</li>
+          <li>Perfect for beginners</li>
+        </ul>
+        <a href="#" class="btn btn-primary">Choose Intro</a>
       </div>
-      <!-- 5-Pack -->
+
+      <!-- Bronze PT -->
       <div style="background:var(--bone);border-radius:16px;padding:32px;box-shadow:0 6px 20px rgba(0,0,0,0.05);">
-        <h3 style="color:var(--navy);margin-bottom:12px;">5-Session Pack</h3>
-        <p style="color:var(--muted);margin-bottom:16px;">Bundle for consistent results.</p>
-        <p style="font-size:28px;font-weight:700;color:var(--coral);margin:0;">$275</p>
+        <h3 style="color:var(--navy);margin-bottom:12px;">Bronze PT</h3>
+        <p style="font-size:28px;font-weight:700;color:var(--coral);margin:0;">$220</p>
+        <ul style="list-style:none;padding:0;margin:20px 0;color:var(--muted);line-height:1.6;">
+          <li>4 Personal Training Sessions</li>
+          <li>Monthly training support</li>
+        </ul>
+        <a href="#" class="btn btn-primary">Choose Bronze PT</a>
       </div>
-      <!-- 10-Pack -->
+
+      <!-- Silver PT -->
       <div style="background:var(--bone);border-radius:16px;padding:32px;box-shadow:0 6px 20px rgba(0,0,0,0.05);">
-        <h3 style="color:var(--navy);margin-bottom:12px;">10-Session Pack</h3>
-        <p style="color:var(--muted);margin-bottom:16px;">Best value for long-term training.</p>
-        <p style="font-size:28px;font-weight:700;color:var(--coral);margin:0;">$500</p>
+        <h3 style="color:var(--navy);margin-bottom:12px;">Silver PT</h3>
+        <p style="font-size:28px;font-weight:700;color:var(--coral);margin:0;">$400</p>
+        <ul style="list-style:none;padding:0;margin:20px 0;color:var(--muted);line-height:1.6;">
+          <li>8 Personal Training Sessions</li>
+          <li>For steady progress</li>
+        </ul>
+        <a href="#" class="btn btn-primary">Choose Silver PT</a>
+      </div>
+
+      <!-- Gold PT -->
+      <div style="background:var(--bone);border-radius:16px;padding:32px;box-shadow:0 6px 20px rgba(0,0,0,0.05);">
+        <h3 style="color:var(--navy);margin-bottom:12px;">Gold PT</h3>
+        <p style="font-size:28px;font-weight:700;color:var(--coral);margin:0;">$575</p>
+        <ul style="list-style:none;padding:0;margin:20px 0;color:var(--muted);line-height:1.6;">
+          <li>12 Personal Training Sessions</li>
+          <li>Best for committed clients</li>
+        </ul>
+        <a href="#" class="btn btn-primary">Choose Gold PT</a>
+      </div>
+
+      <!-- Add-Ons -->
+      <div style="background:var(--bone);border-radius:16px;padding:32px;box-shadow:0 6px 20px rgba(0,0,0,0.05);">
+        <h3 style="color:var(--navy);margin-bottom:12px;">Add-Ons</h3>
+        <p style="font-size:28px;font-weight:700;color:var(--coral);margin:0;">$30</p>
+        <ul style="list-style:none;padding:0;margin:20px 0;color:var(--muted);line-height:1.6;">
+          <li>2 Class Open Gym Pass</li>
+          <li>Discounted Extra Classes</li>
+          <li>Flexible extras</li>
+        </ul>
+        <a href="#" class="btn btn-primary">Choose Add-On</a>
       </div>
     </div>
   </div>
 </section>
+
 
 </body>
 </html>
