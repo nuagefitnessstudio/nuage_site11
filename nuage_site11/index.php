@@ -546,20 +546,31 @@ a, button { -webkit-tap-highlight-color: transparent; }
   </aside>
 
   <header class="hero">
-    <video id="heroVideo" autoplay muted playsinline loop poster="https://images.pexels.com/photos/4761669/pexels-photo-4761669.jpeg?auto=compress&cs=tinysrgb&w=1600&h=1000&dpr=1">
-      <source src="assets/benchpress_hero.mp4" type="video/mp4">
-      <source src="assets/benchpress_hero.webm" type="video/webm">
-      <source src="assets/workout_hero.mp4" type="video/mp4">
-      <source src="assets/hero.mp4" type="video/mp4">
-    </video>
-    <div class="hero-center">
-      <div>
-        <h1>This is the feeling of NuAge</h1>
-        <p style="max-width:720px;margin:12px auto 20px;color:#f0f0f0;opacity:.95">Premium training, recovery, and community — all in one elegant club experience.</p>
-        <a href="#" class="btn" style="background:#ffffffcc;color:#0d2a55;border-color:#ffffff;backdrop-filter:blur(4px)">Find a Location</a>
-      </div>
+  <video id="heroVideo" autoplay muted playsinline loop poster="https://images.pexels.com/photos/4761669/pexels-photo-4761669.jpeg?auto=compress&cs=tinysrgb&w=1600&h=1000&dpr=1">
+    <source src="assets/benchpress_hero.mp4" type="video/mp4">
+    <source src="assets/benchpress_hero.webm" type="video/webm">
+    <source src="assets/workout_hero.mp4" type="video/mp4">
+    <source src="assets/hero.mp4" type="video/mp4">
+  </video>
+  <div class="hero-center">
+    <div>
+      <h1 style="font-family:'Playfair Display',serif;color:#fff;font-size:3rem;">
+        This is the feeling of 
+        <span style="color:var(--navy);">Nu</span><span style="color:var(--coral);">Age</span>
+      </h1>
+      <p style="max-width:720px;margin:12px auto 20px;color:#f0f0f0;opacity:.95;font-size:1.2rem;">
+        Premium <span style="color:var(--coral);">training</span>, <span style="color:var(--coral);">recovery</span>, 
+        and <span style="color:var(--coral);">community</span> — all in one elegant club experience.
+      </p>
+      <a href="#" class="btn" 
+         style="background:#ffffffcc;color:var(--navy);border:2px solid #ffffff;border-radius:8px;
+                padding:12px 24px;font-weight:600;backdrop-filter:blur(4px);">
+        Find a Location
+      </a>
     </div>
-  </header>
+  </div>
+</header>
+
 
   <!-- HERO -->
   <section class="closing-ot">
