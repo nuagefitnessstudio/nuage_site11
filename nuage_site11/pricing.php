@@ -114,6 +114,17 @@
   </div>
 </section>
 
+<section class="hero-ot" style="min-height:40vh">
+    <div class="hero-inner">
+      <h1>Personal Training Pricing</h1>
+      <p>Month-to-Month Contract • 30-Day Cancellation</p>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="classes.php">View Classes</a>
+        <a class="btn btn-light" href="index.php">Back Home</a>
+      </div>
+    </div>
+  </section>
+
 
 <!-- Personal Training & Add-Ons -->
 
