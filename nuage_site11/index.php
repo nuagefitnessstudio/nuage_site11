@@ -555,30 +555,67 @@ a, button { -webkit-tap-highlight-color: transparent; }
     <source src="assets/hero.mp4" type="video/mp4">
   </video>
 
-  <!-- Gradient overlay -->
-  <div style="position:absolute;top:0;left:0;width:100%;height:100%;
-              background:linear-gradient(rgba(0,0,0,0.55),rgba(0,0,0,0.55));
-              z-index:1;"></div>
-
   <div class="hero-center" style="position:relative;z-index:2;display:flex;align-items:center;justify-content:center;height:100%;text-align:center;padding:0 20px;">
     <div>
-      <h1 style="font-family:'Playfair Display',serif;font-size:3rem;margin-bottom:16px;color:#fff;">
+      <h1 class="hero-title">
         This is the feeling of 
         <span style="color:var(--navy);text-shadow:0 0 6px rgba(255,255,255,0.6);">Nu</span><span style="color:var(--coral);">Age</span><span style="color:var(--navy);">FitnessStudios</span>
       </h1>
-      <p style="max-width:720px;margin:12px auto 20px;color:#f0f0f0;opacity:.95;font-size:1.2rem;">
+      <p class="hero-text">
         Premium <span style="color:var(--coral);">training</span>, 
         <span style="color:var(--coral);">recovery</span>, 
         and <span style="color:var(--coral);">community</span> — all in one elegant club experience.
       </p>
-      <a href="#" class="btn" 
-         style="background:#ffffffcc;color:var(--navy);border:2px solid #ffffff;border-radius:8px;
-                padding:12px 24px;font-weight:600;backdrop-filter:blur(4px);text-decoration:none;display:inline-block;">
-        Find a Location
-      </a>
+      <a href="#" class="hero-btn">Find a Location</a>
     </div>
   </div>
 </header>
+
+<style>
+  .hero-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    margin-bottom: 16px;
+    color: #fff;
+  }
+  .hero-text {
+    max-width: 720px;
+    margin: 12px auto 20px;
+    color: #f0f0f0;
+    opacity: .95;
+    font-size: 1.2rem;
+  }
+  .hero-btn {
+    background: #ffffffcc;
+    color: var(--navy);
+    border: 2px solid #ffffff;
+    border-radius: 8px;
+    padding: 12px 24px;
+    font-weight: 600;
+    backdrop-filter: blur(4px);
+    text-decoration: none;
+    display: inline-block;
+  }
+
+  /* Mobile responsiveness */
+  @media (max-width: 768px) {
+    .hero-title {
+      font-size: 2rem;
+      line-height: 1.2;
+    }
+    .hero-text {
+      font-size: 1rem;
+      padding: 0 10px;
+    }
+    .hero-btn {
+      display: block;
+      width: 100%;
+      max-width: 260px;
+      margin: 0 auto;
+      padding: 12px;
+    }
+  }
+</style>
 
 
 
@@ -885,11 +922,6 @@ a, button { -webkit-tap-highlight-color: transparent; }
 
 </body>
 </html>
-
-
-
-
-
 
 
 
