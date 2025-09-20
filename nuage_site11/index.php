@@ -564,7 +564,7 @@ a, button { -webkit-tap-highlight-color: transparent; }
     <div>
       <h1 style="font-family:'Playfair Display',serif;font-size:3rem;margin-bottom:16px;color:#fff;">
         This is the feeling of 
-        <span style="color:var(--navy);text-shadow:0 0 6px rgba(255,255,255,0.6);">Nu</span><span style="color:var(--coral);">Age</span>
+        <span style="color:var(--navy);text-shadow:0 0 6px rgba(255,255,255,0.6);">Nu</span><span style="color:var(--coral);">Age</span><span style="color:var(--navy);">FitnessStudios</span>
       </h1>
       <p style="max-width:720px;margin:12px auto 20px;color:#f0f0f0;opacity:.95;font-size:1.2rem;">
         Premium <span style="color:var(--coral);">training</span>, 
