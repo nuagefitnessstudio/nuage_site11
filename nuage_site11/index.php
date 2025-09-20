@@ -587,27 +587,23 @@ a, button { -webkit-tap-highlight-color: transparent; }
       <span style="color:var(--navy);">Nu</span><span style="color:var(--coral);">Age</span>
       <span style="color:var(--navy);"> Fitness Studios App</span>
     </h2>
-  </div>
-</section>
-
     <p style="max-width:640px;margin:16px auto;color:var(--muted);font-size:18px;">
       Powered by Glofox — currently in development, not yet live. Soon you’ll be able to book
       classes, track progress, and stay connected right from your phone.
     </p>
     <div style="margin:40px auto;max-width:420px;">
-    <img src="assets/ChatGPT Image Sep 18, 2025, 11_46_05 PM.png"
-     alt="NuAge Studio App Preview"
-     style="width:100%;border-radius:28px;background:var(--bone);">
+      <img src="assets/ChatGPT Image Sep 18, 2025, 11_46_05 PM.png"
+        alt="NuAge Studio App Preview"
+        style="width:100%;border-radius:28px;background:var(--bone);">
     </div>
     <!--
     <div style="display:flex;justify-content:center;gap:20px;flex-wrap:wrap;">
       <a href="#"><img src="assets/appstore_badge.png" alt="Download on App Store" style="height:60px;"></a>
       <a href="#"><img src="assets/googleplay_badge.png" alt="Get it on Google Play" style="height:60px;"></a>
     </div>
-   -->
+    -->
   </div>
 </section>
-
 
 
   <!-- PREVIEWS -->
