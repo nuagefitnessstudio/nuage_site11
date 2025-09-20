@@ -583,11 +583,13 @@ a, button { -webkit-tap-highlight-color: transparent; }
 <!-- NuAge App Preview Section -->
 <section class="app-preview" style="background:var(--bone);padding:80px 0;text-align:center;">
   <div class="container">
-  <h2 style="font-family:'Playfair Display',serif;">
-  <span style="color:var(--navy);">Nu</span>
-  <span style="color:var(--coral);">Age</span>
-  <span style="color:var(--navy);"> Fitness Studios App</span>
-</h2>
+    <h2 style="font-family:'Playfair Display',serif;">
+      <span style="color:var(--navy);">Nu</span><span style="color:var(--coral);">Age</span>
+      <span style="color:var(--navy);"> Fitness Studios App</span>
+    </h2>
+  </div>
+</section>
+
     <p style="max-width:640px;margin:16px auto;color:var(--muted);font-size:18px;">
       Powered by Glofox — currently in development, not yet live. Soon you’ll be able to book
       classes, track progress, and stay connected right from your phone.
