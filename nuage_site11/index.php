@@ -545,18 +545,26 @@ a, button { -webkit-tap-highlight-color: transparent; }
     </nav>
   </aside>
 
-  <header class="hero">
-  <video id="heroVideo" autoplay muted playsinline loop poster="https://images.pexels.com/photos/4761669/pexels-photo-4761669.jpeg?auto=compress&cs=tinysrgb&w=1600&h=1000&dpr=1">
+  <header class="hero" style="position:relative;overflow:hidden;">
+  <video id="heroVideo" autoplay muted playsinline loop 
+    poster="https://images.pexels.com/photos/4761669/pexels-photo-4761669.jpeg?auto=compress&cs=tinysrgb&w=1600&h=1000&dpr=1"
+    style="width:100%;height:100%;object-fit:cover;position:absolute;top:0;left:0;z-index:0;">
     <source src="assets/benchpress_hero.mp4" type="video/mp4">
     <source src="assets/benchpress_hero.webm" type="video/webm">
     <source src="assets/workout_hero.mp4" type="video/mp4">
     <source src="assets/hero.mp4" type="video/mp4">
   </video>
-  <div class="hero-center">
+
+  <!-- Gradient overlay -->
+  <div style="position:absolute;top:0;left:0;width:100%;height:100%;
+              background:linear-gradient(rgba(0,0,0,0.55),rgba(0,0,0,0.55));
+              z-index:1;"></div>
+
+  <div class="hero-center" style="position:relative;z-index:2;display:flex;align-items:center;justify-content:center;height:100%;text-align:center;padding:0 20px;">
     <div>
-      <h1 style="font-family:'Playfair Display',serif;font-size:3rem;">
+      <h1 style="font-family:'Playfair Display',serif;font-size:3rem;margin-bottom:16px;color:#fff;">
         This is the feeling of 
-        <span style="color:var(--navy);">Nu</span><span style="color:var(--coral);">Age</span>
+        <span style="color:var(--navy);text-shadow:0 0 6px rgba(255,255,255,0.6);">Nu</span><span style="color:var(--coral);">Age</span>
       </h1>
       <p style="max-width:720px;margin:12px auto 20px;color:#f0f0f0;opacity:.95;font-size:1.2rem;">
         Premium <span style="color:var(--coral);">training</span>, 
@@ -565,7 +573,7 @@ a, button { -webkit-tap-highlight-color: transparent; }
       </p>
       <a href="#" class="btn" 
          style="background:#ffffffcc;color:var(--navy);border:2px solid #ffffff;border-radius:8px;
-                padding:12px 24px;font-weight:600;backdrop-filter:blur(4px);">
+                padding:12px 24px;font-weight:600;backdrop-filter:blur(4px);text-decoration:none;display:inline-block;">
         Find a Location
       </a>
     </div>
