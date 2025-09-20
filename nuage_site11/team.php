@@ -92,14 +92,6 @@
       </div>
     </div>
     <div class="preview">
-      <img src="assets/trainer2.jpg" alt="Trainer A. Johnson" class="preview-img" />
-      <div className="preview-text">
-        <h2>A. Johnson</h2>
-        <p>Yoga & Mobility Specialist. RYT‑200.</p>
-        <p class="muted"><em>“Breathe. Flow. Strength.”</em></p>
-      </div>
-    </div>
-    <div class="preview">
       <img src="assets/trainer3.jpg" alt="Trainer K. Patel" class="preview-img" />
       <div class="preview-text">
         <h2>K. Patel</h2>
