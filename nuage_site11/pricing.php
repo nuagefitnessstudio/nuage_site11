@@ -120,7 +120,8 @@
     <h2 style="font-family:'Playfair Display',serif;color:var(--navy);margin-bottom:40px;">
       Personal Training & Add-Ons
     </h2>
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px;">
+    <div style="background:#fff;border-radius:16px;padding:32px;box-shadow:0 6px 20px rgba(0,0,0,0.08);">
+
       
       <!-- Intro Training -->
       <div style="background:var(--bone);border-radius:16px;padding:32px;box-shadow:0 6px 20px rgba(0,0,0,0.05);">
