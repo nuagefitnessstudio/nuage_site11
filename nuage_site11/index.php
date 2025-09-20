@@ -575,10 +575,20 @@ a, button { -webkit-tap-highlight-color: transparent; }
 
   <section class="plans" style="max-width:900px;margin:2rem auto;padding:0 1rem">
   <div class="plan">
-    <h3>NuAge Fitness Studio</h3>
-    <p>At NuAge Fitness Studio, we believe that fitness is more than just a workout — it's a lifestyle. Founded in 2024 with a passion for health, strength, and community, our state-of-the-art facility offers a range of equipment, from free weights and machines to functional training zones and cardio stations. Whether you're a beginner, an athlete, or just looking to stay active, our certified trainers and support staff are here to help you crush your goals.</p>
+    <h3 style="color:var(--navy);font-family:'Playfair Display',serif;">
+      <span style="color:var(--navy);">Nu</span><span style="color:var(--coral);">Age</span> Fitness Studio
+    </h3>
+    <p style="color:var(--navy);font-size:18px;line-height:1.6;">
+      At <span style="color:var(--coral);">NuAge Fitness Studio</span>, we believe that fitness is more than just a workout — 
+      it's a <span style="color:var(--coral);">lifestyle</span>. Founded in 2024 with a passion for health, strength, 
+      and community, our state-of-the-art facility offers a range of equipment, from free weights and machines 
+      to functional training zones and cardio stations. Whether you're a beginner, an athlete, or just looking 
+      to stay active, our certified trainers and support staff are here to help you 
+      <span style="color:var(--coral);">crush your goals</span>.
+    </p>
   </div>
 </section>
+
 
 <!-- NuAge App Preview Section -->
 <section class="app-preview" style="background:var(--bone);padding:80px 0;text-align:center;">
