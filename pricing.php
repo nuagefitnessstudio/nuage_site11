@@ -200,120 +200,100 @@
 
 
 
-<!-- Stripe wiring (auto-detects "Choose" buttons & prices) -->
-<script src="https://js.stripe.com/v3/"></script>
-<script>
-(function(){
-  var PUBLISHABLE_KEY = "pk_live_51SABsE5czUWB82DekGKNxAuMiE4S9JsP12r3ginPDrtVtir4MO2VDul0JCl2SNMvlaDlH6YF1Lv3yrZzn5gSRcIJ00IXE3LB7W";
-  if (!window.Stripe) { console.error("Stripe.js not loaded"); return; }
-  var stripe = Stripe(PUBLISHABLE_KEY);
+  <!-- Stripe wiring: click on "Choose" buttons OR click directly on the price -->
+  <script src="https://js.stripe.com/v3/"></script>
+  <script>
+  (function(){
+    var PUBLISHABLE_KEY = "pk_live_51SABsE5czUWB82DekGKNxAuMiE4S9JsP12r3ginPDrtVtir4MO2VDul0JCl2SNMvlaDlH6YF1Lv3yrZzn5gSRcIJ00IXE3LB7W";
+    if (!window.Stripe) { console.error("Stripe.js not loaded"); return; }
+    var stripe = Stripe(PUBLISHABLE_KEY);
 
-  function dollarsFromText(txt){
-    if (!txt) return 0;
-    var s = String(txt).replace(/,/g, '');
-    var m = s.match(/\$\s*(\d+(?:\.\d+)?)/);
-    if (!m) return 0;
-    var val = parseFloat(m[1]);
-    if (!isFinite(val)) return 0;
-    return Math.floor(val); // whole dollars for checkout price_data
-  }
-
-  function findCard(el){
-    // climb to a container that looks like a pricing card
-    while (el && el !== document.body) {
-      if (el.matches && (el.matches('.card, .pricing-card, .plan, .pricing, .col, .col-md-4') || /box-shadow:/i.test(el.getAttribute('style')||''))) {
-        return el;
-      }
-      el = el.parentElement;
+    function dollarsFromText(txt){
+      if (!txt) return 0;
+      var m = String(txt).replace(/,/g,'').match(/\$\s*(\d+(?:\.\d+)?)/);
+      return m ? Math.floor(parseFloat(m[1])) : 0;
     }
-    return null;
-  }
-
-  function extractPlan(el){
-    var card = findCard(el);
-    var name = "Payment";
-    var amount = 0;
-
-    if (card) {
-      // name from heading inside card
+    function findCard(el){
+      while (el && el !== document.body) {
+        var st = (el.getAttribute && el.getAttribute('style')) || '';
+        if (/box-shadow:/i.test(st)) return el; // your pricing cards use inline box-shadow
+        el = el.parentElement;
+      }
+      return null;
+    }
+    function extractPlanFrom(el){
+      var card = findCard(el) || document;
+      var name = "Payment", amount = 0;
       var h = card.querySelector('h1,h2,h3,h4');
       if (h && h.textContent.trim()) name = h.textContent.trim();
-
-      // search for any element with a $ amount inside the card
+      // look for first $ price inside the same card
       var priceEl = null;
-      var candidates = card.querySelectorAll('h1,h2,h3,h4,p,li,span,div');
-      for (var i=0;i<candidates.length;i++){
-        var t = candidates[i].textContent || '';
-        if (/\$\s*\d/.test(t)) { priceEl = candidates[i]; break; }
+      var cand = card.querySelectorAll('h1,h2,h3,h4,p,li,span,div');
+      for (var i=0;i<cand.length;i++){
+        if (/\$\s*\d/.test(cand[i].textContent||'')) { priceEl = cand[i]; break; }
       }
       if (priceEl) amount = dollarsFromText(priceEl.textContent);
+      return {name:name, amount:amount};
+    }
+    function startCheckout(info){
+      if (!info.amount || info.amount < 1) { alert("Couldn't detect a price for this plan."); return; }
+      fetch('create_checkout_session.php', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({ amount: info.amount, description: info.name })
+      })
+      .then(res => res.json().then(d=>({ok:res.ok, data:d})))
+      .then(resp => {
+        if (!resp.ok) throw new Error(resp.data && resp.data.error || "Server error");
+        return stripe.redirectToCheckout({ sessionId: resp.data.id });
+      })
+      .then(result => {
+        if (result && result.error) throw new Error(result.error.message || "Stripe redirection error");
+      })
+      .catch(err => { alert(err.message || "Payment error."); console.error(err); });
     }
 
-    // fallback: read data-amount attribute on the button
-    if ((!amount || amount < 1) && el.getAttribute('data-amount')) {
-      amount = Math.floor(Number(el.getAttribute('data-amount'))||0);
-    }
-    // fallback: read cents
-    if ((!amount || amount < 1) && el.getAttribute('data-cents')) {
-      amount = Math.floor((Number(el.getAttribute('data-cents'))||0)/100);
-    }
-
-    return {name:name, amount:amount};
-  }
-
-  function handleClick(e){
-    var a = e.currentTarget;
-    var txt = (a.textContent||'').trim();
-    // Only hijack typical purchase buttons; otherwise let links work normally
-    var isBuy = /^(choose|buy|get|subscribe|upgrade)/i.test(txt) || a.classList.contains('stripe-checkout');
-    if (!isBuy) return; // don't prevent default for unrelated links
-
-    e.preventDefault();
-    if (a.__busy) return;
-    a.__busy = true;
-
-    var info = extractPlan(a);
-    if (!info.amount || info.amount < 1) {
-      alert("Couldn't detect a price for this plan. Add data-amount=\"9\" on the button or ensure a $ price is visible on the card.");
-      a.__busy = false;
-      return;
+    // Make the visible price <p> clickable (adds pointer cursor + title)
+    function decoratePrices(){
+      var cards = document.querySelectorAll('section.pricing div[style*="box-shadow"]');
+      cards.forEach(function(card){
+        var price = null;
+        var nodes = card.querySelectorAll('p,span,div,h1,h2,h3,h4');
+        for (var i=0;i<nodes.length;i++){
+          if (/\$\s*\d/.test(nodes[i].textContent||'')) { price = nodes[i]; break; }
+        }
+        if (price) { price.style.cursor = 'pointer'; price.title = 'Click to purchase'; price.classList.add('stripe-price'); }
+      });
     }
 
-    fetch('create_checkout_session.php', {
-      method: 'POST',
-      headers: {'Content-Type': 'application/json'},
-      body: JSON.stringify({ amount: info.amount, description: info.name })
-    })
-    .then(function(res){ return res.json().then(function(d){ return {ok:res.ok, data:d}; }); })
-    .then(function(resp){
-      if (!resp.ok) throw new Error(resp.data && resp.data.error || "Server error");
-      return stripe.redirectToCheckout({ sessionId: resp.data.id });
-    })
-    .then(function(result){
-      if (result && result.error) throw new Error(result.error.message || "Stripe redirection error");
-    })
-    .catch(function(err){
-      console.error(err);
-      alert(err.message || "Payment error. Please try again.");
-      a.__busy = false;
-    });
-  }
+    function onClick(e){
+      // 1) If a "Choose/Buy/Subscribe" button was clicked, handle it.
+      var btn = e.target.closest('a.btn, button.btn, .stripe-checkout');
+      if (btn) {
+        var label = (btn.textContent||'').trim().toLowerCase();
+        if (/^(choose|buy|get|subscribe|upgrade)/.test(label) || btn.classList.contains('stripe-checkout')) {
+          e.preventDefault();
+          startCheckout(extractPlanFrom(btn));
+          return;
+        }
+      }
+      // 2) If a price text ($xx) inside a pricing card was clicked, handle it.
+      var priceEl = e.target.closest('.stripe-price');
+      if (priceEl && findCard(priceEl)) {
+        e.preventDefault();
+        startCheckout(extractPlanFrom(priceEl));
+        return;
+      }
+    }
 
-  function wire(){
-    // Typical purchase buttons on pricing pages
-    var buttons = Array.prototype.slice.call(document.querySelectorAll('a.btn, button.btn, .stripe-checkout'));
-    buttons.forEach(function(b){
-      b.addEventListener('click', handleClick);
-    });
-  }
-
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', wire);
-  } else {
-    wire();
-  }
-})();
-</script>
+    function init(){
+      decoratePrices();
+      document.addEventListener('click', onClick);
+    }
+    if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
+    else init();
+  })();
+  </script>
 
 </body>
 </html>
