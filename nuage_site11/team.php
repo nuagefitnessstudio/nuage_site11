@@ -68,19 +68,45 @@
   }
   .closing-ot h2{letter-spacing:.12em;text-transform:uppercase}
 
-  .preview {
-  background-color: #002D72; /* navy */
-  padding: 20px;
-  border-radius: 12px;
-  color: white;
-  flex: 1; /* makes all cards equal width when in a row */
-  margin: 10px;
-}
-.preview-container {
-  display: flex;
-  gap: 20px;
-  flex-wrap: wrap; /* makes them stack on smaller screens */
-}
+  <style>
+  /* grid + layout */
+  .previews{
+    max-width:1200px;
+    margin:0 auto;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:24px;
+  }
+
+  .preview{
+    position:relative;
+    background:#fff;
+    border-radius:12px;
+    padding:20px;
+    overflow:hidden;
+    box-shadow:0 6px 18px rgba(0,0,0,.08);
+  }
+
+  .preview.dark{ background:#002D72; color:#fff; }  /* for the navy card */
+
+  .preview-text{
+    position:relative;   /* keep it above any bg image/overlay */
+    z-index:2;
+    color:inherit;
+  }
+
+  /* make absolutely sure h2 isn’t hidden by a global reset */
+  .preview h2{
+    display:block !important;
+    visibility:visible !important;
+    opacity:1 !important;
+    margin:0 0 8px;
+    font-size:24px;
+    line-height:1.2;
+    color:inherit;
+  }
+</style>
+
 
 
   
@@ -98,23 +124,23 @@
     </div>
   </section>
 
-  <section class="previews" style="max-width:1200px">
+  <section class="previews">
   <div class="preview">
-  <div class="preview-text">
-    <h2>Izeem</h2>
-    <p>HIIT & Strength Coach. NASM CPT.</p>
-    <p><em>“Your only limit is you.”</em></p>
+    <div class="preview-text">
+      <h2>Izeem</h2>
+      <p>HIIT & Strength Coach. NASM CPT.</p>
+      <p><em>“Your only limit is you.”</em></p>
+    </div>
   </div>
-</div>
 
-    <div class="preview" style="background-color:#002D72; padding:20px; border-radius:12px; color:white;">
-  <div class="preview-text">
-    <h2>K. Patel</h2>
-    <p>Strength & Conditioning. CSCS.</p>
-    <p><em>“Consistency compounds.”</em></p>
+  <div class="preview dark">
+    <div class="preview-text">
+      <h2>K. Patel</h2>
+      <p>Strength & Conditioning. CSCS.</p>
+      <p><em>“Consistency compounds.”</em></p>
+    </div>
   </div>
-</div>
+</section>
 
-  </section>
 </body>
 </html>
