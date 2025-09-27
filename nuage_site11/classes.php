@@ -84,42 +84,49 @@
   </section>
 
   <section class="plans">
-    <div class="plan">
-      <h3>Core & Restore</h3>
-      <p>A hybrid class that blends dynamic core training with deep restorative stretches. Build strength and stability, then ease into flexibility, mobility, and recovery work.</p>
-    </div>
+  <div class="plan">
+    <h3>Core & Restore</h3>
+    <p>A hybrid class that blends dynamic core training with deep restorative stretches. Build strength and stability, then ease into flexibility, mobility, and recovery work.</p>
+    <a class="btn btn-primary" href="https://app.glofox.com/portal/#/branch/6765827de166ca71d60bd4e8/classes-day-view" target="_blank" rel="noopener">View Schedule & Book</a>
+  </div>
 
-    <div class="plan">
-      <h3>Full Body Bootcamp</h3>
-      <p>Fun, high-energy sessions that combine strength, cardio, and bodyweight exercises. Boost endurance, burn calories, and tone muscles in a motivating atmosphere.</p>
-    </div>
+  <div class="plan">
+    <h3>Full Body Bootcamp</h3>
+    <p>Fun, high-energy sessions that combine strength, cardio, and bodyweight exercises. Boost endurance, burn calories, and tone muscles in a motivating atmosphere.</p>
+    <a class="btn btn-primary" href="https://app.glofox.com/portal/#/branch/6765827de166ca71d60bd4e8/classes-day-view" target="_blank" rel="noopener">View Schedule & Book</a>
+  </div>
 
-    <div class="plan">
-      <h3>Gravity X</h3>
-      <p>TRX suspension training for strength, stability, and mobility. Use gravity and leverage to challenge every muscle group while keeping movements adaptable for all levels.</p>
-    </div>
+  <div class="plan">
+    <h3>Gravity X</h3>
+    <p>TRX suspension training for strength, stability, and mobility. Use gravity and leverage to challenge every muscle group while keeping movements adaptable for all levels.</p>
+    <a class="btn btn-primary" href="https://app.glofox.com/portal/#/branch/6765827de166ca71d60bd4e8/classes-day-view" target="_blank" rel="noopener">View Schedule & Book</a>
+  </div>
 
-    <div class="plan">
-      <h3>Ignite 45</h3>
-      <p>A fast-paced 45-minute HIIT class mixing bodyweight, resistance, and cardio drills. Perfect for maximum results in minimal time.</p>
-    </div>
+  <div class="plan">
+    <h3>Ignite 45</h3>
+    <p>A fast-paced 45-minute HIIT class mixing bodyweight, resistance, and cardio drills. Perfect for maximum results in minimal time.</p>
+    <a class="btn btn-primary" href="https://app.glofox.com/portal/#/branch/6765827de166ca71d60bd4e8/classes-day-view" target="_blank" rel="noopener">View Schedule & Book</a>
+  </div>
 
-    <div class="plan">
-      <h3>The Grind</h3>
-      <p>A raw strength-based class using kettlebells, barbells, resistance bands, and bodyweight. Build functional power for everyday life.</p>
-    </div>
+  <div class="plan">
+    <h3>The Grind</h3>
+    <p>A raw strength-based class using kettlebells, barbells, resistance bands, and bodyweight. Build functional power for everyday life.</p>
+    <a class="btn btn-primary" href="https://app.glofox.com/portal/#/branch/6765827de166ca71d60bd4e8/classes-day-view" target="_blank" rel="noopener">View Schedule & Book</a>
+  </div>
 
-    <div class="plan">
-      <h3>Open Gym</h3>
-      <p>Self-guided access to our state-of-the-art facility. Strength, cardio, or mobility—work on your own goals at your own pace.</p>
-    </div>
-  </section>
+  <div class="plan">
+    <h3>Open Gym</h3>
+    <p>Self-guided access to our state-of-the-art facility. Strength, cardio, or mobility—work on your own goals at your own pace.</p>
+    <a class="btn btn-primary" href="https://app.glofox.com/portal/#/branch/6765827de166ca71d60bd4e8/classes-day-view" target="_blank" rel="noopener">View Schedule & Book</a>
+  </div>
+</section>
 
-  <section class="hero-ot" style="min-height:30vh">
-    <div class="hero-inner">
-      <h2>Train with Intention</h2>
-      <p>Science-backed classes, motivating coaches, real results.</p>
-    </div>
-  </section>
+<section class="hero-ot" style="min-height:30vh">
+  <div class="hero-inner">
+    <h2>Train with Intention</h2>
+    <p>Science-backed classes, motivating coaches, real results.</p>
+  </div>
+</section>
+
 </body>
 </html>
