@@ -744,6 +744,10 @@ a, button { -webkit-tap-highlight-color: transparent; }
     <a class="btn btn-light" href="classes.php">Book a Class</a>
   </section>
 
+  <footer>
+    <p>&copy; <?php echo date('Y'); ?> NuAge Fitness Studio. All rights reserved.</p>
+  </footer>
+
 <script>
     document.getElementById('year').textContent = new Date().getFullYear();
     // Optional: click to pause/play hero video
