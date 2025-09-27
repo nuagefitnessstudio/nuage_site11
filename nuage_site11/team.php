@@ -98,22 +98,23 @@
     </div>
   </section>
 
-  <section class="previews">
+  <section class="previews" style="max-width:1200px">
   <div class="preview">
-    <div class="preview-text">
-      <h2>Izeem</h2>
-      <p>HIIT & Strength Coach. NASM CPT.</p>
-      <p><em>“Your only limit is you.”</em></p>
-    </div>
+  <div class="preview-text">
+    <h2>Izeem</h2>
+    <p>HIIT & Strength Coach. NASM CPT.</p>
+    <p><em>“Your only limit is you.”</em></p>
   </div>
+</div>
 
-  <div class="preview">
-    <div class="preview-text">
-      <h2>K. Patel</h2>
-      <p>Strength & Conditioning. CSCS.</p>
-      <p><em>“Consistency compounds.”</em></p>
-    </div>
+    <div class="preview" style="background-color:#002D72; padding:20px; border-radius:12px; color:white;">
+  <div class="preview-text">
+    <h2>K. Patel</h2>
+    <p>Strength & Conditioning. CSCS.</p>
+    <p><em>“Consistency compounds.”</em></p>
   </div>
-</section>
+</div>
+
+  </section>
 </body>
 </html>
