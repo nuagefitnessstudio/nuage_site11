@@ -534,7 +534,9 @@ a, button { -webkit-tap-highlight-color: transparent; }
       <button class="drawer-close" id="navClose" aria-label="Close menu">&times;</button>
     </div>
     <nav class="drawer-nav">
-      <a href="#" class="pill-link primary"><span style="font-weight:700">Find a Location</span></a>
+    <a href="location.php" class="pill-link primary">
+  <span style="font-weight:700">Find a Location</span>
+   </a>
       <a href="#" class="pill-link" style="font-weight:700;color:var(--navy);border:1px solid var(--line);background:#fff">Member Login</a>
       <!-- More links if needed -->
     
