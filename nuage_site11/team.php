@@ -67,6 +67,22 @@
     background: linear-gradient(180deg, var(--coral) 0%, var(--navy) 100%);
   }
   .closing-ot h2{letter-spacing:.12em;text-transform:uppercase}
+
+  .preview {
+  background-color: #002D72; /* navy */
+  padding: 20px;
+  border-radius: 12px;
+  color: white;
+  flex: 1; /* makes all cards equal width when in a row */
+  margin: 10px;
+}
+.preview-container {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap; /* makes them stack on smaller screens */
+}
+
+
   
 </style>
 </head>
@@ -82,23 +98,22 @@
     </div>
   </section>
 
-  <section class="previews" style="max-width:1200px">
-    <div class="preview">
-      <img src="assets/ChatGPT Image Sep 27, 2025, 02_01_42 AM.png" alt="Trainer J. Smith" class="preview-img" />
-      <div class="preview-text">
-        <h2>Izeem </h2>
-        <p>HIIT & Strength Coach. NASM CPT.</p>
-        <p class="muted"><em>“Your only limit is you.”</em></p>
-      </div>
+  <section class="previews">
+  <div class="preview">
+    <div class="preview-text">
+      <h2>Izeem</h2>
+      <p>HIIT & Strength Coach. NASM CPT.</p>
+      <p><em>“Your only limit is you.”</em></p>
     </div>
-    <div class="preview">
-      <img src="assets/ChatGPT Image Sep 27, 2025, 02_01_42 AM.png" alt="Trainer K. Patel" class="preview-img" />
-      <div class="preview-text">
-        <h2>K. Patel</h2>
-        <p>Strength & Conditioning. CSCS.</p>
-        <p class="muted"><em>“Consistency compounds.”</em></p>
-      </div>
+  </div>
+
+  <div class="preview">
+    <div class="preview-text">
+      <h2>K. Patel</h2>
+      <p>Strength & Conditioning. CSCS.</p>
+      <p><em>“Consistency compounds.”</em></p>
     </div>
-  </section>
+  </div>
+</section>
 </body>
 </html>
