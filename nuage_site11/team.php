@@ -84,7 +84,7 @@
 
   <section class="previews" style="max-width:1200px">
     <div class="preview">
-      <img src="assets/trainer1.jpg" alt="Trainer J. Smith" class="preview-img" />
+      <img src="assets/ChatGPT Image Sep 27, 2025, 01_52_16 AM.png" alt="Trainer J. Smith" class="preview-img" />
       <div class="preview-text">
         <h2>Izeem </h2>
         <p>HIIT & Strength Coach. NASM CPT.</p>
@@ -92,7 +92,7 @@
       </div>
     </div>
     <div class="preview">
-      <img src="assets/trainer3.jpg" alt="Trainer K. Patel" class="preview-img" />
+      <img src="assets/ChatGPT Image Sep 27, 2025, 01_52_16 AM.png" alt="Trainer K. Patel" class="preview-img" />
       <div class="preview-text">
         <h2>K. Patel</h2>
         <p>Strength & Conditioning. CSCS.</p>
