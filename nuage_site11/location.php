@@ -5,142 +5,117 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>NuAge Fitness Studio — Our Location</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
     :root{
-      --navy:#002D72;
-      --coral:#EB1F48;
-      --ink:#111418;
-      --muted:#6a6d74;
-      --line:#e9e6e1;
-      --bone:#faf7f2;
+      --ink:#111418; --muted:#6a6d74; --line:#e9e6e1; --bone:#faf7f2;
+      --pill:#efebe6cc; --navy:#002D72; --coral:#EB1F48;
     }
-    *{box-sizing:border-box}
-    body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;color:var(--ink);background:var(--bone)}
+    *{box-sizing:border-box} html,body{height:100%} body{margin:0;background:var(--bone);color:var(--ink);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif}
     a{text-decoration:none;color:inherit}
 
-    /* ===== Fixed pill navbar (to match index) ===== */
-    .nav-wrap{
-      position:fixed; z-index:1000; left:12px; right:12px; top:10px;
-      background:rgba(255,255,255,.85);
-      border-radius:9999px;
-      box-shadow:0 6px 24px rgba(0,0,0,.18);
-      backdrop-filter:saturate(160%) blur(8px);
-      -webkit-backdrop-filter:saturate(160%) blur(8px);
+    /* ===== Topbar (matches index) ===== */
+    .topbar{
+      position:fixed;top:16px;left:50%;transform:translateX(-50%);
+      display:flex;align-items:center;justify-content:center;gap:14px;
+      width:min(92vw,980px);background:var(--pill);backdrop-filter:blur(8px);
+      border:1px solid rgba(0,0,0,.08);border-radius:999px;
+      padding:10px 16px;z-index:60
     }
-    header.nav{
-      display:grid; grid-template-columns:1fr auto; align-items:center;
-      padding:10px 12px;
-    }
-    .brand{
-      display:flex; align-items:center; gap:.5rem; justify-content:center;
-      pointer-events:none; /* match index look: centered brand */
-    }
-    .brand img{height:30px}
-    .brand-name{font-weight:800; font-size:18px; letter-spacing:.2px}
+    .brand{display:flex;align-items:center;gap:10px}
+    .brand img{height:24px}
+    .brand-name{font-weight:800;letter-spacing:.08em;color:var(--navy)}
+
+    /* Force hamburger icon lines to black to match index */
+    .hamburger svg { color:#000 !important; }
+
     .hamburger{
-      background:#fff; border:1px solid rgba(0,0,0,.08); width:40px; height:40px;
-      border-radius:9999px; display:flex; align-items:center; justify-content:center;
-      cursor:pointer; margin-left:auto;
-      box-shadow:0 4px 10px rgba(0,0,0,.08);
+      position:absolute;right:8px;top:50%;transform:translateY(-50%);
+      display:inline-flex;align-items:center;justify-content:center;
+      width:42px;height:42px;border-radius:999px;border:1px solid rgba(0,0,0,.08);
+      background:#fff9; backdrop-filter:blur(6px); cursor:pointer;
+      transition:transform .15s ease, background .2s ease;
     }
-    .hamburger svg{display:block}
+    .hamburger:active{ transform:translateY(-50%) scale(.98) }
 
-    /* ===== Drawer ===== */
-    .drawer-backdrop{
-      position:fixed; inset:0; background:rgba(0,0,0,.25); opacity:0; pointer-events:none; transition:opacity .35s ease;
-      z-index:1000;
+    /* ===== Drawer + overlay (matches index) ===== */
+    .overlay{
+      position:fixed;inset:0;background:rgba(17,20,24,.4);backdrop-filter:blur(2px);
+      opacity:0;pointer-events:none;transition:opacity .25s ease;z-index:59;
     }
+    .overlay.show{opacity:1;pointer-events:auto}
+
     .drawer{
-      position:fixed; top:0; right:-340px; width:320px; height:100%;
-      background:#fff; box-shadow:-12px 0 24px rgba(0,0,0,.2);
-      transition:right .35s ease; padding:16px; z-index:1001;
-      overflow-y:auto;
+      position:fixed;top:0;right:0;height:100%;width:min(88vw,360px);
+      background:#fff;border-left:1px solid var(--line);box-shadow:0 10px 32px rgba(0,0,0,.16);
+      transform:translateX(100%);transition:transform .28s ease;z-index:60;display:flex;flex-direction:column;
     }
-    .drawer.open{ right:0; }
-    .drawer-backdrop.open{ opacity:1; pointer-events:auto; }
-    .drawer-header{ display:flex; align-items:center; justify-content:space-between; gap:.5rem; }
-    .drawer .brand{ justify-content:flex-start; pointer-events:auto; }
-    .drawer .brand img{ height:28px; }
-    .drawer .brand-name{ font-weight:800; font-size:16px; }
-    .drawer-close{
-      background:none; border:none; font-size:26px; color:var(--coral); cursor:pointer; line-height:1;
-    }
-    .drawer nav{ margin-top:18px; display:flex; flex-direction:column; gap:14px; }
+    .drawer.show{transform:none}
 
-    /* Pills up top (match screenshot) */
-    .pill-link{
-      display:block; padding:14px 16px; border-radius:9999px; font-weight:700;
-      border:1px solid rgba(0,0,0,.12);
-    }
-    .pill-link.primary{
-      background:var(--navy); color:#fff; border-color:transparent;
-    }
-    .drawer a.simple{ padding:6px 4px; border-radius:8px; font-weight:600; }
-    .drawer a.simple:hover{ text-decoration:underline; text-underline-offset:3px; }
+    .drawer-header{display:flex;align-items:center;justify-content:space-between;padding:16px 18px;border-bottom:1px solid var(--line)}
+    .drawer-header .brand img{height:24px}
+    .drawer-close{background:transparent;border:none;font-size:28px;line-height:1;cursor:pointer;padding:6px;border-radius:8px;color:var(--coral)}
 
-    /* Push content below fixed nav */
-    main{ padding-top:90px; text-align:center; }
+    .drawer-nav{padding:10px 14px;display:grid;gap:10px}
+    .pill-link{display:inline-flex;align-items:center;gap:10px;font-weight:700;justify-content:center;padding:14px 16px;border-radius:999px;transition:background .25s,transform .2s}
+    .pill-link.primary{background:#0c2a52;color:#fff}
+    .pill-link:not(.primary){color:var(--navy);border:1px solid var(--line);background:#fff}
+
+    /* content spacing below topbar */
+    main{padding-top:120px}
 
     /* Page content */
-    h2{color:var(--navy);font-size:32px;margin-bottom:10px}
-    .address{color:var(--muted);margin-bottom:30px;font-size:18px}
-    .map-container{max-width:900px;margin:0 auto;border-radius:12px;overflow:hidden;box-shadow:0 6px 18px rgba(0,0,0,.12)}
+    h2{color:var(--navy);font-size:32px;margin:0 0 10px}
+    .address{color:var(--muted);margin:0 0 30px;font-size:18px;text-align:center}
+    .map-container{max-width:900px;margin:0 auto 10px;border-radius:12px;overflow:hidden;box-shadow:0 6px 18px rgba(0,0,0,.12)}
     iframe{width:100%;height:500px;border:0}
-    .btn{display:inline-block;background:var(--coral);color:#fff;padding:14px 28px;border-radius:50px;font-weight:700;margin-top:20px;transition:.25s}
+    .btn{display:inline-block;background:var(--coral);color:#fff;padding:14px 28px;border-radius:50px;font-weight:700;margin:18px auto;transition:.25s}
     .btn:hover{opacity:.92;transform:translateY(-1px)}
     .btn.navy{background:var(--navy)}
-    footer{background:#fff;padding:22px 16px;margin-top:40px;color:var(--muted);font-size:14px;box-shadow:0 -2px 8px rgba(0,0,0,.04)}
 
-    @media (min-width: 900px){
-      .brand img{height:34px}
-      .brand-name{font-size:20px}
-      iframe{height:520px}
-    }
+    footer{background:#fff;padding:22px 16px;margin-top:40px;color:var(--muted);font-size:14px;box-shadow:0 -2px 8px rgba(0,0,0,.04)}
   </style>
 </head>
 <body>
 
-  <!-- Fixed pill navbar -->
-  <div class="nav-wrap">
-    <header class="nav" aria-label="Top Navigation">
-      <div class="brand">
-        <img src="assets/IMG_2413.png" alt="NuAge logo">
-        <div class="brand-name">
-          <span style="color:var(--navy);">Nu</span><span style="color:var(--coral);">Age</span> Fitness Studios
-        </div>
+  <!-- Topbar -->
+  <div class="topbar" role="navigation" aria-label="Main">
+    <div class="brand" aria-label="NuAge">
+      <img loading="eager" referrerpolicy="no-referrer" src="assets/IMG_2413.png" alt="NuAge logo">
+      <div class="brand-name">
+        <span style="color:var(--navy);">Nu</span><span style="color:var(--coral);">Age</span>
+        <span style="color:var(--navy);">Fitness</span>
+        <span style="color:var(--navy);">Studios</span>
       </div>
-      <button class="hamburger" onclick="openDrawer()" aria-label="Open menu">
-        <svg width="20" height="20" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none">
-          <path d="M3 6h18M3 12h18M3 18h18"/>
-        </svg>
-      </button>
-    </header>
+    </div>
+    <button class="hamburger" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="navDrawer">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+        <path d="M3 6h18M3 12h18M3 18h18"/>
+      </svg>
+    </button>
   </div>
 
-  <!-- Drawer + backdrop -->
-  <div id="drawerBackdrop" class="drawer-backdrop" onclick="closeDrawer()"></div>
-  <aside id="drawer" class="drawer" aria-label="Mobile Menu">
+  <!-- Drawer + overlay -->
+  <div class="overlay" id="navOverlay" hidden></div>
+  <aside class="drawer" id="navDrawer" hidden aria-hidden="true">
     <div class="drawer-header">
       <div class="brand">
-        <img src="assets/IMG_2413.png" alt="NuAge logo">
-        <div class="brand-name">
-          <span style="color:var(--navy);">Nu</span><span style="color:var(--coral);">Age</span>FitnessStudios
-        </div>
+        <img loading="eager" src="assets/IMG_2413.png" alt="NuAge logo">
+        <div class="brand-name">NuAge<span>Fitness</span><span>Studios</span></div>
       </div>
-      <button class="drawer-close" onclick="closeDrawer()" aria-label="Close menu">✕</button>
+      <button class="drawer-close" id="navClose" aria-label="Close menu">&times;</button>
     </div>
-    <nav>
+    <nav class="drawer-nav">
       <a href="location.php" class="pill-link primary"><span style="font-weight:700">Find a Location</span></a>
-      <a href="https://app.glofox.com/portal/#/branch/6765827de166ca71d60bd4e8/classes-day-view" target="_blank" rel="noopener" class="pill-link"><span style="font-weight:700">Member Login</span></a>
-
-      <a href="https://app.glofox.com/portal/#/branch/6765827de166ca71d60bd4e8/classes-day-view" target="_blank" rel="noopener" class="simple">Classes</a>
-      <a href="https://app.glofox.com/portal/#/branch/6765827de166ca71d60bd4e8/classes-day-view" target="_blank" rel="noopener" class="simple">Meet the Team</a>
-      <a href="https://app.glofox.com/portal/#/branch/6765827de166ca71d60bd4e8/classes-day-view" target="_blank" rel="noopener" class="simple">Pricing</a>
+      <a href="https://app.glofox.com/portal/#/branch/6765827de166ca71d60bd4e8/classes-day-view" target="_blank" rel="noopener" class="pill-link">Member Login</a>
+      <a href="https://app.glofox.com/portal/#/branch/6765827de166ca71d60bd4e8/classes-day-view" target="_blank" rel="noopener">Classes</a>
+      <a href="https://app.glofox.com/portal/#/branch/6765827de166ca71d60bd4e8/classes-day-view" target="_blank" rel="noopener">Meet the Team</a>
+      <a href="https://app.glofox.com/portal/#/branch/6765827de166ca71d60bd4e8/classes-day-view" target="_blank" rel="noopener">Pricing</a>
     </nav>
   </aside>
 
-  <main>
-    <h2>📍 Our Location</h2>
+  <main role="main">
+    <h2 style="text-align:center">📍 Our Location</h2>
     <p class="address">
       <a href="https://www.google.com/maps?q=7500+S+Crescent+Blvd+Unit+A+Pennsauken+NJ+08109" target="_blank">
         7500 S Crescent Blvd, Unit A, Pennsauken, NJ 08109
@@ -151,10 +126,11 @@
         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3055.5946222931463!2d-75.07380722368798!3d39.92809147152389!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c6c91a6f82d1f1%3A0x1e8da94ecf7a4e28!2s7500%20S%20Crescent%20Blvd%20Unit%20A%2C%20Pennsauken%20Township%2C%20NJ%2008109!5e0!3m2!1sen!2sus!4v1727295859000!5m2!1sen!2sus"
         allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
     </div>
-    <a href="https://www.google.com/maps/dir/?api=1&destination=7500+S+Crescent+Blvd,+Unit+A,+Pennsauken,+NJ+08109"
-       target="_blank" class="btn">Get Directions</a>
-    <br/>
-    <a href="index.php" class="btn navy">Back to Home</a>
+    <div style="text-align:center">
+      <a href="https://www.google.com/maps/dir/?api=1&destination=7500+S+Crescent+Blvd,+Unit+A,+Pennsauken,+NJ+08109" target="_blank" class="btn">Get Directions</a>
+      <br/>
+      <a href="index.php" class="btn navy">Back to Home</a>
+    </div>
   </main>
 
   <footer>
@@ -162,18 +138,33 @@
   </footer>
 
   <script>
-    function openDrawer(){
-      document.getElementById('drawer').classList.add('open');
-      document.getElementById('drawerBackdrop').classList.add('open');
-    }
-    function closeDrawer(){
-      document.getElementById('drawer').classList.remove('open');
-      document.getElementById('drawerBackdrop').classList.remove('open');
-    }
-    // Close on ESC
-    document.addEventListener('keydown', function(e){
-      if(e.key === 'Escape') closeDrawer();
-    });
+    (function() {
+      const toggle = document.getElementById('navToggle');
+      const drawer = document.getElementById('navDrawer');
+      const overlay = document.getElementById('navOverlay');
+      const closeBtn = document.getElementById('navClose');
+
+      function open() {
+        drawer.classList.add('show');
+        overlay.classList.add('show');
+        drawer.hidden = false;
+        overlay.hidden = false;
+        toggle.setAttribute('aria-expanded', 'true');
+        drawer.setAttribute('aria-hidden', 'false');
+      }
+      function close() {
+        drawer.classList.remove('show');
+        overlay.classList.remove('show');
+        toggle.setAttribute('aria-expanded', 'false');
+        drawer.setAttribute('aria-hidden', 'true');
+        setTimeout(() => { drawer.hidden = true; overlay.hidden = true; }, 280);
+      }
+
+      toggle.addEventListener('click', open);
+      closeBtn.addEventListener('click', close);
+      overlay.addEventListener('click', close);
+      document.addEventListener('keydown', (e)=>{ if(e.key==='Escape') close(); });
+    })();
   </script>
 </body>
 </html>
