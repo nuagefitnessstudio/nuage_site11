@@ -537,9 +537,8 @@ a, button { -webkit-tap-highlight-color: transparent; }
     <a href="location.php" class="pill-link primary">
   <span style="font-weight:700">Find a Location</span>
    </a>
-      <a href="#" class="pill-link" style="font-weight:700;color:var(--navy);border:1px solid var(--line);background:#fff">Member Login</a>
+   <a href="https://app.glofox.com/portal/#/branch/6765827de166ca71d60bd4e8/facilities" target="_blank" rel="noopener" class="pill-link">Member Login</a>
       <!-- More links if needed -->
-    
       <a href="classes.php">Classes</a>
       <a href="team.php">Meet the Team</a>
       <a href="pricing.php">Pricing</a>
