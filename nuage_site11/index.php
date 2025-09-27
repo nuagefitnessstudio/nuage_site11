@@ -567,7 +567,9 @@ a, button { -webkit-tap-highlight-color: transparent; }
       <a href="#" class="btn" 
          style="background:#ffffffcc;color:var(--navy);border:2px solid #ffffff;border-radius:8px;
                 padding:12px 24px;font-weight:600;backdrop-filter:blur(4px);">
+        <a href="location.php" class="pill-link primary">
         Find a Location
+
       </a>
     </div>
   </div>
