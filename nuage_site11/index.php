@@ -486,7 +486,8 @@ a, button { -webkit-tap-highlight-color: transparent; }
     padding:3rem 1rem;
     text-align:center;
     color:#fff;
-    background: linear-gradient(180deg, var(--coral) 0%, var(--navy) 100%);
+    {/*background: linear-gradient(180deg, var(--coral) 0%, var(--navy) 100%);*/}
+    background: var(--bone);
   }
   .closing-ot h2{letter-spacing:.12em;text-transform:uppercase}
   
@@ -564,13 +565,12 @@ a, button { -webkit-tap-highlight-color: transparent; }
         <span style="color:var(--coral);">recovery</span>, 
         and <span style="color:var(--coral);">community</span> — all in one elegant club experience.
       </p>
-      <a href="#" class="btn" 
-         style="background:#ffffffcc;color:var(--navy);border:2px solid #ffffff;border-radius:8px;
-                padding:12px 24px;font-weight:600;backdrop-filter:blur(4px);">
-        <a href="location.php" class="pill-link primary">
-        Find a Location
+      <a href="location.php" class="btn"
+   style="background:#ffffffcc;color:var(--navy);border:2px solid #ffffff;border-radius:8px;
+          padding:12px 24px;font-weight:600;backdrop-filter:blur(4px);" role="button">
+  Find a Location
+</a>
 
-      </a>
     </div>
   </div>
 </header>
