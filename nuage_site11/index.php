@@ -875,17 +875,40 @@ a, button { -webkit-tap-highlight-color: transparent; }
 
 
 
-</body>
-</html>
 
+<!-- Location Modal -->
+<div id="locationModal" style="
+  display:none;
+  position:fixed;
+  top:0; left:0;
+  width:100%; height:100%;
+  background:rgba(0,0,0,0.7);
+  z-index:1000;
+  justify-content:center;
+  align-items:center;
+">
+  <div style="
+    background:#fff;
+    border-radius:16px;
+    max-width:900px;
+    width:90%;
+    padding:20px;
+    box-shadow:0 8px 24px rgba(0,0,0,0.2);
+    position:relative;
+  ">
+    <!-- Close button -->
+    <button onclick="closeLocationModal()" style="
+      position:absolute;
+      top:10px; right:14px;
+      background:none;
+      border:none;
+      font-size:28px;
+      cursor:pointer;
+      color:#333;
+    ">&times;</button>
 
-
-  <!-- Added Location Map + Directions -->
-  <div class="location-map" style="margin-top:20px; text-align:center;">
-    <p style="color:#6a6d74; margin-bottom:20px;">
-      7500 S Crescent Blvd, Unit A, Pennsauken, NJ 08109
-    </p>
-    <div style="max-width:900px; margin:0 auto; border-radius:12px; overflow:hidden; box-shadow:0 4px 12px rgba(0,0,0,0.1);">
+    <!-- Map -->
+    <div style="border-radius:12px; overflow:hidden; margin-bottom:20px;">
       <iframe
         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3055.5946222931463!2d-75.07380722368798!3d39.92809147152389!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c6c91a6f82d1f1%3A0x1e8da94ecf7a4e28!2s7500%20S%20Crescent%20Blvd%20Unit%20A%2C%20Pennsauken%20Township%2C%20NJ%2008109!5e0!3m2!1sen!2sus!4v1727295859000!5m2!1sen!2sus"
         width="100%"
@@ -897,10 +920,43 @@ a, button { -webkit-tap-highlight-color: transparent; }
       </iframe>
     </div>
 
-    <!-- Directions Button -->
-    <a href="https://maps.google.com/?q=7500+S+Crescent+Blvd+Unit+A+Pennsauken+NJ+08109" 
-       target="_blank" 
-       style="display:inline-block; margin-top:20px; padding:12px 24px; background:#EB1F48; color:#fff; text-decoration:none; border-radius:8px; font-weight:600;">
-      Get Directions
-    </a>
+    <!-- Get Directions Button -->
+    <div style="text-align:center;">
+      <a href="https://www.google.com/maps/dir/?api=1&destination=7500+S+Crescent+Blvd,+Unit+A,+Pennsauken,+NJ+08109"
+         target="_blank"
+         style="display:inline-block; background:#EB1F48; color:#fff; font-weight:600;
+                padding:12px 24px; border-radius:8px; text-decoration:none;">
+        Get Directions
+      </a>
+    </div>
   </div>
+</div>
+
+<script>
+  function openLocationModal() {
+    document.getElementById('locationModal').style.display = 'flex';
+  }
+  function closeLocationModal() {
+    document.getElementById('locationModal').style.display = 'none';
+  }
+  document.addEventListener('DOMContentLoaded', function() {
+    var btn = document.getElementById('findLocationBtn');
+    if (btn) {
+      btn.addEventListener('click', function(e) {
+        e.preventDefault();
+        openLocationModal();
+      });
+    }
+    var modal = document.getElementById('locationModal');
+    if (modal) {
+      modal.addEventListener('click', function(e) {
+        if (e.target === modal) {
+          closeLocationModal();
+        }
+      });
+    }
+  });
+</script>
+
+</body>
+</html>
