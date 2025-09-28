@@ -142,5 +142,35 @@
   </div>
 </section>
 
+<div class="preview dark">
+    <div class="preview-text">
+      <h2>Natonya</h2>
+      <p>Strength & Conditioning Coach</p>
+      <p><em>“Train like there is no tomorrow.”</em></p>
+    </div>
+  </div>
+</section>
+
+<div class="preview dark">
+    <div class="preview-text">
+      <h2>James</h2>
+      <p>Specialty: Boxing, HIT, Core & Strenth</p>
+      <p><em>“Your biggest enemy is you”</em></p>
+    </div>
+  </div>
+</section>
+
+<div class="preview dark">
+    <div class="preview-text">
+      <h2>Danny</h2>
+      <p>Manager</p>
+      <p><em>“Push your limits”</em></p>
+    </div>
+  </div>
+</section>
+
+
+
+
 </body>
 </html>
