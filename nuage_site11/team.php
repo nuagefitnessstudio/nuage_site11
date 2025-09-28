@@ -133,7 +133,7 @@
     </div>
   </div>
 
-  <div class="preview dark">
+  <div class="preview">
     <div class="preview-text">
       <h2>K. Patel</h2>
       <p>Strength & Conditioning. CSCS.</p>
@@ -142,7 +142,7 @@
   </div>
 </section>
 
-<div class="preview dark">
+<div class="preview">
     <div class="preview-text">
       <h2>Natonya</h2>
       <p>Strength & Conditioning Coach</p>
@@ -151,7 +151,7 @@
   </div>
 </section>
 
-<div class="preview dark">
+<div class="preview">
     <div class="preview-text">
       <h2>James</h2>
       <p>Specialty: Boxing, HIT, Core & Strenth</p>
@@ -160,7 +160,7 @@
   </div>
 </section>
 
-<div class="preview dark">
+<div class="preview">
     <div class="preview-text">
       <h2>Danny</h2>
       <p>Manager</p>
