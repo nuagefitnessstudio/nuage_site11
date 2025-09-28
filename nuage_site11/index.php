@@ -1,3 +1,43 @@
+<?php
+// Newsletter / Inquiry handler (top of file)
+$inq_msg = null; $inq_ok = false;
+
+function nf_clean($s){ return trim(filter_var($s ?? '', FILTER_UNSAFE_RAW)); }
+function nf_email($s){ $s = trim($s ?? ''); return filter_var($s, FILTER_VALIDATE_EMAIL) ? $s : ''; }
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['inquire_form'])) {
+  if (!empty($_POST['website'])) {
+    $inq_ok = true; $inq_msg = "Thanks! We received your inquiry.";
+  } else {
+    $to   = "info@nuagefitness-studio.com";
+    $name = nf_clean($_POST['name'] ?? '');
+    $email = nf_email($_POST['email'] ?? '');
+    $message = nf_clean($_POST['message'] ?? '');
+
+    $errs = [];
+    if (!$email) $errs[] = "Please enter a valid email address.";
+
+    if (!$errs) {
+      $subject = "New Website Inquiry";
+      $from = "info@nuagefitness-studio.com";
+      $headers = "From: NuAge Website <{$from}>\r\n";
+      if ($email) $headers .= "Reply-To: {$email}\r\n";
+      $headers .= "MIME-Version: 1.0\r\nContent-Type: text/plain; charset=UTF-8\r\n";
+
+      $body = "A new inquiry was submitted on the website:\n\n"
+            . "Name: {$name}\n"
+            . "Email: {$email}\n"
+            . "Message: {$message}\n";
+
+      $ok = @mail($to, $subject, $body, $headers, "-f {$from}");
+      if ($ok) { $inq_ok = true; $inq_msg = "Thanks! We received your inquiry."; }
+      else { $inq_msg = "Sorry, we couldn't send your inquiry. Please email info@nuagefitness-studio.com."; }
+    } else {
+      $inq_msg = implode(" ", $errs);
+    }
+  }
+}
+?>
 <!-- index_remote now uses local /assets/ files. Run ./download_assets.sh to fetch real photos. -->
 <!DOCTYPE html>
 <html lang="en">
@@ -730,9 +770,12 @@ a, button { -webkit-tap-highlight-color: transparent; }
   <!-- NEWSLETTER -->
   <section class="newsletter">
     <h2>Get Class Drops & Deals</h2>
-    <form class="newsletter-form" onsubmit="return false;">
+    <form class="newsletter-form" onsubmit="return false;" method="post">
+  <input type="hidden" name="inquire_form" value="1">
+  <input type="text" name="website" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px;opacity:0;height:0;width:0" aria-hidden="true">
+
       <input type="email" placeholder="Your email" aria-label="Email" required />
-      <button class="btn btn-primary" type="submit">Subscribe</button>
+      <button class="btn btn-primary" type="submit">Inquire</button>
     </form>
   </section>
 
