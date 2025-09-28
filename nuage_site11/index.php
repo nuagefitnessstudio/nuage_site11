@@ -144,7 +144,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['inquire_form'])) {
     .grid6 img{width:100%; height:160px; object-fit:cover; border-radius:12px}
 
     .legal{background:var(--bone);padding:48px 24px 24px;color:#51493f}
-    .footer{background:#fff;border-top:1px solid var(--line);padding:32px 0 0}
     .links{display:grid;gap:24px;padding:24px;grid-template-columns:repeat(4,minmax(0,1fr))}
     .bottombar{padding:20px 24px 28px;display:flex;align-items:center;justify-content:space-between;gap:16px;color:#6a6d74;font-size:14px}
     .closing {
@@ -378,36 +377,44 @@ a, button { -webkit-tap-highlight-color: transparent; }
 }
 
 
-/* --- Footer Fix for Mobile --- */
 .footer {
   background: #fff;
   border-top: 1px solid var(--line);
   padding: 40px 16px 80px; /* extra padding for iOS home bar */
+  text-align: center; /* centers all text inside footer */
 }
+
+.footer .bottombar {
+  display: flex;
+  justify-content: center; /* center horizontally */
+  align-items: center;      /* center vertically */
+  gap: 12px;
+  margin-top: 0; /* no extra space since it's just one line */
+  font-size: 14px;
+  color: #666;
+  flex-wrap: wrap;
+}
+
 .footer .links {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 24px;
+  margin-bottom: 20px; /* spacing above bottombar if links exist */
 }
+
 .footer .links h4 {
   margin-bottom: 10px;
   font-size: 16px;
   font-weight: 600;
 }
+
 .footer .links a {
   display: block;
   margin: 6px 0;
   line-height: 1.4;
 }
-.footer .bottombar {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  gap: 12px;
-  margin-top: 24px;
-  font-size: 14px;
-  color: #666;
-}
+
+/* Responsive */
 @media (max-width: 768px) {
   .footer .links {
     grid-template-columns: 1fr 1fr;
@@ -419,8 +426,9 @@ a, button { -webkit-tap-highlight-color: transparent; }
   }
   .footer .bottombar {
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center; /* keep centered on small screens */
   }
+}
 
   /* Section Styling */
 .studio-intro, .classes, .team, .memberships, .personal-training, .addons {
@@ -789,9 +797,11 @@ a, button { -webkit-tap-highlight-color: transparent; }
     <a class="btn btn-light" href="classes.php">Book a Class</a>
   </section>
 
-  <footer>
+  <footer class="footer">
+  <div class="bottombar">
     <p>&copy; <?php echo date('Y'); ?> NuAge Fitness Studio. All rights reserved.</p>
-  </footer>
+  </div>
+</footer>
 
 <script>
     document.getElementById('year').textContent = new Date().getFullYear();
