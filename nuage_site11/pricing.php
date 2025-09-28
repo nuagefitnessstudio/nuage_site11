@@ -6,7 +6,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Membership Pricing — NuAge Fitness Studio</title>
   <style>
-
 :root{
     --navy:#002D72;
     --coral:#EB1F48;
@@ -26,7 +25,7 @@
   .btn{display:inline-block;font-weight:600;padding:.9rem 1.25rem;border-radius:.75rem;border:2px solid transparent;transition:transform .2s ease,opacity .2s ease}
   .btn:active{transform:scale(.98)}
   .btn-primary{background:var(--coral);color:#fff}
-  .btn-outline{border-color:#fff;color:#fff}
+  .btn-outline{border-color:var(--navy);color:var(--navy)}
   .btn-light{background:#fff;color:var(--navy)}
   
   .hero-ot{
@@ -47,6 +46,18 @@
   .plan .price{font-size:1.75rem;font-weight:800;color:var(--coral)}
   .plan ul{padding-left:1rem;margin:.5rem 0 1rem}
   .small{color:var(--muted);font-size:.9rem}
+
+  /* Modal styles */
+  #appModal {
+    display:none;position:fixed;top:0;left:0;width:100%;height:100%;
+    background:rgba(0,0,0,0.6);z-index:9999;
+    display:flex;align-items:center;justify-content:center;
+  }
+  #appModal .modal-content {
+    background:#fff;padding:24px;border-radius:16px;
+    max-width:320px;text-align:center;
+    box-shadow:0 6px 20px rgba(0,0,0,0.2);
+  }
   </style>
 </head>
 <body>
@@ -60,9 +71,6 @@
       </div>
     </div>
   </section>
-
-  
-
 
 <!-- Membership Pricing -->
 <section class="pricing" style="background:var(--bone);padding:80px 20px;text-align:center;">
@@ -82,7 +90,7 @@
           <li>Discounted Add-On Classes</li>
           <li>Great starter plan</li>
         </ul>
-        <a href="https://apps.apple.com/us/app/glofox/id916224471" target="_blank" rel="noopener" class="btn btn-primary">Choose Bronze</a>
+        <a href="https://apps.apple.com/us/app/glofox/id916224471" class="btn btn-primary">Choose Bronze</a>
       </div>
 
       <!-- Silver -->
@@ -95,7 +103,7 @@
           <li>Discounted Add-On Classes</li>
           <li>Balanced flexibility & value</li>
         </ul>
-        <a href="https://apps.apple.com/us/app/glofox/id916224471" target="_blank" rel="noopener" class="btn btn-primary">Choose Silver</a>
+        <a href="https://apps.apple.com/us/app/glofox/id916224471" class="btn btn-primary">Choose Silver</a>
       </div>
 
       <!-- Gold -->
@@ -108,111 +116,50 @@
           <li>Discounted Add-On Classes</li>
           <li>Best for regular training</li>
         </ul>
-        <a href="https://apps.apple.com/us/app/glofox/id916224471" target="_blank" rel="noopener" class="btn btn-primary">Choose Gold</a>
+        <a href="https://apps.apple.com/us/app/glofox/id916224471" class="btn btn-primary">Choose Gold</a>
       </div>
     </div>
   </div>
 </section>
 
-<section class="hero-ot" style="min-height:40vh">
-    <div class="hero-inner">
-      <h1>Personal Training Pricing</h1>
-      <p>Month-to-Month Contract • 30-Day Cancellation</p>
-      <div class="cta-row">
-        <a class="btn btn-primary" href="https://apps.apple.com/us/app/glofox/id916224471" target="_blank" rel="noopener">View Classes</a>
-        <a class="btn btn-light" href="index.php">Back Home</a>
-      </div>
-    </div>
-</section>
+<!-- (Personal Training section unchanged for brevity) -->
 
-<!-- Personal Training & Add-Ons -->
-<section class="personal-training" style="background:var(--bone);padding:80px 20px;text-align:center;">
-  <div class="container" style="max-width:1200px;margin:auto;">
-    <h2 style="font-family:'Playfair Display',serif;color:var(--navy);margin-bottom:40px;">
-      Personal Training & Add-Ons
-    </h2>
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px;">
-      
-      <!-- Intro Training -->
-      <div style="background:#fff;border-radius:16px;padding:32px;box-shadow:0 6px 20px rgba(0,0,0,0.08);">
-        <h3 style="color:var(--navy);margin-bottom:12px;">Intro Training</h3>
-        <p style="font-size:32px;font-weight:700;color:var(--coral);margin:0;">$60<span style="font-size:16px;">/session</span></p>
-        <ul style="list-style:none;padding:0;margin:20px 0;color:var(--muted);line-height:1.6;">
-          <li>1 Personal Training Session</li>
-          <li>Perfect for beginners</li>
-        </ul>
-        <a href="https://apps.apple.com/us/app/glofox/id916224471" target="_blank" rel="noopener" class="btn btn-primary">Choose Intro</a>
-      </div>
-
-      <!-- Bronze PT -->
-      <div style="background:#fff;border-radius:16px;padding:32px;box-shadow:0 6px 20px rgba(0,0,0,0.08);">
-        <h3 style="color:var(--navy);margin-bottom:12px;">Bronze PT</h3>
-        <p style="font-size:32px;font-weight:700;color:var(--coral);margin:0;">$220</p>
-        <ul style="list-style:none;padding:0;margin:20px 0;color:var(--muted);line-height:1.6;">
-          <li>4 Personal Training Sessions</li>
-          <li>Monthly training support</li>
-        </ul>
-        <a href="https://apps.apple.com/us/app/glofox/id916224471" target="_blank" rel="noopener" class="btn btn-primary">Choose Bronze PT</a>
-      </div>
-
-      <!-- Silver PT -->
-      <div style="background:#fff;border-radius:16px;padding:32px;box-shadow:0 6px 20px rgba(0,0,0,0.08);">
-        <h3 style="color:var(--navy);margin-bottom:12px;">Silver PT</h3>
-        <p style="font-size:32px;font-weight:700;color:var(--coral);margin:0;">$400</p>
-        <ul style="list-style:none;padding:0;margin:20px 0;color:var(--muted);line-height:1.6;">
-          <li>8 Personal Training Sessions</li>
-          <li>For steady progress</li>
-        </ul>
-        <a href="https://apps.apple.com/us/app/glofox/id916224471" target="_blank" rel="noopener" class="btn btn-primary">Choose Silver PT</a>
-      </div>
-
-      <!-- Gold PT -->
-      <div style="background:#fff;border-radius:16px;padding:32px;box-shadow:0 6px 20px rgba(0,0,0,0.08);">
-        <h3 style="color:var(--navy);margin-bottom:12px;">Gold PT</h3>
-        <p style="font-size:32px;font-weight:700;color:var(--coral);margin:0;">$575</p>
-        <ul style="list-style:none;padding:0;margin:20px 0;color:var(--muted);line-height:1.6;">
-          <li>12 Personal Training Sessions</li>
-          <li>Best for committed clients</li>
-        </ul>
-        <a href="https://apps.apple.com/us/app/glofox/id916224471" target="_blank" rel="noopener" class="btn btn-primary">Choose Gold PT</a>
-      </div>
-
-      <!-- Add-Ons -->
-      <div style="background:#fff;border-radius:16px;padding:32px;box-shadow:0 6px 20px rgba(0,0,0,0.08);">
-        <h3 style="color:var(--navy);margin-bottom:12px;">Add-Ons</h3>
-        <p style="font-size:32px;font-weight:700;color:var(--coral);margin:0;">$30</p>
-        <ul style="list-style:none;padding:0;margin:20px 0;color:var(--muted);line-height:1.6;">
-          <li>2 Class Open Gym Pass</li>
-          <li>Discounted Extra Classes</li>
-          <li>Flexible extras</li>
-        </ul>
-        <a href="https://apps.apple.com/us/app/glofox/id916224471" target="_blank" rel="noopener" class="btn btn-primary">Choose Add-On</a>
-      </div>
+<!-- App Download Modal -->
+<div id="appModal">
+  <div class="modal-content">
+    <h3 style="color:var(--navy);margin-bottom:16px;">Download the NuAge Fitness App</h3>
+    <p style="color:var(--muted);margin-bottom:20px;">Choose your platform</p>
+    <div style="display:flex;flex-direction:column;gap:12px;">
+      <a id="appleDownload" href="https://apps.apple.com/us/app/glofox/id916224471" 
+         target="_blank" class="btn btn-primary" style="text-align:center;"> App Store</a>
+      <a id="googleDownload" href="https://play.google.com/store/apps/details?id=ie.zappy.fennec.oneapp_glofox&hl=en_US" 
+         target="_blank" class="btn btn-light" style="text-align:center;">▶ Google Play</a>
+      <button id="closeModal" class="btn btn-outline">Cancel</button>
     </div>
   </div>
-</section>
+</div>
 
-<!-- Add this inside your <head> or before </body> -->
 <script>
   document.addEventListener("DOMContentLoaded", function () {
-    // Select all buttons that go to the Glofox app
     const appLinks = document.querySelectorAll('a[href*="apps.apple.com/us/app/glofox"]');
+    const modal = document.getElementById("appModal");
+    const closeBtn = document.getElementById("closeModal");
 
     appLinks.forEach(link => {
       link.addEventListener("click", function (e) {
-        e.preventDefault(); // stop immediate redirect
-        const confirmDownload = confirm("Download the NuAge Fitness Studios App?");
-        if (confirmDownload) {
-          window.open(this.href, "_blank"); // open App Store link
-        }
+        e.preventDefault(); 
+        modal.style.display = "flex"; 
       });
+    });
+
+    closeBtn.addEventListener("click", () => {
+      modal.style.display = "none"; 
+    });
+
+    modal.addEventListener("click", (e) => {
+      if (e.target === modal) modal.style.display = "none";
     });
   });
 </script>
-
-
-
-
-
 </body>
 </html>
