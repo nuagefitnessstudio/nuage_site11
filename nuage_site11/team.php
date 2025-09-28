@@ -143,7 +143,7 @@ img{max-width:100%;display:block}
 .preview-text h2{color:var(--navy);margin:0 0 .25rem}
 .preview-text .link{color:var(--coral);font-weight:600}
 
-/* extra patch to ensure headings render */
+/* ensure headings render */
 .preview{position:relative;padding:20px;box-shadow:0 6px 18px rgba(0,0,0,.08)}
 .preview-text{position:relative;z-index:2;color:inherit}
 .preview h2{display:block !important;visibility:visible !important;opacity:1 !important;margin:0 0 8px;font-size:24px;line-height:1.2;color:inherit}
@@ -180,8 +180,6 @@ textarea{min-height:120px;resize:vertical}
 .alert.success{background:#ecfdf5;color:#065f46;border:1px solid #a7f3d0}
 .alert.error{background:#fef2f2;color:#991b1b;border:1px solid #fecaca}
   </style>
-
-  <!-- (There is a duplicate <style> block in your original — kept minimal above to avoid conflicts) -->
 </head>
 <body>
   <section class="hero-ot" style="min-height:40vh">
@@ -191,7 +189,8 @@ textarea{min-height:120px;resize:vertical}
       <div class="cta-row">
         <a class="btn btn-primary" href="classes.php">View Classes</a>
         <a class="btn btn-light" href="index.php">Back Home</a>
-        <button class="btn btn-outline" id="openJobBtn" type="button">Apply for Employment</button>
+        <!-- Matching coral CTA for employment -->
+        <a href="#apply" class="btn btn-primary" id="openJobBtn" role="button">Apply for Employment</a>
       </div>
     </div>
   </section>
@@ -306,7 +305,10 @@ textarea{min-height:120px;resize:vertical}
       btn.textContent = 'Sending...';
       return true;
     }
-    if(openBtn) openBtn.addEventListener('click', openJob);
+    if(openBtn) openBtn.addEventListener('click', function(e){
+      e.preventDefault(); // keep the anchor from jumping
+      openJob();
+    });
 
     // If PHP set a flash message, auto-open the modal so the user sees it.
     <?php if ($flash_msg !== null): ?>
