@@ -73,7 +73,58 @@
     .btn:hover{opacity:.92;transform:translateY(-1px)}
     .btn.navy{background:var(--navy)}
 
-    footer{background:#fff;padding:22px 16px;margin-top:40px;color:var(--muted);font-size:14px;box-shadow:0 -2px 8px rgba(0,0,0,.04)}
+    .footer {
+  background: #fff;
+  border-top: 1px solid var(--line);
+  padding: 40px 16px 80px; /* extra padding for iOS home bar */
+  text-align: center; /* centers all text inside footer */
+}
+
+.footer .bottombar {
+  display: flex;
+  justify-content: center; /* center horizontally */
+  align-items: center;      /* center vertically */
+  gap: 12px;
+  margin-top: 0; /* no extra space since it's just one line */
+  font-size: 14px;
+  color: #666;
+  flex-wrap: wrap;
+}
+
+.footer .links {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  margin-bottom: 20px; /* spacing above bottombar if links exist */
+}
+
+.footer .links h4 {
+  margin-bottom: 10px;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.footer .links a {
+  display: block;
+  margin: 6px 0;
+  line-height: 1.4;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .footer .links {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media (max-width: 480px) {
+  .footer .links {
+    grid-template-columns: 1fr;
+  }
+  .footer .bottombar {
+    flex-direction: column;
+    align-items: center; /* keep centered on small screens */
+  }
+}
   </style>
 </head>
 <body>
@@ -139,10 +190,11 @@
     </div>
   </main>
 
-  <footer>
+  <footer class="footer">
+  <div class="bottombar">
     <p>&copy; <?php echo date('Y'); ?> NuAge Fitness Studio. All rights reserved.</p>
-  </footer>
-
+  </div>
+</footer>
   <script>
     (function() {
       const toggle = document.getElementById('navToggle');
