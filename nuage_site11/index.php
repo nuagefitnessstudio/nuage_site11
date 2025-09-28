@@ -768,16 +768,19 @@ a, button { -webkit-tap-highlight-color: transparent; }
   </section>
 
   <!-- NEWSLETTER -->
-  <section class="newsletter">
-    <h2>Get Class Drops & Deals</h2>
-    <form class="newsletter-form" onsubmit="return false;" method="post">
-  <input type="hidden" name="inquire_form" value="1">
-  <input type="text" name="website" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px;opacity:0;height:0;width:0" aria-hidden="true">
+<section class="newsletter">
+  <h2>Get Class Drops & Deals</h2>
+  <form class="newsletter-form" method="post">
+    <input type="hidden" name="inquire_form" value="1">
+    <input type="text" name="website" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px;opacity:0;height:0;width:0" aria-hidden="true">
 
-      <input type="email" placeholder="Your email" aria-label="Email" required />
-      <button class="btn btn-primary" type="submit">Inquire</button>
-    </form>
-  </section>
+    <input type="text" name="name" placeholder="Your Name" aria-label="Name" required />
+    <input type="email" name="email" placeholder="Your Email" aria-label="Email" required />
+    <textarea name="message" placeholder="Your Message" aria-label="Message" rows="4" required></textarea>
+
+    <button class="btn btn-primary" type="submit">Inquire</button>
+  </form>
+</section>
 
   <!-- CLOSING -->
   <section class="closing-ot">
