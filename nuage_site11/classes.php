@@ -128,5 +128,24 @@
   </div>
 </section>
 
+<!-- Add this inside your <head> or before </body> -->
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    // Select all buttons that go to the Glofox app
+    const appLinks = document.querySelectorAll('a[href*="apps.apple.com/us/app/glofox"]');
+
+    appLinks.forEach(link => {
+      link.addEventListener("click", function (e) {
+        e.preventDefault(); // stop immediate redirect
+        const confirmDownload = confirm("Download the NuAge Fitness Studios App?");
+        if (confirmDownload) {
+          window.open(this.href, "_blank"); // open App Store link
+        }
+      });
+    });
+  });
+</script>
+
+
 </body>
 </html>
