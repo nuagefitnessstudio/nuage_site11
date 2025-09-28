@@ -578,8 +578,7 @@ a, button { -webkit-tap-highlight-color: transparent; }
     <div class="brand">
       <img loading="eager" src="assets/IMG_2413.png" alt="NuAge logo">
       <div class="brand-name">
-        <span style="color:var(--navy);">Nu</span>
-        <span style="color:var(--coral);">Age</span>
+        <span style="color:var(--navy);">Nu</span><span style="color:var(--coral);">Age</span>
         <span style="color:var(--navy);">Fitness</span>
         <span style="color:var(--navy);">Studios</span>
       </div>
@@ -594,7 +593,6 @@ a, button { -webkit-tap-highlight-color: transparent; }
     <a href="pricing.php">Pricing</a>
   </nav>
 </aside>
-
 
   <header class="hero">
   <video id="heroVideo" autoplay muted playsinline loop poster="https://images.pexels.com/photos/4761669/pexels-photo-4761669.jpeg?auto=compress&cs=tinysrgb&w=1600&h=1000&dpr=1">

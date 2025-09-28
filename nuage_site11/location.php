@@ -102,8 +102,7 @@
     <div class="brand">
       <img loading="eager" src="assets/IMG_2413.png" alt="NuAge logo">
       <div class="brand-name">
-        <span style="color:var(--navy);">Nu</span>
-        <span style="color:var(--coral);">Age</span>
+        <span style="color:var(--navy);">Nu</span><span style="color:var(--coral);">Age</span>
         <span style="color:var(--navy);">Fitness</span>
         <span style="color:var(--navy);">Studios</span>
       </div>
@@ -118,6 +117,7 @@
     <a href="pricing.php">Pricing</a>
   </nav>
 </aside>
+
 
 
   <main role="main">
