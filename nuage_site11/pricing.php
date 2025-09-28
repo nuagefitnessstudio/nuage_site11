@@ -82,7 +82,7 @@
           <li>Discounted Add-On Classes</li>
           <li>Great starter plan</li>
         </ul>
-        <a href="https://app.glofox.com/portal/#/branch/6765827de166ca71d60bd4e8/memberships" target="_blank" rel="noopener" class="btn btn-primary">Choose Bronze</a>
+        <a href="https://apps.apple.com/us/app/glofox/id916224471" target="_blank" rel="noopener" class="btn btn-primary">Choose Bronze</a>
       </div>
 
       <!-- Silver -->
@@ -95,7 +95,7 @@
           <li>Discounted Add-On Classes</li>
           <li>Balanced flexibility & value</li>
         </ul>
-        <a href="https://app.glofox.com/portal/#/branch/6765827de166ca71d60bd4e8/memberships" target="_blank" rel="noopener" class="btn btn-primary">Choose Silver</a>
+        <a href="https://apps.apple.com/us/app/glofox/id916224471" target="_blank" rel="noopener" class="btn btn-primary">Choose Silver</a>
       </div>
 
       <!-- Gold -->
@@ -108,7 +108,7 @@
           <li>Discounted Add-On Classes</li>
           <li>Best for regular training</li>
         </ul>
-        <a href="https://app.glofox.com/portal/#/branch/6765827de166ca71d60bd4e8/memberships" target="_blank" rel="noopener" class="btn btn-primary">Choose Gold</a>
+        <a href="https://apps.apple.com/us/app/glofox/id916224471" target="_blank" rel="noopener" class="btn btn-primary">Choose Gold</a>
       </div>
     </div>
   </div>
@@ -119,7 +119,7 @@
       <h1>Personal Training Pricing</h1>
       <p>Month-to-Month Contract • 30-Day Cancellation</p>
       <div class="cta-row">
-        <a class="btn btn-primary" href="https://app.glofox.com/portal/#/branch/6765827de166ca71d60bd4e8/memberships" target="_blank" rel="noopener">View Classes</a>
+        <a class="btn btn-primary" href="https://apps.apple.com/us/app/glofox/id916224471" target="_blank" rel="noopener">View Classes</a>
         <a class="btn btn-light" href="index.php">Back Home</a>
       </div>
     </div>
@@ -141,7 +141,7 @@
           <li>1 Personal Training Session</li>
           <li>Perfect for beginners</li>
         </ul>
-        <a href="https://app.glofox.com/portal/#/branch/6765827de166ca71d60bd4e8/memberships" target="_blank" rel="noopener" class="btn btn-primary">Choose Intro</a>
+        <a href="https://apps.apple.com/us/app/glofox/id916224471" target="_blank" rel="noopener" class="btn btn-primary">Choose Intro</a>
       </div>
 
       <!-- Bronze PT -->
@@ -152,7 +152,7 @@
           <li>4 Personal Training Sessions</li>
           <li>Monthly training support</li>
         </ul>
-        <a href="https://app.glofox.com/portal/#/branch/6765827de166ca71d60bd4e8/memberships" target="_blank" rel="noopener" class="btn btn-primary">Choose Bronze PT</a>
+        <a href="https://apps.apple.com/us/app/glofox/id916224471" target="_blank" rel="noopener" class="btn btn-primary">Choose Bronze PT</a>
       </div>
 
       <!-- Silver PT -->
@@ -163,7 +163,7 @@
           <li>8 Personal Training Sessions</li>
           <li>For steady progress</li>
         </ul>
-        <a href="https://app.glofox.com/portal/#/branch/6765827de166ca71d60bd4e8/memberships" target="_blank" rel="noopener" class="btn btn-primary">Choose Silver PT</a>
+        <a href="https://apps.apple.com/us/app/glofox/id916224471" target="_blank" rel="noopener" class="btn btn-primary">Choose Silver PT</a>
       </div>
 
       <!-- Gold PT -->
@@ -174,7 +174,7 @@
           <li>12 Personal Training Sessions</li>
           <li>Best for committed clients</li>
         </ul>
-        <a href="https://app.glofox.com/portal/#/branch/6765827de166ca71d60bd4e8/memberships" target="_blank" rel="noopener" class="btn btn-primary">Choose Gold PT</a>
+        <a href="https://apps.apple.com/us/app/glofox/id916224471" target="_blank" rel="noopener" class="btn btn-primary">Choose Gold PT</a>
       </div>
 
       <!-- Add-Ons -->
@@ -186,7 +186,7 @@
           <li>Discounted Extra Classes</li>
           <li>Flexible extras</li>
         </ul>
-        <a href="https://app.glofox.com/portal/#/branch/6765827de166ca71d60bd4e8/memberships" target="_blank" rel="noopener" class="btn btn-primary">Choose Add-On</a>
+        <a href="https://apps.apple.com/us/app/glofox/id916224471" target="_blank" rel="noopener" class="btn btn-primary">Choose Add-On</a>
       </div>
     </div>
   </div>
