@@ -195,20 +195,28 @@
 <!-- Add this inside your <head> or before </body> -->
 <script>
   document.addEventListener("DOMContentLoaded", function () {
-    // Select all buttons that go to the Glofox app
     const appLinks = document.querySelectorAll('a[href*="apps.apple.com/us/app/glofox"]');
 
     appLinks.forEach(link => {
       link.addEventListener("click", function (e) {
-        e.preventDefault(); // stop immediate redirect
-        const confirmDownload = confirm("Download the NuAge Fitness Studios App?");
-        if (confirmDownload) {
-          window.open(this.href, "_blank"); // open App Store link
+        e.preventDefault();
+
+        const choice = prompt("Download the NuAge Fitness Studios App?\nType 'A' for Apple Store or 'G' for Google Play:");
+
+        if (!choice) return; // cancelled
+
+        if (choice.toLowerCase() === "a") {
+          window.open("https://apps.apple.com/us/app/glofox/id916224471", "_blank");
+        } else if (choice.toLowerCase() === "g") {
+          window.open("https://play.google.com/store/apps/details?id=ie.zappy.fennec.oneapp_glofox&hl=en_US", "_blank");
+        } else {
+          alert("Please enter A or G.");
         }
       });
     });
   });
 </script>
+
 
 
 
