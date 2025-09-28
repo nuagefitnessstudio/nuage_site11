@@ -74,7 +74,7 @@
       
       <!-- Bronze -->
       <div style="background:#fff;border-radius:16px;padding:32px;box-shadow:0 6px 20px rgba(0,0,0,0.08);">
-        <h3 style="color:var(--navy);margin-bottom:12px;">Bronze</h3>
+        <h3 style="color:var(--navy);margin-bottom:12px;">NuAge Fit </h3>
         <p style="font-size:32px;font-weight:700;color:var(--coral);margin:0;">$60<span style="font-size:16px;">/mo</span></p>
         <ul style="list-style:none;padding:0;margin:20px 0;color:var(--muted);line-height:1.6;">
           <li>4 Classes Monthly</li>
@@ -87,7 +87,7 @@
 
       <!-- Silver -->
       <div style="background:#fff;border-radius:16px;padding:32px;box-shadow:0 6px 20px rgba(0,0,0,0.08);">
-        <h3 style="color:var(--navy);margin-bottom:12px;">Silver</h3>
+        <h3 style="color:var(--navy);margin-bottom:12px;">NuAge Grind</h3>
         <p style="font-size:32px;font-weight:700;color:var(--coral);margin:0;">$110<span style="font-size:16px;">/mo</span></p>
         <ul style="list-style:none;padding:0;margin:20px 0;color:var(--muted);line-height:1.6;">
           <li>8 Classes Monthly</li>
@@ -100,7 +100,7 @@
 
       <!-- Gold -->
       <div style="background:#fff;border-radius:16px;padding:32px;box-shadow:0 6px 20px rgba(0,0,0,0.08);">
-        <h3 style="color:var(--navy);margin-bottom:12px;">Gold</h3>
+        <h3 style="color:var(--navy);margin-bottom:12px;">NuAge Dedicated</h3>
         <p style="font-size:32px;font-weight:700;color:var(--coral);margin:0;">$170<span style="font-size:16px;">/mo</span></p>
         <ul style="list-style:none;padding:0;margin:20px 0;color:var(--muted);line-height:1.6;">
           <li>Unlimited Classes</li>
