@@ -571,28 +571,30 @@ a, button { -webkit-tap-highlight-color: transparent; }
 
 
 
-  <!-- Drawer + overlay -->
-  <div class="overlay" id="navOverlay" hidden></div>
-  <aside class="drawer" id="navDrawer" hidden aria-hidden="true">
-    <div class="drawer-header">
-      <div class="brand">
-        <img loading="eager" src="assets/IMG_2413.png" alt="NuAge logo">
-        <div class="brand-name">NuAge<span>Fitness</span><span>Studios</span></div>
+<!-- Drawer + overlay -->
+<div class="overlay" id="navOverlay" hidden></div>
+<aside class="drawer" id="navDrawer" hidden aria-hidden="true">
+  <div class="drawer-header">
+    <div class="brand">
+      <img loading="eager" src="assets/IMG_2413.png" alt="NuAge logo">
+      <div class="brand-name">
+        <span style="color:var(--navy);">Nu</span>
+        <span style="color:var(--coral);">Age</span>
+        <span style="color:var(--navy);">Fitness</span>
+        <span style="color:var(--navy);">Studios</span>
       </div>
-      <button class="drawer-close" id="navClose" aria-label="Close menu">&times;</button>
     </div>
-    <nav class="drawer-nav">
-    <a href="location.php" class="pill-link primary">
-  <span style="font-weight:700">Find a Location</span>
-   </a>
-   <a href="https://apps.apple.com/us/app/glofox/id916224471" target="_blank" rel="noopener" class="pill-link">Member Login</a>
-      <!-- More links if needed -->
-      <a href="classes.php">Classes</a>
-      <a href="team.php">Meet the Team</a>
-      <a href="pricing.php">Pricing</a>
-    
-    </nav>
-  </aside>
+    <button class="drawer-close" id="navClose" aria-label="Close menu">&times;</button>
+  </div>
+  <nav class="drawer-nav">
+    <a href="location.php" class="pill-link primary"><span style="font-weight:700">Find a Location</span></a>
+    <a href="https://apps.apple.com/us/app/glofox/id916224471" target="_blank" rel="noopener" class="pill-link">Member Login</a>
+    <a href="classes.php">Classes</a>
+    <a href="team.php">Meet the Team</a>
+    <a href="pricing.php">Pricing</a>
+  </nav>
+</aside>
+
 
   <header class="hero">
   <video id="heroVideo" autoplay muted playsinline loop poster="https://images.pexels.com/photos/4761669/pexels-photo-4761669.jpeg?auto=compress&cs=tinysrgb&w=1600&h=1000&dpr=1">
