@@ -6,57 +6,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Classes — NuAge Fitness Studio</title>
   <style>
-
-/* ===== NAVBAR STYLES ===== */
-.topbar {
-  position: fixed;
-  top: 16px; left: 50%;
-  transform: translateX(-50%);
-  display: flex; align-items: center; justify-content: space-between;
-  width: min(92vw, 980px);
-  background: var(--pill, #efebe6cc);
-  backdrop-filter: blur(8px);
-  border: 1px solid rgba(0,0,0,.08);
-  border-radius: 999px;
-  padding: 10px 16px;
-  z-index: 1000;
-}
-.hamburger {
-  position: absolute; right: 8px; top: 50%; transform: translateY(-50%);
-  display: inline-flex; align-items:center; justify-content:center;
-  width: 42px; height: 42px;
-  border-radius: 999px; border: 1px solid rgba(0,0,0,.08);
-  background: #fff9; backdrop-filter: blur(6px);
-  cursor: pointer;
-  transition: transform .15s ease, background .2s ease;
-}
-.hamburger svg { width:22px; height:22px; color:#000; }
-.overlay {
-  position: fixed; inset: 0;
-  background: rgba(17,20,24,.4);
-  backdrop-filter: blur(2px);
-  opacity: 0; pointer-events: none;
-  transition: opacity .25s ease;
-  z-index: 999;
-}
-.overlay.show { opacity: 1; pointer-events: auto; }
-.drawer {
-  position: fixed; top: 0; right: 0; height: 100%; width: min(88vw, 360px);
-  background: #fff; border-left: 1px solid var(--line,#e9e6e1);
-  box-shadow: 0 10px 32px rgba(0,0,0,.16);
-  transform: translateX(100%);
-  transition: transform .28s ease;
-  z-index: 1000;
-  display: flex; flex-direction: column;
-}
-.drawer.show { transform: none; }
-.drawer-header { display:flex; align-items:center; justify-content:space-between; padding:16px 18px; border-bottom:1px solid var(--line,#e9e6e1); }
-.drawer-close { background:transparent; border:none; font-size:28px; line-height:1; cursor:pointer; padding:6px; border-radius:8px; }
-.drawer-nav { padding:10px 14px; display:grid; gap:10px; }
-.drawer .pill-link { background:#f7f7f7; text-align:center; }
-.drawer .pill-link.primary { background:#0d2a55; color:#fff; border:1px solid #0d2a55; }
-body { padding-top: 100px; } /* prevent overlap */
-
 :root{
       --ink:#111418; --muted:#6a6d74; --line:#e9e6e1; --bone:#faf7f2;
       --pill:#efebe6cc; --navy:#002D72; --coral:#EB1F48;
@@ -546,46 +495,6 @@ a, button { -webkit-tap-highlight-color: transparent; }
 </style>
 </head>
 <body>
-
-<!-- NuAge Navbar -->
-<div class="topbar" role="navigation" aria-label="Main">
-  <div class="brand" aria-label="NuAge">
-    <img loading="eager" referrerpolicy="no-referrer" src="assets/IMG_2413.png" alt="NuAge logo">
-    <div class="brand-name">
-      <span style="color:var(--navy);">Nu</span><span style="color:var(--coral);">Age</span>
-      <span style="color:var(--navy);">Fitness</span>
-      <span style="color:var(--navy);">Studios</span>
-    </div>
-  </div>
-  <button class="hamburger" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="navDrawer">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-      <path d="M3 6h18M3 12h18M3 18h18"/>
-    </svg>
-  </button>
-</div>
-
-<div class="overlay" id="navOverlay"></div>
-<aside class="drawer" id="navDrawer" aria-hidden="true">
-  <div class="drawer-header">
-    <div class="brand">
-      <img loading="eager" src="assets/IMG_2413.png" alt="NuAge logo">
-      <div class="brand-name">
-        <span style="color:var(--navy);">Nu</span><span style="color:var(--coral);">Age</span>
-        <span style="color:var(--navy);">Fitness</span>
-        <span style="color:var(--navy);">Studios</span>
-      </div>
-    </div>
-    <button class="drawer-close" id="navClose" aria-label="Close menu">&times;</button>
-  </div>
-  <nav class="drawer-nav">
-    <a href="location.php" class="pill-link primary"><span style="font-weight:700">Find a Location</span></a>
-    <a href="https://apps.apple.com/us/app/glofox/id916224471" target="_blank" rel="noopener" class="pill-link">Member Login</a>
-    <a href="classes.php">Classes</a>
-    <a href="team.php">Meet the Team</a>
-    <a href="pricing.php">Pricing</a>
-  </nav>
-</aside>
-
 <!-- Hamburger topbar -->
 <div class="topbar" role="navigation" aria-label="Main">
   <div class="brand" aria-label="NuAge">
@@ -683,44 +592,6 @@ a, button { -webkit-tap-highlight-color: transparent; }
   </div>
 </section>
 
-<!-- Add this inside your <head> or before <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-    // Optional: click to pause/play hero video
-    (function(){
-      const v = document.getElementById('heroVideo');
-      if(v){ v.addEventListener('click', ()=>{ v.paused ? v.play() : v.pause(); }); }
-    })();
-  </script>
-
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-  const navToggle = document.getElementById("navToggle");
-  const navClose = document.getElementById("navClose");
-  const navDrawer = document.getElementById("navDrawer");
-  const navOverlay = document.getElementById("navOverlay");
-
-  if (navToggle && navDrawer && navOverlay) {
-    navToggle.addEventListener("click", () => {
-      navDrawer.classList.add("show");
-      navOverlay.classList.add("show");
-    });
-  }
-  if (navClose) {
-    navClose.addEventListener("click", () => {
-      navDrawer.classList.remove("show");
-      navOverlay.classList.remove("show");
-    });
-  }
-  if (navOverlay) {
-    navOverlay.addEventListener("click", () => {
-      navDrawer.classList.remove("show");
-      navOverlay.classList.remove("show");
-    });
-  }
-});
-</script>
-
-</body> -->
 <script>
   document.addEventListener("DOMContentLoaded", function () {
     const appLinks = document.querySelectorAll('a[href*="apps.apple.com/us/app/glofox"]');
@@ -746,5 +617,32 @@ document.addEventListener("DOMContentLoaded", function () {
 </script>
 
 
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const navToggle = document.getElementById("navToggle");
+  const navClose = document.getElementById("navClose");
+  const navDrawer = document.getElementById("navDrawer");
+  const navOverlay = document.getElementById("navOverlay");
+
+  function openNav(){
+    if (navDrawer) { navDrawer.classList.add("show"); navDrawer.removeAttribute("hidden"); navDrawer.setAttribute("aria-hidden","false"); }
+    if (navOverlay) { navOverlay.classList.add("show"); navOverlay.removeAttribute("hidden"); }
+  }
+  function closeNav(){
+    if (navDrawer) { navDrawer.classList.remove("show"); navDrawer.setAttribute("hidden",""); navDrawer.setAttribute("aria-hidden","true"); }
+    if (navOverlay) { navOverlay.classList.remove("show"); navOverlay.setAttribute("hidden",""); }
+  }
+
+  if (navToggle) navToggle.addEventListener("click", openNav);
+  if (navClose) navClose.addEventListener("click", closeNav);
+  if (navOverlay) navOverlay.addEventListener("click", closeNav);
+
+  // ESC key to close
+  document.addEventListener("keydown", (e)=>{ if (e.key === "Escape") closeNav(); });
+});
+</script>
+
 </body>
 </html>
+
