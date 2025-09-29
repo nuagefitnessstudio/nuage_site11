@@ -41,11 +41,7 @@
     .hamburger svg{width:22px;height:22px}
 
     /* Drawer + overlay */
-    .overlay{
-      position:fixed;inset:0;background:rgba(17,20,24,.4);backdrop-filter:blur(2px);
-      opacity:0;pointer-events:none;transition:opacity .25s ease;z-index:59;
-    }
-    .overlay.show{opacity:1;pointer-events:auto}
+  
     .drawer{
       position:fixed;top:0;right:0;height:100%;width:min(88vw,360px);
       background:#fff;border-left:1px solid var(--line);box-shadow:0 10px 32px rgba(0,0,0,.16);
