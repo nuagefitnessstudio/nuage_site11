@@ -231,7 +231,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['employment_form'])) {
       --shadow:0 8px 28px rgba(16,24,40,.12);
       --radius:18px;
     }
-    body{letter-spacing:.01em}
+    body {
+  letter-spacing: .01em;
+  padding-top: 100px; /* push content down so it clears navbar */
+    }
     h1{font-size:clamp(36px,6vw,72px); font-weight:600}
     h2{font-size:clamp(28px,4vw,44px); font-weight:600}
     .topbar{width:min(94vw,1040px); background:var(--pill); box-shadow:var(--shadow)}
