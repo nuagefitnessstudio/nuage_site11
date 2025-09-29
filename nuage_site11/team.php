@@ -752,6 +752,32 @@ textarea{min-height:120px;resize:vertical}
     </form>
   </div>
 
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const appLinks = document.querySelectorAll('a[href*="apps.apple.com/us/app/glofox"]');
+
+    appLinks.forEach(link => {
+      link.addEventListener("click", function (e) {
+        e.preventDefault();
+
+        const choice = prompt("Download the NuAge Fitness Studios App?\nType 'A' for Apple Store or 'G' for Google Play:");
+
+        if (!choice) return; // cancelled
+
+        if (choice.toLowerCase() === "a") {
+          window.open("https://apps.apple.com/us/app/glofox/id916224471", "_blank");
+        } else if (choice.toLowerCase() === "g") {
+          window.open("https://play.google.com/store/apps/details?id=ie.zappy.fennec.oneapp_glofox&hl=en_US", "_blank");
+        } else {
+          alert("Please enter A or G.");
+        }
+      });
+    });
+  });
+</script>
+
+
   <script>
     const modal   = document.getElementById('jobModal');
     const overlay = document.getElementById('jobOverlay');
