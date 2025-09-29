@@ -65,6 +65,10 @@
     .drawer-nav{padding:10px 14px;display:grid;gap:10px}
     .drawer .pill-link{background:#f7f7f7}
     .drawer .pill-link.primary{background:#0d2a55;color:#fff;border:1px solid #0d2a55}
+    .drawer-close {
+  color: #111; /* or var(--ink) */
+   }  
+
 
     /* ===== Rest of original styles ===== */
     .hero{position:relative;height:92svh;min-height:520px;overflow:hidden;color:#fff}
