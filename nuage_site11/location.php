@@ -1,4 +1,4 @@
-<?php
+
 ?><!DOCTYPE html>
 <html lang="en">
 <head>
@@ -659,46 +659,9 @@ a, button { -webkit-tap-highlight-color: transparent; }
     <p>&copy; <?php echo date('Y'); ?> NuAge Fitness Studio. All rights reserved.</p>
   </div>
 </footer>
-  <script>
-    (function() {
-      const toggle = document.getElementById('navToggle');
-      const drawer = document.getElementById('navDrawer');
-      const overlay = document.getElementById('navOverlay');
-      const closeBtn = document.getElementById('navClose');
-
-      function open() {
-        drawer.classList.add('show');
-        overlay.classList.add('show');
-        drawer.hidden = false;
-        overlay.hidden = false;
-        toggle.setAttribute('aria-expanded', 'true');
-        drawer.setAttribute('aria-hidden', 'false');
-      }
-      function close() {
-        drawer.classList.remove('show');
-        overlay.classList.remove('show');
-        toggle.setAttribute('aria-expanded', 'false');
-        drawer.setAttribute('aria-hidden', 'true');
-        setTimeout(() => { drawer.hidden = true; overlay.hidden = true; }, 280);
-      }
-
-      toggle.addEventListener('click', open);
-      closeBtn.addEventListener('click', close);
-      overlay.addEventListener('click', close);
-      document.addEventListener('keydown', (e)=>{ if(e.key==='Escape') close(); });
-    })();
-  </script>
+  
 
 
-<!-- Add this inside your <head> or before <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-    // Optional: click to pause/play hero video
-    (function(){
-      const v = document.getElementById('heroVideo');
-      if(v){ v.addEventListener('click', ()=>{ v.paused ? v.play() : v.pause(); }); }
-    })();
-  </script>
-</body> -->
 <script>
   document.addEventListener("DOMContentLoaded", function () {
     const appLinks = document.querySelectorAll('a[href*="apps.apple.com/us/app/glofox"]');
@@ -723,6 +686,32 @@ a, button { -webkit-tap-highlight-color: transparent; }
   });
 </script>
 
+
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const navToggle = document.getElementById("navToggle");
+  const navClose = document.getElementById("navClose");
+  const navDrawer = document.getElementById("navDrawer");
+  const navOverlay = document.getElementById("navOverlay");
+
+  function openNav(){
+    if (navDrawer) { navDrawer.classList.add("show"); navDrawer.removeAttribute("hidden"); navDrawer.setAttribute("aria-hidden","false"); }
+    if (navOverlay) { navOverlay.classList.add("show"); navOverlay.removeAttribute("hidden"); }
+  }
+  function closeNav(){
+    if (navDrawer) { navDrawer.classList.remove("show"); navDrawer.setAttribute("hidden",""); navDrawer.setAttribute("aria-hidden","true"); }
+    if (navOverlay) { navOverlay.classList.remove("show"); navOverlay.setAttribute("hidden",""); }
+  }
+
+  if (navToggle) navToggle.addEventListener("click", openNav);
+  if (navClose) navClose.addEventListener("click", closeNav);
+  if (navOverlay) navOverlay.addEventListener("click", closeNav);
+
+  // ESC key to close
+  document.addEventListener("keydown", (e)=>{ if (e.key === "Escape") closeNav(); });
+});
+</script>
 
 </body>
 </html>
