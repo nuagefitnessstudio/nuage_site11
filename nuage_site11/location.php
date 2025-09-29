@@ -17,14 +17,7 @@
     a{color:inherit;text-decoration:none} .container{max-width:1200px;margin:0 auto;padding:0 24px}
 
     /* ===== Topbar (hamburger) ===== */
-    .topbar{
-      position:fixed;top:16px;left:50%;transform:translateX(-50%);
-      display:flex;align-items:center;justify-content:center;gap:14px;
-      width:min(92vw,980px);background:var(--pill);backdrop-filter:blur(8px);
-      border:1px solid rgba(0,0,0,.08);border-radius:999px;
-      padding:10px 16px;z-index:60
-    }
-
+    .topbar{width:min(94vw,1040px); background:var(--pill); box-shadow:var(--shadow)}
     /* Force hamburger icon lines to black */
    .hamburger svg {
   color: #000 !important;
