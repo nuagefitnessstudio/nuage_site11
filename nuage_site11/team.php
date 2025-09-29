@@ -606,6 +606,57 @@ textarea{min-height:120px;resize:vertical}
 }
 .alert.success{background:#ecfdf5;color:#065f46;border:1px solid #a7f3d0}
 .alert.error{background:#fef2f2;color:#991b1b;border:1px solid #fecaca}
+.footer {
+  background: #fff;
+  border-top: 1px solid var(--line);
+  padding: 40px 16px 80px; /* extra padding for iOS home bar */
+  text-align: center; /* centers all text inside footer */
+}
+
+.footer .bottombar {
+  display: flex;
+  justify-content: center; /* center horizontally */
+  align-items: center;      /* center vertically */
+  gap: 12px;
+  margin-top: 0; /* no extra space since it's just one line */
+  font-size: 14px;
+  color: #666;
+  flex-wrap: wrap;
+}
+
+.footer .links {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  margin-bottom: 20px; /* spacing above bottombar if links exist */
+}
+
+.footer .links h4 {
+  margin-bottom: 10px;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.footer .links a {
+  display: block;
+  margin: 6px 0;
+  line-height: 1.4;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .footer .links {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media (max-width: 480px) {
+  .footer .links {
+    grid-template-columns: 1fr;
+  }
+  .footer .bottombar {
+    flex-direction: column;
+    align-items: center; /* keep centered on small screens */
+  }
   </style>
 </head>
 <body>
@@ -704,6 +755,14 @@ textarea{min-height:120px;resize:vertical}
       </div>
     </div>
   </section>
+
+  <footer class="footer">
+  <div class="bottombar">
+    <p>&copy; <?php echo date('Y'); ?> NuAge Fitness Studio. All rights reserved.</p>
+  </div>
+</footer>
+
+
 
   <!-- ===== Employment Modal Markup ===== -->
   <div id="jobOverlay" class="modal-overlay" onclick="closeJob()"></div>
