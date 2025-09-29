@@ -481,7 +481,7 @@ a, button { -webkit-tap-highlight-color: transparent; }
 
     .drawer-header{display:flex;align-items:center;justify-content:space-between;padding:16px 18px;border-bottom:1px solid var(--line)}
     .drawer-header .brand img{height:24px}
-    .drawer-close{background:transparent;border:none;font-size:28px;line-height:1;cursor:pointer;padding:6px;border-radius:8px;color:var(--coral)}
+    .drawer-close{background:transparent;border:none;font-size:28px;line-height:1;cursor:pointer;padding:6px;border-radius:8px}
 
     .drawer-nav{padding:10px 14px;display:grid;gap:10px}
     .pill-link{display:inline-flex;align-items:center;gap:10px;font-weight:700;justify-content:center;padding:14px 16px;border-radius:999px;transition:background .25s,transform .2s}
