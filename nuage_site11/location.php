@@ -7,6 +7,62 @@
   <title>NuAge Fitness Studio — Our Location</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
+
+/* ===== NAVBAR STYLES ===== */
+.topbar {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  height: 64px;
+  background: #fff;
+  border-bottom: 1px solid #e9e6e1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1rem;
+  z-index: 1000;
+}
+.topbar .brand { display: flex; align-items: center; gap: .5rem; }
+.topbar .brand img { height: 40px; }
+.topbar .brand-name { font-weight: 700; font-size: 1rem; }
+
+.hamburger {
+  background: none; border: none; cursor: pointer;
+  padding: .5rem; display: flex; align-items: center; justify-content: center;
+}
+
+.overlay {
+  position: fixed; inset: 0; background: rgba(0,0,0,0.5);
+  backdrop-filter: blur(2px);
+  z-index: 999;
+}
+
+.drawer {
+  position: fixed; top: 0; right: 0;
+  width: 280px; height: 100%;
+  background: #fff;
+  box-shadow: -2px 0 8px rgba(0,0,0,0.15);
+  transform: translateX(100%);
+  transition: transform .3s ease;
+  z-index: 1000;
+  padding: 1rem;
+}
+.drawer[open] { transform: translateX(0); }
+.drawer-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; }
+.drawer-close { font-size: 2rem; background: none; border: none; cursor: pointer; }
+.drawer-nav { display: flex; flex-direction: column; gap: 1rem; }
+.drawer-nav a { text-decoration: none; color: #002D72; font-weight: 500; }
+
+.pill-link {
+  display: inline-block; padding: .5rem 1rem;
+  border-radius: 999px; border: 1px solid #002D72;
+  text-align: center;
+}
+.pill-link.primary {
+  background: #EB1F48; color: #fff; border: none;
+}
+
+body { padding-top: 70px; } /* prevent overlap */
+
     :root{
       --ink:#111418; --muted:#6a6d74; --line:#e9e6e1; --bone:#faf7f2;
       --pill:#efebe6cc; --navy:#002D72; --coral:#EB1F48;
@@ -128,6 +184,47 @@
   </style>
 </head>
 <body>
+
+<!-- Hamburger topbar -->
+<div class="topbar" role="navigation" aria-label="Main">
+  <div class="brand" aria-label="NuAge">
+    <img loading="eager" referrerpolicy="no-referrer" src="assets/IMG_2413.png" alt="NuAge logo">
+    <div class="brand-name">
+      <span style="color:var(--navy);">Nu</span><span style="color:var(--coral);">Age</span>
+      <span style="color:var(--navy);">Fitness</span>
+      <span style="color:var(--navy);">Studios</span>
+    </div>
+  </div>
+  <button class="hamburger" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="navDrawer">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+      <path d="M3 6h18M3 12h18M3 18h18"/>
+    </svg>
+  </button>
+</div>
+
+<!-- Drawer + overlay -->
+<div class="overlay" id="navOverlay" hidden></div>
+<aside class="drawer" id="navDrawer" hidden aria-hidden="true">
+  <div class="drawer-header">
+    <div class="brand">
+      <img loading="eager" src="assets/IMG_2413.png" alt="NuAge logo">
+      <div class="brand-name">
+        <span style="color:var(--navy);">Nu</span><span style="color:var(--coral);">Age</span>
+        <span style="color:var(--navy);">Fitness</span>
+        <span style="color:var(--navy);">Studios</span>
+      </div>
+    </div>
+    <button class="drawer-close" id="navClose" aria-label="Close menu">&times;</button>
+  </div>
+  <nav class="drawer-nav">
+    <a href="location.php" class="pill-link primary"><span style="font-weight:700">Find a Location</span></a>
+    <a href="https://apps.apple.com/us/app/glofox/id916224471" target="_blank" rel="noopener" class="pill-link">Member Login</a>
+    <a href="classes.php">Classes</a>
+    <a href="team.php">Meet the Team</a>
+    <a href="pricing.php">Pricing</a>
+  </nav>
+</aside>
+
 
   <!-- Topbar -->
   <div class="topbar" role="navigation" aria-label="Main">

@@ -6,6 +6,62 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Classes — NuAge Fitness Studio</title>
   <style>
+
+/* ===== NAVBAR STYLES ===== */
+.topbar {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  height: 64px;
+  background: #fff;
+  border-bottom: 1px solid #e9e6e1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1rem;
+  z-index: 1000;
+}
+.topbar .brand { display: flex; align-items: center; gap: .5rem; }
+.topbar .brand img { height: 40px; }
+.topbar .brand-name { font-weight: 700; font-size: 1rem; }
+
+.hamburger {
+  background: none; border: none; cursor: pointer;
+  padding: .5rem; display: flex; align-items: center; justify-content: center;
+}
+
+.overlay {
+  position: fixed; inset: 0; background: rgba(0,0,0,0.5);
+  backdrop-filter: blur(2px);
+  z-index: 999;
+}
+
+.drawer {
+  position: fixed; top: 0; right: 0;
+  width: 280px; height: 100%;
+  background: #fff;
+  box-shadow: -2px 0 8px rgba(0,0,0,0.15);
+  transform: translateX(100%);
+  transition: transform .3s ease;
+  z-index: 1000;
+  padding: 1rem;
+}
+.drawer[open] { transform: translateX(0); }
+.drawer-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; }
+.drawer-close { font-size: 2rem; background: none; border: none; cursor: pointer; }
+.drawer-nav { display: flex; flex-direction: column; gap: 1rem; }
+.drawer-nav a { text-decoration: none; color: #002D72; font-weight: 500; }
+
+.pill-link {
+  display: inline-block; padding: .5rem 1rem;
+  border-radius: 999px; border: 1px solid #002D72;
+  text-align: center;
+}
+.pill-link.primary {
+  background: #EB1F48; color: #fff; border: none;
+}
+
+body { padding-top: 70px; } /* prevent overlap */
+
 :root{
     --navy:#002D72;
     --coral:#EB1F48;
@@ -90,8 +146,6 @@
   </button>
 </div>
 
-
-
 <!-- Drawer + overlay -->
 <div class="overlay" id="navOverlay" hidden></div>
 <aside class="drawer" id="navDrawer" hidden aria-hidden="true">
@@ -114,7 +168,6 @@
     <a href="pricing.php">Pricing</a>
   </nav>
 </aside>
-
 
   <section class="hero-ot">
     <div class="hero-inner">
