@@ -820,7 +820,16 @@ textarea{min-height:120px;resize:vertical}
       link.addEventListener("click", function (e) {
         e.preventDefault();
 
-        const choice = prompt("Download the NuAge Fitness Studios App?\nType 'A' for Apple Store or 'G' for Google Play:");
+        const choice = prompt(
+  "Please download the Glofox app, search NuAge Fitness Studio and register.\n" +
+  "Once logged in, you’ll be able to:\n" +
+  "• Access your account\n" +
+  "• Purchase membership\n" +
+  "• Book classes\n" +
+  "• And more.\n\n" +
+  "Type A for Apple\n" +
+  "Type G for Google"
+);
 
         if (!choice) return; // cancelled
 
