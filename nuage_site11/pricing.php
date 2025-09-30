@@ -733,7 +733,7 @@ textarea{min-height:120px;resize:vertical}
 
       <!-- Bronze PT -->
       <div style="background:#fff;border-radius:16px;padding:32px;box-shadow:0 6px 20px rgba(0,0,0,0.08);">
-        <h3 style="color:var(--navy);margin-bottom:12px;">Bronze PT</h3>
+        <h3 style="color:var(--navy);margin-bottom:12px;">Bronze - Basic PT</h3>
         <p style="font-size:32px;font-weight:700;color:var(--coral);margin:0;">$220</p>
         <ul style="list-style:none;padding:0;margin:20px 0;color:var(--muted);line-height:1.6;">
           <li>4 Personal Training Sessions</li>
@@ -744,7 +744,7 @@ textarea{min-height:120px;resize:vertical}
 
       <!-- Silver PT -->
       <div style="background:#fff;border-radius:16px;padding:32px;box-shadow:0 6px 20px rgba(0,0,0,0.08);">
-        <h3 style="color:var(--navy);margin-bottom:12px;">Silver PT</h3>
+        <h3 style="color:var(--navy);margin-bottom:12px;">Silver - Elite PT</h3>
         <p style="font-size:32px;font-weight:700;color:var(--coral);margin:0;">$400</p>
         <ul style="list-style:none;padding:0;margin:20px 0;color:var(--muted);line-height:1.6;">
           <li>8 Personal Training Sessions</li>
@@ -755,7 +755,7 @@ textarea{min-height:120px;resize:vertical}
 
       <!-- Gold PT -->
       <div style="background:#fff;border-radius:16px;padding:32px;box-shadow:0 6px 20px rgba(0,0,0,0.08);">
-        <h3 style="color:var(--navy);margin-bottom:12px;">Gold PT</h3>
+        <h3 style="color:var(--navy);margin-bottom:12px;">Gold - Premier PT</h3>
         <p style="font-size:32px;font-weight:700;color:var(--coral);margin:0;">$575</p>
         <ul style="list-style:none;padding:0;margin:20px 0;color:var(--muted);line-height:1.6;">
           <li>12 Personal Training Sessions</li>
@@ -795,7 +795,17 @@ textarea{min-height:120px;resize:vertical}
       link.addEventListener("click", function (e) {
         e.preventDefault();
 
-        const choice = prompt("Download the NuAge Fitness Studios App?\nType 'A' for Apple Store or 'G' for Google Play:");
+        const choice = prompt(
+  "Please download the Glofox app, search NuAge Fitness Studio and register.\n" +
+  "Once logged in, you’ll be able to:\n" +
+  "• Access your account\n" +
+  "• Purchase membership\n" +
+  "• Book classes\n" +
+  "• And more.\n\n" +
+  "Type A for Apple\n" +
+  "Type G for Google"
+);
+
 
         if (!choice) return; // cancelled
 
