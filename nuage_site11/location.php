@@ -622,7 +622,8 @@ a, button { -webkit-tap-highlight-color: transparent; }
     appLinks.forEach(link => {
       link.addEventListener("click", function (e) {
         e.preventDefault();
-        const choice = prompt(
+        const choice = // prompt removed (replaced by modal)
+// prompt(
   "Please download the Glofox app, search NuAge Fitness Studio and register.\n" +
   "Once logged in, you’ll be able to:\n" +
   "• Access your account\n" +
@@ -674,5 +675,19 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 </script>
 
+<div class="modal-box">
+    <h2>Download the Glofox App</h2>
+    <p>
+      Please download the Glofox app, search <strong>NuAge Fitness Studio</strong> and register.<br>
+      Once logged in, you’ll be able to:<br>
+      • Access your account<br>
+      • Purchase membership<br>
+      • Book classes<br>
+      • And more.
+    </p>
+    <div class="modal-actions">
+      <button onclick="window.open('https://apps.apple.com/app/id916224471','_blank')">Apple</button>
+      <button onclick="window.open('https://play.google.com/store/apps/details?id=com.glofox&hl=en','_blank')">Google</button>
+    </div>
 </body>
 </html>
