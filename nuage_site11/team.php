@@ -695,7 +695,7 @@ textarea{min-height:120px;resize:vertical}
   </div>
   <nav class="drawer-nav">
     <a href="location.php" class="pill-link primary"><span style="font-weight:700">Find a Location</span></a>
-    <a href="https://apps.apple.com/us/app/glofox/id916224471" target="_blank" rel="noopener" class="pill-link">Member Login</a>
+    <a href="javascript:void(0)" onclick="openModal()" class="pill-link">Member Login</a>
     <a href="classes.php">Classes</a>
     <a href="team.php">Meet the Team</a>
     <a href="pricing.php">Pricing</a>
@@ -909,6 +909,47 @@ document.addEventListener("DOMContentLoaded", function () {
   // ESC key to close
   document.addEventListener("keydown", (e)=>{ if (e.key === "Escape") closeNav(); });
 });
+</script>
+
+
+<!-- Modal -->
+<div id="downloadModal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal()">&times;</span>
+    <h2>Please download the Glofox app</h2>
+    <p>Search <strong>NuAge Fitness Studio</strong> and register. Once logged in, you’ll be able to:</p>
+    <ul>
+      <li>Access your account</li>
+      <li>Purchase membership</li>
+      <li>Book classes</li>
+      <li>And more</li>
+    </ul>
+    <div class="btn-row">
+      <button onclick="window.location.href='https://apps.apple.com/us/app/glofox/id916224471'">Apple</button>
+      <button onclick="window.location.href='https://play.google.com/store/apps/details?id=com.glofox'">Google</button>
+    </div>
+  </div>
+</div>
+
+<style>
+.modal { display:none; position:fixed; z-index:1000; left:0; top:0; width:100%; height:100%; background:rgba(0,0,0,.6); }
+.modal-content { background:#fff; margin:10% auto; padding:20px; border-radius:12px; max-width:420px; text-align:center; position:relative; }
+.modal-content h2 { color:var(--navy); margin-bottom:12px; }
+.modal-content p { margin-bottom:16px; color:var(--muted); }
+.modal-content ul { list-style:none; padding:0; margin:0 0 20px; text-align:left; }
+.modal-content ul li { margin-bottom:8px; }
+.btn-row { display:flex; gap:12px; justify-content:center; }
+.btn-row button { background:var(--coral); color:#fff; padding:10px 18px; border:none; border-radius:8px; cursor:pointer; }
+.close { position:absolute; right:16px; top:12px; font-size:24px; cursor:pointer; }
+</style>
+
+<script>
+function openModal(){ document.getElementById("downloadModal").style.display="block"; }
+function closeModal(){ document.getElementById("downloadModal").style.display="none"; }
+window.onclick = function(e){
+  let modal = document.getElementById("downloadModal");
+  if(e.target == modal){ modal.style.display="none"; }
+}
 </script>
 
 </body>
