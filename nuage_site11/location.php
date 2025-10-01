@@ -675,22 +675,23 @@ document.addEventListener("DOMContentLoaded", function () {
 </script>
 
 
-<!-- Modal -->
-<div id="downloadModal" class="modal">
-  <div class="modal-content">
-    <span class="close" onclick="closeModal()">&times;</span>
-    <h2>Please download the Glofox app</h2>
-    <p>Search <strong>NuAge Fitness Studio</strong> and register. Once logged in, you’ll be able to:</p>
-    <ul>
-      <li>Access your account</li>
-      <li>Purchase membership</li>
-      <li>Book classes</li>
-      <li>And more</li>
-    </ul>
-    <div class="btn-row">
-      <button onclick="window.location.href='https://apps.apple.com/us/app/glofox/id916224471'">Apple</button>
-      <button onclick="window.location.href='https://play.google.com/store/apps/details?id=com.glofox'">Google</button>
+<!-- App Download Modal -->
+<div id="appModal" class="modal-overlay" style="display:none;">
+  <div class="modal-box">
+    <h2>Download the Glofox App</h2>
+    <p>
+      Please download the Glofox app, search <strong>NuAge Fitness Studio</strong> and register.<br>
+      Once logged in, you’ll be able to:<br>
+      • Access your account<br>
+      • Purchase membership<br>
+      • Book classes<br>
+      • And more.
+    </p>
+    <div class="modal-actions">
+      <button onclick="window.open('https://apps.apple.com/app/id916224471','_blank')">Apple</button>
+      <button onclick="window.open('https://play.google.com/store/apps/details?id=com.glofox&hl=en','_blank')">Google</button>
     </div>
+    <button class="modal-close" onclick="document.getElementById('appModal').style.display='none'">×</button>
   </div>
 </div>
 
