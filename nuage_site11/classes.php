@@ -530,36 +530,6 @@ a, button { -webkit-tap-highlight-color: transparent; }
   line-height: 1.4;
 }
 
-.modal-overlay {
-  position: fixed; inset: 0;
-  background: rgba(0,0,0,0.6);
-  display: flex; align-items: center; justify-content: center;
-  z-index: 2000;
-}
-.modal-box {
-  background: #fff;
-  padding: 24px;
-  border-radius: 12px;
-  max-width: 420px;
-  width: 90%;
-  text-align: center;
-  position: relative;
-}
-.modal-actions button {
-  margin: 10px;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 6px;
-  background: var(--navy);
-  color: #fff;
-  cursor: pointer;
-}
-.modal-close {
-  position: absolute; top: 10px; right: 10px;
-  border: none; background: transparent;
-  font-size: 24px; cursor: pointer;
-}
-
 /* Responsive */
 @media (max-width: 768px) {
   .footer .links {
@@ -574,36 +544,9 @@ a, button { -webkit-tap-highlight-color: transparent; }
     flex-direction: column;
     align-items: center; /* keep centered on small screens */
   }
-
-  </style>
-  <link rel="stylesheet" href="style.css?v=5" />
-
-<style>
-  
 </style>
 </head>
 <body>
-
-<!-- App Download Modal -->
-<div id="appModal" class="modal-overlay" style="display:none;">
-  <div class="modal-box">
-    <h2>Download the Glofox App</h2>
-    <p>
-    Please download the Glofox app, search <strong>NuAge Fitness Studio</strong> and register.<br>
-      Once logged in, you’ll be able to:<br>
-      • Access your account<br>
-      • Purchase membership<br>
-      • Book classes<br>
-      • And more.
-    </p>
-    <div class="modal-actions">
-      <button onclick="window.open('https://apps.apple.com/app/id916224471','_blank')">Apple</button>
-      <button onclick="window.open('https://play.google.com/store/apps/details?id=com.glofox&hl=en','_blank')">Google</button>
-    </div>
-    <button class="modal-close" onclick="closeModal()">×</button>
-  </div>
-</div>
-
 <!-- Hamburger topbar -->
 <div class="topbar" role="navigation" aria-label="Main">
   <div class="brand" aria-label="NuAge">
@@ -639,7 +582,7 @@ a, button { -webkit-tap-highlight-color: transparent; }
   </div>
   <nav class="drawer-nav">
     <a href="location.php" class="pill-link primary"><span style="font-weight:700">Find a Location</span></a>
-    <a href="javascript:void(0)" onclick="openModal()" class="pill-link">Member Login</a>
+    <a href="https://apps.apple.com/us/app/glofox/id916224471" target="_blank" rel="noopener" class="pill-link">Member Login</a>
     <a href="classes.php">Classes</a>
     <a href="team.php">Meet the Team</a>
     <a href="pricing.php">Pricing</a>
@@ -660,37 +603,37 @@ a, button { -webkit-tap-highlight-color: transparent; }
   <div class="plan">
     <h3>Core & Restore</h3>
     <p>A hybrid class that blends dynamic core training with deep restorative stretches. Build strength and stability, then ease into flexibility, mobility, and recovery work.</p>
-    <a class="btn btn-primary" href="javascript:void(0)" onclick="openModal()">View Schedule & Book</a>
+    <a class="btn btn-primary" href="https://apps.apple.com/us/app/glofox/id916224471" target="_blank" rel="noopener">View Schedule & Book</a>
   </div>
 
   <div class="plan">
     <h3>Full Body Bootcamp</h3>
     <p>Fun, high-energy sessions that combine strength, cardio, and bodyweight exercises. Boost endurance, burn calories, and tone muscles in a motivating atmosphere.</p>
-    <a class="btn btn-primary" href="javascript:void(0)" onclick="openModal()">View Schedule & Book</a>
+    <a class="btn btn-primary" href="https://apps.apple.com/us/app/glofox/id916224471" target="_blank" rel="noopener">View Schedule & Book</a>
   </div>
 
   <div class="plan">
     <h3>Gravity X</h3>
     <p>TRX suspension training for strength, stability, and mobility. Use gravity and leverage to challenge every muscle group while keeping movements adaptable for all levels.</p>
-    <a class="btn btn-primary" href="javascript:void(0)" onclick="openModal()">View Schedule & Book</a>
+    <a class="btn btn-primary" href="https://apps.apple.com/us/app/glofox/id916224471" target="_blank" rel="noopener">View Schedule & Book</a>
   </div>
 
   <div class="plan">
     <h3>Ignite 45</h3>
     <p>A fast-paced 45-minute HIIT class mixing bodyweight, resistance, and cardio drills. Perfect for maximum results in minimal time.</p>
-    <a class="btn btn-primary" href="javascript:void(0)" onclick="openModal()">View Schedule & Book</a>
+    <a class="btn btn-primary" href="https://apps.apple.com/us/app/glofox/id916224471" target="_blank" rel="noopener">View Schedule & Book</a>
   </div>
 
   <div class="plan">
     <h3>The Grind</h3>
     <p>A raw strength-based class using kettlebells, barbells, resistance bands, and bodyweight. Build functional power for everyday life.</p>
-    <a class="btn btn-primary" href="javascript:void(0)" onclick="openModal()">View Schedule & Book</a>
+    <a class="btn btn-primary" href="https://apps.apple.com/us/app/glofox/id916224471" target="_blank" rel="noopener">View Schedule & Book</a>
   </div>
 
   <div class="plan">
     <h3>Open Gym</h3>
     <p>Self-guided access to our state-of-the-art facility. Strength, cardio, or mobility—work on your own goals at your own pace.</p>
-    <a class="btn btn-primary" href="javascript:void(0)" onclick="openModal()">View Schedule & Book</a>
+    <a class="btn btn-primary" href="https://apps.apple.com/us/app/glofox/id916224471" target="_blank" rel="noopener">View Schedule & Book</a>
   </div>
 </section>
 
@@ -766,48 +709,6 @@ document.addEventListener("DOMContentLoaded", function () {
   // ESC key to close
   document.addEventListener("keydown", (e)=>{ if (e.key === "Escape") closeNav(); });
 });
-</script>
-
-<!-- App Download Modal -->
-<div id="appModal" class="modal-overlay" style="display:none;">
-  <div class="modal-box">
-    <h2>Download the Glofox App</h2>
-    <p>
-      Please download the Glofox app, search <strong>NuAge Fitness Studio</strong> and register.<br>
-      Once logged in, you’ll be able to:<br>
-      • Access your account<br>
-      • Purchase membership<br>
-      • Book classes<br>
-      • And more.
-    </p>
-    <div class="modal-actions">
-      <button onclick="window.open('https://apps.apple.com/app/id916224471','_blank')">Apple</button>
-      <button onclick="window.open('https://play.google.com/store/apps/details?id=com.glofox&hl=en','_blank')">Google</button>
-    </div>
-    <button class="modal-close" onclick="closeModal()">×</button>
-  </div>
-</div>
-
-
-<style>
-.modal { display:none; position:fixed; z-index:1000; left:0; top:0; width:100%; height:100%; background:rgba(0,0,0,.6); }
-.modal-content { background:#fff; margin:10% auto; padding:20px; border-radius:12px; max-width:420px; text-align:center; position:relative; }
-.modal-content h2 { color:var(--navy); margin-bottom:12px; }
-.modal-content p { margin-bottom:16px; color:var(--muted); }
-.modal-content ul { list-style:none; padding:0; margin:0 0 20px; text-align:left; }
-.modal-content ul li { margin-bottom:8px; }
-.btn-row { display:flex; gap:12px; justify-content:center; }
-.btn-row button { background:var(--coral); color:#fff; padding:10px 18px; border:none; border-radius:8px; cursor:pointer; }
-.close { position:absolute; right:16px; top:12px; font-size:24px; cursor:pointer; }
-</style>
-
-<script>
-function openModal(){ document.getElementById("downloadModal").style.display="block"; }
-function closeModal(){ document.getElementById("downloadModal").style.display="none"; }
-window.onclick = function(e){
-  let modal = document.getElementById("downloadModal");
-  if(e.target == modal){ modal.style.display="none"; }
-}
 </script>
 
 </body>
