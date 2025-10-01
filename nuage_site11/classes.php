@@ -659,7 +659,7 @@ a, button { -webkit-tap-highlight-color: transparent; }
       link.addEventListener("click", function (e) {
         e.preventDefault();
 
-        const choice = prompt(
+        const choice = openModal() /* replaced prompt */ //
   "Please download the Glofox app, search NuAge Fitness Studio and register.\n" +
   "Once logged in, you’ll be able to:\n" +
   "• Access your account\n" +
@@ -709,6 +709,45 @@ document.addEventListener("DOMContentLoaded", function () {
   // ESC key to close
   document.addEventListener("keydown", (e)=>{ if (e.key === "Escape") closeNav(); });
 });
+</script>
+
+
+<!-- App Download Modal -->
+<div id="appModal" style="display:none;position:fixed;z-index:1000;left:0;top:0;width:100%;height:100%;overflow:auto;
+background-color:rgba(0,0,0,0.6);justify-content:center;align-items:center;">
+  <div style="background:#fff;margin:auto;padding:30px;border-radius:16px;max-width:420px;width:90%;text-align:center;position:relative;">
+    <button onclick="closeModal()" style="position:absolute;top:10px;right:15px;font-size:22px;border:none;background:none;cursor:pointer;">×</button>
+    <h2 style="margin-bottom:16px;color:#002D72;font-family:'Playfair Display',serif;">Download the Glofox App</h2>
+    <p style="font-size:15px;line-height:1.5;color:#333;margin-bottom:20px;">
+      Please download the Glofox app, search <strong>NuAge Fitness Studio</strong> and register.<br><br>
+      Once logged in, you’ll be able to:<br>
+      • Access your account<br>
+      • Purchase membership<br>
+      • Book classes<br>
+      • And more.<br><br>
+      Type <strong>A</strong> for Apple or <strong>G</strong> for Google:
+    </p>
+    <input id="appChoice" type="text" placeholder="A or G" style="padding:10px;width:80%;margin-bottom:14px;border:1px solid #ccc;border-radius:8px;text-align:center;">
+    <br>
+    <button onclick="submitChoice()" style="padding:10px 20px;background:#EB1F48;color:#fff;border:none;border-radius:8px;cursor:pointer;font-weight:600;">Submit</button>
+  </div>
+</div>
+
+<script>
+function openModal(){ document.getElementById("appModal").style.display="flex"; }
+function closeModal(){ document.getElementById("appModal").style.display="none"; }
+function submitChoice(){
+  var choice=document.getElementById("appChoice").value.trim().toLowerCase();
+  if(choice==="a"){
+    window.open("https://apps.apple.com/us/app/glofox/id916224471","_blank");
+    closeModal();
+  } else if(choice==="g"){
+    window.open("https://play.google.com/store/apps/details?id=ie.zappy.fennec.oneapp_glofox&hl=en_US","_blank");
+    closeModal();
+  } else {
+    alert("Please enter A or G.");
+  }
+}
 </script>
 
 </body>
