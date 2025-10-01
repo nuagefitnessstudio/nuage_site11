@@ -589,7 +589,7 @@ a, button { -webkit-tap-highlight-color: transparent; }
   <div class="modal-box">
     <h2>Download the Glofox App</h2>
     <p>
-      Please download the Glofox app, search <strong>NuAge Fitness Studio</strong> and register.<br>
+    Please download the Glofox app, search <strong>NuAge Fitness Studio</strong> and register.<br>
       Once logged in, you’ll be able to:<br>
       • Access your account<br>
       • Purchase membership<br>
