@@ -530,6 +530,36 @@ a, button { -webkit-tap-highlight-color: transparent; }
   line-height: 1.4;
 }
 
+.modal-overlay {
+  position: fixed; inset: 0;
+  background: rgba(0,0,0,0.6);
+  display: flex; align-items: center; justify-content: center;
+  z-index: 2000;
+}
+.modal-box {
+  background: #fff;
+  padding: 24px;
+  border-radius: 12px;
+  max-width: 420px;
+  width: 90%;
+  text-align: center;
+  position: relative;
+}
+.modal-actions button {
+  margin: 10px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 6px;
+  background: var(--navy);
+  color: #fff;
+  cursor: pointer;
+}
+.modal-close {
+  position: absolute; top: 10px; right: 10px;
+  border: none; background: transparent;
+  font-size: 24px; cursor: pointer;
+}
+
 /* Responsive */
 @media (max-width: 768px) {
   .footer .links {
