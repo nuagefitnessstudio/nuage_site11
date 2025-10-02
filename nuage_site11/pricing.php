@@ -669,7 +669,7 @@ textarea{min-height:120px;resize:vertical}
           <li>Discounted Add-On Classes</li>
           <li>Great starter plan</li>
         </ul>
-        <a href="https://apps.apple.com/us/app/glofox/id916224471" target="_blank" rel="noopener" class="btn btn-primary">Choose Bronze</a>
+        <a href="javascript:void(0)" onclick="openModal()" class="btn btn-primary">Choose Bronze</a>
       </div>
 
       <!-- Silver -->
@@ -682,7 +682,7 @@ textarea{min-height:120px;resize:vertical}
           <li>Discounted Add-On Classes</li>
           <li>Balanced flexibility & value</li>
         </ul>
-        <a href="https://apps.apple.com/us/app/glofox/id916224471" target="_blank" rel="noopener" class="btn btn-primary">Choose Silver</a>
+        <a href="javascript:void(0)" onclick="openModal()" class="btn btn-primary">Choose Silver</a>
       </div>
 
       <!-- Gold -->
@@ -695,7 +695,7 @@ textarea{min-height:120px;resize:vertical}
           <li>Discounted Add-On Classes</li>
           <li>Best for regular training</li>
         </ul>
-        <a href="https://apps.apple.com/us/app/glofox/id916224471" target="_blank" rel="noopener" class="btn btn-primary">Choose Gold</a>
+        <a href="javascript:void(0)" onclick="openModal()" class="btn btn-primary">Choose Gold</a>
       </div>
     </div>
   </div>
@@ -706,7 +706,7 @@ textarea{min-height:120px;resize:vertical}
       <h1>Personal Training Pricing</h1>
       <p>Month-to-Month Contract • 30-Day Cancellation</p>
       <div class="cta-row">
-        <a class="btn btn-primary" href="https://apps.apple.com/us/app/glofox/id916224471" target="_blank" rel="noopener">View Classes</a>
+      <a href="javascript:void(0)" onclick="openModal()" class="btn btn-primary">View Classes</a>
         <a class="btn btn-light" href="index.php">Back Home</a>
       </div>
     </div>
@@ -728,7 +728,7 @@ textarea{min-height:120px;resize:vertical}
           <li>1 Personal Training Session</li>
           <li>Perfect for beginners</li>
         </ul>
-        <a href="https://apps.apple.com/us/app/glofox/id916224471" target="_blank" rel="noopener" class="btn btn-primary">Choose Intro</a>
+        <a href="javascript:void(0)" onclick="openModal()" class="btn btn-primary">Choose Intro</a>
       </div>
 
       <!-- Bronze PT -->
@@ -739,7 +739,7 @@ textarea{min-height:120px;resize:vertical}
           <li>4 Personal Training Sessions</li>
           <li>Monthly training support</li>
         </ul>
-        <a href="https://apps.apple.com/us/app/glofox/id916224471" target="_blank" rel="noopener" class="btn btn-primary">Choose Bronze PT</a>
+        <a href="javascript:void(0)" onclick="openModal()" class="btn btn-primary">Choose Bronze PT</a>
       </div>
 
       <!-- Silver PT -->
@@ -750,7 +750,7 @@ textarea{min-height:120px;resize:vertical}
           <li>8 Personal Training Sessions</li>
           <li>For steady progress</li>
         </ul>
-        <a href="https://apps.apple.com/us/app/glofox/id916224471" target="_blank" rel="noopener" class="btn btn-primary">Choose Silver PT</a>
+        <a href="javascript:void(0)" onclick="openModal()" class="btn btn-primary">Choose Silver PT</a>
       </div>
 
       <!-- Gold PT -->
@@ -761,7 +761,7 @@ textarea{min-height:120px;resize:vertical}
           <li>12 Personal Training Sessions</li>
           <li>Best for committed clients</li>
         </ul>
-        <a href="https://apps.apple.com/us/app/glofox/id916224471" target="_blank" rel="noopener" class="btn btn-primary">Choose Gold PT</a>
+        <a href="javascript:void(0)" onclick="openModal()" class="btn btn-primary">Choose Gold PT</a>
       </div>
 
       <!-- Add-Ons -->
@@ -773,7 +773,7 @@ textarea{min-height:120px;resize:vertical}
           <li>Discounted Extra Classes</li>
           <li>Flexible extras</li>
         </ul>
-        <a href="https://apps.apple.com/us/app/glofox/id916224471" target="_blank" rel="noopener" class="btn btn-primary">Choose Add-On</a>
+        <a href="javascript:void(0)" onclick="openModal()" class="btn btn-primary">Choose Add-On</a>
       </div>
     </div>
   </div>
@@ -849,6 +849,32 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
+
+
+<!-- App Download Modal -->
+<div id="appModal" class="modal-overlay" style="display:none;">
+  <div class="modal-box">
+    <h2>Download the Glofox App</h2>
+    <p>
+      Please download the Glofox app, search <strong>NuAge Fitness Studio</strong> and register.<br>
+      Once logged in, you’ll be able to:<br>
+      • Access your account<br>
+      • Purchase membership<br>
+      • Book classes<br>
+      • And more.
+    </p>
+    <div class="modal-actions">
+      <button onclick="window.open('https://apps.apple.com/app/id916224471','_blank')">Apple</button>
+      <button onclick="window.open('https://play.google.com/store/apps/details?id=com.glofox&hl=en','_blank')">Google</button>
+    </div>
+    <button class="modal-close" onclick="document.getElementById('appModal').style.display='none'">×</button>
+  </div>
+</div>
+
+<script>
+function openModal(){ document.getElementById('appModal').style.display='flex'; }
+function closeModal(){ document.getElementById('appModal').style.display='none'; }
+</script>
 
 </body>
 </html>
