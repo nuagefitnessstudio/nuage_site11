@@ -541,11 +541,7 @@ a, button { -webkit-tap-highlight-color: transparent; }
     align-items: center; /* keep centered on small screens */
   }
 }
-  
-
-
-
-</style>
+  </style>
 </head>
 <body>
 
@@ -626,16 +622,7 @@ a, button { -webkit-tap-highlight-color: transparent; }
     appLinks.forEach(link => {
       link.addEventListener("click", function (e) {
         e.preventDefault();
-        const choice = prompt(
-  "Please download the Glofox app, search NuAge Fitness Studio and register.\n" +
-  "Once logged in, you’ll be able to:\n" +
-  "• Access your account\n" +
-  "• Purchase membership\n" +
-  "• Book classes\n" +
-  "• And more.\n\n" +
-  "Type A for Apple\n" +
-  "Type G for Google"
-);
+        const choice = openModal();
 
         if (!choice) return; // cancelled
 
@@ -679,39 +666,34 @@ document.addEventListener("DOMContentLoaded", function () {
 </script>
 
 
-<!-- Styled Modal copied from index.php but customized for A/G input -->
-<div id="appModal" class="modal">
-  <div class="modal-content">
-    <span class="modal-close" onclick="closeModal()">&times;</span>
-    <h2>Please download the Glofox app</h2>
-    <p>Search NuAge Fitness Studio and register.<br>
-    Once logged in, you’ll be able to:<br>
-    • Access your account<br>
-    • Purchase membership<br>
-    • Book classes<br>
-    • And more.</p>
-    <p>Type A for Apple or G for Google:</p>
-    <input type="text" id="appChoice" maxlength="1" style="padding:8px;font-size:16px;">
-    <button onclick="submitChoice()" style="padding:8px 16px;margin-left:8px;">Submit</button>
+<!-- Styled Modal -->
+<div id="appModal" class="modal" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.6);justify-content:center;align-items:center;z-index:1000;">
+  <div class="modal-content" style="background:#fff;padding:30px;max-width:420px;border-radius:16px;position:relative;text-align:center;">
+    <button onclick="closeModal()" style="position:absolute;top:10px;right:14px;border:none;background:none;font-size:20px;cursor:pointer;">×</button>
+    <h2 style="font-size:24px;margin-bottom:12px;">Download the Glofox App</h2>
+    <p style="font-size:15px;margin-bottom:16px;line-height:1.5;">
+      Please download the Glofox app, search <strong>NuAge Fitness Studio</strong> and register.<br><br>
+      Once logged in, you’ll be able to:<br>
+      • Access your account<br>
+      • Purchase membership<br>
+      • Book classes<br>
+      • And more.<br><br>
+      Type A for Apple<br>
+      Type G for Google
+    </p>
+    <input id="choiceInput" type="text" placeholder="Enter A or G" style="padding:8px;width:80%;margin-bottom:12px;border:1px solid #ccc;border-radius:6px;"><br>
+    <button onclick="submitChoice()" style="background:#002D72;color:#fff;padding:10px 20px;border:none;border-radius:6px;cursor:pointer;">Submit</button>
   </div>
 </div>
 
 <script>
-function openModal(){
-  document.getElementById('appModal').style.display = 'flex';
-}
-function closeModal(){
-  document.getElementById('appModal').style.display = 'none';
-}
+function openModal(){ document.getElementById('appModal').style.display='flex'; }
+function closeModal(){ document.getElementById('appModal').style.display='none'; }
 function submitChoice(){
-  const choice = document.getElementById('appChoice').value.trim().toUpperCase();
-  if(choice === 'A'){
-    window.open('https://apps.apple.com', '_blank');
-  } else if(choice === 'G'){
-    window.open('https://play.google.com', '_blank');
-  } else {
-    alert('Please enter A or G.');
-  }
+  var choice = document.getElementById('choiceInput').value.trim().toUpperCase();
+  if(choice==='A'){ window.open('https://apps.apple.com/app/glofox/id916224471','_blank'); }
+  else if(choice==='G'){ window.open('https://play.google.com/store/apps/details?id=com.glofox.glofoxapp','_blank'); }
+  else { alert('Please type A or G'); }
 }
 </script>
 
