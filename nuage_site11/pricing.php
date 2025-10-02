@@ -731,7 +731,7 @@ textarea{min-height:120px;resize:vertical}
       <h1>Personal Training Pricing</h1>
       <p>Month-to-Month Contract • 30-Day Cancellation</p>
       <div class="cta-row">
-        <a class="btn btn-primary" href="https://apps.apple.com/us/app/glofox/id916224471" target="_blank" rel="noopener">View Classes</a>
+        <a class="btn btn-primary" href="classes.php">View Classes</a>
         <a class="btn btn-light" href="index.php">Back Home</a>
       </div>
     </div>
@@ -814,7 +814,10 @@ textarea{min-height:120px;resize:vertical}
 
 <script>
   document.addEventListener("DOMContentLoaded", function () {
-    const appLinks = document.querySelectorAll('a[href*="apps.apple.com/us/app/glofox"]');
+    
+  // Disabled in favor of styled modal
+  return;
+const appLinks = document.querySelectorAll('a[href*="apps.apple.com/us/app/glofox"]');
 
     appLinks.forEach(link => {
       link.addEventListener("click", function (e) {
