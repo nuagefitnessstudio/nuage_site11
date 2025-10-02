@@ -912,5 +912,25 @@ document.addEventListener('DOMContentLoaded', function(){
 });
 </script>
 
+
+<script>
+function openModal() {
+  document.getElementById('appModal').style.display = 'flex';
+}
+function closeModal() {
+  document.getElementById('appModal').style.display = 'none';
+}
+function submitChoice() {
+  const choice = document.getElementById('appChoice').value.trim().toUpperCase();
+  if (choice === 'A') {
+    window.open('https://apps.apple.com/app/id916224471','_blank');
+  } else if (choice === 'G') {
+    window.open('https://play.google.com/store/apps/details?id=com.glofox&hl=en','_blank');
+  } else {
+    alert('Please enter A or G.');
+  }
+}
+</script>
+
 </body>
 </html>
