@@ -631,7 +631,7 @@ textarea{min-height:120px;resize:vertical}
   </div>
   <nav class="drawer-nav">
     <a href="location.php" class="pill-link primary"><span style="font-weight:700">Find a Location</span></a>
-    <a href="https://apps.apple.com/us/app/glofox/id916224471" target="_blank" rel="noopener" class="pill-link">Member Login</a>
+    <a href="javascript:void(0)" onclick="openModal()" class="pill-link">Member Login</a>
     <a href="classes.php">Classes</a>
     <a href="team.php">Meet the Team</a>
     <a href="pricing.php">Pricing</a>
@@ -806,7 +806,6 @@ textarea{min-height:120px;resize:vertical}
   "Type G for Google"
 );
 
-
         if (!choice) return; // cancelled
 
         if (choice.toLowerCase() === "a") {
@@ -820,6 +819,7 @@ textarea{min-height:120px;resize:vertical}
     });
   });
 </script>
+
 
 
 <script>
@@ -847,8 +847,84 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 </script>
 
+<!-- App Download Modal -->
+<div id="appModal" class="modal-overlay" style="display:none;">
+  <div class="modal-box">
+    <h2>Download the Glofox App</h2>
+    <p>
+      Please download the Glofox app, search <strong>NuAge Fitness Studio</strong> and register.<br>
+      Once logged in, you’ll be able to:<br>
+      • Access your account<br>
+      • Purchase membership<br>
+      • Book classes<br>
+      • And more.
+    </p>
+    <div class="modal-actions">
+      <button onclick="window.open('https://apps.apple.com/app/id916224471','_blank')">Apple</button>
+      <button onclick="window.open('https://play.google.com/store/apps/details?id=com.glofox&hl=en','_blank')">Google</button>
+    </div>
+    <button class="modal-close" onclick="document.getElementById('appModal').style.display='none'">×</button>
+  </div>
+</div>
 
 
+<style>
+.modal { display:none; position:fixed; z-index:1000; left:0; top:0; width:100%; height:100%; background:rgba(0,0,0,.6); }
+.modal-content { background:#fff; margin:10% auto; padding:20px; border-radius:12px; max-width:420px; text-align:center; position:relative; }
+.modal-content h2 { color:var(--navy); margin-bottom:12px; }
+.modal-content p { margin-bottom:16px; color:var(--muted); }
+.modal-content ul { list-style:none; padding:0; margin:0 0 20px; text-align:left; }
+.modal-content ul li { margin-bottom:8px; }
+.btn-row { display:flex; gap:12px; justify-content:center; }
+.btn-row button { background:var(--coral); color:#fff; padding:10px 18px; border:none; border-radius:8px; cursor:pointer; }
+.close { position:absolute; right:16px; top:12px; font-size:24px; cursor:pointer; }
+</style>
+
+<script>
+function openModal(){ document.getElementById("downloadModal").style.display="block"; }
+function closeModal(){ document.getElementById("downloadModal").style.display="none"; }
+window.onclick = function(e){
+  let modal = document.getElementById("downloadModal");
+  if(e.target == modal){ modal.style.display="none"; }
+}
+</script>
+
+
+<!-- Styled Modal copied from index.php but customized for A/G input -->
+<div id="appModal" class="modal">
+  <div class="modal-content">
+    <span class="modal-close" onclick="closeModal()">&times;</span>
+    <h2>Please download the Glofox app</h2>
+    <p>Search NuAge Fitness Studio and register.<br>
+    Once logged in, you’ll be able to:<br>
+    • Access your account<br>
+    • Purchase membership<br>
+    • Book classes<br>
+    • And more.</p>
+    <p>Type A for Apple or G for Google:</p>
+    <input type="text" id="appChoice" maxlength="1" style="padding:8px;font-size:16px;">
+    <button onclick="submitChoice()" style="padding:8px 16px;margin-left:8px;">Submit</button>
+  </div>
+</div>
+
+<script>
+function openModal(){
+  document.getElementById('appModal').style.display = 'flex';
+}
+function closeModal(){
+  document.getElementById('appModal').style.display = 'none';
+}
+function submitChoice(){
+  const choice = document.getElementById('appChoice').value.trim().toUpperCase();
+  if(choice === 'A'){
+    window.open('https://apps.apple.com', '_blank');
+  } else if(choice === 'G'){
+    window.open('https://play.google.com', '_blank');
+  } else {
+    alert('Please enter A or G.');
+  }
+}
+</script>
 
 </body>
 </html>
