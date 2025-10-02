@@ -619,9 +619,36 @@ textarea{min-height:120px;resize:vertical}
 }
 .alert.success{background:#ecfdf5;color:#065f46;border:1px solid #a7f3d0}
 .alert.error{background:#fef2f2;color:#991b1b;border:1px solid #fecaca}
-  </style>
+</style>
+  <link rel="stylesheet" href="style.css?v=5" />
+
+<style>
+  
+</style>
 </head>
 <body>
+
+<!-- App Download Modal -->
+<div id="appModal" class="modal-overlay" style="display:none;">
+  <div class="modal-box">
+    <h2>Download the Glofox App</h2>
+    <p>
+    Please download the Glofox app, search <strong>NuAge Fitness Studio</strong> and register.<br>
+      Once logged in, you’ll be able to:<br>
+      • Access your account<br>
+      • Purchase membership<br>
+      • Book classes<br>
+      • And more.
+    </p>
+    <div class="modal-actions">
+      <button onclick="window.open('https://apps.apple.com/app/id916224471','_blank')">Apple</button>
+      <button onclick="window.open('https://play.google.com/store/apps/details?id=com.glofox&hl=en','_blank')">Google</button>
+    </div>
+    <button class="modal-close" onclick="document.getElementById('appModal').style.display='none'">×</button>
+  </div>
+</div>
+
+<!-- Hamburger topbar -->
 <div class="topbar" role="navigation" aria-label="Main">
   <div class="brand" aria-label="NuAge">
     <img loading="eager" referrerpolicy="no-referrer" src="assets/IMG_2413.png" alt="NuAge logo">
@@ -656,23 +683,22 @@ textarea{min-height:120px;resize:vertical}
   </div>
   <nav class="drawer-nav">
     <a href="location.php" class="pill-link primary"><span style="font-weight:700">Find a Location</span></a>
-    <a href="https://apps.apple.com/us/app/glofox/id916224471" target="_blank" rel="noopener" class="pill-link">Member Login</a>
+    <a href="javascript:void(0)" onclick="openModal()" class="pill-link">Member Login</a>
     <a href="classes.php">Classes</a>
     <a href="team.php">Meet the Team</a>
     <a href="pricing.php">Pricing</a>
   </nav>
 </aside>
-  <section class="hero-ot" style="min-height:40vh">
+  <section class="hero-ot">
     <div class="hero-inner">
-      <h1>Membership Pricing</h1>
-      <p>Month-to-Month Contract • 30-Day Cancellation</p>
+      <h1>Classes</h1>
+      <p>Find your pace — strength, HIIT, mobility & more.</p>
       <div class="cta-row">
-        <a class="btn btn-primary" href="classes.php">View Classes</a>
+        <a class="btn btn-primary" href="pricing.php">See Pricing</a>
         <a class="btn btn-light" href="index.php">Back Home</a>
       </div>
     </div>
   </section>
-
   
 
 
@@ -685,43 +711,58 @@ textarea{min-height:120px;resize:vertical}
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px;">
       
       <!-- Bronze -->
-      <div style="background:#fff;border-radius:16px;padding:32px;box-shadow:0 6px 20px rgba(0,0,0,0.08);">
-        <h3 style="color:var(--navy);margin-bottom:12px;">NuAge Fit </h3>
-        <p style="font-size:32px;font-weight:700;color:var(--coral);margin:0;">$60<span style="font-size:16px;">/mo</span></p>
-        <ul style="list-style:none;padding:0;margin:20px 0;color:var(--muted);line-height:1.6;">
-          <li>4 Classes Monthly</li>
-          <li>avg. usage of 1x/week</li>
-          <li>Discounted Add-On Classes</li>
-          <li>Great starter plan</li>
-        </ul>
-        <a href="javascript:void(0)" onclick="openModal()" class="btn btn-primary">Choose Bronze</a>
-      </div>
+      
+  <section class="plans">
+    <div class="plan">
+      <h3>NuAge Fit</h3>
+      <p>$60<span style="font-size:16px;">/mo</span></p>
+      <p>• 4 Classes Monthly
+
+          • avg. usage of 1x/week
+
+          • Discounted Add-On Classes
+
+          • Great starter plan</p>
+      <a class="btn btn-primary" href="javascript:void(0)" onclick="openModal()">View Schedule & Book</a>
+    </div>
+  </section>
+
 
       <!-- Silver -->
-      <div style="background:#fff;border-radius:16px;padding:32px;box-shadow:0 6px 20px rgba(0,0,0,0.08);">
-        <h3 style="color:var(--navy);margin-bottom:12px;">NuAge Grind</h3>
-        <p style="font-size:32px;font-weight:700;color:var(--coral);margin:0;">$110<span style="font-size:16px;">/mo</span></p>
-        <ul style="list-style:none;padding:0;margin:20px 0;color:var(--muted);line-height:1.6;">
-          <li>8 Classes Monthly</li>
-          <li>avg. usage of 2x/week</li>
-          <li>Discounted Add-On Classes</li>
-          <li>Balanced flexibility & value</li>
-        </ul>
-        <a href="javascript:void(0)" onclick="openModal()" class="btn btn-primary">Choose Silver</a>
-      </div>
+      
+  <section class="plans">
+    <div class="plan">
+      <h3>NuAge Grind</h3>
+      <p>$110<span style="font-size:16px;">/mo</span></p>
+      <p>• 8 Classes Monthly
+
+          • avg. usage of 2x/week
+
+          • Discounted Add-On Classes
+
+          • Balanced flexibility & value</p>
+      <a class="btn btn-primary" href="javascript:void(0)" onclick="openModal()">View Schedule & Book</a>
+    </div>
+  </section>
+
 
       <!-- Gold -->
-      <div style="background:#fff;border-radius:16px;padding:32px;box-shadow:0 6px 20px rgba(0,0,0,0.08);">
-        <h3 style="color:var(--navy);margin-bottom:12px;">NuAge Dedicated</h3>
-        <p style="font-size:32px;font-weight:700;color:var(--coral);margin:0;">$170<span style="font-size:16px;">/mo</span></p>
-        <ul style="list-style:none;padding:0;margin:20px 0;color:var(--muted);line-height:1.6;">
-          <li>Unlimited Classes</li>
-          <li>recommended for 3x/week or more</li>
-          <li>Discounted Add-On Classes</li>
-          <li>Best for regular training</li>
-        </ul>
-        <a href="javascript:void(0)" onclick="openModal()" class="btn btn-primary">Choose Gold</a>
-      </div>
+      
+  <section class="plans">
+    <div class="plan">
+      <h3>NuAge Dedicated</h3>
+      <p>$170<span style="font-size:16px;">/mo</span></p>
+      <p>• Unlimited Classes
+
+          • recommended for 3x/week or more
+
+          • Discounted Add-On Classes
+
+          • Best for regular training</p>
+      <a class="btn btn-primary" href="javascript:void(0)" onclick="openModal()">View Schedule & Book</a>
+    </div>
+  </section>
+
     </div>
   </div>
 </section>
@@ -746,70 +787,84 @@ textarea{min-height:120px;resize:vertical}
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px;">
       
       <!-- Intro Training -->
-      <div style="background:#fff;border-radius:16px;padding:32px;box-shadow:0 6px 20px rgba(0,0,0,0.08);">
-        <h3 style="color:var(--navy);margin-bottom:12px;">Intro Training</h3>
-        <p style="font-size:32px;font-weight:700;color:var(--coral);margin:0;">$60<span style="font-size:16px;">/session</span></p>
-        <ul style="list-style:none;padding:0;margin:20px 0;color:var(--muted);line-height:1.6;">
-          <li>1 Personal Training Session</li>
-          <li>Perfect for beginners</li>
-        </ul>
-        <a href="javascript:void(0)" onclick="openModal()" class="btn btn-primary">Choose Intro</a>
-      </div>
+      
+  <section class="plans">
+    <div class="plan">
+      <h3>Intro Training</h3>
+      <p>$60<span style="font-size:16px;">/session</span></p>
+      <p>• 1 Personal Training Session
+
+          • Perfect for beginners</p>
+      <a class="btn btn-primary" href="javascript:void(0)" onclick="openModal()">View Schedule & Book</a>
+    </div>
+  </section>
+
 
       <!-- Bronze PT -->
-      <div style="background:#fff;border-radius:16px;padding:32px;box-shadow:0 6px 20px rgba(0,0,0,0.08);">
-        <h3 style="color:var(--navy);margin-bottom:12px;">Bronze - Basic PT</h3>
-        <p style="font-size:32px;font-weight:700;color:var(--coral);margin:0;">$220</p>
-        <ul style="list-style:none;padding:0;margin:20px 0;color:var(--muted);line-height:1.6;">
-          <li>4 Personal Training Sessions</li>
-          <li>Monthly training support</li>
-        </ul>
-        <a href="javascript:void(0)" onclick="openModal()" class="btn btn-primary">Choose Bronze PT</a>
-      </div>
+      
+  <section class="plans">
+    <div class="plan">
+      <h3>Bronze - Basic PT</h3>
+      <p>$220</p>
+      <p>• 4 Personal Training Sessions
+
+          • Monthly training support</p>
+      <a class="btn btn-primary" href="javascript:void(0)" onclick="openModal()">View Schedule & Book</a>
+    </div>
+  </section>
+
 
       <!-- Silver PT -->
-      <div style="background:#fff;border-radius:16px;padding:32px;box-shadow:0 6px 20px rgba(0,0,0,0.08);">
-        <h3 style="color:var(--navy);margin-bottom:12px;">Silver - Elite PT</h3>
-        <p style="font-size:32px;font-weight:700;color:var(--coral);margin:0;">$400</p>
-        <ul style="list-style:none;padding:0;margin:20px 0;color:var(--muted);line-height:1.6;">
-          <li>8 Personal Training Sessions</li>
-          <li>For steady progress</li>
-        </ul>
-        <a href="javascript:void(0)" onclick="openModal()" class="btn btn-primary">Choose Silver PT</a>
-      </div>
+      
+  <section class="plans">
+    <div class="plan">
+      <h3>Silver - Elite PT</h3>
+      <p>$400</p>
+      <p>• 8 Personal Training Sessions
+
+          • For steady progress</p>
+      <a class="btn btn-primary" href="javascript:void(0)" onclick="openModal()">View Schedule & Book</a>
+    </div>
+  </section>
+
 
       <!-- Gold PT -->
-      <div style="background:#fff;border-radius:16px;padding:32px;box-shadow:0 6px 20px rgba(0,0,0,0.08);">
-        <h3 style="color:var(--navy);margin-bottom:12px;">Gold - Premier PT</h3>
-        <p style="font-size:32px;font-weight:700;color:var(--coral);margin:0;">$575</p>
-        <ul style="list-style:none;padding:0;margin:20px 0;color:var(--muted);line-height:1.6;">
-          <li>12 Personal Training Sessions</li>
-          <li>Best for committed clients</li>
-        </ul>
-        <a href="javascript:void(0)" onclick="openModal()" class="btn btn-primary">Choose Gold PT</a>
-      </div>
+      
+  <section class="plans">
+    <div class="plan">
+      <h3>Gold - Premier PT</h3>
+      <p>$575</p>
+      <p>• 12 Personal Training Sessions
+
+          • Best for committed clients</p>
+      <a class="btn btn-primary" href="javascript:void(0)" onclick="openModal()">View Schedule & Book</a>
+    </div>
+  </section>
+
 
       <!-- Add-Ons -->
-      <div style="background:#fff;border-radius:16px;padding:32px;box-shadow:0 6px 20px rgba(0,0,0,0.08);">
-        <h3 style="color:var(--navy);margin-bottom:12px;">Add-Ons</h3>
-        <p style="font-size:32px;font-weight:700;color:var(--coral);margin:0;">$30</p>
-        <ul style="list-style:none;padding:0;margin:20px 0;color:var(--muted);line-height:1.6;">
-          <li>2 Class Open Gym Pass</li>
-          <li>Discounted Extra Classes</li>
-          <li>Flexible extras</li>
-        </ul>
-        <a href="javascript:void(0)" onclick="openModal()" class="btn btn-primary">Choose Add-On</a>
-      </div>
+      
+  <section class="plans">
+    <div class="plan">
+      <h3>Add-Ons</h3>
+      <p>$30</p>
+      <p>• 2 Class Open Gym Pass
+
+          • Discounted Extra Classes
+
+          • Flexible extras</p>
+      <a class="btn btn-primary" href="javascript:void(0)" onclick="openModal()">View Schedule & Book</a>
+    </div>
+  </section>
+
     </div>
   </div>
 </section>
-
 <footer class="footer">
   <div class="bottombar">
     <p>&copy; <?php echo date('Y'); ?> NuAge Fitness Studio. All rights reserved.</p>
   </div>
 </footer>
-
 
 
 <script>
@@ -831,7 +886,6 @@ textarea{min-height:120px;resize:vertical}
   "Type G for Google"
 );
 
-
         if (!choice) return; // cancelled
 
         if (choice.toLowerCase() === "a") {
@@ -845,6 +899,7 @@ textarea{min-height:120px;resize:vertical}
     });
   });
 </script>
+
 
 
 <script>
@@ -872,15 +927,8 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 </script>
 
-
-
-
-
-
-
-
-<!-- App Download Modal (single, clean version) -->
-<div id="appModal" class="modal-overlay" style="display:none; align-items:center; justify-content:center;">
+<!-- App Download Modal -->
+<div id="appModal" class="modal-overlay" style="display:none;">
   <div class="modal-box">
     <h2>Download the Glofox App</h2>
     <p>
@@ -895,20 +943,69 @@ document.addEventListener("DOMContentLoaded", function () {
       <button onclick="window.open('https://apps.apple.com/app/id916224471','_blank')">Apple</button>
       <button onclick="window.open('https://play.google.com/store/apps/details?id=com.glofox&hl=en','_blank')">Google</button>
     </div>
-    <button class="modal-close" onclick="closeModal()">×</button>
+    <button class="modal-close" onclick="document.getElementById('appModal').style.display='none'">×</button>
+  </div>
+</div>
+
+
+<style>
+.modal { display:none; position:fixed; z-index:1000; left:0; top:0; width:100%; height:100%; background:rgba(0,0,0,.6); }
+.modal-content { background:#fff; margin:10% auto; padding:20px; border-radius:12px; max-width:420px; text-align:center; position:relative; }
+.modal-content h2 { color:var(--navy); margin-bottom:12px; }
+.modal-content p { margin-bottom:16px; color:var(--muted); }
+.modal-content ul { list-style:none; padding:0; margin:0 0 20px; text-align:left; }
+.modal-content ul li { margin-bottom:8px; }
+.btn-row { display:flex; gap:12px; justify-content:center; }
+.btn-row button { background:var(--coral); color:#fff; padding:10px 18px; border:none; border-radius:8px; cursor:pointer; }
+.close { position:absolute; right:16px; top:12px; font-size:24px; cursor:pointer; }
+</style>
+
+<script>
+function openModal(){ document.getElementById("downloadModal").style.display="block"; }
+function closeModal(){ document.getElementById("downloadModal").style.display="none"; }
+window.onclick = function(e){
+  let modal = document.getElementById("downloadModal");
+  if(e.target == modal){ modal.style.display="none"; }
+}
+</script>
+
+
+<!-- Styled Modal copied from index.php but customized for A/G input -->
+<div id="appModal" class="modal">
+  <div class="modal-content">
+    <span class="modal-close" onclick="closeModal()">&times;</span>
+    <h2>Please download the Glofox app</h2>
+    <p>Search NuAge Fitness Studio and register.<br>
+    Once logged in, you’ll be able to:<br>
+    • Access your account<br>
+    • Purchase membership<br>
+    • Book classes<br>
+    • And more.</p>
+    <p>Type A for Apple or G for Google:</p>
+    <input type="text" id="appChoice" maxlength="1" style="padding:8px;font-size:16px;">
+    <button onclick="submitChoice()" style="padding:8px 16px;margin-left:8px;">Submit</button>
   </div>
 </div>
 
 <script>
-function openModal(){ 
-  var el = document.getElementById('appModal'); 
-  if(el){ el.style.display='flex'; } 
+function openModal(){
+  document.getElementById('appModal').style.display = 'flex';
 }
-function closeModal(){ 
-  var el = document.getElementById('appModal'); 
-  if(el){ el.style.display='none'; } 
+function closeModal(){
+  document.getElementById('appModal').style.display = 'none';
+}
+function submitChoice(){
+  const choice = document.getElementById('appChoice').value.trim().toUpperCase();
+  if(choice === 'A'){
+    window.open('https://apps.apple.com', '_blank');
+  } else if(choice === 'G'){
+    window.open('https://play.google.com', '_blank');
+  } else {
+    alert('Please enter A or G.');
+  }
 }
 </script>
 
 </body>
 </html>
+
