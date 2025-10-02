@@ -541,7 +541,11 @@ a, button { -webkit-tap-highlight-color: transparent; }
     align-items: center; /* keep centered on small screens */
   }
 }
-  </style>
+  
+
+
+
+</style>
 </head>
 <body>
 
@@ -672,6 +676,43 @@ document.addEventListener("DOMContentLoaded", function () {
   // ESC key to close
   document.addEventListener("keydown", (e)=>{ if (e.key === "Escape") closeNav(); });
 });
+</script>
+
+
+<!-- Styled Modal copied from index.php but customized for A/G input -->
+<div id="appModal" class="modal">
+  <div class="modal-content">
+    <span class="modal-close" onclick="closeModal()">&times;</span>
+    <h2>Please download the Glofox app</h2>
+    <p>Search NuAge Fitness Studio and register.<br>
+    Once logged in, you’ll be able to:<br>
+    • Access your account<br>
+    • Purchase membership<br>
+    • Book classes<br>
+    • And more.</p>
+    <p>Type A for Apple or G for Google:</p>
+    <input type="text" id="appChoice" maxlength="1" style="padding:8px;font-size:16px;">
+    <button onclick="submitChoice()" style="padding:8px 16px;margin-left:8px;">Submit</button>
+  </div>
+</div>
+
+<script>
+function openModal(){
+  document.getElementById('appModal').style.display = 'flex';
+}
+function closeModal(){
+  document.getElementById('appModal').style.display = 'none';
+}
+function submitChoice(){
+  const choice = document.getElementById('appChoice').value.trim().toUpperCase();
+  if(choice === 'A'){
+    window.open('https://apps.apple.com', '_blank');
+  } else if(choice === 'G'){
+    window.open('https://play.google.com', '_blank');
+  } else {
+    alert('Please enter A or G.');
+  }
+}
 </script>
 
 </body>
