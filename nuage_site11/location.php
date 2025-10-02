@@ -667,23 +667,21 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 <!-- Styled Modal -->
-<div id="appModal" class="modal" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.6);justify-content:center;align-items:center;z-index:1000;">
-  <div class="modal-content" style="background:#fff;padding:30px;max-width:420px;border-radius:16px;position:relative;text-align:center;">
-    <button onclick="closeModal()" style="position:absolute;top:10px;right:14px;border:none;background:none;font-size:20px;cursor:pointer;">×</button>
-    <h2 style="font-size:24px;margin-bottom:12px;">Download the Glofox App</h2>
-    <p style="font-size:15px;margin-bottom:16px;line-height:1.5;">
-      Please download the Glofox app, search <strong>NuAge Fitness Studio</strong> and register.<br><br>
+<div id="appModal" class="modal-overlay" style="display:none;">
+  <div class="modal-box">
+    <h2>Download the Glofox App</h2>
+    <p>
+    Please download the Glofox app, search <strong>NuAge Fitness Studio</strong> and register.<br>
       Once logged in, you’ll be able to:<br>
       • Access your account<br>
       • Purchase membership<br>
       • Book classes<br>
-      • And more.<br><br>
-      Type A for Apple<br>
-      Type G for Google
+      • And more.
     </p>
-    <input id="choiceInput" type="text" placeholder="Enter A or G" style="padding:8px;width:80%;margin-bottom:12px;border:1px solid #ccc;border-radius:6px;"><br>
-    <button onclick="submitChoice()" style="background:#002D72;color:#fff;padding:10px 20px;border:none;border-radius:6px;cursor:pointer;">Submit</button>
-  </div>
+    <div class="modal-actions">
+      <button onclick="window.open('https://apps.apple.com/app/id916224471','_blank')">Apple</button>
+      <button onclick="window.open('https://play.google.com/store/apps/details?id=com.glofox&hl=en','_blank')">Google</button>
+    </div>
 </div>
 
 <script>
