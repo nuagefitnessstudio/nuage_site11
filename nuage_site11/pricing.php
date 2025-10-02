@@ -731,7 +731,7 @@ textarea{min-height:120px;resize:vertical}
       <h1>Personal Training Pricing</h1>
       <p>Month-to-Month Contract • 30-Day Cancellation</p>
       <div class="cta-row">
-        <a class="btn btn-primary" href="classes.php">View Classes</a>
+        <a class="btn btn-primary" href="https://apps.apple.com/us/app/glofox/id916224471" target="_blank" rel="noopener">View Classes</a>
         <a class="btn btn-light" href="index.php">Back Home</a>
       </div>
     </div>
@@ -814,10 +814,7 @@ textarea{min-height:120px;resize:vertical}
 
 <script>
   document.addEventListener("DOMContentLoaded", function () {
-    
-  // Disabled in favor of styled modal
-  return;
-const appLinks = document.querySelectorAll('a[href*="apps.apple.com/us/app/glofox"]');
+    const appLinks = document.querySelectorAll('a[href*="apps.apple.com/us/app/glofox"]');
 
     appLinks.forEach(link => {
       link.addEventListener("click", function (e) {
@@ -879,7 +876,23 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
-<!-- App Download Modal (classes.php exact) -->
+
+
+
+<script>
+// Synced with classes.php
+function openModal(){
+  var el = document.getElementById('appModal');
+  if (el){ el.style.display = 'flex'; }
+}
+function closeModal(){
+  var el = document.getElementById('appModal');
+  if (el){ el.style.display = 'none'; }
+}
+</script>
+
+
+<!-- App Download Modal -->
 <div id="appModal" class="modal-overlay" style="display:none;">
   <div class="modal-box">
     <h2>Download the Glofox App</h2>
@@ -898,19 +911,6 @@ document.addEventListener("DOMContentLoaded", function () {
     <button class="modal-close" onclick="document.getElementById('appModal').style.display='none'">×</button>
   </div>
 </div>
-
-
-<script>
-// Synced with classes.php
-function openModal(){
-  var el = document.getElementById('appModal');
-  if (el){ el.style.display = 'flex'; }
-}
-function closeModal(){
-  var el = document.getElementById('appModal');
-  if (el){ el.style.display = 'none'; }
-}
-</script>
 
 </body>
 </html>
