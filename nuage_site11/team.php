@@ -820,16 +820,7 @@ textarea{min-height:120px;resize:vertical}
       link.addEventListener("click", function (e) {
         e.preventDefault();
 
-        const choice = prompt(
-  "Please download the Glofox app, search NuAge Fitness Studio and register.\n" +
-  "Once logged in, you’ll be able to:\n" +
-  "• Access your account\n" +
-  "• Purchase membership\n" +
-  "• Book classes\n" +
-  "• And more.\n\n" +
-  "Type A for Apple\n" +
-  "Type G for Google"
-);
+        const choice = openModal();
 
         if (!choice) return; // cancelled
 
@@ -908,6 +899,77 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // ESC key to close
   document.addEventListener("keydown", (e)=>{ if (e.key === "Escape") closeNav(); });
+});
+</script>
+
+
+<style>
+.modal-overlay{
+  position:fixed; inset:0; display:none;
+  background:rgba(0,0,0,.6); z-index:1000;
+  align-items:center; justify-content:center;
+}
+.modal-box{
+  background:#fff; width:min(92vw,560px);
+  padding:28px; border-radius:16px;
+  box-shadow:0 16px 40px rgba(0,0,0,.35);
+  text-align:center; position:relative;
+}
+.modal-box h2{font-family:'Playfair Display',serif; font-size:clamp(28px,3.2vw,40px); margin:6px 0 12px;}
+.modal-box p{color:#333; margin:0 0 12px; line-height:1.55;}
+.modal-actions{display:flex; gap:12px; justify-content:center; margin-top:14px;}
+.modal-actions button{background:#0d2a55; color:#fff; border:0; padding:10px 18px; border-radius:8px; font-weight:600; cursor:pointer}
+.modal-actions button:hover{opacity:.95}
+.modal-close{position:absolute; right:14px; top:12px; border:0; background:transparent; font-size:22px; cursor:pointer}
+</style>
+
+<!-- App Download Modal (matches classes) -->
+<div id="appModal" class="modal-overlay" style="display:none;">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal()">×</button>
+    <h2>Download the Glofox App</h2>
+    <p>
+      Please download the Glofox app, search <strong>NuAge Fitness Studio</strong> and register.<br/>
+      Once logged in, you’ll be able to:<br/>
+      • Access your account<br/>
+      • Purchase membership<br/>
+      • Book classes<br/>
+      • And more.
+    </p>
+    <div class="modal-actions">
+      <button onclick="window.open('https://apps.apple.com/app/id916224471','_blank')">Apple</button>
+      <button onclick="window.open('https://play.google.com/store/apps/details?id=com.glofox&hl=en','_blank')">Google</button>
+    </div>
+  </div>
+</div>
+
+<script>
+// Global functions so inline onclick handlers can find them
+window.openModal = function(){ var m=document.getElementById('appModal'); if(m){ m.style.display='flex'; } };
+window.closeModal = function(){ var m=document.getElementById('appModal'); if(m){ m.style.display='none'; } };
+
+// Close on outside click / Esc
+document.addEventListener('click', function(e){
+  var m = document.getElementById('appModal');
+  if (!m) return;
+  if (e.target === m) { window.closeModal(); }
+});
+document.addEventListener('keydown', function(e){
+  if (e.key === 'Escape') window.closeModal();
+});
+
+// Intercept direct store links to show modal instead
+document.addEventListener('DOMContentLoaded', function(){
+  document.querySelectorAll('a[href*="apps.apple.com"], a[href*="play.google.com"]').forEach(function(a){
+    a.addEventListener('click', function(evt){
+      evt.preventDefault();
+      window.openModal();
+    });
+  });
+  // Optional attribute trigger
+  document.querySelectorAll('[data-ag-modal]').forEach(function(a){
+    a.addEventListener('click', function(evt){ evt.preventDefault(); window.openModal(); });
+  });
 });
 </script>
 
