@@ -1,16 +1,7 @@
 
 <!DOCTYPE html>
 <html lang="en">
-
-<!-- NuAge prompt shim: reroute any openModal() calls to the styled modal -->
-<script>
-(function(){
-  function ensureOpen(){ try{ openModal(); }catch(e){ document.addEventListener('DOMContentLoaded', function(){ openModal(); }, {once:true}); } }
-  // Override native prompt so any lingering code can't open the black browser box
-  window.prompt = function(){ ensureOpen(); return null; };
-})();
-</script>
-
+<head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>NuAge Fitness Studio — Our Location</title>
@@ -588,7 +579,7 @@ a, button { -webkit-tap-highlight-color: transparent; }
   </div>
   <nav class="drawer-nav">
     <a href="location.php" class="pill-link primary"><span style="font-weight:700">Find a Location</span></a>
-    <a href="javascript:void(0)" onclick="openModal()" class="pill-link">Member Login</a>
+    <a href="https://apps.apple.com/us/app/glofox/id916224471" target="_blank" rel="noopener" class="pill-link">Member Login</a>
     <a href="classes.php">Classes</a>
     <a href="team.php">Meet the Team</a>
     <a href="pricing.php">Pricing</a>
@@ -624,30 +615,64 @@ a, button { -webkit-tap-highlight-color: transparent; }
   
 
 
-
-
-<div id="appModal" class="modal-overlay" style="display:none;">
-  <div class="modal-box">
-    <h2>Download the Glofox App</h2>
-    <p>
-    Please download the Glofox app, search <strong>NuAge Fitness Studio</strong> and register.<br>
-      Once logged in, you’ll be able to:<br>
-      • Access your account<br>
-      • Purchase membership<br>
-      • Book classes<br>
-      • And more.
-    </p>
-    <div class="modal-actions">
-      <button onclick="window.open('https://apps.apple.com/app/id916224471','_blank')">Apple</button>
-      <button onclick="window.open('https://play.google.com/store/apps/details?id=com.glofox&hl=en','_blank')">Google</button>
-    </div>
 <script>
-function openModal(){ document.getElementById("downloadModal").style.display="block"; }
-function closeModal(){ document.getElementById("downloadModal").style.display="none"; }
-window.onclick = function(e){
-  let modal = document.getElementById("downloadModal");
-  if(e.target == modal){ modal.style.display="none"; }
-}
+  document.addEventListener("DOMContentLoaded", function () {
+    const appLinks = document.querySelectorAll('a[href*="apps.apple.com/us/app/glofox"]');
+
+    appLinks.forEach(link => {
+      link.addEventListener("click", function (e) {
+        e.preventDefault();
+        const choice = prompt(
+  "Please download the Glofox app, search NuAge Fitness Studio and register.\n" +
+  "Once logged in, you’ll be able to:\n" +
+  "• Access your account\n" +
+  "• Purchase membership\n" +
+  "• Book classes\n" +
+  "• And more.\n\n" +
+  "Type A for Apple\n" +
+  "Type G for Google"
+);
+
+        if (!choice) return; // cancelled
+
+        if (choice.toLowerCase() === "a") {
+          window.open("https://apps.apple.com/us/app/glofox/id916224471", "_blank");
+        } else if (choice.toLowerCase() === "g") {
+          window.open("https://play.google.com/store/apps/details?id=ie.zappy.fennec.oneapp_glofox&hl=en_US", "_blank");
+        } else {
+          alert("Please enter A or G.");
+        }
+      });
+    });
+  });
 </script>
+
+
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const navToggle = document.getElementById("navToggle");
+  const navClose = document.getElementById("navClose");
+  const navDrawer = document.getElementById("navDrawer");
+  const navOverlay = document.getElementById("navOverlay");
+
+  function openNav(){
+    if (navDrawer) { navDrawer.classList.add("show"); navDrawer.removeAttribute("hidden"); navDrawer.setAttribute("aria-hidden","false"); }
+    if (navOverlay) { navOverlay.classList.add("show"); navOverlay.removeAttribute("hidden"); }
+  }
+  function closeNav(){
+    if (navDrawer) { navDrawer.classList.remove("show"); navDrawer.setAttribute("hidden",""); navDrawer.setAttribute("aria-hidden","true"); }
+    if (navOverlay) { navOverlay.classList.remove("show"); navOverlay.setAttribute("hidden",""); }
+  }
+
+  if (navToggle) navToggle.addEventListener("click", openNav);
+  if (navClose) navClose.addEventListener("click", closeNav);
+  if (navOverlay) navOverlay.addEventListener("click", closeNav);
+
+  // ESC key to close
+  document.addEventListener("keydown", (e)=>{ if (e.key === "Escape") closeNav(); });
+});
+</script>
+
 </body>
 </html>
