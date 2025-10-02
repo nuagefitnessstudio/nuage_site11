@@ -692,7 +692,7 @@ textarea{min-height:120px;resize:vertical}
   </div>
   <nav class="drawer-nav">
     <a href="location.php" class="pill-link primary"><span style="font-weight:700">Find a Location</span></a>
-    <a href="javascript:void(0)" onclick="openModal()" target="_blank" rel="noopener" class="pill-link">Member Login</a>
+    <a href="javascript:void(0)" onclick="openModal()" class="pill-link">Member Login</a>
     <a href="classes.php">Classes</a>
     <a href="team.php">Meet the Team</a>
     <a href="pricing.php">Pricing</a>
@@ -730,7 +730,7 @@ textarea{min-height:120px;resize:vertical}
           <li>Discounted Add-On Classes</li>
           <li>Great starter plan</li>
         </ul>
-        <a href="javascript:void(0)" onclick="openModal()" target="_blank" rel="noopener" class="btn btn-primary">Choose Bronze</a>
+        <a href="javascript:void(0)" class="btn" onclick="openModal()">Choose Bronze</a>
       </div>
 
       <!-- Silver -->
