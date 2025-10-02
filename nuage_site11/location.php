@@ -622,7 +622,16 @@ a, button { -webkit-tap-highlight-color: transparent; }
     appLinks.forEach(link => {
       link.addEventListener("click", function (e) {
         e.preventDefault();
-        const choice = openModal();
+        const choice = prompt(
+  "Please download the Glofox app, search NuAge Fitness Studio and register.\n" +
+  "Once logged in, you’ll be able to:\n" +
+  "• Access your account\n" +
+  "• Purchase membership\n" +
+  "• Book classes\n" +
+  "• And more.\n\n" +
+  "Type A for Apple\n" +
+  "Type G for Google"
+);
 
         if (!choice) return; // cancelled
 
@@ -663,36 +672,6 @@ document.addEventListener("DOMContentLoaded", function () {
   // ESC key to close
   document.addEventListener("keydown", (e)=>{ if (e.key === "Escape") closeNav(); });
 });
-</script>
-
-
-<!-- Styled Modal -->
-<div id="appModal" class="modal-overlay" style="display:none;">
-  <div class="modal-box">
-    <h2>Download the Glofox App</h2>
-    <p>
-    Please download the Glofox app, search <strong>NuAge Fitness Studio</strong> and register.<br>
-      Once logged in, you’ll be able to:<br>
-      • Access your account<br>
-      • Purchase membership<br>
-      • Book classes<br>
-      • And more.
-    </p>
-    <div class="modal-actions">
-      <button onclick="window.open('https://apps.apple.com/app/id916224471','_blank')">Apple</button>
-      <button onclick="window.open('https://play.google.com/store/apps/details?id=com.glofox&hl=en','_blank')">Google</button>
-    </div>
-</div>
-
-<script>
-function openModal(){ document.getElementById('appModal').style.display='flex'; }
-function closeModal(){ document.getElementById('appModal').style.display='none'; }
-function submitChoice(){
-  var choice = document.getElementById('choiceInput').value.trim().toUpperCase();
-  if(choice==='A'){ window.open('https://apps.apple.com/app/glofox/id916224471','_blank'); }
-  else if(choice==='G'){ window.open('https://play.google.com/store/apps/details?id=com.glofox.glofoxapp','_blank'); }
-  else { alert('Please type A or G'); }
-}
 </script>
 
 </body>
