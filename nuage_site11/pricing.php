@@ -795,7 +795,16 @@ textarea{min-height:120px;resize:vertical}
       link.addEventListener("click", function (e) {
         e.preventDefault();
 
-        const choice = openModal();
+        const choice = prompt(
+  "Please download the Glofox app, search NuAge Fitness Studio and register.\n" +
+  "Once logged in, you’ll be able to:\n" +
+  "• Access your account\n" +
+  "• Purchase membership\n" +
+  "• Book classes\n" +
+  "• And more.\n\n" +
+  "Type A for Apple\n" +
+  "Type G for Google"
+);
 
 
         if (!choice) return; // cancelled
@@ -840,45 +849,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
-
-
-<div id="appModal" class="modal-overlay" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:1000;align-items:center;justify-content:center;">
-  <div class="modal-box" style="background:#fff;width:min(92vw,560px);padding:28px;border-radius:16px;box-shadow:0 16px 40px rgba(0,0,0,.35);text-align:center;position:relative;">
-    <button class="modal-close" onclick="closeModal()" style="position:absolute;right:14px;top:12px;border:0;background:transparent;font-size:22px;cursor:pointer">×</button>
-    <h2 style="font-family:'Playfair Display',serif;font-size:clamp(28px,3.2vw,40px);margin:6px 0 12px;">Download the Glofox App</h2>
-    <p style="color:#333;margin:0 0 12px;line-height:1.55;">Please download the Glofox app, search <strong>NuAge Fitness Studio</strong> and register.</p>
-    <ul style="text-align:left;margin:0 auto 12px;max-width:440px;line-height:1.55;">
-      <li>Access your account</li><li>Purchase membership</li><li>Book classes</li><li>And more</li>
-    </ul>
-    <div style="margin-top:12px;">
-      <input id="appChoice" type="text" placeholder="A or G" style="padding:10px 12px;border:1px solid #ccc;border-radius:8px;text-align:center;width:70%;max-width:260px;">
-      <button onclick="submitChoice()" style="margin-left:8px;padding:10px 14px;border-radius:8px;border:0;background:#0d2a55;color:#fff;font-weight:700;cursor:pointer;">Submit</button>
-    </div>
-  </div>
-</div>
-
-
-<script>
-function openModal() {
-  var m = document.getElementById('appModal');
-  if (m) { m.style.display = 'flex'; }
-}
-function closeModal() {
-  var m = document.getElementById('appModal');
-  if (m) { m.style.display = 'none'; }
-}
-function submitChoice() {
-  var input = document.getElementById('appChoice') || document.getElementById('choiceInput') || document.getElementById('storeChoice');
-  var val = (input && input.value ? input.value : '').trim().toUpperCase();
-  if (val === 'A') {
-    window.open('https://apps.apple.com/us/app/glofox/id916224471','_blank');
-  } else if (val === 'G') {
-    window.open('https://play.google.com/store/apps/details?id=com.glofox&hl=en','_blank');
-  } else {
-    alert('Please enter A or G.');
-  }
-}
-</script>
 
 </body>
 </html>
