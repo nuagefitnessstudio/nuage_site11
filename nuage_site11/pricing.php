@@ -706,7 +706,7 @@ textarea{min-height:120px;resize:vertical}
       <h1>Personal Training Pricing</h1>
       <p>Month-to-Month Contract • 30-Day Cancellation</p>
       <div class="cta-row">
-      <a href="javascript:void(0)" onclick="openModal()" class="btn btn-primary">View Classes</a>
+        <a class="btn btn-primary" href="https://apps.apple.com/us/app/glofox/id916224471" target="_blank" rel="noopener">View Classes</a>
         <a class="btn btn-light" href="index.php">Back Home</a>
       </div>
     </div>
