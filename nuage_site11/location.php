@@ -680,5 +680,27 @@ document.addEventListener("DOMContentLoaded", function () {
       <button onclick="window.open('https://apps.apple.com/app/id916224471','_blank')">Apple</button>
       <button onclick="window.open('https://play.google.com/store/apps/details?id=com.glofox&hl=en','_blank')">Google</button>
     </div>
+
+    <script>
+function openModal() {
+  document.getElementById("appModal").style.display = "flex";
+}
+
+function closeModal() {
+  document.getElementById("appModal").style.display = "none";
+}
+
+function submitChoice() {
+  const val = document.getElementById("storeChoice").value.trim().toUpperCase();
+  if (val === "A") {
+    window.open("https://apps.apple.com/app/glofox/id889684298");
+  } else if (val === "G") {
+    window.open("https://play.google.com/store/apps/details?id=com.glofox.glofox&hl=en");
+  } else {
+    alert("Please enter A or G");
+  }
+}
+</script>
+
 </body>
 </html>
