@@ -594,9 +594,57 @@ textarea{min-height:120px;resize:vertical}
 }
 .alert.success{background:#ecfdf5;color:#065f46;border:1px solid #a7f3d0}
 .alert.error{background:#fef2f2;color:#991b1b;border:1px solid #fecaca}
+
+.modal-box {
+  background: #fff;
+  padding: 24px;
+  border-radius: 12px;
+  max-width: 420px;
+  width: 90%;
+  text-align: center;
+  position: relative;
+}
+.modal-actions button {
+  margin: 10px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 6px;
+  background: var(--navy);
+  color: #fff;
+  cursor: pointer;
+}
+.modal-close {
+  position: absolute; top: 10px; right: 10px;
+  border: none; background: transparent;
+  font-size: 24px; cursor: pointer;
+}
+
   </style>
 </head>
 <body>
+
+
+<!-- App Download Modal -->
+<div id="appModal" class="modal-overlay" style="display:none;">
+  <div class="modal-box">
+    <h2>Download the Glofox App</h2>
+    <p>
+    Please download the Glofox app, search <strong>NuAge Fitness Studio</strong> and register.<br>
+      Once logged in, you’ll be able to:<br>
+      • Access your account<br>
+      • Purchase membership<br>
+      • Book classes<br>
+      • And more.
+    </p>
+    <div class="modal-actions">
+      <button onclick="window.open('https://apps.apple.com/app/id916224471','_blank')">Apple</button>
+      <button onclick="window.open('https://play.google.com/store/apps/details?id=com.glofox&hl=en','_blank')">Google</button>
+    </div>
+    <button class="modal-close" onclick="document.getElementById('appModal').style.display='none'">×</button>
+  </div>
+</div>
+
+
 <div class="topbar" role="navigation" aria-label="Main">
   <div class="brand" aria-label="NuAge">
     <img loading="eager" referrerpolicy="no-referrer" src="assets/IMG_2413.png" alt="NuAge logo">
