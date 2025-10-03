@@ -681,7 +681,7 @@ a, button { -webkit-tap-highlight-color: transparent; }
           <li>Discounted Add-On Classes</li>
           <li>Great starter plan</li>
         </ul>
-        <a class="btn btn-primary" href="javascript:void(0)" onclick="openModal()">View Schedule & Book</a>
+        <a class="btn btn-primary" href="javascript:void(0)" onclick="openModal()">View Pricing</a>
       </div>
 
       <!-- Silver -->
@@ -694,7 +694,7 @@ a, button { -webkit-tap-highlight-color: transparent; }
           <li>Discounted Add-On Classes</li>
           <li>Balanced flexibility & value</li>
         </ul>
-        <a class="btn btn-primary" href="javascript:void(0)" onclick="openModal()">View Schedule & Book</a>
+        <a class="btn btn-primary" href="javascript:void(0)" onclick="openModal()">View Pricing</a>
       </div>
 
       <!-- Gold -->
@@ -707,7 +707,7 @@ a, button { -webkit-tap-highlight-color: transparent; }
           <li>Discounted Add-On Classes</li>
           <li>Best for regular training</li>
         </ul>
-        <a class="btn btn-primary" href="javascript:void(0)" onclick="openModal()">View Schedule & Book</a>
+        <a class="btn btn-primary" href="javascript:void(0)" onclick="openModal()">View Pricing</a>
       </div>
     </div>
   </div>
@@ -718,7 +718,7 @@ a, button { -webkit-tap-highlight-color: transparent; }
     <h1>Personal Training Pricing</h1>
     <p>Month-to-Month Contract • 30-Day Cancellation</p>
     <div class="cta-row">
-      <a class="btn btn-primary" href="javascript:void(0)" onclick="openModal()">View Classes</a>
+      <a class="btn btn-primary" href="javascript:void(0)" onclick="openModal()">View Pricing</a>
       <a class="btn btn-light" href="index.php">Back Home</a>
     </div>
   </div>
@@ -740,7 +740,7 @@ a, button { -webkit-tap-highlight-color: transparent; }
           <li>1 Personal Training Session</li>
           <li>Perfect for beginners</li>
         </ul>
-        <a class="btn btn-primary" href="javascript:void(0)" onclick="openModal()">View Schedule & Book</a>
+        <a class="btn btn-primary" href="javascript:void(0)" onclick="openModal()">View Pricing</a>
       </div>
 
       <!-- Bronze PT -->
@@ -751,7 +751,7 @@ a, button { -webkit-tap-highlight-color: transparent; }
           <li>4 Personal Training Sessions</li>
           <li>Monthly training support</li>
         </ul>
-        <a class="btn btn-primary" href="javascript:void(0)" onclick="openModal()">View Schedule & Book</a>
+        <a class="btn btn-primary" href="javascript:void(0)" onclick="openModal()">View Pricing</a>
       </div>
 
       <!-- Silver PT -->
@@ -762,7 +762,7 @@ a, button { -webkit-tap-highlight-color: transparent; }
           <li>8 Personal Training Sessions</li>
           <li>For steady progress</li>
         </ul>
-        <a class="btn btn-primary" href="javascript:void(0)" onclick="openModal()">View Schedule & Book</a>
+        <a class="btn btn-primary" href="javascript:void(0)" onclick="openModal()">View Pricing</a>
       </div>
 
       <!-- Gold PT -->
@@ -773,7 +773,7 @@ a, button { -webkit-tap-highlight-color: transparent; }
           <li>12 Personal Training Sessions</li>
           <li>Best for committed clients</li>
         </ul>
-        <a class="btn btn-primary" href="javascript:void(0)" onclick="openModal()">View Schedule & Book</a>
+        <a class="btn btn-primary" href="javascript:void(0)" onclick="openModal()">View Pricing</a>
       </div>
 
       <!-- Add-Ons -->
@@ -785,7 +785,7 @@ a, button { -webkit-tap-highlight-color: transparent; }
           <li>Discounted Extra Classes</li>
           <li>Flexible extras</li>
         </ul>
-        <a class="btn btn-primary" href="javascript:void(0)" onclick="openModal()">View Schedule & Book</a>
+        <a class="btn btn-primary" href="javascript:void(0)" onclick="openModal()">View Pricing</a>
       </div>
     </div>
   </div>
