@@ -232,9 +232,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['employment_form'])) {
       --radius:18px;
     }
     body {
-  letter-spacing: .01em;
-  padding-top: 100px; /* push content down so it clears navbar */
-    }
+   letter-spacing: .01em;
+   padding-top: 100px; /* push content down so it clears navbar */
+   }
     h1{font-size:clamp(36px,6vw,72px); font-weight:600}
     h2{font-size:clamp(28px,4vw,44px); font-weight:600}
     .topbar{width:min(94vw,1040px); background:var(--pill); box-shadow:var(--shadow)}
@@ -534,26 +534,29 @@ a, button { -webkit-tap-highlight-color: transparent; }
 .note { color: var(--muted); font-style: italic; }
 }
 :root{
-  --navy:#002D72;
-  --coral:#EB1F48;
-  --ink:#111418;
-  --muted:#6a6d74;
-  --line:#e9e6e1;
-  --bone:#faf7f2;
-}
-*{box-sizing:border-box}
-html,body{height:100%}
-body{margin:0;color:var(--ink);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif}
-a{text-decoration:none;color:inherit}
-img{max-width:100%;display:block}
-.btn{display:inline-block;font-weight:600;padding:.9rem 1.25rem;border-radius:.75rem;border:2px solid transparent;transition:transform .2s ease,opacity .2s ease}
-.btn:active{transform:scale(.98)}
-.btn-primary{background:var(--coral);color:#fff}
-.btn-outline{border-color:#fff;color:#fff}
-.btn-light{background:#fff;color:var(--navy)}
+    --navy:#002D72;
+    --coral:#EB1F48;
+    --ink:#111418;
+    --muted:#6a6d74;
+    --line:#e9e6e1;
+    --bone:#faf7f2;
+  }
 
-.hero-ot{
-    min-height:72vh;
+  *{box-sizing:border-box}
+  html,body{height:100%}
+  body{margin:0;color:var(--ink);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif}
+  
+  a{text-decoration:none;color:inherit}
+  img{max-width:100%;display:block}
+
+  .btn{display:inline-block;font-weight:600;padding:.9rem 1.25rem;border-radius:.75rem;border:2px solid transparent;transition:transform .2s ease,opacity .2s ease}
+  .btn:active{transform:scale(.98)}
+  .btn-primary{background:var(--coral);color:#fff}
+  .btn-outline{border-color:#fff;color:#fff}
+  .btn-light{background:#fff;color:var(--navy)}
+
+  .hero-ot{
+    min-height:40vh;
     display:grid;
     place-items:center;
     text-align:center;
@@ -564,49 +567,37 @@ img{max-width:100%;display:block}
   .hero-ot .hero-inner p{opacity:.92;margin-bottom:1rem}
   .hero-ot .cta-row{display:flex;gap:.75rem;justify-content:center;flex-wrap:wrap}
 
-.previews{padding:3rem 1rem;display:grid;gap:1.25rem;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));max-width:1100px;margin:0 auto}
-.preview{background:#fff;border:1px solid var(--line);border-radius:1rem;overflow:hidden;display:grid;grid-template-columns:1fr}
-.preview-text{padding:1rem 1.25rem}
-.preview-text h2{color:var(--navy);margin:0 0 .25rem}
-.preview-text .link{color:var(--coral);font-weight:600}
+  /* Match pricing card style */
+  .plans{
+    display:grid;
+    gap:1rem;
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    max-width:1100px;
+    margin:2rem auto;
+    padding:0 1rem;
+  }
+  .plan{
+    background:#fff;
+    border:1px solid var(--line);
+    border-radius:1rem;
+    padding:1.25rem;
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+  }
+  .plan h3{
+    margin:.25rem 0;
+    color:var(--navy);
+    font-size:1.5rem;
+  }
+  .plan p{
+    color:var(--ink);
+    font-size:1rem;
+    line-height:1.4;
+    margin:.5rem 0 0;
+  }
 
-/* ensure headings render */
-.preview{position:relative;padding:20px;box-shadow:0 6px 18px rgba(0,0,0,.08)}
-.preview-text{position:relative;z-index:2;color:inherit}
-.preview h2{display:block !important;visibility:visible !important;opacity:1 !important;margin:0 0 8px;font-size:24px;line-height:1.2;color:inherit}
-
-/* ===== Employment Modal ===== */
-.modal-overlay{
-  position:fixed;inset:0;background:rgba(0,0,0,.45);backdrop-filter:blur(2px);
-  opacity:0;pointer-events:none;transition:opacity .25s ease;z-index:80;
-}
-.modal-overlay.show{opacity:1;pointer-events:auto}
-.modal{
-  position:fixed;left:50%;top:50%;transform:translate(-50%,-52%) scale(.98);
-  opacity:0;pointer-events:none;transition:transform .25s ease, opacity .25s ease;
-  width:min(640px,92vw);max-height:85vh;overflow:auto;background:#fff;border-radius:16px;
-  box-shadow:0 20px 40px rgba(0,0,0,.25);z-index:81;padding:22px;
-}
-.modal.show{opacity:1;pointer-events:auto;transform:translate(-50%,-50%) scale(1)}
-.modal h3{margin:0 0 10px;color:var(--navy)}
-.modal p.small{color:var(--muted);margin:0 0 14px}
-.modal .close{
-  position:absolute;right:10px;top:8px;border:none;background:transparent;
-  font-size:28px;line-height:1;color:var(--coral);cursor:pointer
-}
-.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-.form-grid label{font-weight:600;color:var(--ink);font-size:.95rem}
-.input, textarea, input[type="file"]{
-  width:100%;padding:.75rem .8rem;border:1px solid var(--line);border-radius:.6rem;font:inherit
-}
-textarea{min-height:120px;resize:vertical}
-.full{grid-column:1 / -1}
-.alert{
-  border-radius:.6rem;padding:.75rem 1rem;margin-bottom:.75rem;font-weight:600
-}
-.alert.success{background:#ecfdf5;color:#065f46;border:1px solid #a7f3d0}
-.alert.error{background:#fef2f2;color:#991b1b;border:1px solid #fecaca}
-.footer {
+  .footer {
   background: #fff;
   border-top: 1px solid var(--line);
   padding: 40px 16px 80px; /* extra padding for iOS home bar */
@@ -643,6 +634,36 @@ textarea{min-height:120px;resize:vertical}
   line-height: 1.4;
 }
 
+.modal-overlay {
+  position: fixed; inset: 0;
+  background: rgba(0,0,0,0.6);
+  display: flex; align-items: center; justify-content: center;
+  z-index: 2000;
+}
+.modal-box {
+  background: #fff;
+  padding: 24px;
+  border-radius: 12px;
+  max-width: 420px;
+  width: 90%;
+  text-align: center;
+  position: relative;
+}
+.modal-actions button {
+  margin: 10px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 6px;
+  background: var(--navy);
+  color: #fff;
+  cursor: pointer;
+}
+.modal-close {
+  position: absolute; top: 10px; right: 10px;
+  border: none; background: transparent;
+  font-size: 24px; cursor: pointer;
+}
+
 /* Responsive */
 @media (max-width: 768px) {
   .footer .links {
@@ -657,9 +678,44 @@ textarea{min-height:120px;resize:vertical}
     flex-direction: column;
     align-items: center; /* keep centered on small screens */
   }
+
+  
+  .previews{padding:3rem 1rem;display:grid;gap:1.25rem;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));max-width:1100px;margin:0 auto}
+.preview{background:#fff;border:1px solid var(--line);border-radius:1rem;overflow:hidden;display:grid;grid-template-columns:1fr}
+.preview-text{padding:1rem 1.25rem}
+.preview-text h2{color:var(--navy);margin:0 0 .25rem}
+.preview-text .link{color:var(--coral);font-weight:600}
+
+
+</style>
+  <link rel="stylesheet" href="style.css?v=5" />
+
+<style>
+  
   </style>
 </head>
 <body>
+
+<!-- App Download Modal -->
+<div id="appModal" class="modal-overlay" style="display:none;">
+  <div class="modal-box">
+    <h2>Download the Glofox App</h2>
+    <p>
+      Please download the Glofox app, search <strong>NuAge Fitness Studio</strong> and register.<br>
+      Once logged in, you’ll be able to:<br>
+      • Access your account<br>
+      • Purchase membership<br>
+      • Book classes<br>
+      • And more.
+    </p>
+    <div class="modal-actions">
+      <button onclick="window.open('https://apps.apple.com/app/id916224471','_blank')">Apple</button>
+      <button onclick="window.open('https://play.google.com/store/apps/details?id=com.glofox&hl=en','_blank')">Google</button>
+    </div>
+    <button class="modal-close" onclick="document.getElementById('appModal').style.display='none'">×</button>
+  </div>
+</div>
+
 <!-- Hamburger topbar -->
 <div class="topbar" role="navigation" aria-label="Main">
   <div class="brand" aria-label="NuAge">
@@ -695,7 +751,7 @@ textarea{min-height:120px;resize:vertical}
   </div>
   <nav class="drawer-nav">
     <a href="location.php" class="pill-link primary"><span style="font-weight:700">Find a Location</span></a>
-    <a href="https://apps.apple.com/us/app/glofox/id916224471" target="_blank" rel="noopener" class="pill-link">Member Login</a>
+    <a href="javascript:void(0)" onclick="openModal()" class="pill-link">Member Login</a>
     <a href="classes.php">Classes</a>
     <a href="team.php">Meet the Team</a>
     <a href="pricing.php">Pricing</a>
@@ -714,55 +770,43 @@ textarea{min-height:120px;resize:vertical}
     </div>
   </section>
 
-  <section class="previews">
-    <div class="preview">
-      <div class="preview-text">
-        <h2>Izeem</h2>
-        <p>HIIT & Strength Coach. NASM CPT.</p>
-        <p><em>“Your only limit is you.”</em></p>
-      </div>
-    </div>
-
-    <div class="preview">
-      <div class="preview-text">
-        <h2>K. Patel</h2>
-        <p>Strength & Conditioning. CSCS.</p>
-        <p><em>“Consistency compounds.”</em></p>
-      </div>
-    </div>
-
-    <div class="preview">
-      <div class="preview-text">
-        <h2>Natonya</h2>
-        <p>Strength & Conditioning Coach</p>
-        <p><em>“Train like there is no tomorrow.”</em></p>
-      </div>
-    </div>
-
-    <div class="preview">
-      <div class="preview-text">
-        <h2>James</h2>
-        <p>Specialty: Boxing, HIT, Core & Strength</p>
-        <p><em>“Your biggest enemy is you.”</em></p>
-      </div>
-    </div>
-
-    <div class="preview">
-      <div class="preview-text">
-        <h2>Danny</h2>
-        <p>Manager</p>
-        <p><em>“Push your limits.”</em></p>
-      </div>
-    </div>
-  </section>
-
-  <footer class="footer">
-  <div class="bottombar">
-    <p>&copy; <?php echo date('Y'); ?> NuAge Fitness Studio. All rights reserved.</p>
+<!-- Coaches -->
+<section class="previews">
+  <div class="plan">
+    <h3>Izeem</h3>
+    <p>HIIT & Strength Coach. NASM CPT.</p>
+    <p><em>“Your only limit is you.”</em></p>
+    <a class="btn btn-primary" href="javascript:void(0)" onclick="openModal()">View Schedule & Book</a>
   </div>
-</footer>
 
+  <div class="plan">
+    <h3>K. Patel</h3>
+    <p>Strength & Conditioning. CSCS.</p>
+    <p><em>“Consistency compounds.”</em></p>
+    <a class="btn btn-primary" href="javascript:void(0)" onclick="openModal()">View Schedule & Book</a>
+  </div>
 
+  <div class="plan">
+    <h3>Natonya</h3>
+    <p>Strength & Conditioning Coach</p>
+    <p><em>“Train like there is no tomorrow.”</em></p>
+    <a class="btn btn-primary" href="javascript:void(0)" onclick="openModal()">View Schedule & Book</a>
+  </div>
+
+  <div class="plan">
+    <h3>James</h3>
+    <p>Specialty: Boxing, HIT, Core & Strength</p>
+    <p><em>“Your biggest enemy is you.”</em></p>
+    <a class="btn btn-primary" href="javascript:void(0)" onclick="openModal()">View Schedule & Book</a>
+  </div>
+
+  <div class="plan">
+    <h3>Danny</h3>
+    <p>Manager</p>
+    <p><em>“Push your limits.”</em></p>
+    <a class="btn btn-primary" href="javascript:void(0)" onclick="openModal()">View Schedule & Book</a>
+  </div>
+</section>
 
   <!-- ===== Employment Modal Markup ===== -->
   <div id="jobOverlay" class="modal-overlay" onclick="closeJob()"></div>
@@ -812,6 +856,14 @@ textarea{min-height:120px;resize:vertical}
   </div>
 
 
+
+  <footer class="footer">
+  <div class="bottombar">
+    <p>&copy; <?php echo date('Y'); ?> NuAge Fitness Studio. All rights reserved.</p>
+  </div>
+</footer>
+
+
 <script>
   document.addEventListener("DOMContentLoaded", function () {
     const appLinks = document.querySelectorAll('a[href*="apps.apple.com/us/app/glofox"]');
@@ -846,45 +898,6 @@ textarea{min-height:120px;resize:vertical}
 </script>
 
 
-  <script>
-    const modal   = document.getElementById('jobModal');
-    const overlay = document.getElementById('jobOverlay');
-    const openBtn = document.getElementById('openJobBtn');
-
-    function openJob(){
-      modal.classList.add('show');
-      overlay.classList.add('show');
-      modal.setAttribute('aria-hidden','false');
-    }
-    function closeJob(){
-      modal.classList.remove('show');
-      overlay.classList.remove('show');
-      modal.setAttribute('aria-hidden','true');
-    }
-    function lockJobSubmit(form){
-      const btn = document.getElementById('jobSubmitBtn');
-      btn.disabled = true;
-      btn.textContent = 'Sending...';
-      return true;
-    }
-    if(openBtn) openBtn.addEventListener('click', function(e){
-      e.preventDefault(); // keep the anchor from jumping
-      openJob();
-    });
-
-    // If PHP set a flash message, auto-open the modal so the user sees it.
-    <?php if ($flash_msg !== null): ?>
-      openJob();
-    <?php endif; ?>
-  </script>
-<script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-    // Optional: click to pause/play hero video
-    (function(){
-      const v = document.getElementById('heroVideo');
-      if(v){ v.addEventListener('click', ()=>{ v.paused ? v.play() : v.pause(); }); }
-    })();
-  </script>
 
 <script>
 document.addEventListener("DOMContentLoaded", function () {
@@ -911,5 +924,66 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 </script>
 
+
+
+<style>
+.modal { display:none; position:fixed; z-index:1000; left:0; top:0; width:100%; height:100%; background:rgba(0,0,0,.6); }
+.modal-content { background:#fff; margin:10% auto; padding:20px; border-radius:12px; max-width:420px; text-align:center; position:relative; }
+.modal-content h2 { color:var(--navy); margin-bottom:12px; }
+.modal-content p { margin-bottom:16px; color:var(--muted); }
+.modal-content ul { list-style:none; padding:0; margin:0 0 20px; text-align:left; }
+.modal-content ul li { margin-bottom:8px; }
+.btn-row { display:flex; gap:12px; justify-content:center; }
+.btn-row button { background:var(--coral); color:#fff; padding:10px 18px; border:none; border-radius:8px; cursor:pointer; }
+.close { position:absolute; right:16px; top:12px; font-size:24px; cursor:pointer; }
+</style>
+
+<script>
+function openModal(){ document.getElementById("downloadModal").style.display="block"; }
+function closeModal(){ document.getElementById("downloadModal").style.display="none"; }
+window.onclick = function(e){
+  let modal = document.getElementById("downloadModal");
+  if(e.target == modal){ modal.style.display="none"; }
+}
+</script>
+
+
+<!-- Styled Modal copied from index.php but customized for A/G input -->
+<div id="appModal" class="modal">
+  <div class="modal-content">
+    <span class="modal-close" onclick="closeModal()">&times;</span>
+    <h2>Please download the Glofox app</h2>
+    <p>Search NuAge Fitness Studio and register.<br>
+    Once logged in, you’ll be able to:<br>
+    • Access your account<br>
+    • Purchase membership<br>
+    • Book classes<br>
+    • And more.</p>
+    <p>Type A for Apple or G for Google:</p>
+    <input type="text" id="appChoice" maxlength="1" style="padding:8px;font-size:16px;">
+    <button onclick="submitChoice()" style="padding:8px 16px;margin-left:8px;">Submit</button>
+  </div>
+</div>
+
+<script>
+function openModal(){
+  document.getElementById('appModal').style.display = 'flex';
+}
+function closeModal(){
+  document.getElementById('appModal').style.display = 'none';
+}
+function submitChoice(){
+  const choice = document.getElementById('appChoice').value.trim().toUpperCase();
+  if(choice === 'A'){
+    window.open('https://apps.apple.com', '_blank');
+  } else if(choice === 'G'){
+    window.open('https://play.google.com', '_blank');
+  } else {
+    alert('Please enter A or G.');
+  }
+}
+</script>
+
 </body>
 </html>
+
