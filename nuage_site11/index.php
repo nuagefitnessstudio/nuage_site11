@@ -553,40 +553,15 @@ a, button { -webkit-tap-highlight-color: transparent; }
 </head>
 <body>
 
-<!-- App Download Modal -->
-<div id="appModal" class="modal-overlay" style="display:none;">
-  <div class="modal-box">
-    <h2>Download the Glofox App</h2>
-    <p>
-      Please download the Glofox app, search <strong>NuAge Fitness Studio</strong> and register.<br>
-      Once logged in, you’ll be able to:<br>
-      • Access your account<br>
-      • Purchase membership<br>
-      • Book classes<br>
-      • And more.
-    </p>
-    <div class="modal-actions">
-      <button onclick="window.open('https://apps.apple.com/app/id916224471','_blank')">Apple</button>
-      <button onclick="window.open('https://play.google.com/store/apps/details?id=com.glofox&hl=en','_blank')">Google</button>
-    </div>
-    <button class="modal-close" onclick="document.getElementById('appModal').style.display='none'">×</button>
-  </div>
-</div>
+
 
 <style>
 .modal-overlay {
-  display: none;              /* hidden by default */
-  position: fixed;
-  inset: 0;                   /* covers entire screen */
+  position: fixed; inset: 0;
   background: rgba(0,0,0,0.6);
+  display: flex; align-items: center; justify-content: center;
   z-index: 2000;
-
-  /* Center with flexbox */
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
-
 .modal-box {
   background: #fff;
   padding: 24px;
@@ -596,16 +571,6 @@ a, button { -webkit-tap-highlight-color: transparent; }
   text-align: center;
   position: relative;
 }
-
-.modal-content {
-  background: #fff;
-  padding: 40px;
-  border-radius: 12px;
-  max-width: 500px;
-  width: 90%;
-  position: relative;
-}
-
 .modal-actions button {
   margin: 10px;
   padding: 10px 20px;
