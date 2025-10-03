@@ -554,22 +554,32 @@ a, button { -webkit-tap-highlight-color: transparent; }
 <body>
 
 <!-- App Download Modal -->
-
+<div id="appModal" class="modal-overlay" style="display:none;">
+  <div class="modal-box">
+    <h2>Download the Glofox App</h2>
+    <p>
+      Please download the Glofox app, search <strong>NuAge Fitness Studio</strong> and register.<br>
+      Once logged in, you’ll be able to:<br>
+      • Access your account<br>
+      • Purchase membership<br>
+      • Book classes<br>
+      • And more.
+    </p>
+    <div class="modal-actions">
+      <button onclick="window.open('https://apps.apple.com/app/id916224471','_blank')">Apple</button>
+      <button onclick="window.open('https://play.google.com/store/apps/details?id=com.glofox&hl=en','_blank')">Google</button>
+    </div>
     <button class="modal-close" onclick="document.getElementById('appModal').style.display='none'">×</button>
   </div>
 </div>
 
 <style>
 .modal-overlay {
-  position: fixed;
-  inset: 0;
+  position: fixed; inset: 0;
   background: rgba(0,0,0,0.6);
-  display: none;              /* start hidden */
-  align-items: center;
-  justify-content: center;
+  display: flex; align-items: center; justify-content: center;
   z-index: 2000;
 }
-
 .modal-box {
   background: #fff;
   padding: 24px;
@@ -598,7 +608,7 @@ a, button { -webkit-tap-highlight-color: transparent; }
 <script>
 // Show modal on page load
 window.addEventListener("load", function() {
-  document.getElementById("appModal").style.display = "flex";
+  /* auto-open of appModal removed */
 });
 </script>
 
@@ -637,7 +647,7 @@ window.addEventListener("load", function() {
   </div>
   <nav class="drawer-nav">
     <a href="location.php" class="pill-link primary"><span style="font-weight:700">Find a Location</span></a>
-    <a href="javascript:void(0)" onclick="openModal()" class="pill-link">Member Login</a>
+    <a href="javascript:void(0)" onclick="openLogin()" class="pill-link">Member Login</a>
     <a href="classes.php">Classes</a>
     <a href="team.php">Meet the Team</a>
     <a href="pricing.php">Pricing</a>
@@ -984,23 +994,26 @@ window.addEventListener("load", function() {
     };
   })();
   </script>
-
-
-
   <!-- Styled Modal copied from index.php but customized for A/G input -->
-
+<div id="appModal" class="modal">
+  <div class="modal-content">
+<button aria-label="Close" onclick="closeLogin()" style="position:absolute;top:10px;right:12px;font-size:24px;line-height:1;border:0;background:transparent;cursor:pointer;">&times;</button>
+    <span class="modal-close" onclick="closeModal()">&times;</span>
+    <h2>Please download the Glofox app</h2>
+    <p>Search NuAge Fitness Studio and register.<br>
+    Once logged in, you’ll be able to:<br>
+    • Access your account<br>
+    • Purchase membership<br>
+    • Book classes<br>
+    • And more.</p>
+    <p>Type A for Apple or G for Google:</p>
+    <input type="text" id="appChoice" maxlength="1" style="padding:8px;font-size:16px;">
+    <button onclick="submitChoice()" style="padding:8px 16px;margin-left:8px;">Submit</button>
+  </div>
 </div>
 
 
 <script>
-function openModal() {
-  var overlay = document.getElementById("appOverlay");
-  if (overlay) overlay.style.display = "flex";
-}
-function closeModal() {
-  var overlay = document.getElementById("appOverlay");
-  if (overlay) overlay.style.display = "none";
-}
 
 document.addEventListener("DOMContentLoaded", function () {
   const navToggle = document.getElementById("navToggle");
@@ -1029,34 +1042,32 @@ document.addEventListener("DOMContentLoaded", function () {
 
 <!-- Add this inside your <head> or before 
 <script>
-function openLogin() {
-  document.getElementById("loginOverlay").style.display = "flex";
-}
-function closeLogin() {
-  document.getElementById("loginOverlay").style.display = "none";
-}
+(function(){
+  window.openLogin = function(){
+    var m = document.getElementById('appModal');
+    if(m){ m.style.display = 'flex'; }
+  };
+  window.closeLogin = function(){
+    var m = document.getElementById('appModal');
+    if(m){ m.style.display = 'none'; }
+  };
+  // Close on ESC
+  document.addEventListener('keydown', function(e){
+    if(e.key === 'Escape'){
+      var m = document.getElementById('appModal');
+      if(m && m.style.display !== 'none'){ m.style.display = 'none'; }
+    }
+  });
+  // Close when clicking backdrop
+  document.addEventListener('click', function(e){
+    var m = document.getElementById('appModal');
+    if(!m) return;
+    if(e.target === m){ m.style.display = 'none'; }
+  });
+})();
 </script>
 
-
-<!- Member Login Modal -->
-
-
-<div id="appModal" class="modal-overlay" style="display:none;">
-  <div class="modal-box">
-    <h2>Download the Glofox App</h2>
-    <p>
-      Please download the Glofox app, search <strong>NuAge Fitness Studio</strong> and register.<br>
-      Once logged in, you’ll be able to:<br>
-      • Access your account<br>
-      • Purchase membership<br>
-      • Book classes<br>
-      • And more.
-    </p>
-    <div class="modal-actions">
-      <button onclick="window.open('https://apps.apple.com/app/id916224471','_blank')">Apple</button>
-      <button onclick="window.open('https://play.google.com/store/apps/details?id=com.glofox&hl=en','_blank')">Google</button>
-    </div>
-</body> 
+</body> -->
 <script>
   document.addEventListener("DOMContentLoaded", function () {
     const appLinks = document.querySelectorAll('a[href*="apps.apple.com/us/app/glofox"]');
@@ -1092,23 +1103,31 @@ function closeLogin() {
 
 
 
+<script>
+(function(){
+  window.openLogin = function(){
+    var m = document.getElementById('appModal');
+    if(m){ m.style.display = 'flex'; }
+  };
+  window.closeLogin = function(){
+    var m = document.getElementById('appModal');
+    if(m){ m.style.display = 'none'; }
+  };
+  // Close on ESC
+  document.addEventListener('keydown', function(e){
+    if(e.key === 'Escape'){
+      var m = document.getElementById('appModal');
+      if(m && m.style.display !== 'none'){ m.style.display = 'none'; }
+    }
+  });
+  // Close when clicking backdrop
+  document.addEventListener('click', function(e){
+    var m = document.getElementById('appModal');
+    if(!m) return;
+    if(e.target === m){ m.style.display = 'none'; }
+  });
+})();
+</script>
 
-
-
-<div id="appModal" class="modal-overlay" style="display:none;">
-  <div class="modal-box">
-    <h2>Download the Glofox App</h2>
-    <p>
-      Please download the Glofox app, search <strong>NuAge Fitness Studio</strong> and register.<br>
-      Once logged in, you’ll be able to:<br>
-      • Access your account<br>
-      • Purchase membership<br>
-      • Book classes<br>
-      • And more.
-    </p>
-    <div class="modal-actions">
-      <button onclick="window.open('https://apps.apple.com/app/id916224471','_blank')">Apple</button>
-      <button onclick="window.open('https://play.google.com/store/apps/details?id=com.glofox&hl=en','_blank')">Google</button>
-    </div>
 </body>
 </html>
