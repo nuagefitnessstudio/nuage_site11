@@ -1051,6 +1051,26 @@ document.addEventListener("DOMContentLoaded", function () {
 })();
 </script>
 
+
+<script>
+function openApp() {
+  document.getElementById("appModal").style.display = "flex";
+}
+function closeApp() {
+  document.getElementById("appModal").style.display = "none";
+}
+function openLogin() {
+  document.getElementById("loginModal").style.display = "flex";
+}
+function closeLogin() {
+  document.getElementById("loginModal").style.display = "none";
+}
+// Auto open the App modal on refresh
+window.addEventListener("load", function() {
+  openApp();
+});
+</script>
+
 </body> -->
 <script>
   document.addEventListener("DOMContentLoaded", function () {
@@ -1111,6 +1131,26 @@ document.addEventListener("DOMContentLoaded", function () {
     if(e.target === m){ m.style.display = 'none'; }
   });
 })();
+</script>
+
+
+<script>
+function openApp() {
+  document.getElementById("appModal").style.display = "flex";
+}
+function closeApp() {
+  document.getElementById("appModal").style.display = "none";
+}
+function openLogin() {
+  document.getElementById("loginModal").style.display = "flex";
+}
+function closeLogin() {
+  document.getElementById("loginModal").style.display = "none";
+}
+// Auto open the App modal on refresh
+window.addEventListener("load", function() {
+  openApp();
+});
 </script>
 
 </body>
