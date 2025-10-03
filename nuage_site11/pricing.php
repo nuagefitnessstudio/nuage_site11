@@ -603,7 +603,7 @@ textarea{min-height:120px;resize:vertical}
   <div class="modal-box">
     <h2>Download the Glofox App</h2>
     <p>
-    Please download the Glofox app, search <strong>NuAge Fitness Studio</strong> and register.<br>
+      Please download the Glofox app, search <strong>NuAge Fitness Studio</strong> and register.<br>
       Once logged in, you’ll be able to:<br>
       • Access your account<br>
       • Purchase membership<br>
@@ -617,7 +617,6 @@ textarea{min-height:120px;resize:vertical}
     <button class="modal-close" onclick="document.getElementById('appModal').style.display='none'">×</button>
   </div>
 </div>
-
 
 <div class="topbar" role="navigation" aria-label="Main">
   <div class="brand" aria-label="NuAge">
@@ -868,25 +867,6 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 </script>
 
-<!-- App Download Modal -->
-<div id="appModal" class="modal-overlay" style="display:none;">
-  <div class="modal-box">
-    <h2>Download the Glofox App</h2>
-    <p>
-      Please download the Glofox app, search <strong>NuAge Fitness Studio</strong> and register.<br>
-      Once logged in, you’ll be able to:<br>
-      • Access your account<br>
-      • Purchase membership<br>
-      • Book classes<br>
-      • And more.
-    </p>
-    <div class="modal-actions">
-      <button onclick="window.open('https://apps.apple.com/app/id916224471','_blank')">Apple</button>
-      <button onclick="window.open('https://play.google.com/store/apps/details?id=com.glofox&hl=en','_blank')">Google</button>
-    </div>
-    <button class="modal-close" onclick="document.getElementById('appModal').style.display='none'">×</button>
-  </div>
-</div>
 
 
 <style>
