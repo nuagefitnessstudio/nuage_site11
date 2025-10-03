@@ -1013,29 +1013,29 @@ window.addEventListener("load", function() {
 
 
 <script>
-  function openLocationModal() {
-    document.getElementById('locationModal').style.display = 'flex';
+
+document.addEventListener("DOMContentLoaded", function () {
+  const navToggle = document.getElementById("navToggle");
+  const navClose = document.getElementById("navClose");
+  const navDrawer = document.getElementById("navDrawer");
+  const navOverlay = document.getElementById("navOverlay");
+
+  function openNav(){
+    if (navDrawer) { navDrawer.classList.add("show"); navDrawer.removeAttribute("hidden"); navDrawer.setAttribute("aria-hidden","false"); }
+    if (navOverlay) { navOverlay.classList.add("show"); navOverlay.removeAttribute("hidden"); }
   }
-  function closeLocationModal() {
-    document.getElementById('locationModal').style.display = 'none';
+  function closeNav(){
+    if (navDrawer) { navDrawer.classList.remove("show"); navDrawer.setAttribute("hidden",""); navDrawer.setAttribute("aria-hidden","true"); }
+    if (navOverlay) { navOverlay.classList.remove("show"); navOverlay.setAttribute("hidden",""); }
   }
-  document.addEventListener('DOMContentLoaded', function() {
-    var btn = document.getElementById('findLocationBtn');
-    if (btn) {
-      btn.addEventListener('click', function(e) {
-        e.preventDefault();
-        openLocationModal();
-      });
-    }
-    var modal = document.getElementById('locationModal');
-    if (modal) {
-      modal.addEventListener('click', function(e) {
-        if (e.target === modal) {
-          closeLocationModal();
-        }
-      });
-    }
-  });
+
+  if (navToggle) navToggle.addEventListener("click", openNav);
+  if (navClose) navClose.addEventListener("click", closeNav);
+  if (navOverlay) navOverlay.addEventListener("click", closeNav);
+
+  // ESC key to close
+  document.addEventListener("keydown", (e)=>{ if (e.key === "Escape") closeNav(); });
+});
 </script>
 
 
