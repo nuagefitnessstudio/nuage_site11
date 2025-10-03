@@ -575,6 +575,7 @@ a, button { -webkit-tap-highlight-color: transparent; }
 
 <style>
 .modal-overlay {
+  display: none;
   position: fixed;
   inset: 0;
   background: rgba(0,0,0,0.6);
@@ -1068,6 +1069,22 @@ function closeLogin() {
 <!- Member Login Modal -->
 
 
+
+<!-- Member Login Modal -->
+<div id="loginModal" class="modal-overlay">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal('loginModal')">&times;</span>
+    <h2>Member Login</h2>
+    <form method="post" action="login_process.php">
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" required>
+      <label for="password">Password</label>
+      <input type="password" id="password" name="password" required>
+      <button type="submit" class="btn btn-primary">Login</button>
+    </form>
+  </div>
+</div>
+
 </body> 
 <script>
   document.addEventListener("DOMContentLoaded", function () {
@@ -1106,6 +1123,22 @@ function closeLogin() {
 
 
 
+
+
+<!-- Member Login Modal -->
+<div id="loginModal" class="modal-overlay">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal('loginModal')">&times;</span>
+    <h2>Member Login</h2>
+    <form method="post" action="login_process.php">
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" required>
+      <label for="password">Password</label>
+      <input type="password" id="password" name="password" required>
+      <button type="submit" class="btn btn-primary">Login</button>
+    </form>
+  </div>
+</div>
 
 </body>
 </html>
