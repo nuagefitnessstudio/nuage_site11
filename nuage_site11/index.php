@@ -553,7 +553,25 @@ a, button { -webkit-tap-highlight-color: transparent; }
 </head>
 <body>
 
-
+<!-- App Download Modal -->
+<div id="appModal" class="modal-overlay" style="display:none;">
+  <div class="modal-box">
+    <h2>Download the Glofox App</h2>
+    <p>
+      Please download the Glofox app, search <strong>NuAge Fitness Studio</strong> and register.<br>
+      Once logged in, you’ll be able to:<br>
+      • Access your account<br>
+      • Purchase membership<br>
+      • Book classes<br>
+      • And more.
+    </p>
+    <div class="modal-actions">
+      <button onclick="window.open('https://apps.apple.com/app/id916224471','_blank')">Apple</button>
+      <button onclick="window.open('https://play.google.com/store/apps/details?id=com.glofox&hl=en','_blank')">Google</button>
+    </div>
+    <button class="modal-close" onclick="document.getElementById('appModal').style.display='none'">×</button>
+  </div>
+</div>
 
 <style>
 .modal-overlay {
@@ -976,23 +994,7 @@ window.addEventListener("load", function() {
     };
   })();
   </script>
-  <!-- Styled Modal copied from index.php but customized for A/G input -->
-<div id="appModal" class="modal">
-  <div class="modal-content">
-<button aria-label="Close" onclick="closeLogin()" style="position:absolute;top:10px;right:12px;font-size:24px;line-height:1;border:0;background:transparent;cursor:pointer;">&times;</button>
-    <span class="modal-close" onclick="closeModal()">&times;</span>
-    <h2>Please download the Glofox app</h2>
-    <p>Search NuAge Fitness Studio and register.<br>
-    Once logged in, you’ll be able to:<br>
-    • Access your account<br>
-    • Purchase membership<br>
-    • Book classes<br>
-    • And more.</p>
-    <p>Type A for Apple or G for Google:</p>
-    <input type="text" id="appChoice" maxlength="1" style="padding:8px;font-size:16px;">
-    <button onclick="submitChoice()" style="padding:8px 16px;margin-left:8px;">Submit</button>
-  </div>
-</div>
+
 
 
 <script>
