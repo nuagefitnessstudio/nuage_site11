@@ -801,7 +801,6 @@ textarea{min-height:120px;resize:vertical}
   </div>
 </section>
 
-
 <footer class="footer">
   <div class="bottombar">
     <p>&copy; <?php echo date('Y'); ?> NuAge Fitness Studio. All rights reserved.</p>
