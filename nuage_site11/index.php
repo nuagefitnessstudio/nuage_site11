@@ -554,28 +554,13 @@ a, button { -webkit-tap-highlight-color: transparent; }
 <body>
 
 <!-- App Download Modal -->
-<div id="appModal" class="modal-overlay" style="display:none;">
-  <div class="modal-box">
-    <h2>Download the Glofox App</h2>
-    <p>
-      Please download the Glofox app, search <strong>NuAge Fitness Studio</strong> and register.<br>
-      Once logged in, you’ll be able to:<br>
-      • Access your account<br>
-      • Purchase membership<br>
-      • Book classes<br>
-      • And more.
-    </p>
-    <div class="modal-actions">
-      <button onclick="window.open('https://apps.apple.com/app/id916224471','_blank')">Apple</button>
-      <button onclick="window.open('https://play.google.com/store/apps/details?id=com.glofox&hl=en','_blank')">Google</button>
-    </div>
+
     <button class="modal-close" onclick="document.getElementById('appModal').style.display='none'">×</button>
   </div>
 </div>
 
 <style>
 .modal-overlay {
-  display: none;
   position: fixed;
   inset: 0;
   background: rgba(0,0,0,0.6);
@@ -652,7 +637,7 @@ window.addEventListener("load", function() {
   </div>
   <nav class="drawer-nav">
     <a href="location.php" class="pill-link primary"><span style="font-weight:700">Find a Location</span></a>
-    <a href="javascript:void(0)" onclick="openLogin()" class="pill-link">Member Login</a>
+    <a href="javascript:void(0)" onclick="openModal()" class="pill-link">Member Login</a>
     <a href="classes.php">Classes</a>
     <a href="team.php">Meet the Team</a>
     <a href="pricing.php">Pricing</a>
@@ -1003,20 +988,7 @@ window.addEventListener("load", function() {
 
 
   <!-- Styled Modal copied from index.php but customized for A/G input -->
-<div id="appModal" class="modal">
-  <div class="modal-content">
-    <span class="modal-close" onclick="closeModal()">&times;</span>
-    <h2>Please download the Glofox app</h2>
-    <p>Search NuAge Fitness Studio and register.<br>
-    Once logged in, you’ll be able to:<br>
-    • Access your account<br>
-    • Purchase membership<br>
-    • Book classes<br>
-    • And more.</p>
-    <p>Type A for Apple or G for Google:</p>
-    <input type="text" id="appChoice" maxlength="1" style="padding:8px;font-size:16px;">
-    <button onclick="submitChoice()" style="padding:8px 16px;margin-left:8px;">Submit</button>
-  </div>
+
 </div>
 
 
@@ -1069,22 +1041,21 @@ function closeLogin() {
 <!- Member Login Modal -->
 
 
-
-<!-- Member Login Modal -->
-<div id="loginModal" class="modal-overlay">
-  <div class="modal-content">
-    <span class="close" onclick="closeModal('loginModal')">&times;</span>
-    <h2>Member Login</h2>
-    <form method="post" action="login_process.php">
-      <label for="email">Email</label>
-      <input type="email" id="email" name="email" required>
-      <label for="password">Password</label>
-      <input type="password" id="password" name="password" required>
-      <button type="submit" class="btn btn-primary">Login</button>
-    </form>
-  </div>
-</div>
-
+<div id="appModal" class="modal-overlay" style="display:none;">
+  <div class="modal-box">
+    <h2>Download the Glofox App</h2>
+    <p>
+      Please download the Glofox app, search <strong>NuAge Fitness Studio</strong> and register.<br>
+      Once logged in, you’ll be able to:<br>
+      • Access your account<br>
+      • Purchase membership<br>
+      • Book classes<br>
+      • And more.
+    </p>
+    <div class="modal-actions">
+      <button onclick="window.open('https://apps.apple.com/app/id916224471','_blank')">Apple</button>
+      <button onclick="window.open('https://play.google.com/store/apps/details?id=com.glofox&hl=en','_blank')">Google</button>
+    </div>
 </body> 
 <script>
   document.addEventListener("DOMContentLoaded", function () {
@@ -1124,21 +1095,20 @@ function closeLogin() {
 
 
 
-
-<!-- Member Login Modal -->
-<div id="loginModal" class="modal-overlay">
-  <div class="modal-content">
-    <span class="close" onclick="closeModal('loginModal')">&times;</span>
-    <h2>Member Login</h2>
-    <form method="post" action="login_process.php">
-      <label for="email">Email</label>
-      <input type="email" id="email" name="email" required>
-      <label for="password">Password</label>
-      <input type="password" id="password" name="password" required>
-      <button type="submit" class="btn btn-primary">Login</button>
-    </form>
-  </div>
-</div>
-
+<div id="appModal" class="modal-overlay" style="display:none;">
+  <div class="modal-box">
+    <h2>Download the Glofox App</h2>
+    <p>
+      Please download the Glofox app, search <strong>NuAge Fitness Studio</strong> and register.<br>
+      Once logged in, you’ll be able to:<br>
+      • Access your account<br>
+      • Purchase membership<br>
+      • Book classes<br>
+      • And more.
+    </p>
+    <div class="modal-actions">
+      <button onclick="window.open('https://apps.apple.com/app/id916224471','_blank')">Apple</button>
+      <button onclick="window.open('https://play.google.com/store/apps/details?id=com.glofox&hl=en','_blank')">Google</button>
+    </div>
 </body>
 </html>
