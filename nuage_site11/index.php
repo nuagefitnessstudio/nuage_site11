@@ -575,11 +575,18 @@ a, button { -webkit-tap-highlight-color: transparent; }
 
 <style>
 .modal-overlay {
-  position: fixed; inset: 0;
+  display: none;              /* hidden by default */
+  position: fixed;
+  inset: 0;                   /* covers entire screen */
   background: rgba(0,0,0,0.6);
-  display: flex; align-items: center; justify-content: center;
   z-index: 2000;
+
+  /* Center with flexbox */
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
+
 .modal-box {
   background: #fff;
   padding: 24px;
@@ -589,6 +596,16 @@ a, button { -webkit-tap-highlight-color: transparent; }
   text-align: center;
   position: relative;
 }
+
+.modal-content {
+  background: #fff;
+  padding: 40px;
+  border-radius: 12px;
+  max-width: 500px;
+  width: 90%;
+  position: relative;
+}
+
 .modal-actions button {
   margin: 10px;
   padding: 10px 20px;
