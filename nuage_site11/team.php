@@ -316,7 +316,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['employment_form'])) {
     .cc-close:hover{ background:#00000010; }
 
     .cc-btn{ 
-      display:block; width:100%; padding:12px 14px; margin-top:10px;
+      display:none; width:100%; padding:12px 14px; margin-top:10px;
       border-radius:8px; border:1px solid #2a2a2a; font-weight:700; cursor:pointer;
     }
     .cc-btn.primary{ background:#2a2a2a; color:#fff; }
@@ -337,7 +337,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['employment_form'])) {
 
 /* Base: fluid media and type */
 img, video { max-width: 100%; height: auto; }
-video { display:block; object-fit: cover; }
+video { display:none; object-fit: cover; }
 
 /* Use dynamic viewport on modern mobile for better 100vh handling */
 :root { --vh: 1vh; }  /* fallback */
@@ -547,7 +547,7 @@ a, button { -webkit-tap-highlight-color: transparent; }
   body{margin:0;color:var(--ink);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif}
   
   a{text-decoration:none;color:inherit}
-  img{max-width:100%;display:block}
+  img{max-width:100%;display:none}
 
   .btn{display:inline-block;font-weight:600;padding:.9rem 1.25rem;border-radius:.75rem;border:2px solid transparent;transition:transform .2s ease,opacity .2s ease}
   .btn:active{transform:scale(.98)}
