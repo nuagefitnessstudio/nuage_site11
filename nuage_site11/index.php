@@ -577,9 +577,9 @@ a, button { -webkit-tap-highlight-color: transparent; }
 .modal-overlay {
   position: fixed; inset: 0;
   background: rgba(0,0,0,0.6);
-  display: none; align-items: center; justify-content: center;
+  display: flex; align-items: center; justify-content: center;
   z-index: 2000;
-  display:flex; align-items:center; justify-content:center; height:100%; }
+}
 .modal-box {
   background: #fff;
   padding: 24px;
@@ -1051,20 +1051,6 @@ document.addEventListener("DOMContentLoaded", function () {
 })();
 </script>
 
-
-<script>
-function openLogin() {
-  document.getElementById("loginModal").style.display = "flex";
-}
-function closeLogin() {
-  document.getElementById("loginModal").style.display = "none";
-}
-// Auto open modal on page load
-window.addEventListener("load", function() {
-  openLogin();
-});
-</script>
-
 </body> -->
 <script>
   document.addEventListener("DOMContentLoaded", function () {
@@ -1125,20 +1111,6 @@ window.addEventListener("load", function() {
     if(e.target === m){ m.style.display = 'none'; }
   });
 })();
-</script>
-
-
-<script>
-function openLogin() {
-  document.getElementById("loginModal").style.display = "flex";
-}
-function closeLogin() {
-  document.getElementById("loginModal").style.display = "none";
-}
-// Auto open modal on page load
-window.addEventListener("load", function() {
-  openLogin();
-});
 </script>
 
 </body>
