@@ -574,7 +574,7 @@ a, button { -webkit-tap-highlight-color: transparent; }
 </div>
 
 <div id="loginModal" class="modal-overlay" style="display:none;">
-  <div class="modal-content">
+  <div class="modal-box">
     <h2>Member Login</h2>
     <p>
       Please download the Glofox app, search <strong>NuAge Fitness Studio</strong> and register.<br>
@@ -593,11 +593,6 @@ a, button { -webkit-tap-highlight-color: transparent; }
 </div>
 
 <style>
-.modal-content { background:#fff; margin:10% auto; padding:20px; border-radius:12px; max-width:420px; text-align:center; position:relative; }
-.modal-content h2 { color:var(--navy); margin-bottom:12px; }
-.modal-content p { margin-bottom:16px; color:var(--muted); }
-.modal-content ul { list-style:none; padding:0; margin:0 0 20px; text-align:left; }
-.modal-content ul li { margin-bottom:8px; }
 .modal-overlay {
   position: fixed; inset: 0;
   background: rgba(0,0,0,0.6);
