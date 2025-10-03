@@ -680,7 +680,7 @@ a, button { -webkit-tap-highlight-color: transparent; }
   }
 
   
-  .previews{padding:3rem 1rem;display:grid;gap:1.25rem;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));max-width:1100px;margin:0 auto}
+.previews{padding:3rem 1rem;display:grid;gap:1.25rem;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));max-width:1100px;margin:0 auto}
 .preview{background:#fff;border:1px solid var(--line);border-radius:1rem;overflow:hidden;display:grid;grid-template-columns:1fr}
 .preview-text{padding:1rem 1.25rem}
 .preview-text h2{color:var(--navy);margin:0 0 .25rem}
@@ -771,42 +771,53 @@ a, button { -webkit-tap-highlight-color: transparent; }
   </section>
 
 <!-- Coaches -->
-<section class="previews">
-  <div class="plan">
-    <h3>Izeem</h3>
-    <p>HIIT & Strength Coach. NASM CPT.</p>
-    <p><em>“Your only limit is you.”</em></p>
-    <a class="btn btn-primary" href="javascript:void(0)" onclick="openModal()">View Schedule & Book</a>
-  </div>
+<section class="previews" style="background:var(--bone);padding:80px 20px;text-align:center;">
+  <div class="container" style="max-width:1200px;margin:auto;">
+    <h2 style="font-family:'Playfair Display',serif;color:var(--navy);margin-bottom:40px;">
+      Meet Our Coaches
+    </h2>
 
-  <div class="plan">
-    <h3>K. Patel</h3>
-    <p>Strength & Conditioning. CSCS.</p>
-    <p><em>“Consistency compounds.”</em></p>
-    <a class="btn btn-primary" href="javascript:void(0)" onclick="openModal()">View Schedule & Book</a>
-  </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px;">
+      
+      <div class="plan">
+        <h3>Izeem</h3>
+        <p>HIIT & Strength Coach. NASM CPT.</p>
+        <p><em>“Your only limit is you.”</em></p>
+        <a class="btn btn-primary" href="javascript:void(0)" onclick="openModal()">View Schedule & Book</a>
+      </div>
 
-  <div class="plan">
-    <h3>Natonya</h3>
-    <p>Strength & Conditioning Coach</p>
-    <p><em>“Train like there is no tomorrow.”</em></p>
-    <a class="btn btn-primary" href="javascript:void(0)" onclick="openModal()">View Schedule & Book</a>
-  </div>
+      <div class="plan">
+        <h3>K. Patel</h3>
+        <p>Strength & Conditioning. CSCS.</p>
+        <p><em>“Consistency compounds.”</em></p>
+        <a class="btn btn-primary" href="javascript:void(0)" onclick="openModal()">View Schedule & Book</a>
+      </div>
 
-  <div class="plan">
-    <h3>James</h3>
-    <p>Specialty: Boxing, HIT, Core & Strength</p>
-    <p><em>“Your biggest enemy is you.”</em></p>
-    <a class="btn btn-primary" href="javascript:void(0)" onclick="openModal()">View Schedule & Book</a>
-  </div>
+      <div class="plan">
+        <h3>Natonya</h3>
+        <p>Strength & Conditioning Coach</p>
+        <p><em>“Train like there is no tomorrow.”</em></p>
+        <a class="btn btn-primary" href="javascript:void(0)" onclick="openModal()">View Schedule & Book</a>
+      </div>
 
-  <div class="plan">
-    <h3>Danny</h3>
-    <p>Manager</p>
-    <p><em>“Push your limits.”</em></p>
-    <a class="btn btn-primary" href="javascript:void(0)" onclick="openModal()">View Schedule & Book</a>
+      <div class="plan">
+        <h3>James</h3>
+        <p>Specialty: Boxing, HIT, Core & Strength</p>
+        <p><em>“Your biggest enemy is you.”</em></p>
+        <a class="btn btn-primary" href="javascript:void(0)" onclick="openModal()">View Schedule & Book</a>
+      </div>
+
+      <div class="plan">
+        <h3>Danny</h3>
+        <p>Manager</p>
+        <p><em>“Push your limits.”</em></p>
+        <a class="btn btn-primary" href="javascript:void(0)" onclick="openModal()">View Schedule & Book</a>
+      </div>
+
+    </div>
   </div>
 </section>
+
 
   <!-- ===== Employment Modal Markup ===== -->
   <div id="jobOverlay" class="modal-overlay" onclick="closeJob()"></div>
