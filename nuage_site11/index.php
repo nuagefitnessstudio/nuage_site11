@@ -1067,6 +1067,16 @@ document.addEventListener("DOMContentLoaded", function () {
 })();
 </script>
 
+
+<script>
+function openLogin() {
+  document.getElementById("loginModal").style.display = "flex";
+}
+function closeLogin() {
+  document.getElementById("loginModal").style.display = "none";
+}
+</script>
+
 </body> -->
 <script>
   document.addEventListener("DOMContentLoaded", function () {
@@ -1127,6 +1137,16 @@ document.addEventListener("DOMContentLoaded", function () {
     if(e.target === m){ m.style.display = 'none'; }
   });
 })();
+</script>
+
+
+<script>
+function openLogin() {
+  document.getElementById("loginModal").style.display = "flex";
+}
+function closeLogin() {
+  document.getElementById("loginModal").style.display = "none";
+}
 </script>
 
 </body>
