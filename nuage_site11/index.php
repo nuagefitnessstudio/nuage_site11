@@ -1052,20 +1052,10 @@ function closeLogin() {
 </script>
 
 
-<!-- Member Login Modal -->
-<div id="loginOverlay" class="modal-overlay" onclick="closeLogin()">
-  <div id="loginModal" class="modal" onclick="event.stopPropagation()">
-    <button class="close" onclick="closeLogin()">&times;</button>
-    <h3>Member Login</h3>
-    <form method="post" action="login_process.php">
-      <input type="email" name="email" placeholder="Email" required class="input">
-      <input type="password" name="password" placeholder="Password" required class="input">
-      <button type="submit" class="btn btn-primary">Login</button>
-    </form>
-  </div>
-</div>
+<!- Member Login Modal -->
 
-</body> -->
+
+</body> 
 <script>
   document.addEventListener("DOMContentLoaded", function () {
     const appLinks = document.querySelectorAll('a[href*="apps.apple.com/us/app/glofox"]');
