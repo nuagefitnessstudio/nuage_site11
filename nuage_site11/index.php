@@ -575,6 +575,7 @@ a, button { -webkit-tap-highlight-color: transparent; }
 
 <style>
 .modal-overlay {
+  display: none;
   display: none; /* hidden by default */
   position: fixed; inset: 0;
   background: rgba(0,0,0,0.6);
