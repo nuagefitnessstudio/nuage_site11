@@ -647,7 +647,7 @@ window.addEventListener("load", function() {
   </div>
   <nav class="drawer-nav">
     <a href="location.php" class="pill-link primary"><span style="font-weight:700">Find a Location</span></a>
-    <a href="https://apps.apple.com/us/app/glofox/id916224471" target="_blank" rel="noopener" class="pill-link">Member Login</a>
+    <a href="javascript:void(0)" onclick="openModal()" class="pill-link">Member Login</a>
     <a href="classes.php">Classes</a>
     <a href="team.php">Meet the Team</a>
     <a href="pricing.php">Pricing</a>
@@ -994,65 +994,23 @@ window.addEventListener("load", function() {
     };
   })();
   </script>
-
-
-
-
-<!-- Location Modal -->
-<div id="locationModal" style="
-  display:none;
-  position:fixed;
-  top:0; left:0;
-  width:100%; height:100%;
-  background:rgba(0,0,0,0.7);
-  z-index:1000;
-  justify-content:center;
-  align-items:center;
-">
-  <div style="
-    background:#fff;
-    border-radius:16px;
-    max-width:900px;
-    width:90%;
-    padding:20px;
-    box-shadow:0 8px 24px rgba(0,0,0,0.2);
-    position:relative;
-  ">
-    <!-- Close button -->
-    <button onclick="closeLocationModal()" style="
-      position:absolute;
-      top:10px; right:14px;
-      background:none;
-      border:none;
-      font-size:28px;
-      cursor:pointer;
-      color:#333;
-    ">&times;</button>
-
-    <!-- Map -->
-    <div style="border-radius:12px; overflow:hidden; margin-bottom:20px;">
-      <iframe
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3055.5946222931463!2d-75.07380722368798!3d39.92809147152389!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c6c91a6f82d1f1%3A0x1e8da94ecf7a4e28!2s7500%20S%20Crescent%20Blvd%20Unit%20A%2C%20Pennsauken%20Township%2C%20NJ%2008109!5e0!3m2!1sen!2sus!4v1727295859000!5m2!1sen!2sus"
-        width="100%"
-        height="400"
-        style="border:0;"
-        allowfullscreen=""
-        loading="lazy"
-        referrerpolicy="no-referrer-when-downgrade">
-      </iframe>
-    </div>
-
-    <!-- Get Directions Button -->
-    <div style="text-align:center;">
-      <a href="https://www.google.com/maps/dir/?api=1&destination=7500+S+Crescent+Blvd,+Unit+A,+Pennsauken,+NJ+08109"
-         target="_blank"
-         style="display:inline-block; background:#EB1F48; color:#fff; font-weight:600;
-                padding:12px 24px; border-radius:8px; text-decoration:none;">
-        Get Directions
-      </a>
-    </div>
+  <!-- Styled Modal copied from index.php but customized for A/G input -->
+<div id="appModal" class="modal">
+  <div class="modal-content">
+    <span class="modal-close" onclick="closeModal()">&times;</span>
+    <h2>Please download the Glofox app</h2>
+    <p>Search NuAge Fitness Studio and register.<br>
+    Once logged in, you’ll be able to:<br>
+    • Access your account<br>
+    • Purchase membership<br>
+    • Book classes<br>
+    • And more.</p>
+    <p>Type A for Apple or G for Google:</p>
+    <input type="text" id="appChoice" maxlength="1" style="padding:8px;font-size:16px;">
+    <button onclick="submitChoice()" style="padding:8px 16px;margin-left:8px;">Submit</button>
   </div>
 </div>
+
 
 <script>
   function openLocationModal() {
