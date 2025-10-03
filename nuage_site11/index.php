@@ -575,6 +575,7 @@ a, button { -webkit-tap-highlight-color: transparent; }
 
 <style>
 .modal-overlay {
+  display: none; /* hidden by default */
   position: fixed; inset: 0;
   background: rgba(0,0,0,0.6);
   display: flex; align-items: center; justify-content: center;
@@ -1039,7 +1040,31 @@ document.addEventListener("DOMContentLoaded", function () {
 </script>
 
 
-<!-- Add this inside your <head> or before </body> -->
+<!-- Add this inside your <head> or before 
+<script>
+function openLogin() {
+  document.getElementById("loginOverlay").style.display = "flex";
+}
+function closeLogin() {
+  document.getElementById("loginOverlay").style.display = "none";
+}
+</script>
+
+
+<!-- Member Login Modal -->
+<div id="loginOverlay" class="modal-overlay" onclick="closeLogin()">
+  <div id="loginModal" class="modal" onclick="event.stopPropagation()">
+    <button class="close" onclick="closeLogin()">&times;</button>
+    <h3>Member Login</h3>
+    <form method="post" action="login_process.php">
+      <input type="email" name="email" placeholder="Email" required class="input">
+      <input type="password" name="password" placeholder="Password" required class="input">
+      <button type="submit" class="btn btn-primary">Login</button>
+    </form>
+  </div>
+</div>
+
+</body> -->
 <script>
   document.addEventListener("DOMContentLoaded", function () {
     const appLinks = document.querySelectorAll('a[href*="apps.apple.com/us/app/glofox"]');
@@ -1073,6 +1098,30 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 </script>
 
+
+
+<script>
+function openLogin() {
+  document.getElementById("loginOverlay").style.display = "flex";
+}
+function closeLogin() {
+  document.getElementById("loginOverlay").style.display = "none";
+}
+</script>
+
+
+<!-- Member Login Modal -->
+<div id="loginOverlay" class="modal-overlay" onclick="closeLogin()">
+  <div id="loginModal" class="modal" onclick="event.stopPropagation()">
+    <button class="close" onclick="closeLogin()">&times;</button>
+    <h3>Member Login</h3>
+    <form method="post" action="login_process.php">
+      <input type="email" name="email" placeholder="Email" required class="input">
+      <input type="password" name="password" placeholder="Password" required class="input">
+      <button type="submit" class="btn btn-primary">Login</button>
+    </form>
+  </div>
+</div>
 
 </body>
 </html>
