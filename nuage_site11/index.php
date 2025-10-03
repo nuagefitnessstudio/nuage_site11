@@ -575,13 +575,15 @@ a, button { -webkit-tap-highlight-color: transparent; }
 
 <style>
 .modal-overlay {
-  display: none;
-  display: none; /* hidden by default */
-  position: fixed; inset: 0;
+  position: fixed;
+  inset: 0;
   background: rgba(0,0,0,0.6);
-  display: flex; align-items: center; justify-content: center;
+  display: none;              /* start hidden */
+  align-items: center;
+  justify-content: center;
   z-index: 2000;
 }
+
 .modal-box {
   background: #fff;
   padding: 24px;
@@ -611,7 +613,7 @@ a, button { -webkit-tap-highlight-color: transparent; }
 // Show modal on page load
 window.addEventListener("load", function() {
   document.getElementById("appModal").style.display = "flex";
-});})();
+});
 </script>
 
 <!-- Hamburger topbar -->
@@ -870,7 +872,7 @@ window.addEventListener("load", function() {
     // Optional: click to pause/play hero video
     (function(){
       const v = document.getElementById('heroVideo');
-      if(v){ v.addEventListener('click', ()=>{ v.paused ? v.play() : v.pause(); });})(); }
+      if(v){ v.addEventListener('click', ()=>{ v.paused ? v.play() : v.pause(); }); }
     })();
   </script>
 <script>
@@ -883,20 +885,20 @@ window.addEventListener("load", function() {
       img.classList.remove('remote');
     }
     document.querySelectorAll('img.remote').forEach(function(img){
-      img.addEventListener('error', function(){ swapToFallback(img); }, {once:true});})();
+      img.addEventListener('error', function(){ swapToFallback(img); }, {once:true});
       const t = setTimeout(function(){
         if(!img.complete || img.naturalWidth === 0){ swapToFallback(img); }
       }, 4000);
-      img.addEventListener('load', function(){ clearTimeout(t); }, {once:true});})();
-    });})();
+      img.addEventListener('load', function(){ clearTimeout(t); }, {once:true});
+    });
   })();
   </script>
 <script>
   (function(){
     const els = document.querySelectorAll('[data-reveal]');
     const io = new IntersectionObserver((entries)=>{
-      entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('show'); io.unobserve(e.target); } });})();
-    }, {threshold:0.12});})();
+      entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('show'); io.unobserve(e.target); } });
+    }, {threshold:0.12});
     els.forEach(el=>io.observe(el));
   })();
   </script>
@@ -913,7 +915,7 @@ window.addEventListener("load", function() {
         drawer.classList.add('show'); overlay.classList.add('show');
         toggle.setAttribute('aria-expanded','true');
         drawer.setAttribute('aria-hidden','false');
-      });})();
+      });
       const first = drawer.querySelector('a,button'); if(first) first.focus();
       document.documentElement.style.overflow = 'hidden';
     }
@@ -927,7 +929,7 @@ window.addEventListener("load", function() {
     toggle.addEventListener('click', openDrawer);
     closeBtn.addEventListener('click', closeDrawer);
     overlay.addEventListener('click', closeDrawer);
-    document.addEventListener('keydown', (e)=>{ if(e.key === 'Escape' && !drawer.hidden) closeDrawer(); });})();
+    document.addEventListener('keydown', (e)=>{ if(e.key === 'Escape' && !drawer.hidden) closeDrawer(); });
   })();
   </script>
 <script>
@@ -954,7 +956,7 @@ window.addEventListener("load", function() {
       modal.hidden = false; overlay.hidden = false;
       requestAnimationFrame(()=>{
         modal.classList.add('show'); overlay.classList.add('show');
-      });})();
+      });
       document.documentElement.style.overflow = 'hidden';
       modal.querySelector('button, a, input')?.focus();
     }
@@ -978,13 +980,13 @@ window.addEventListener("load", function() {
       const show = panel.hasAttribute('hidden');
       if(show){ panel.removeAttribute('hidden'); } else { panel.setAttribute('hidden',''); }
       custom.setAttribute('aria-expanded', String(show));
-    });})();
+    });
 
     btnX.addEventListener('click', close);
     overlay.addEventListener('click', close);
-    document.addEventListener('keydown', (e)=>{ if(e.key === 'Escape' && !modal.hidden) close(); });})();
+    document.addEventListener('keydown', (e)=>{ if(e.key === 'Escape' && !modal.hidden) close(); });
 
-    if(manageLink){ manageLink.addEventListener('click', (e)=>{ e.preventDefault(); open(); });})(); }
+    if(manageLink){ manageLink.addEventListener('click', (e)=>{ e.preventDefault(); open(); }); }
 
     const existing = localStorage.getItem(KEY);
     if(!existing){
@@ -996,6 +998,9 @@ window.addEventListener("load", function() {
     };
   })();
   </script>
+
+
+
   <!-- Styled Modal copied from index.php but customized for A/G input -->
 <div id="appModal" class="modal">
   <div class="modal-content">
@@ -1015,6 +1020,14 @@ window.addEventListener("load", function() {
 
 
 <script>
+function openModal() {
+  var overlay = document.getElementById("appOverlay");
+  if (overlay) overlay.style.display = "flex";
+}
+function closeModal() {
+  var overlay = document.getElementById("appOverlay");
+  if (overlay) overlay.style.display = "none";
+}
 
 document.addEventListener("DOMContentLoaded", function () {
   const navToggle = document.getElementById("navToggle");
@@ -1036,8 +1049,8 @@ document.addEventListener("DOMContentLoaded", function () {
   if (navOverlay) navOverlay.addEventListener("click", closeNav);
 
   // ESC key to close
-  document.addEventListener("keydown", (e)=>{ if (e.key === "Escape") closeNav(); });})();
-});})();
+  document.addEventListener("keydown", (e)=>{ if (e.key === "Escape") closeNav(); });
+});
 </script>
 
 
@@ -1052,32 +1065,10 @@ function closeLogin() {
 </script>
 
 
-<!-- Member Login Modal -->
-<div id="loginOverlay" class="modal-overlay" onclick="closeLogin()">
-  <div id="loginModal" class="modal" onclick="event.stopPropagation()">
-    <button class="close" onclick="closeLogin()">&times;</button>
-    <h3>Member Login</h3>
-    <form method="post" action="login_process.php">
-      <input type="email" name="email" placeholder="Email" required class="input">
-      <input type="password" name="password" placeholder="Password" required class="input">
-      <button type="submit" class="btn btn-primary">Login</button>
-    </form>
-  </div>
-</div>
+<!- Member Login Modal -->
 
 
-<script>
-function openModal() {
-  var overlay = document.getElementById("appOverlay");
-  if (overlay) overlay.style.display = "flex";
-}
-function closeModal() {
-  var overlay = document.getElementById("appOverlay");
-  if (overlay) overlay.style.display = "none";
-}
-</script>
-
-</body> -->
+</body> 
 <script>
   document.addEventListener("DOMContentLoaded", function () {
     const appLinks = document.querySelectorAll('a[href*="apps.apple.com/us/app/glofox"]');
@@ -1106,9 +1097,9 @@ function closeModal() {
         } else {
           alert("Please enter A or G.");
         }
-      });})();
-    });})();
-  });})();
+      });
+    });
+  });
 </script>
 
 
@@ -1123,30 +1114,7 @@ function closeLogin() {
 </script>
 
 
-<!-- Member Login Modal -->
-<div id="loginOverlay" class="modal-overlay" onclick="closeLogin()">
-  <div id="loginModal" class="modal" onclick="event.stopPropagation()">
-    <button class="close" onclick="closeLogin()">&times;</button>
-    <h3>Member Login</h3>
-    <form method="post" action="login_process.php">
-      <input type="email" name="email" placeholder="Email" required class="input">
-      <input type="password" name="password" placeholder="Password" required class="input">
-      <button type="submit" class="btn btn-primary">Login</button>
-    </form>
-  </div>
-</div>
 
-
-<script>
-function openModal() {
-  var overlay = document.getElementById("appOverlay");
-  if (overlay) overlay.style.display = "flex";
-}
-function closeModal() {
-  var overlay = document.getElementById("appOverlay");
-  if (overlay) overlay.style.display = "none";
-}
-</script>
 
 </body>
 </html>
