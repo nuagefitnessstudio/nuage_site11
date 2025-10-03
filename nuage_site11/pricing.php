@@ -660,56 +660,56 @@ textarea{min-height:120px;resize:vertical}
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px;">
       
       <!-- Bronze -->
-      <div style="background:#fff;border-radius:16px;padding:32px;box-shadow:0 6px 20px rgba(0,0,0,0.08);">
-        <h3 style="color:var(--navy);margin-bottom:12px;">NuAge Fit </h3>
-        <p style="font-size:32px;font-weight:700;color:var(--coral);margin:0;">$60<span style="font-size:16px;">/mo</span></p>
-        <ul style="list-style:none;padding:0;margin:20px 0;color:var(--muted);line-height:1.6;">
+      <div class="plan">
+        <h3>NuAge Fit</h3>
+        <p>$60/mo</p>
+        <ul>
           <li>4 Classes Monthly</li>
           <li>avg. usage of 1x/week</li>
           <li>Discounted Add-On Classes</li>
           <li>Great starter plan</li>
         </ul>
-        <a href="https://apps.apple.com/us/app/glofox/id916224471" target="_blank" rel="noopener" class="btn btn-primary">Choose Bronze</a>
+        <a class="btn btn-primary" href="javascript:void(0)" onclick="openModal()">View Schedule & Book</a>
       </div>
 
       <!-- Silver -->
-      <div style="background:#fff;border-radius:16px;padding:32px;box-shadow:0 6px 20px rgba(0,0,0,0.08);">
-        <h3 style="color:var(--navy);margin-bottom:12px;">NuAge Grind</h3>
-        <p style="font-size:32px;font-weight:700;color:var(--coral);margin:0;">$110<span style="font-size:16px;">/mo</span></p>
-        <ul style="list-style:none;padding:0;margin:20px 0;color:var(--muted);line-height:1.6;">
+      <div class="plan">
+        <h3>NuAge Grind</h3>
+        <p>$110/mo</p>
+        <ul>
           <li>8 Classes Monthly</li>
           <li>avg. usage of 2x/week</li>
           <li>Discounted Add-On Classes</li>
           <li>Balanced flexibility & value</li>
         </ul>
-        <a href="https://apps.apple.com/us/app/glofox/id916224471" target="_blank" rel="noopener" class="btn btn-primary">Choose Silver</a>
+        <a class="btn btn-primary" href="javascript:void(0)" onclick="openModal()">View Schedule & Book</a>
       </div>
 
       <!-- Gold -->
-      <div style="background:#fff;border-radius:16px;padding:32px;box-shadow:0 6px 20px rgba(0,0,0,0.08);">
-        <h3 style="color:var(--navy);margin-bottom:12px;">NuAge Dedicated</h3>
-        <p style="font-size:32px;font-weight:700;color:var(--coral);margin:0;">$170<span style="font-size:16px;">/mo</span></p>
-        <ul style="list-style:none;padding:0;margin:20px 0;color:var(--muted);line-height:1.6;">
+      <div class="plan">
+        <h3>NuAge Dedicated</h3>
+        <p>$170/mo</p>
+        <ul>
           <li>Unlimited Classes</li>
           <li>recommended for 3x/week or more</li>
           <li>Discounted Add-On Classes</li>
           <li>Best for regular training</li>
         </ul>
-        <a href="https://apps.apple.com/us/app/glofox/id916224471" target="_blank" rel="noopener" class="btn btn-primary">Choose Gold</a>
+        <a class="btn btn-primary" href="javascript:void(0)" onclick="openModal()">View Schedule & Book</a>
       </div>
     </div>
   </div>
 </section>
 
 <section class="hero-ot" style="min-height:40vh">
-    <div class="hero-inner">
-      <h1>Personal Training Pricing</h1>
-      <p>Month-to-Month Contract • 30-Day Cancellation</p>
-      <div class="cta-row">
-        <a class="btn btn-primary" href="https://apps.apple.com/us/app/glofox/id916224471" target="_blank" rel="noopener">View Classes</a>
-        <a class="btn btn-light" href="index.php">Back Home</a>
-      </div>
+  <div class="hero-inner">
+    <h1>Personal Training Pricing</h1>
+    <p>Month-to-Month Contract • 30-Day Cancellation</p>
+    <div class="cta-row">
+      <a class="btn btn-primary" href="javascript:void(0)" onclick="openModal()">View Classes</a>
+      <a class="btn btn-light" href="index.php">Back Home</a>
     </div>
+  </div>
 </section>
 
 <!-- Personal Training & Add-Ons -->
@@ -719,65 +719,66 @@ textarea{min-height:120px;resize:vertical}
       Personal Training & Add-Ons
     </h2>
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px;">
-      
+
       <!-- Intro Training -->
-      <div style="background:#fff;border-radius:16px;padding:32px;box-shadow:0 6px 20px rgba(0,0,0,0.08);">
-        <h3 style="color:var(--navy);margin-bottom:12px;">Intro Training</h3>
-        <p style="font-size:32px;font-weight:700;color:var(--coral);margin:0;">$60<span style="font-size:16px;">/session</span></p>
-        <ul style="list-style:none;padding:0;margin:20px 0;color:var(--muted);line-height:1.6;">
+      <div class="plan">
+        <h3>Intro Training</h3>
+        <p>$60/session</p>
+        <ul>
           <li>1 Personal Training Session</li>
           <li>Perfect for beginners</li>
         </ul>
-        <a href="https://apps.apple.com/us/app/glofox/id916224471" target="_blank" rel="noopener" class="btn btn-primary">Choose Intro</a>
+        <a class="btn btn-primary" href="javascript:void(0)" onclick="openModal()">View Schedule & Book</a>
       </div>
 
       <!-- Bronze PT -->
-      <div style="background:#fff;border-radius:16px;padding:32px;box-shadow:0 6px 20px rgba(0,0,0,0.08);">
-        <h3 style="color:var(--navy);margin-bottom:12px;">Bronze - Basic PT</h3>
-        <p style="font-size:32px;font-weight:700;color:var(--coral);margin:0;">$220</p>
-        <ul style="list-style:none;padding:0;margin:20px 0;color:var(--muted);line-height:1.6;">
+      <div class="plan">
+        <h3>Bronze – Basic PT</h3>
+        <p>$220</p>
+        <ul>
           <li>4 Personal Training Sessions</li>
           <li>Monthly training support</li>
         </ul>
-        <a href="https://apps.apple.com/us/app/glofox/id916224471" target="_blank" rel="noopener" class="btn btn-primary">Choose Bronze PT</a>
+        <a class="btn btn-primary" href="javascript:void(0)" onclick="openModal()">View Schedule & Book</a>
       </div>
 
       <!-- Silver PT -->
-      <div style="background:#fff;border-radius:16px;padding:32px;box-shadow:0 6px 20px rgba(0,0,0,0.08);">
-        <h3 style="color:var(--navy);margin-bottom:12px;">Silver - Elite PT</h3>
-        <p style="font-size:32px;font-weight:700;color:var(--coral);margin:0;">$400</p>
-        <ul style="list-style:none;padding:0;margin:20px 0;color:var(--muted);line-height:1.6;">
+      <div class="plan">
+        <h3>Silver – Elite PT</h3>
+        <p>$400</p>
+        <ul>
           <li>8 Personal Training Sessions</li>
           <li>For steady progress</li>
         </ul>
-        <a href="https://apps.apple.com/us/app/glofox/id916224471" target="_blank" rel="noopener" class="btn btn-primary">Choose Silver PT</a>
+        <a class="btn btn-primary" href="javascript:void(0)" onclick="openModal()">View Schedule & Book</a>
       </div>
 
       <!-- Gold PT -->
-      <div style="background:#fff;border-radius:16px;padding:32px;box-shadow:0 6px 20px rgba(0,0,0,0.08);">
-        <h3 style="color:var(--navy);margin-bottom:12px;">Gold - Premier PT</h3>
-        <p style="font-size:32px;font-weight:700;color:var(--coral);margin:0;">$575</p>
-        <ul style="list-style:none;padding:0;margin:20px 0;color:var(--muted);line-height:1.6;">
+      <div class="plan">
+        <h3>Gold – Premier PT</h3>
+        <p>$575</p>
+        <ul>
           <li>12 Personal Training Sessions</li>
           <li>Best for committed clients</li>
         </ul>
-        <a href="https://apps.apple.com/us/app/glofox/id916224471" target="_blank" rel="noopener" class="btn btn-primary">Choose Gold PT</a>
+        <a class="btn btn-primary" href="javascript:void(0)" onclick="openModal()">View Schedule & Book</a>
       </div>
 
       <!-- Add-Ons -->
-      <div style="background:#fff;border-radius:16px;padding:32px;box-shadow:0 6px 20px rgba(0,0,0,0.08);">
-        <h3 style="color:var(--navy);margin-bottom:12px;">Add-Ons</h3>
-        <p style="font-size:32px;font-weight:700;color:var(--coral);margin:0;">$30</p>
-        <ul style="list-style:none;padding:0;margin:20px 0;color:var(--muted);line-height:1.6;">
+      <div class="plan">
+        <h3>Add-Ons</h3>
+        <p>$30</p>
+        <ul>
           <li>2 Class Open Gym Pass</li>
           <li>Discounted Extra Classes</li>
           <li>Flexible extras</li>
         </ul>
-        <a href="https://apps.apple.com/us/app/glofox/id916224471" target="_blank" rel="noopener" class="btn btn-primary">Choose Add-On</a>
+        <a class="btn btn-primary" href="javascript:void(0)" onclick="openModal()">View Schedule & Book</a>
       </div>
     </div>
   </div>
 </section>
+
 
 <footer class="footer">
   <div class="bottombar">
