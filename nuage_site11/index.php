@@ -695,9 +695,9 @@ window.addEventListener("load", function() {
         <span style="color:var(--navy);">Nu</span><span style="color:var(--coral);">Age</span>
       </h1>
       <p style="max-width:720px;margin:12px auto 20px;color:#f0f0f0;opacity:.95;font-size:1.2rem;">
-        Premium <span style="color:var(--coral);">training</span>, 
-        <span style="color:var(--coral);">recovery</span>, 
-        and <span style="color:var(--coral);">community</span> — all in one elegant club experience.
+        Premium <span style="color:var(--navy);">training</span>, 
+        <span style="color:var(--navy);">recovery</span>, 
+        and <span style="color:var(--navy);">community</span> — all in one elegant club experience.
       </p>
       <a href="location.php" class="btn"
    style="background:#ffffffcc;color:var(--navy);border:2px solid #ffffff;border-radius:8px;
