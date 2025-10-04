@@ -534,7 +534,7 @@ a, button { -webkit-tap-highlight-color: transparent; }
     padding:3rem 1rem;
     text-align:center;
     color:#fff;
-    background: var(--navy);
+    background: var(--bone);
 }
 
   .closing-ot h2{letter-spacing:.12em;text-transform:uppercase}
