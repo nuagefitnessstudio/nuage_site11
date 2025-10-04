@@ -1,4 +1,4 @@
-<?php
+]<?php
 // Newsletter / Inquiry handler (top of file)
 $inq_msg = null; $inq_ok = false;
 
