@@ -529,12 +529,19 @@ a, button { -webkit-tap-highlight-color: transparent; }
   .newsletter h2{color:var(--navy)}
   .newsletter-form{display:flex;gap:.5rem;justify-content:center;flex-wrap:wrap;margin-top:.75rem}
   .newsletter-form input{padding:.9rem 1rem;border:1px solid var(--line);border-radius:.75rem;min-width:240px}
-  
+  {/*
   .closing-ot{
     padding:3rem 1rem;
     text-align:center;
     color:#fff;
-    background: var(--bone);
+    background: linear-gradient(180deg, var(--coral) 0%, var(--navy) 100%);
+  }
+  */}
+  .closing-ot{
+    padding:3rem 1rem;
+    text-align:center;
+    color:#fff;
+    background: var(--navy);
 }
 
   .closing-ot h2{letter-spacing:.12em;text-transform:uppercase}
