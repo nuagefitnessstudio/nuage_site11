@@ -682,9 +682,9 @@ window.addEventListener("load", function() {
 </aside>
 
   <header class="hero">
-  <video id="heroVideo" autoplay muted playsinline loop preload="auto">
-  <source src="assets/workout_hero.mp4" type="video/mp4">
-  <source src="assets/workout_hero.webm" type="video/webm">
+  <video id="heroVideo" autoplay muted playsinline loop>
+  <source src="assets/workout_hero.mp4 01-20-55-521.mp4" type="video/mp4">
+  <source src="assets/workout_hero.mp4 01-20-55-521.mp4" type="video/webm">
 </video>
 
   <div class="hero-center">
