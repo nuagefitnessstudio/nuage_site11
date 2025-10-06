@@ -682,11 +682,11 @@ window.addEventListener("load", function() {
 </aside>
 
   <header class="hero">
-  <video id="heroVideo" autoplay muted playsinline loop poster="https://images.pexels.com/photos/4761669/pexels-photo-4761669.jpeg?auto=compress&cs=tinysrgb&w=1600&h=1000&dpr=1">
-    <source src="assets/benchpress_hero.mp4" type="video/mp4">
-    <source src="assets/benchpress_hero.webm" type="video/webm">
-    <source src="assets/workout_hero.mp4" type="video/mp4">
-    <source src="assets/hero.mp4" type="video/mp4">
+  <video id="heroVideo" autoplay muted playsinline loop poster="assets/workout_hero.mp4 01-20-55-521.mp4">
+    <source src="assets/workout_hero.mp4 01-20-55-521.mp4" type="video/mp4">
+    <source src="assets/workout_hero.mp4 01-20-55-521.mp4" type="video/webm">
+    <source src="assets/workout_hero.mp4 01-20-55-521.mp4" type="video/mp4">
+    <source src="assets/workout_hero.mp4 01-20-55-521.mp4" type="video/mp4">
   </video>
   <div class="hero-center">
     <div>
