@@ -14,7 +14,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['employment_form'])) {
     $flash_ok = true;
     $flash_msg = "Thanks! We received your application.";
   } else {
-    $to = "tgravesjr7@gmail.com";
+    $to = "info@nuagefitness-studio.com";
     $name    = clean_text($_POST['full_name'] ?? '');
     $email   = safe_email($_POST['email'] ?? '');
     $address = clean_text($_POST['address'] ?? '');
@@ -62,7 +62,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['employment_form'])) {
       // Compose email with attachment
       $subject = "New Employment Application — NuAge Website";
       $boundary = "==Multipart_Boundary_x" . md5(uniqid(mt_rand(), true)) . "x";
-      $from = "tgravesjr7@gmail.com"; // Best deliverability: from your domain
+      $from = "info@nuagefitness-studio.com"; // Best deliverability: from your domain
       $headers  = "From: NuAge Website <{$from}>\r\n";
       if ($email) $headers .= "Reply-To: {$email}\r\n";
       $headers .= "MIME-Version: 1.0\r\n";
@@ -102,80 +102,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['employment_form'])) {
     }
   }
 }
-?>
-<?php
-// ================================
-// Employment Application Mailer (PHPMailer over Microsoft 365)
-// ================================
-use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\Exception;
-
-require __DIR__ . '/vendor/autoload.php';
-
-if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['__employment_form'])) {
-    if (!function_exists('nuage_employ_clean')) {
-        function nuage_employ_clean($s){ return trim(strip_tags($s ?? '')); }
-    }
-    if (!function_exists('nuage_employ_safe_email')) {
-        function nuage_employ_safe_email($s){ $s = trim($s ?? ''); return filter_var($s, FILTER_VALIDATE_EMAIL) ? $s : ''; }
-    }
-
-    $app_name  = nuage_employ_clean($_POST['app_name'] ?? '');
-    $app_email = nuage_employ_safe_email($_POST['app_email'] ?? '');
-    $app_phone = nuage_employ_clean($_POST['app_phone'] ?? '');
-    $app_role  = nuage_employ_clean($_POST['app_role'] ?? '');
-    $hp_field  = trim($_POST['website'] ?? '');
-
-    $ok = true; $errors = [];
-    if ($hp_field !== '') { $ok = false; } // honeypot
-    if ($app_name === '')  { $ok = false; $errors[] = "Name is required."; }
-    if ($app_email === '') { $ok = false; $errors[] = "Valid email is required."; }
-    if ($app_phone === '') { $ok = false; $errors[] = "Phone is required."; }
-    if ($app_role === '')  { $ok = false; $errors[] = "Position selection is required."; }
-
-    if ($ok) {
-        try {
-            $mail = new PHPMailer(true);
-            $mail->isSMTP();
-            $mail->Host       = 'smtp.office365.com';
-            $mail->SMTPAuth   = true;
-            $mail->Username   = 'tgravesjr7@gmail.com';
-            $mail->Password   = 'DallasCowboys823!!!'; // <-- set your M365 password or app password
-            $mail->SMTPSecure = 'tls';
-            $mail->Port       = 587;
-
-            $mail->setFrom('tgravesjr7@gmail.com', 'NuAge Careers');
-            $mail->addAddress('tgravesjr7@gmail.com');
-            if ($app_email) { $mail->addReplyTo($app_email, $app_name); }
-
-            $mail->isHTML(false);
-            $mail->Subject = 'New Employment Application — NuAge Fitness Studio';
-            $mail->Body =
-                "A new employment inquiry was submitted:\n\n"
-                . "Name: {$app_name}\n"
-                . "Email: {$app_email}\n"
-                . "Phone: {$app_phone}\n"
-                . "Position: {$app_role}\n"
-                . "Submitted: " . date('Y-m-d H:i:s') . "\n";
-
-            $mail->send();
-            echo "<script>window.addEventListener('DOMContentLoaded',function(){alert('Thank you — your application has been submitted!');});</script>";
-        } catch (Exception $e) {
-            $err = addslashes($mail->ErrorInfo ?? $e->getMessage());
-            echo "<script>window.addEventListener('DOMContentLoaded',function(){alert('Mailer Error: {$err}');});</script>";
-        }
-    } else {
-        $msg = htmlspecialchars(implode("\\n", $errors), ENT_QUOTES);
-        echo "<script>window.addEventListener('DOMContentLoaded',function(){alert('Please fix the following:\\n{$msg}');});</script>";
-    }
-}
-?>
-<?php
+?><?php
 // ================================
 // Employment Application Mailer (PHPMailer SMTP)
 // ================================
-use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\Exception;
 
 require __DIR__ . '/vendor/autoload.php';
 
@@ -203,17 +133,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['__employment_form']))
 
     if ($ok) {
         try {
-            $mail = new PHPMailer(true);
+            $mail = new \PHPMailer\PHPMailer\PHPMailer(true);
             $mail->isSMTP();
             $mail->Host       = 'smtp.office365.com';
             $mail->SMTPAuth   = true;
-            $mail->Username   = 'tgravesjr7@gmail.com';
+            $mail->Username   = 'info@nuagefitness-studio.com';
             $mail->Password   = 'REPLACE_WITH_EMAIL_PASSWORD_OR_APP_PASSWORD'; // <-- put your password or app password here
             $mail->SMTPSecure = 'tls';
             $mail->Port       = 587;
 
-            $mail->setFrom('tgravesjr7@gmail.com', 'NuAge Careers');
-            $mail->addAddress('tgravesjr7@gmail.com');
+            $mail->setFrom('info@nuagefitness-studio.com', 'NuAge Careers');
+            $mail->addAddress('info@nuagefitness-studio.com');
             if ($app_email) {
                 $mail->addReplyTo($app_email, $app_name);
             }
@@ -230,7 +160,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['__employment_form']))
 
             $mail->send();
             echo "<script>window.addEventListener('DOMContentLoaded',function(){alert('Thank you — your application has been submitted!');});</script>";
-        } catch (Exception $e) {
+        } catch (\PHPMailer\PHPMailer\Exception $e) {
             $err = addslashes($mail->ErrorInfo ?? $e->getMessage());
             echo "<script>window.addEventListener('DOMContentLoaded',function(){alert('Mailer Error: {$err}');});</script>";
         }
@@ -267,7 +197,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['__employment_form']))
     if ($app_role === '') { $ok = false; $errors[] = "Position selection is required."; }
 
     if ($ok) {
-        $to = "tgravesjr7@gmail.com";
+        $to = "info@nuagefitness-studio.com";
         $subject = "New Employment Application — NuAge Fitness Studio";
         $body = "A new employment inquiry was submitted:\n\n"
               . "Name: {$app_name}\n"
@@ -1341,82 +1271,6 @@ function submitChoice(){
         ev.preventDefault();
         openModal();
       }, { passive:false });
-    }
-  });
-})();
-</script>
-
-
-<!-- Employment Application Modal (hooks any "Apply for Employment" trigger) -->
-<style>
-  .nuage-modal-backdrop{position:fixed;inset:0;background:rgba(0,0,0,.5);display:none;align-items:center;justify-content:center;z-index:9999}
-  .nuage-modal{background:#fff;max-width:520px;width:92%;border-radius:16px;box-shadow:0 20px 60px rgba(0,0,0,.25);overflow:hidden}
-  .nuage-modal header{padding:18px 22px;background:#002D72;color:#fff;font-weight:700}
-  .nuage-modal .content{padding:20px}
-  .nuage-modal .grid{display:grid;grid-template-columns:1fr;gap:12px}
-  .nuage-modal label{font-size:.9rem;color:#111418;font-weight:600;margin-bottom:6px;display:block}
-  .nuage-modal input,.nuage-modal select{width:100%;padding:12px 14px;border:1.5px solid #e5e4e1;border-radius:10px;font-size:1rem;outline:none}
-  .nuage-modal input:focus,.nuage-modal select:focus{border-color:#002D72}
-  .nuage-actions{display:flex;gap:10px;justify-content:flex-end;padding:16px 20px;border-top:1px solid #eee;background:#fafafa}
-  .nuage-btn{padding:10px 14px;border-radius:10px;border:2px solid transparent;font-weight:700;cursor:pointer}
-  .nuage-btn.primary{background:#EB1F48;color:#fff}
-  .nuage-btn.ghost{background:#fff;border-color:#e5e4e1}
-  .nuage-hidden{display:none !important}
-</style>
-
-<div class="nuage-modal-backdrop" id="employmentModal">
-  <div class="nuage-modal" role="dialog" aria-modal="true" aria-labelledby="employmentTitle">
-    <header><span id="employmentTitle">Apply for Employment</span></header>
-    <form method="post" class="content" id="employmentForm">
-      <input type="hidden" name="__employment_form" value="1" />
-      <!-- Honeypot -->
-      <input type="text" name="website" autocomplete="off" class="nuage-hidden" tabindex="-1" aria-hidden="true"/>
-      <div class="grid">
-        <div>
-          <label for="app_name">Full Name</label>
-          <input id="app_name" name="app_name" type="text" placeholder="Jane Doe" required />
-        </div>
-        <div>
-          <label for="app_phone">Phone Number</label>
-          <input id="app_phone" name="app_phone" type="tel" placeholder="(555) 123-4567" required />
-        </div>
-        <div>
-          <label for="app_email">Email Address</label>
-          <input id="app_email" name="app_email" type="email" placeholder="you@example.com" required />
-        </div>
-        <div>
-          <label for="app_role">Position</label>
-          <select id="app_role" name="app_role" required>
-            <option value="">Select a position…</option>
-            <option>Trainer</option>
-            <option>Sales</option>
-            <option>Manager</option>
-            <option>Instructor</option>
-          </select>
-        </div>
-      </div>
-      <div class="nuage-actions">
-        <button type="button" class="nuage-btn ghost" id="closeEmployment">Cancel</button>
-        <button type="submit" class="nuage-btn primary">Submit</button>
-      </div>
-    </form>
-  </div>
-</div>
-
-<script>
-(function(){
-  const modal = document.getElementById('employmentModal');
-  const closeBtn = document.getElementById('closeEmployment');
-  function openModal(){ if(modal){ modal.style.display='flex'; document.body.style.overflow='hidden'; } }
-  function closeModal(){ if(modal){ modal.style.display='none'; document.body.style.overflow=''; } }
-  if (closeBtn) closeBtn.addEventListener('click', closeModal);
-  if (modal) modal.addEventListener('click', (e)=>{ if(e.target === modal) closeModal(); });
-
-  // Auto-hook any link or button that says "Apply for Employment"
-  document.querySelectorAll('a,button').forEach(el=>{
-    const txt = (el.innerText || el.textContent || '').trim().toLowerCase();
-    if (txt.includes('apply for employment')) {
-      el.addEventListener('click', function(ev){ ev.preventDefault(); openModal(); }, { passive:false });
     }
   });
 })();
