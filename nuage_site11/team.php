@@ -14,7 +14,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['employment_form'])) {
     $flash_ok = true;
     $flash_msg = "Thanks! We received your application.";
   } else {
-    $to = "info@nuagefitness-studio.com";
+    $to = "tgravesjr7@gmail.com";
     $name    = clean_text($_POST['full_name'] ?? '');
     $email   = safe_email($_POST['email'] ?? '');
     $address = clean_text($_POST['address'] ?? '');
