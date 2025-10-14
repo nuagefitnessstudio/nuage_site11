@@ -62,7 +62,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['employment_form'])) {
       // Compose email with attachment
       $subject = "New Employment Application — NuAge Website";
       $boundary = "==Multipart_Boundary_x" . md5(uniqid(mt_rand(), true)) . "x";
-      $from = "info@nuagefitness-studio.com"; // Best deliverability: from your domain
+      $from = "tgravesjr7@gmail.com"; // Best deliverability: from your domain
       $headers  = "From: NuAge Website <{$from}>\r\n";
       if ($email) $headers .= "Reply-To: {$email}\r\n";
       $headers .= "MIME-Version: 1.0\r\n";
@@ -130,7 +130,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['__employment_form']))
     if ($app_role === '') { $ok = false; $errors[] = "Position selection is required."; }
 
     if ($ok) {
-        $to = "info@nuagefitness-studio.com";
+        $to = "tgravesjr7@gmail.com";
         $subject = "New Employment Application — NuAge Fitness Studio";
         $body = "A new employment inquiry was submitted:\n\n"
               . "Name: {$app_name}\n"
