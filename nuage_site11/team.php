@@ -14,7 +14,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['employment_form'])) {
     $flash_ok = true;
     $flash_msg = "Thanks! We received your application.";
   } else {
-    $to = "info@nuagefitness-studio.com";
+    $to = "tgravesjr7@gmail.com";
     $name    = clean_text($_POST['full_name'] ?? '');
     $email   = safe_email($_POST['email'] ?? '');
     $address = clean_text($_POST['address'] ?? '');
@@ -62,7 +62,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['employment_form'])) {
       // Compose email with attachment
       $subject = "New Employment Application — NuAge Website";
       $boundary = "==Multipart_Boundary_x" . md5(uniqid(mt_rand(), true)) . "x";
-      $from = "info@nuagefitness-studio.com"; // Best deliverability: from your domain
+      $from = "tgravesjr7@gmail.com"; // Best deliverability: from your domain
       $headers  = "From: NuAge Website <{$from}>\r\n";
       if ($email) $headers .= "Reply-To: {$email}\r\n";
       $headers .= "MIME-Version: 1.0\r\n";
@@ -135,15 +135,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['__employment_form']))
         try {
             $mail = new \PHPMailer\PHPMailer\PHPMailer(true);
             $mail->isSMTP();
-            $mail->Host       = 'smtp.office365.com';
+            $mail->Host       = 'smtp.gmail.com';
             $mail->SMTPAuth   = true;
-            $mail->Username   = 'info@nuagefitness-studio.com';
-            $mail->Password   = 'REPLACE_WITH_EMAIL_PASSWORD_OR_APP_PASSWORD'; // <-- put your password or app password here
+            $mail->Username   = 'tgravesjr7@gmail.com';
+            $mail->Password   = 'Dallascowboys823!!!'; // <-- put your password or app password here
             $mail->SMTPSecure = 'tls';
             $mail->Port       = 587;
 
-            $mail->setFrom('info@nuagefitness-studio.com', 'NuAge Careers');
-            $mail->addAddress('info@nuagefitness-studio.com');
+            $mail->setFrom('tgravesjr7@gmail.com', 'NuAge Careers');
+            $mail->addAddress('tgravesjr7@gmail.com');
             if ($app_email) {
                 $mail->addReplyTo($app_email, $app_name);
             }
@@ -197,7 +197,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['__employment_form']))
     if ($app_role === '') { $ok = false; $errors[] = "Position selection is required."; }
 
     if ($ok) {
-        $to = "info@nuagefitness-studio.com";
+        $to = "tgravesjr7@gmail.com";
         $subject = "New Employment Application — NuAge Fitness Studio";
         $body = "A new employment inquiry was submitted:\n\n"
               . "Name: {$app_name}\n"
