@@ -103,6 +103,54 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['employment_form'])) {
   }
 }
 ?>
+<?php
+// ================================
+// Employment Application Mailer
+// ================================
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['__employment_form'])) {
+    // Basic sanitize
+    function clean_text($s){ return trim(filter_var($s ?? '', FILTER_SANITIZE_STRING, FILTER_FLAG_NO_ENCODE_QUOTES)); }
+    function safe_email($s){ $s = trim($s ?? ''); return filter_var($s, FILTER_VALIDATE_EMAIL) ? $s : ''; }
+
+    $app_name  = clean_text($_POST['app_name'] ?? '');
+    $app_email = safe_email($_POST['app_email'] ?? '');
+    $app_phone = clean_text($_POST['app_phone'] ?? '');
+    $app_role  = clean_text($_POST['app_role'] ?? '');
+    $hp_field  = trim($_POST['website'] ?? ''); // honeypot
+    
+    $ok = true; $errors = [];
+    if ($hp_field !== '') { $ok = false; } // bot caught
+    if ($app_name === '') { $ok = false; $errors[] = "Name is required."; }
+    if ($app_email === '') { $ok = false; $errors[] = "Valid email is required."; }
+    if ($app_phone === '') { $ok = false; $errors[] = "Phone is required."; }
+    if ($app_role === '') { $ok = false; $errors[] = "Position selection is required."; }
+
+    if ($ok) {
+        $to = "info@nuagefitness-studio.com";
+        $subject = "New Employment Application — NuAge Fitness Studio";
+        $body = "A new employment inquiry was submitted:\n\n"
+              . "Name: {$app_name}\n"
+              . "Email: {$app_email}\n"
+              . "Phone: {$app_phone}\n"
+              . "Position: {$app_role}\n"
+              . "Submitted: " . date('Y-m-d H:i:s') . "\n";
+        $headers = "From: NuAge Careers <no-reply@nuagefitness-studio.com>\r\n";
+        if ($app_email) { $headers .= "Reply-To: {$app_email}\r\n"; }
+        $headers .= "MIME-Version: 1.0\r\nContent-Type: text/plain; charset=UTF-8\r\n";
+
+        @mail($to, $subject, $body, $headers);
+
+        // Small inline thank-you. You can customize this later.
+        $_POST = []; // clear
+        echo '<script>window.addEventListener("DOMContentLoaded",function(){alert("Thanks! Your application was submitted. We\\'ll be in touch.");});</script>';
+    } else {
+        // Simple client alert of errors
+        $msg = implode("\\n", $errors);
+        echo '<script>window.addEventListener("DOMContentLoaded",function(){alert("Please fix the following:\\n' . htmlspecialchars($msg, ENT_QUOTES) . '");});</script>';
+    }
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -997,6 +1045,94 @@ function submitChoice(){
     alert('Please enter A or G.');
   }
 }
+</script>
+
+
+<!-- ================================
+     Employment Application Modal
+================================ -->
+<style>
+  .nuage-modal-backdrop{position:fixed;inset:0;background:rgba(0,0,0,.5);display:none;align-items:center;justify-content:center;z-index:9999}
+  .nuage-modal{background:#fff;max-width:520px;width:92%;border-radius:16px;box-shadow:0 20px 60px rgba(0,0,0,.25);overflow:hidden}
+  .nuage-modal header{padding:18px 22px;background:#002D72;color:#fff;font-weight:700}
+  .nuage-modal .content{padding:20px}
+  .nuage-modal .grid{display:grid;grid-template-columns:1fr;gap:12px}
+  .nuage-modal label{font-size:.9rem;color:#111418;font-weight:600;margin-bottom:6px;display:block}
+  .nuage-modal input,.nuage-modal select{width:100%;padding:12px 14px;border:1.5px solid #e5e4e1;border-radius:10px;font-size:1rem;outline:none}
+  .nuage-modal input:focus,.nuage-modal select:focus{border-color:#002D72}
+  .nuage-actions{display:flex;gap:10px;justify-content:flex-end;padding:16px 20px;border-top:1px solid #eee;background:#fafafa}
+  .nuage-btn{padding:10px 14px;border-radius:10px;border:2px solid transparent;font-weight:700;cursor:pointer}
+  .nuage-btn.primary{background:#EB1F48;color:#fff}
+  .nuage-btn.ghost{background:#fff;border-color:#e5e4e1}
+  /* Floating button (optional if you don't already have a trigger button) */
+  .nuage-fab{position:fixed;right:18px;bottom:18px;background:#EB1F48;color:#fff;border:none;border-radius:999px;padding:12px 16px;font-weight:700;box-shadow:0 8px 30px rgba(235,31,72,.35);cursor:pointer;z-index:9999}
+  .nuage-hidden{display:none !important}
+</style>
+
+<button type="button" class="nuage-fab" id="applyEmploymentButton">Apply for Employment</button>
+
+<div class="nuage-modal-backdrop" id="employmentModal">
+  <div class="nuage-modal" role="dialog" aria-modal="true" aria-labelledby="employmentTitle">
+    <header><span id="employmentTitle">Apply for Employment</span></header>
+    <form method="post" class="content" id="employmentForm">
+      <input type="hidden" name="__employment_form" value="1" />
+      <!-- Honeypot -->
+      <input type="text" name="website" autocomplete="off" class="nuage-hidden" tabindex="-1" aria-hidden="true"/>
+      <div class="grid">
+        <div>
+          <label for="app_name">Full Name</label>
+          <input id="app_name" name="app_name" type="text" placeholder="Jane Doe" required />
+        </div>
+        <div>
+          <label for="app_phone">Phone Number</label>
+          <input id="app_phone" name="app_phone" type="tel" placeholder="(555) 123-4567" required />
+        </div>
+        <div>
+          <label for="app_email">Email Address</label>
+          <input id="app_email" name="app_email" type="email" placeholder="you@example.com" required />
+        </div>
+        <div>
+          <label for="app_role">Position</label>
+          <select id="app_role" name="app_role" required>
+            <option value="">Select a position…</option>
+            <option>Trainer</option>
+            <option>Sales</option>
+            <option>Manager</option>
+            <option>Instructor</option>
+          </select>
+        </div>
+      </div>
+      <div class="nuage-actions">
+        <button type="button" class="nuage-btn ghost" id="closeEmployment">Cancel</button>
+        <button type="submit" class="nuage-btn primary">Submit</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<script>
+(function(){
+  const openBtn = document.getElementById('applyEmploymentButton');
+  const modal = document.getElementById('employmentModal');
+  const closeBtn = document.getElementById('closeEmployment');
+
+  function openModal(){ modal.style.display='flex'; document.body.style.overflow='hidden'; }
+  function closeModal(){ modal.style.display='none'; document.body.style.overflow=''; }
+
+  if (openBtn) openBtn.addEventListener('click', openModal);
+  if (closeBtn) closeBtn.addEventListener('click', closeModal);
+  if (modal) modal.addEventListener('click', (e)=>{ if(e.target === modal) closeModal(); });
+
+  // Optional: open from any existing "Apply for Employment" link/button on the page
+  document.querySelectorAll('a,button').forEach(el=>{
+    const txt = (el.innerText || el.textContent || '').trim().toLowerCase();
+    if (txt.includes('apply for employment')) {
+      el.addEventListener('click', function(ev){
+        ev.preventDefault(); openModal();
+      }, { passive:false });
+    }
+  });
+})();
 </script>
 
 </body>
