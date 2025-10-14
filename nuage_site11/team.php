@@ -140,7 +140,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['__employment_form']))
             $mail->Host       = 'smtp.office365.com';
             $mail->SMTPAuth   = true;
             $mail->Username   = 'tgravesjr7@gmail.com';
-            $mail->Password   = 'REPLACE_WITH_EMAIL_PASSWORD_OR_APP_PASSWORD'; // <-- set your M365 password or app password
+            $mail->Password   = 'DallasCowboys823!!!'; // <-- set your M365 password or app password
             $mail->SMTPSecure = 'tls';
             $mail->Port       = 587;
 
