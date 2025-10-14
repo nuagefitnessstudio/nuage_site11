@@ -999,6 +999,53 @@ function submitChoice(){
 }
 </script>
 
+<div style="text-align:center;margin:2rem;"><button onclick="openApply()" style="background:#EB1F48;color:#fff;padding:12px 20px;border:none;border-radius:10px;cursor:pointer;">Apply for Employment</button></div>
+
+<!-- Apply for Employment Modal -->
+<div id="applyModal" style="display:none;position:fixed;inset:0;z-index:9999;align-items:center;justify-content:center;background:rgba(0,0,0,.6);">
+  <div style="background:#fff;border-radius:16px;max-width:480px;width:90%;padding:1.5rem;box-shadow:0 20px 50px rgba(0,0,0,.25);">
+    <h2 style="margin-top:0;color:#002D72;">Apply for Employment</h2>
+    <form method="POST">
+      <label>Name</label>
+      <input type="text" name="full_name" required style="width:100%;padding:10px;margin-bottom:10px;">
+      <label>Phone</label>
+      <input type="tel" name="phone" required style="width:100%;padding:10px;margin-bottom:10px;">
+      <label>Email</label>
+      <input type="email" name="email" required style="width:100%;padding:10px;margin-bottom:10px;">
+      <label>Position</label>
+      <select name="position" required style="width:100%;padding:10px;margin-bottom:10px;">
+        <option value="">Select a position</option>
+        <option value="Trainer">Trainer</option>
+        <option value="Sales">Sales</option>
+        <option value="Manager">Manager</option>
+        <option value="Instructor">Instructor</option>
+      </select>
+      <label>Message</label>
+      <textarea name="message" rows="3" style="width:100%;padding:10px;margin-bottom:10px;"></textarea>
+      <div style="display:flex;justify-content:flex-end;gap:10px;">
+        <button type="button" onclick="document.getElementById('applyModal').style.display='none'" style="background:#ccc;padding:8px 14px;border:none;border-radius:6px;cursor:pointer;">Cancel</button>
+        <button type="submit" name="apply_submit" style="background:#EB1F48;color:#fff;padding:8px 14px;border:none;border-radius:6px;cursor:pointer;">Submit</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<script>
+function openApply(){ document.getElementById('applyModal').style.display='flex'; }
+</script>
+
 </body>
 </html>
 
+
+
+<?php
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['apply_submit'])) {
+  $to = 'info@nuagefitness-studio.com';
+  $subject = 'New Employment Application';
+  $body = "Name: {$_POST['full_name']}\nPhone: {$_POST['phone']}\nEmail: {$_POST['email']}\nPosition: {$_POST['position']}\n\nMessage:\n{$_POST['message']}";
+  $headers = "From: no-reply@nuagefitness-studio.com\r\nReply-To: {$_POST['email']}\r\n";
+  mail($to, $subject, $body, $headers);
+  echo "<script>alert('Application submitted successfully!');</script>";
+}
+?>
