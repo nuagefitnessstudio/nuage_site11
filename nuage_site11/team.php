@@ -133,21 +133,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['__employment_form']))
 
     if ($ok) {
         try {
-            $mail = new \PHPMailer\PHPMailer\PHPMailer(true);
-            $mail->isSMTP();
-            $mail->Host       = 'smtp.gmail.com';
-            $mail->SMTPAuth   = true;
-            $mail->Username   = 'tgravesjr7@gmail.com';
-            $mail->Password   = 'D@ll@sC0wb0ys823!!!'; // <-- put your password or app password here
-            $mail->SMTPSecure = 'tls';
-            $mail->Port       = 587;
-
-            $mail->setFrom('tgravesjr7@gmail.com', 'NuAge Careers');
-            $mail->addAddress('tgravesjr7@gmail.com');
-            if ($app_email) {
-                $mail->addReplyTo($app_email, $app_name);
-            }
-
+          $mail = new \PHPMailer\PHPMailer\PHPMailer(true);
+          $mail->isSMTP();
+          $mail->Host       = 'smtp.gmail.com';
+          $mail->SMTPAuth   = true;
+          $mail->Username   = 'tgravesjr7@gmail.com';      // the account you generated the app password for
+          $mail->Password   = 'dghdsxwdpixhqhan';          // <-- remove spaces from the 16-char app password
+          $mail->SMTPSecure = 'tls';                       // or: \PHPMailer\PHPMailer\PHPMailer::ENCRYPTION_STARTTLS
+          $mail->Port       = 587;
+          
+          $mail->setFrom('tgravesjr7@gmail.com', 'NuAge Careers'); // MUST match $mail->Username
+          $mail->addAddress('info@nuagefitness-studio.com');       // where you want to receive it
+          // Optional so replies go to the applicant:
+          if (!empty($app_email)) { $mail->addReplyTo($app_email, $app_name); }
+          
             $mail->isHTML(false);
             $mail->Subject = 'New Employment Application — NuAge Fitness Studio';
             $mail->Body =
