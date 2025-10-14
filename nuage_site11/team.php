@@ -138,7 +138,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['__employment_form']))
             $mail->Host       = 'smtp.gmail.com';
             $mail->SMTPAuth   = true;
             $mail->Username   = 'tgravesjr7@gmail.com';
-            $mail->Password   = 'Dallascowboys823!!!'; // <-- put your password or app password here
+            $mail->Password   = 'D@ll@sC0wb0ys823!!!'; // <-- put your password or app password here
             $mail->SMTPSecure = 'tls';
             $mail->Port       = 587;
 
