@@ -4,13 +4,8 @@
 // =====================================
 $flash_msg = null; $flash_ok = false;
 
-if (!function_exists('clean_text')) {
-  function clean_text($s){ return trim(filter_var($s ?? '', FILTER_SANITIZE_STRING, FILTER_FLAG_NO_ENCODE_QUOTES)); }
-}
-if (!function_exists('safe_email')) {
-  function safe_email($s){ $s = trim($s ?? ''); return filter_var($s, FILTER_VALIDATE_EMAIL) ? $s : ''; }
-}
-
+function clean_text($s){ return trim(filter_var($s ?? '', FILTER_SANITIZE_STRING, FILTER_FLAG_NO_ENCODE_QUOTES)); }
+function safe_email($s){ $s = trim($s ?? ''); return filter_var($s, FILTER_VALIDATE_EMAIL) ? $s : ''; }
 
 // Handle POST
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['employment_form'])) {
@@ -110,21 +105,25 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['employment_form'])) {
 ?>
 <?php
 // ================================
-// Employment Application Mailer
+// Employment Application Mailer (conflict-free)
 // ================================
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['__employment_form'])) {
-    // Basic sanitize
-    function clean_text($s){ return trim(filter_var($s ?? '', FILTER_SANITIZE_STRING, FILTER_FLAG_NO_ENCODE_QUOTES)); }
-    function safe_email($s){ $s = trim($s ?? ''); return filter_var($s, FILTER_VALIDATE_EMAIL) ? $s : ''; }
+    // Unique helper names to avoid collisions
+    if (!function_exists('nuage_employ_clean')) {
+        function nuage_employ_clean($s){ return trim(filter_var($s ?? '', FILTER_SANITIZE_STRING, FILTER_FLAG_NO_ENCODE_QUOTES)); }
+    }
+    if (!function_exists('nuage_employ_safe_email')) {
+        function nuage_employ_safe_email($s){ $s = trim($s ?? ''); return filter_var($s, FILTER_VALIDATE_EMAIL) ? $s : ''; }
+    }
 
-    $app_name  = clean_text($_POST['app_name'] ?? '');
-    $app_email = safe_email($_POST['app_email'] ?? '');
-    $app_phone = clean_text($_POST['app_phone'] ?? '');
-    $app_role  = clean_text($_POST['app_role'] ?? '');
-    $hp_field  = trim($_POST['website'] ?? ''); // honeypot
-    
+    $app_name  = nuage_employ_clean($_POST['app_name'] ?? '');
+    $app_email = nuage_employ_safe_email($_POST['app_email'] ?? '');
+    $app_phone = nuage_employ_clean($_POST['app_phone'] ?? '');
+    $app_role  = nuage_employ_clean($_POST['app_role'] ?? '');
+    $hp_field  = trim($_POST['website'] ?? '');
+
     $ok = true; $errors = [];
-    if ($hp_field !== '') { $ok = false; } // bot caught
+    if ($hp_field !== '') { $ok = false; }
     if ($app_name === '') { $ok = false; $errors[] = "Name is required."; }
     if ($app_email === '') { $ok = false; $errors[] = "Valid email is required."; }
     if ($app_phone === '') { $ok = false; $errors[] = "Phone is required."; }
@@ -144,8 +143,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['__employment_form']))
         $headers .= "MIME-Version: 1.0\r\nContent-Type: text/plain; charset=UTF-8\r\n";
 
         @mail($to, $subject, $body, $headers);
-
-        // Use simple text to avoid apostrophe escaping issues
         echo "<script>window.addEventListener('DOMContentLoaded',function(){alert('Thanks! Your application was submitted. We will be in touch.');});</script>";
     } else {
         $msg = htmlspecialchars(implode("\\n", $errors), ENT_QUOTES);
@@ -1051,9 +1048,7 @@ function submitChoice(){
 </script>
 
 
-<!-- ================================
-     Employment Application Modal
-================================ -->
+<!-- Employment Application Modal (conflict-free) -->
 <style>
   .nuage-modal-backdrop{position:fixed;inset:0;background:rgba(0,0,0,.5);display:none;align-items:center;justify-content:center;z-index:9999}
   .nuage-modal{background:#fff;max-width:520px;width:92%;border-radius:16px;box-shadow:0 20px 60px rgba(0,0,0,.25);overflow:hidden}
@@ -1120,7 +1115,7 @@ function submitChoice(){
   if (closeBtn) closeBtn.addEventListener('click', closeModal);
   if (modal) modal.addEventListener('click', (e)=>{ if(e.target === modal) closeModal(); });
 
-  // Hook existing buttons/links with text "Apply for Employment"
+  // Attach to existing buttons/links that say "Apply for Employment"
   document.querySelectorAll('a,button').forEach(el=>{
     const txt = (el.innerText || el.textContent || '').trim().toLowerCase();
     if (txt.includes('apply for employment')) {
