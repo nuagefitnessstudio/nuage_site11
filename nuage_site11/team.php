@@ -4,7 +4,7 @@
 // =====================================
 $flash_msg = null; $flash_ok = false;
 
-function clean_text($s){ return trim(filter_var($s ?? '', FILTER_SANITIZE_STRING, FILTER_FLAG_NO_ENCODE_QUOTES)); }
+function clean_text($s){ return trim(strip_tags($s ?? '')); }
 function safe_email($s){ $s = trim($s ?? ''); return filter_var($s, FILTER_VALIDATE_EMAIL) ? $s : ''; }
 
 // Handle POST
@@ -110,7 +110,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['employment_form'])) {
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['__employment_form'])) {
     // Unique helper names to avoid collisions
     if (!function_exists('nuage_employ_clean')) {
-        function nuage_employ_clean($s){ return trim(filter_var($s ?? '', FILTER_SANITIZE_STRING, FILTER_FLAG_NO_ENCODE_QUOTES)); }
+        function nuage_employ_clean($s){ return trim(strip_tags($s ?? '')); }
     }
     if (!function_exists('nuage_employ_safe_email')) {
         function nuage_employ_safe_email($s){ $s = trim($s ?? ''); return filter_var($s, FILTER_VALIDATE_EMAIL) ? $s : ''; }
@@ -1130,4 +1130,6 @@ function submitChoice(){
 
 </body>
 </html>
+
+
 
