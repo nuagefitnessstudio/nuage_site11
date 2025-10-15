@@ -1,7 +1,0 @@
-{
-  "name": "nuagefitnessstudio/nuage_site11",
-  "description": "NuAge Fitness Studio PHP site",
-  "require": {
-    "phpmailer/phpmailer": "^6.11"
-  }
-}
