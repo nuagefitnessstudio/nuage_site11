@@ -963,45 +963,6 @@ a, button { -webkit-tap-highlight-color: transparent; }
 </head>
 <body>
 
-<!-- App Download Modal -->
-<div id="appModal" class="modal-overlay" style="display:none;">
-  <div class="modal-box">
-    <h2>Download the Glofox App</h2>
-    <p>
-      Please download the Glofox app, search <strong>NuAge Fitness Studio</strong> and register.<br>
-      Once logged in, you’ll be able to:<br>
-      • Access your account<br>
-      • Purchase membership<br>
-      • Book classes<br>
-      • And more.
-    </p>
-    <div class="modal-actions">
-      <button onclick="window.open('https://apps.apple.com/app/id916224471','_blank')">Apple</button>
-      <button onclick="window.open('https://play.google.com/store/apps/details?id=ie.zappy.fennec.oneapp_glofox&hl=en_US','_blank')">Google</button>
-    </div>
-    <button class="modal-close" onclick="document.getElementById('appModal').style.display='none'">×</button>
-  </div>
-</div>
-
-<!-- Hamburger topbar -->
-<div class="topbar" role="navigation" aria-label="Main">
-  <div class="brand" aria-label="NuAge">
-    <img loading="eager" referrerpolicy="no-referrer" src="assets/IMG_2413.png" alt="NuAge logo">
-    <div class="brand-name">
-      <span style="color:var(--navy);">Nu</span><span style="color:var(--coral);">Age</span>
-      <span style="color:var(--navy);">Fitness</span>
-      <span style="color:var(--navy);">Studios</span>
-    </div>
-  </div>
-  <button class="hamburger" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="navDrawer">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-      <path d="M3 6h18M3 12h18M3 18h18"/>
-    </svg>
-  </button>
-</div>
-
-
-
 <!-- Drawer + overlay -->
 <div class="overlay" id="navOverlay" hidden></div>
 <aside class="drawer" id="navDrawer" hidden aria-hidden="true">
@@ -1099,7 +1060,148 @@ a, button { -webkit-tap-highlight-color: transparent; }
       </div>
     <?php endif; ?>
 
-    <form method="post" enctype="multipart/form-data" onsubmit="return lockJobSubmit(this);">
+    <form method="POST" enctype="multipart/form-data" onsubmit="return lockJobSubmit(this);">
+
+  <!-- Injected fields: keep names aligned with server handler -->
+  <!-- Basic contact -->
+  <div class="mb-3">
+    <label class="form-label">Full Name*</label>
+    <input class="form-control" name="full_name" required>
+  </div>
+
+  <div class="row g-3">
+    <div class="col-md-6">
+      <label class="form-label">Phone Number</label>
+      <input class="form-control" name="phone" type="tel" placeholder="(555) 123-4567">
+    </div>
+    <div class="col-md-6">
+      <label class="form-label">Email Address*</label>
+      <input class="form-control" name="email" type="email" required>
+    </div>
+  </div>
+
+  <div class="mb-3 mt-3">
+    <label class="form-label">Position*</label>
+    <select class="form-select" name="position" required>
+      <option value="" selected disabled>Select a position…</option>
+      <option>Instructor</option>
+      <option>Front Desk</option>
+      <option>Coach</option>
+    </select>
+  </div>
+
+  <!-- Resume / Cover Letter -->
+  <div class="row g-3">
+    <div class="col-md-6">
+      <label class="form-label">Resume/CV* (upload)</label>
+      <input class="form-control" type="file" name="resume" accept=".pdf,.doc,.docx,.jpg,.jpeg,.png">
+      <small class="text-muted d-block mt-1">or paste below</small>
+      <textarea class="form-control mt-2" name="resume_text" rows="5" placeholder="Paste resume text here"></textarea>
+    </div>
+    <div class="col-md-6">
+      <label class="form-label">Cover Letter (upload)</label>
+      <input class="form-control" type="file" name="cover_letter" accept=".pdf,.doc,.docx,.jpg,.jpeg,.png">
+      <small class="text-muted d-block mt-1">or paste below</small>
+      <textarea class="form-control mt-2" name="cover_letter_text" rows="5" placeholder="Optional"></textarea>
+    </div>
+  </div>
+
+  <!-- Job history -->
+  <div class="row g-3 mt-3">
+    <div class="col-md-6">
+      <label class="form-label">Recent Job Title</label>
+      <input class="form-control" name="recent_job_title">
+    </div>
+    <div class="col-md-6">
+      <label class="form-label">Recent Employer</label>
+      <input class="form-control" name="recent_employer">
+    </div>
+  </div>
+
+  <!-- Age 18+ -->
+  <div class="mt-3">
+    <label class="form-label">Are you at least 18 years old?*</label>
+    <select class="form-select" name="age_over_18" required>
+      <option value="" selected disabled>Select…</option>
+      <option>Yes</option>
+      <option>No</option>
+    </select>
+  </div>
+
+  <!-- Certifications -->
+  <fieldset class="mt-3">
+    <legend class="fs-6">Personal Training Certifications*</legend>
+    <div class="row">
+      <div class="col-6 col-md-4">
+        <div class="form-check"><input class="form-check-input" type="checkbox" name="certifications[]" value="ACE PT" id="c1"><label class="form-check-label" for="c1">ACE PT</label></div>
+        <div class="form-check"><input class="form-check-input" type="checkbox" name="certifications[]" value="ACE GFI" id="c2"><label class="form-check-label" for="c2">ACE GFI</label></div>
+        <div class="form-check"><input class="form-check-input" type="checkbox" name="certifications[]" value="NASM CPT" id="c3"><label class="form-check-label" for="c3">NASM CPT</label></div>
+      </div>
+      <div class="col-6 col-md-4">
+        <div class="form-check"><input class="form-check-input" type="checkbox" name="certifications[]" value="AFFA GFI" id="c4"><label class="form-check-label" for="c4">AFFA GFI</label></div>
+        <div class="form-check"><input class="form-check-input" type="checkbox" name="certifications[]" value="NSCA CPT" id="c5"><label class="form-check-label" for="c5">NSCA CPT</label></div>
+        <div class="form-check"><input class="form-check-input" type="checkbox" name="certifications[]" value="NSCA CSCS" id="c6"><label class="form-check-label" for="c6">NSCA CSCS</label></div>
+      </div>
+      <div class="col-12 col-md-4">
+        <div class="form-check"><input class="form-check-input" type="checkbox" name="certifications[]" value="ACSM CPT" id="c7"><label class="form-check-label" for="c7">ACSM CPT</label></div>
+        <div class="form-check"><input class="form-check-input" type="checkbox" name="certifications[]" value="ACSM GEI" id="c8"><label class="form-check-label" for="c8">ACSM GEI</label></div>
+        <div class="form-check"><input class="form-check-input" type="checkbox" name="certifications[]" value="ACSM CEP" id="c9"><label class="form-check-label" for="c9">ACSM CEP</label></div>
+        <div class="form-check"><input class="form-check-input" type="checkbox" name="certifications[]" value="None / willing to obtain" id="c10"><label class="form-check-label" for="c10">None of the above, but willing to obtain</label></div>
+      </div>
+    </div>
+  </fieldset>
+
+  <!-- Experience -->
+  <div class="mt-3">
+    <label class="form-label">Do you have experience in personal or group training?*</label>
+    <textarea class="form-control" name="experience" rows="4" required></textarea>
+  </div>
+
+  <!-- CPR/AED -->
+  <div class="mt-3">
+    <label class="form-label">Do you have a CPR/AED/First Aid Certification?*</label>
+    <select class="form-select" name="cpr_cert" required>
+      <option value="" selected disabled>Select…</option>
+      <option>Yes</option>
+      <option>No</option>
+      <option>No, but willing to obtain</option>
+    </select>
+  </div>
+
+  <!-- Attended before -->
+  <div class="mt-3">
+    <label class="form-label">Have you attended an NuAge class before?*</label>
+    <select class="form-select" name="attended_otf" required>
+      <option value="" selected disabled>Select…</option>
+      <option>Yes</option>
+      <option>No</option>
+    </select>
+  </div>
+
+  <!-- Availability -->
+  <fieldset class="mt-3">
+    <legend class="fs-6">Please indicate your availability (select all that apply)*</legend>
+    <div class="row">
+      <div class="col-sm-6 col-md-4">
+        <div class="form-check"><input class="form-check-input" type="checkbox" name="availability[]" value="Open Availability" id="a1"><label class="form-check-label" for="a1">Open Availability</label></div>
+        <div class="form-check"><input class="form-check-input" type="checkbox" name="availability[]" value="Weekday Mornings" id="a2"><label class="form-check-label" for="a2">Weekday Mornings</label></div>
+        <div class="form-check"><input class="form-check-input" type="checkbox" name="availability[]" value="Weekday Afternoons" id="a3"><label class="form-check-label" for="a3">Weekday Afternoons</label></div>
+      </div>
+      <div class="col-sm-6 col-md-4">
+        <div class="form-check"><input class="form-check-input" type="checkbox" name="availability[]" value="Weekday Evenings" id="a4"><label class="form-check-label" for="a4">Weekday Evenings</label></div>
+        <div class="form-check"><input class="form-check-input" type="checkbox" name="availability[]" value="Weekend Mornings" id="a5"><label class="form-check-label" for="a5">Weekend Mornings</label></div>
+        <div class="form-check"><input class="form-check-input" type="checkbox" name="availability[]" value="Weekend Afternoons" id="a6"><label class="form-check-label" for="a6">Weekend Afternoons</label></div>
+      </div>
+    </div>
+  </fieldset>
+
+  <!-- Referred -->
+  <div class="form-check mt-3">
+    <input class="form-check-input" type="checkbox" id="ref1" name="referred_by_employee" value="Yes">
+    <label class="form-check-label" for="ref1">I was referred to this position by a current employee</label>
+  </div>
+
+
       <input type="hidden" name="employment_form" value="1">
       <!-- Honeypot (hidden to humans) -->
       <input type="text" name="company" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px;opacity:0;height:0;width:0" aria-hidden="true">
@@ -1280,6 +1382,218 @@ function submitChoice(){
   .nuage-hidden{display:none !important}
 </style>
 
+<!-- Employment Modal -->
+<!-- Employment Modal -->
+<div class="nuage-modal-backdrop" id="employmentModal">
+  <div class="nuage-modal" role="dialog" aria-modal="true" aria-labelledby="employmentTitle">
+    <header><span id="employmentTitle">Apply for Employment</span></header>
+
+    <form method="post" class="content" id="employmentForm" enctype="multipart/form-data">
+      <input type="hidden" name="__employment_form" value="1" />
+      <!-- honeypot -->
+      <input type="text" name="website" autocomplete="off" class="nuage-hidden" tabindex="-1" aria-hidden="true"/>
+
+      <!-- Injected fields: keep names aligned with server handler -->
+      <!-- Basic contact -->
+      <div class="mb-3">
+        <label class="form-label">Full Name*</label>
+        <input class="form-control" name="full_name" required>
+      </div>
+
+      <div class="row g-3">
+        <div class="col-md-6">
+          <label class="form-label">Phone Number</label>
+          <input class="form-control" name="phone" type="tel" placeholder="(555) 123-4567">
+        </div>
+        <div class="col-md-6">
+          <label class="form-label">Email Address*</label>
+          <input class="form-control" name="email" type="email" required>
+        </div>
+      </div>
+
+      <div class="mb-3 mt-3">
+        <label class="form-label">Position*</label>
+        <select class="form-select" name="position" required>
+          <option value="" selected disabled>Select a position…</option>
+          <option>Instructor</option>
+          <option>Front Desk</option>
+          <option>Coach</option>
+        </select>
+      </div>
+
+      <!-- Resume / Cover Letter -->
+      <div class="row g-3">
+        <div class="col-md-6">
+          <label class="form-label">Resume/CV* (upload)</label>
+          <input class="form-control" type="file" name="resume" accept=".pdf,.doc,.docx,.jpg,.jpeg,.png">
+          <small class="text-muted d-block mt-1">or paste below</small>
+          <textarea class="form-control mt-2" name="resume_text" rows="5" placeholder="Paste resume text here"></textarea>
+        </div>
+        <div class="col-md-6">
+          <label class="form-label">Cover Letter (upload)</label>
+          <input class="form-control" type="file" name="cover_letter" accept=".pdf,.doc,.docx,.jpg,.jpeg,.png">
+          <small class="text-muted d-block mt-1">or paste below</small>
+          <textarea class="form-control mt-2" name="cover_letter_text" rows="5" placeholder="Optional"></textarea>
+        </div>
+      </div>
+
+      <!-- Job history -->
+      <div class="row g-3 mt-3">
+        <div class="col-md-6">
+          <label class="form-label">Recent Job Title</label>
+          <input class="form-control" name="recent_job_title">
+        </div>
+        <div class="col-md-6">
+          <label class="form-label">Recent Employer</label>
+          <input class="form-control" name="recent_employer">
+        </div>
+      </div>
+
+      <!-- Age 18+ -->
+      <div class="mt-3">
+        <label class="form-label">Are you at least 18 years old?*</label>
+        <select class="form-select" name="age_over_18" required>
+          <option value="" selected disabled>Select…</option>
+          <option>Yes</option>
+          <option>No</option>
+        </select>
+      </div>
+
+      <!-- Certifications -->
+      <fieldset class="mt-3">
+        <legend class="fs-6">Personal Training Certifications*</legend>
+        <div class="row">
+          <div class="col-6 col-md-4">
+            <div class="form-check"><input class="form-check-input" type="checkbox" name="certifications[]" value="ACE PT" id="c1"><label class="form-check-label" for="c1">ACE PT</label></div>
+            <div class="form-check"><input class="form-check-input" type="checkbox" name="certifications[]" value="ACE GFI" id="c2"><label class="form-check-label" for="c2">ACE GFI</label></div>
+            <div class="form-check"><input class="form-check-input" type="checkbox" name="certifications[]" value="NASM CPT" id="c3"><label class="form-check-label" for="c3">NASM CPT</label></div>
+          </div>
+          <div class="col-6 col-md-4">
+            <div class="form-check"><input class="form-check-input" type="checkbox" name="certifications[]" value="AFFA GFI" id="c4"><label class="form-check-label" for="c4">AFFA GFI</label></div>
+            <div class="form-check"><input class="form-check-input" type="checkbox" name="certifications[]" value="NSCA CPT" id="c5"><label class="form-check-label" for="c5">NSCA CPT</label></div>
+            <div class="form-check"><input class="form-check-input" type="checkbox" name="certifications[]" value="NSCA CSCS" id="c6"><label class="form-check-label" for="c6">NSCA CSCS</label></div>
+          </div>
+          <div class="col-12 col-md-4">
+            <div class="form-check"><input class="form-check-input" type="checkbox" name="certifications[]" value="ACSM CPT" id="c7"><label class="form-check-label" for="c7">ACSM CPT</label></div>
+            <div class="form-check"><input class="form-check-input" type="checkbox" name="certifications[]" value="ACSM GEI" id="c8"><label class="form-check-label" for="c8">ACSM GEI</label></div>
+            <div class="form-check"><input class="form-check-input" type="checkbox" name="certifications[]" value="ACSM CEP" id="c9"><label class="form-check-label" for="c9">ACSM CEP</label></div>
+            <div class="form-check"><input class="form-check-input" type="checkbox" name="certifications[]" value="None / willing to obtain" id="c10"><label class="form-check-label" for="c10">None of the above, but willing to obtain</label></div>
+          </div>
+        </div>
+      </fieldset>
+
+      <!-- Experience -->
+      <div class="mt-3">
+        <label class="form-label">Do you have experience in personal or group training?*</label>
+        <textarea class="form-control" name="experience" rows="4" required></textarea>
+      </div>
+
+      <!-- CPR/AED -->
+      <div class="mt-3">
+        <label class="form-label">Do you have a CPR/AED/First Aid Certification?*</label>
+        <select class="form-select" name="cpr_cert" required>
+          <option value="" selected disabled>Select…</option>
+          <option>Yes</option>
+          <option>No</option>
+          <option>No, but willing to obtain</option>
+        </select>
+      </div>
+
+      <!-- Attended before -->
+      <div class="mt-3">
+        <label class="form-label">Have you attended an NuAge class before?*</label>
+        <select class="form-select" name="attended_otf" required>
+          <option value="" selected disabled>Select…</option>
+          <option>Yes</option>
+          <option>No</option>
+        </select>
+      </div>
+
+      <!-- Availability -->
+      <fieldset class="mt-3">
+        <legend class="fs-6">Please indicate your availability (select all that apply)*</legend>
+        <div class="row">
+          <div class="col-sm-6 col-md-4">
+            <div class="form-check"><input class="form-check-input" type="checkbox" name="availability[]" value="Open Availability" id="a1"><label class="form-check-label" for="a1">Open Availability</label></div>
+            <div class="form-check"><input class="form-check-input" type="checkbox" name="availability[]" value="Weekday Mornings" id="a2"><label class="form-check-label" for="a2">Weekday Mornings</label></div>
+            <div class="form-check"><input class="form-check-input" type="checkbox" name="availability[]" value="Weekday Afternoons" id="a3"><label class="form-check-label" for="a3">Weekday Afternoons</label></div>
+          </div>
+          <div class="col-sm-6 col-md-4">
+            <div class="form-check"><input class="form-check-input" type="checkbox" name="availability[]" value="Weekday Evenings" id="a4"><label class="form-check-label" for="a4">Weekday Evenings</label></div>
+            <div class="form-check"><input class="form-check-input" type="checkbox" name="availability[]" value="Weekend Mornings" id="a5"><label class="form-check-label" for="a5">Weekend Mornings</label></div>
+            <div class="form-check"><input class="form-check-input" type="checkbox" name="availability[]" value="Weekend Afternoons" id="a6"><label class="form-check-label" for="a6">Weekend Afternoons</label></div>
+          </div>
+        </div>
+      </fieldset>
+
+      <!-- Referred -->
+      <div class="form-check mt-3">
+        <input class="form-check-input" type="checkbox" id="ref1" name="referred_by_employee" value="Yes">
+        <label class="form-check-label" for="ref1">I was referred to this position by a current employee</label>
+      </div>
+
+      <div class="nuage-actions">
+        <button type="button" class="nuage-btn ghost" id="closeEmployment">Cancel</button>
+        <button type="submit" class="nuage-btn primary">Submit</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+
+<script>
+  // Map your app_* inputs to the hidden standard names so either backend works.
+  document.getElementById('employmentForm').addEventListener('submit', function () {
+    document.getElementById('std_full_name').value = document.getElementById('app_name').value;
+    document.getElementById('std_phone').value     = document.getElementById('app_phone').value;
+    document.getElementById('std_email').value     = document.getElementById('app_email').value;
+    document.getElementById('std_position').value  = document.getElementById('app_role').value;
+  });
+</script>
+
+
+<script>
+(function(){
+  const modal = document.getElementById('employmentModal');
+  const closeBtn = document.getElementById('closeEmployment');
+
+  function openModal(){ if(modal){ modal.style.display='flex'; document.body.style.overflow='hidden'; } }
+  function closeModal(){ if(modal){ modal.style.display='none'; document.body.style.overflow=''; } }
+
+  if (closeBtn) closeBtn.addEventListener('click', closeModal);
+  if (modal) modal.addEventListener('click', (e)=>{ if(e.target === modal) closeModal(); });
+
+  // Attach to existing buttons/links that say "Apply for Employment"
+  document.querySelectorAll('a,button').forEach(el=>{
+    const txt = (el.innerText || el.textContent || '').trim().toLowerCase();
+    if (txt.includes('apply for employment')) {
+      el.addEventListener('click', function(ev){
+        ev.preventDefault();
+        openModal();
+      }, { passive:false });
+    }
+  });
+})();
+</script>
+
+
+<!-- Employment Application Modal (PHPMailer) -->
+<style>
+  .nuage-modal-backdrop{position:fixed;inset:0;background:rgba(0,0,0,.5);display:none;align-items:center;justify-content:center;z-index:9999}
+  .nuage-modal{background:#fff;max-width:520px;width:92%;border-radius:16px;box-shadow:0 20px 60px rgba(0,0,0,.25);overflow:hidden}
+  .nuage-modal header{padding:18px 22px;background:#002D72;color:#fff;font-weight:700}
+  .nuage-modal .content{padding:20px}
+  .nuage-modal .grid{display:grid;grid-template-columns:1fr;gap:12px}
+  .nuage-modal label{font-size:.9rem;color:#111418;font-weight:600;margin-bottom:6px;display:block}
+  .nuage-modal input,.nuage-modal select{width:100%;padding:12px 14px;border:1.5px solid #e5e4e1;border-radius:10px;font-size:1rem;outline:none}
+  .nuage-modal input:focus,.nuage-modal select:focus{border-color:#002D72}
+  .nuage-actions{display:flex;gap:10px;justify-content:flex-end;padding:16px 20px;border-top:1px solid #eee;background:#fafafa}
+  .nuage-btn{padding:10px 14px;border-radius:10px;border:2px solid transparent;font-weight:700;cursor:pointer}
+  .nuage-btn.primary{background:#EB1F48;color:#fff}
+  .nuage-btn.ghost{background:#fff;border-color:#e5e4e1}
+  .nuage-hidden{display:none !important}
+</style>
+
 <div class="nuage-modal-backdrop" id="employmentModal">
   <div class="nuage-modal" role="dialog" aria-modal="true" aria-labelledby="employmentTitle">
     <header><span id="employmentTitle">Apply for Employment</span></header>
@@ -1344,48 +1658,6 @@ function submitChoice(){
 </script>
 
 
-<!-- Employment Application Modal (PHPMailer) -->
-<style>
-  .nuage-modal-backdrop{position:fixed;inset:0;background:rgba(0,0,0,.5);display:none;align-items:center;justify-content:center;z-index:9999}
-  .nuage-modal{background:#fff;max-width:520px;width:92%;border-radius:16px;box-shadow:0 20px 60px rgba(0,0,0,.25);overflow:hidden}
-  .nuage-modal header{padding:18px 22px;background:#002D72;color:#fff;font-weight:700}
-  .nuage-modal .content{padding:20px}
-  .nuage-modal .grid{display:grid;grid-template-columns:1fr;gap:12px}
-  .nuage-modal label{font-size:.9rem;color:#111418;font-weight:600;margin-bottom:6px;display:block}
-  .nuage-modal input,.nuage-modal select{width:100%;padding:12px 14px;border:1.5px solid #e5e4e1;border-radius:10px;font-size:1rem;outline:none}
-  .nuage-modal input:focus,.nuage-modal select:focus{border-color:#002D72}
-  .nuage-actions{display:flex;gap:10px;justify-content:flex-end;padding:16px 20px;border-top:1px solid #eee;background:#fafafa}
-  .nuage-btn{padding:10px 14px;border-radius:10px;border:2px solid transparent;font-weight:700;cursor:pointer}
-  .nuage-btn.primary{background:#EB1F48;color:#fff}
-  .nuage-btn.ghost{background:#fff;border-color:#e5e4e1}
-  .nuage-hidden{display:none !important}
-</style>
-
-<script>
-(function(){
-  const modal = document.getElementById('employmentModal');
-  const closeBtn = document.getElementById('closeEmployment');
-
-  function openModal(){ if(modal){ modal.style.display='flex'; document.body.style.overflow='hidden'; } }
-  function closeModal(){ if(modal){ modal.style.display='none'; document.body.style.overflow=''; } }
-
-  if (closeBtn) closeBtn.addEventListener('click', closeModal);
-  if (modal) modal.addEventListener('click', (e)=>{ if(e.target === modal) closeModal(); });
-
-  // Attach to existing buttons/links that say "Apply for Employment"
-  document.querySelectorAll('a,button').forEach(el=>{
-    const txt = (el.innerText || el.textContent || '').trim().toLowerCase();
-    if (txt.includes('apply for employment')) {
-      el.addEventListener('click', function(ev){
-        ev.preventDefault();
-        openModal();
-      }, { passive:false });
-    }
-  });
-})();
-</script>
-
-
 <!-- Employment Application Modal (hooks any "Apply for Employment" trigger) -->
 <style>
   .nuage-modal-backdrop{position:fixed;inset:0;background:rgba(0,0,0,.5);display:none;align-items:center;justify-content:center;z-index:9999}
@@ -1403,6 +1675,44 @@ function submitChoice(){
   .nuage-hidden{display:none !important}
 </style>
 
+<div class="nuage-modal-backdrop" id="employmentModal">
+  <div class="nuage-modal" role="dialog" aria-modal="true" aria-labelledby="employmentTitle">
+    <header><span id="employmentTitle">Apply for Employment</span></header>
+    <form method="post" class="content" id="employmentForm">
+      <input type="hidden" name="__employment_form" value="1" />
+      <!-- Honeypot -->
+      <input type="text" name="website" autocomplete="off" class="nuage-hidden" tabindex="-1" aria-hidden="true"/>
+      <div class="grid">
+        <div>
+          <label for="app_name">Full Name</label>
+          <input id="app_name" name="app_name" type="text" placeholder="Jane Doe" required />
+        </div>
+        <div>
+          <label for="app_phone">Phone Number</label>
+          <input id="app_phone" name="app_phone" type="tel" placeholder="(555) 123-4567" required />
+        </div>
+        <div>
+          <label for="app_email">Email Address</label>
+          <input id="app_email" name="app_email" type="email" placeholder="you@example.com" required />
+        </div>
+        <div>
+          <label for="app_role">Position</label>
+          <select id="app_role" name="app_role" required>
+            <option value="">Select a position…</option>
+            <option>Trainer</option>
+            <option>Sales</option>
+            <option>Manager</option>
+            <option>Instructor</option>
+          </select>
+        </div>
+      </div>
+      <div class="nuage-actions">
+        <button type="button" class="nuage-btn ghost" id="closeEmployment">Cancel</button>
+        <button type="submit" class="nuage-btn primary">Submit</button>
+      </div>
+    </form>
+  </div>
+</div>
 
 <script>
 (function(){
@@ -1424,6 +1734,28 @@ function submitChoice(){
 </script>
 
 
+<!-- === Employment Modal (popup) === -->
+<div id="nuage-emp-backdrop" aria-hidden="true" style="position:fixed;inset:0;background:rgba(0,0,0,.5);display:none;align-items:center;justify-content:center;z-index:9999">
+          <div><label for="emp_phone" style="font-weight:600">Phone Number</label><input id="emp_phone" name="app_phone" type="tel" required style="width:100%;padding:12px 14px;border:1.5px solid #e5e4e1;border-radius:10px"></div>
+        <div><label for="emp_email" style="font-weight:600">Email Address</label><input id="emp_email" name="app_email" type="email" required style="width:100%;padding:12px 14px;border:1.5px solid #e5e4e1;border-radius:10px"></div>
+        <div>
+          <label for="emp_role" style="font-weight:600">Position</label>
+          <select id="emp_role" name="app_role" required style="width:100%;padding:12px 14px;border:1.5px solid #e5e4e1;border-radius:10px">
+            <option value="">Select a position…</option>
+            <option>Trainer</option>
+            <option>Sales</option>
+            <option>Manager</option>
+            <option>Instructor</option>
+          </select>
+        </div>
+      </div>
+      <div class="actions" style="display:flex;gap:10px;justify-content:flex-end;padding:16px 0 0;margin-top:12px;border-top:1px solid #eee">
+        <button type="button" id="nuage-emp-close" style="padding:10px 14px;border-radius:10px;border:2px solid #e9e6e1;background:#fff;cursor:pointer">Cancel</button>
+        <button type="submit" style="padding:10px 14px;border-radius:10px;border:2px solid transparent;background:#EB1F48;color:#fff;font-weight:700;cursor:pointer">Submit</button>
+      </div>
+    </form>
+  </div>
+</div>
 <script>
 (function(){
   const b = document.getElementById('nuage-emp-backdrop');
