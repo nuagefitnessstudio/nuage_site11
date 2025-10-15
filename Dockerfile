@@ -6,6 +6,10 @@ WORKDIR /var/www/html
 # Copy ONLY the app folder (includes vendor since it's inside nuage_site11/)
 COPY nuage_site11/ /var/www/html/
 
+# Fail the build immediately if autoload.php didn't make it into the image
+RUN test -f /var/www/html/vendor/autoload.php || (echo "Missing /var/www/html/vendor/autoload.php" && ls -la /var/www/html && ls -la /var/www/html/vendor || true && exit 1)
+
+
 # Ownership & perms
 RUN chown -R www-data:www-data /var/www/html \
  && find /var/www/html -type d -exec chmod 755 {} \; \
