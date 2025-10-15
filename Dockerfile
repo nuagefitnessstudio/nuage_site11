@@ -1,31 +1,39 @@
 FROM php:8.2-apache
 
-# Set working directory
+# Keep defaults simple; enable useful modules
+RUN a2enmod rewrite headers
+
+# Web root
 WORKDIR /var/www/html
 
-# Copy ONLY the contents of nuage_site11 into the docroot
+# Copy your app code (the stuff inside the subfolder)
 COPY nuage_site11/ /var/www/html/
 
-# Fix ownership and permissions
-RUN chown -R www-data:www-data /var/www/html \
- && find /var/www/html -type d -exec chmod 755 {} \; \
- && find /var/www/html -type f -exec chmod 644 {} \;
+# Copy your existing vendor/ from the repo root into the container
+# This ensures /var/www/html/vendor/autoload.php exists
+COPY vendor/ /var/www/html/vendor/
 
-# Switch Apache to port 8080 for App Platform
-RUN sed -ri 's/Listen 80/Listen 8080/g' /etc/apache2/ports.conf \
- && sed -ri 's/:80>/:8080>/g' /etc/apache2/sites-available/000-default.conf
+# Also place vendor/ inside the app folder so __DIR__.'/vendor/autoload.php' works anywhere
+RUN if [ ! -d /var/www/html/nuage_site11/vendor ]; then \
+      cp -a /var/www/html/vendor /var/www/html/nuage_site11/ ; \
+    fi
 
-# Enable URL rewriting and make sure index.php loads first
-RUN a2enmod rewrite \
- && printf '%s\n' \
-   '<Directory /var/www/html>' \
-   '  Options Indexes FollowSymLinks' \
-   '  AllowOverride All' \
-   '  Require all granted' \
-   '</Directory>' \
-   'DirectoryIndex index.php index.html' \
-   > /etc/apache2/conf-available/app.conf \
- && a2enconf app
+# Allow .htaccess and set index order
+RUN printf '%s\n' \
+  '<Directory /var/www/html>' \
+  '  Options Indexes FollowSymLinks' \
+  '  AllowOverride All' \
+  '  Require all granted' \
+  '</Directory>' \
+  'DirectoryIndex index.php index.html' \
+  > /etc/apache2/conf-available/app.conf && a2enconf app
 
-EXPOSE 8080
+# Simple health endpoint for DigitalOcean
+RUN bash -lc 'echo "<?php http_response_code(200); echo \"OK\";" > /var/www/html/healthz.php'
+
+# Permissions (optional)
+RUN chown -R www-data:www-data /var/www/html
+
+# Keep Apache on the default port DO expects
+EXPOSE 80
 CMD ["apache2-foreground"]

@@ -13,7 +13,6 @@ Thumbs.db
 *.swo
 
 # --- Dependencies (rebuilt inside the image) ---
-vendor
 node_modules
 composer.phar
 
