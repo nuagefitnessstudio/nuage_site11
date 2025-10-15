@@ -31,9 +31,3 @@ RUN sed -ri 's!/var/www/html!/var/www/html/nuage_site11!g' \
 
 # Make sure Apache can read the files
 RUN chown -R www-data:www-data /var/www/html
-
-# ... previous steps ...
-WORKDIR /var/www/html
-COPY composer.json composer.lock* ./
-RUN composer install --no-dev --prefer-dist --no-interaction --optimize-autoloader \
- && ln -s /var/www/html/vendor /var/www/html/nuage_site11/vendor
