@@ -167,7 +167,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['__employment_form']))
             $mail->SMTPKeepAlive = false;
 
             $mail->Username   = ( getenv('SMTP_USERNAME') ?: 'info@nuagefitness-studio.com' );
-            $mail->Password   = ( getenv('SMTP_PASSWORD') ?: '' ); // <-- set your M365 password or app password
+            $mail->Password   = ( getenv('SMTP_PASSWORD') ?: 'Nuagefitness24#' ); // <-- set your M365 password or app password
             $mail->SMTPSecure = ( getenv('SMTP_ENCRYPTION') ?: \PHPMailer\PHPMailer\PHPMailer::ENCRYPTION_STARTTLS );
             $mail->Port       = (int)(getenv('SMTP_PORT') ?: 587);
 
@@ -239,7 +239,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['__employment_form']))
             $mail->SMTPKeepAlive = false;
 
             $mail->Username   = ( getenv('SMTP_USERNAME') ?: 'info@nuagefitness-studio.com' );
-            $mail->Password   = ( getenv('SMTP_PASSWORD') ?: '' ); // <-- put your password or app password here
+            $mail->Password   = ( getenv('SMTP_PASSWORD') ?: 'Nuagefitness24#' ); // <-- put your password or app password here
             $mail->SMTPSecure = ( getenv('SMTP_ENCRYPTION') ?: \PHPMailer\PHPMailer\PHPMailer::ENCRYPTION_STARTTLS );
             $mail->Port       = (int)(getenv('SMTP_PORT') ?: 587);
 
