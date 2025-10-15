@@ -1099,7 +1099,148 @@ a, button { -webkit-tap-highlight-color: transparent; }
       </div>
     <?php endif; ?>
 
-    <form method="post" enctype="multipart/form-data" onsubmit="return lockJobSubmit(this);">
+    <form method="POST" enctype="multipart/form-data" onsubmit="return lockJobSubmit(this);">
+
+  <!-- Injected fields: keep names aligned with server handler -->
+  <!-- Basic contact -->
+  <div class="mb-3">
+    <label class="form-label">Full Name*</label>
+    <input class="form-control" name="full_name" required>
+  </div>
+
+  <div class="row g-3">
+    <div class="col-md-6">
+      <label class="form-label">Phone Number</label>
+      <input class="form-control" name="phone" type="tel" placeholder="(555) 123-4567">
+    </div>
+    <div class="col-md-6">
+      <label class="form-label">Email Address*</label>
+      <input class="form-control" name="email" type="email" required>
+    </div>
+  </div>
+
+  <div class="mb-3 mt-3">
+    <label class="form-label">Position*</label>
+    <select class="form-select" name="position" required>
+      <option value="" selected disabled>Select a position…</option>
+      <option>Instructor</option>
+      <option>Front Desk</option>
+      <option>Coach</option>
+    </select>
+  </div>
+
+  <!-- Resume / Cover Letter -->
+  <div class="row g-3">
+    <div class="col-md-6">
+      <label class="form-label">Resume/CV* (upload)</label>
+      <input class="form-control" type="file" name="resume" accept=".pdf,.doc,.docx,.jpg,.jpeg,.png">
+      <small class="text-muted d-block mt-1">or paste below</small>
+      <textarea class="form-control mt-2" name="resume_text" rows="5" placeholder="Paste resume text here"></textarea>
+    </div>
+    <div class="col-md-6">
+      <label class="form-label">Cover Letter (upload)</label>
+      <input class="form-control" type="file" name="cover_letter" accept=".pdf,.doc,.docx,.jpg,.jpeg,.png">
+      <small class="text-muted d-block mt-1">or paste below</small>
+      <textarea class="form-control mt-2" name="cover_letter_text" rows="5" placeholder="Optional"></textarea>
+    </div>
+  </div>
+
+  <!-- Job history -->
+  <div class="row g-3 mt-3">
+    <div class="col-md-6">
+      <label class="form-label">Recent Job Title</label>
+      <input class="form-control" name="recent_job_title">
+    </div>
+    <div class="col-md-6">
+      <label class="form-label">Recent Employer</label>
+      <input class="form-control" name="recent_employer">
+    </div>
+  </div>
+
+  <!-- Age 18+ -->
+  <div class="mt-3">
+    <label class="form-label">Are you at least 18 years old?*</label>
+    <select class="form-select" name="age_over_18" required>
+      <option value="" selected disabled>Select…</option>
+      <option>Yes</option>
+      <option>No</option>
+    </select>
+  </div>
+
+  <!-- Certifications -->
+  <fieldset class="mt-3">
+    <legend class="fs-6">Personal Training Certifications*</legend>
+    <div class="row">
+      <div class="col-6 col-md-4">
+        <div class="form-check"><input class="form-check-input" type="checkbox" name="certifications[]" value="ACE PT" id="c1"><label class="form-check-label" for="c1">ACE PT</label></div>
+        <div class="form-check"><input class="form-check-input" type="checkbox" name="certifications[]" value="ACE GFI" id="c2"><label class="form-check-label" for="c2">ACE GFI</label></div>
+        <div class="form-check"><input class="form-check-input" type="checkbox" name="certifications[]" value="NASM CPT" id="c3"><label class="form-check-label" for="c3">NASM CPT</label></div>
+      </div>
+      <div class="col-6 col-md-4">
+        <div class="form-check"><input class="form-check-input" type="checkbox" name="certifications[]" value="AFFA GFI" id="c4"><label class="form-check-label" for="c4">AFFA GFI</label></div>
+        <div class="form-check"><input class="form-check-input" type="checkbox" name="certifications[]" value="NSCA CPT" id="c5"><label class="form-check-label" for="c5">NSCA CPT</label></div>
+        <div class="form-check"><input class="form-check-input" type="checkbox" name="certifications[]" value="NSCA CSCS" id="c6"><label class="form-check-label" for="c6">NSCA CSCS</label></div>
+      </div>
+      <div class="col-12 col-md-4">
+        <div class="form-check"><input class="form-check-input" type="checkbox" name="certifications[]" value="ACSM CPT" id="c7"><label class="form-check-label" for="c7">ACSM CPT</label></div>
+        <div class="form-check"><input class="form-check-input" type="checkbox" name="certifications[]" value="ACSM GEI" id="c8"><label class="form-check-label" for="c8">ACSM GEI</label></div>
+        <div class="form-check"><input class="form-check-input" type="checkbox" name="certifications[]" value="ACSM CEP" id="c9"><label class="form-check-label" for="c9">ACSM CEP</label></div>
+        <div class="form-check"><input class="form-check-input" type="checkbox" name="certifications[]" value="None / willing to obtain" id="c10"><label class="form-check-label" for="c10">None of the above, but willing to obtain</label></div>
+      </div>
+    </div>
+  </fieldset>
+
+  <!-- Experience -->
+  <div class="mt-3">
+    <label class="form-label">Do you have experience in personal or group training?*</label>
+    <textarea class="form-control" name="experience" rows="4" required></textarea>
+  </div>
+
+  <!-- CPR/AED -->
+  <div class="mt-3">
+    <label class="form-label">Do you have a CPR/AED/First Aid Certification?*</label>
+    <select class="form-select" name="cpr_cert" required>
+      <option value="" selected disabled>Select…</option>
+      <option>Yes</option>
+      <option>No</option>
+      <option>No, but willing to obtain</option>
+    </select>
+  </div>
+
+  <!-- Attended before -->
+  <div class="mt-3">
+    <label class="form-label">Have you attended an NuAge class before?*</label>
+    <select class="form-select" name="attended_otf" required>
+      <option value="" selected disabled>Select…</option>
+      <option>Yes</option>
+      <option>No</option>
+    </select>
+  </div>
+
+  <!-- Availability -->
+  <fieldset class="mt-3">
+    <legend class="fs-6">Please indicate your availability (select all that apply)*</legend>
+    <div class="row">
+      <div class="col-sm-6 col-md-4">
+        <div class="form-check"><input class="form-check-input" type="checkbox" name="availability[]" value="Open Availability" id="a1"><label class="form-check-label" for="a1">Open Availability</label></div>
+        <div class="form-check"><input class="form-check-input" type="checkbox" name="availability[]" value="Weekday Mornings" id="a2"><label class="form-check-label" for="a2">Weekday Mornings</label></div>
+        <div class="form-check"><input class="form-check-input" type="checkbox" name="availability[]" value="Weekday Afternoons" id="a3"><label class="form-check-label" for="a3">Weekday Afternoons</label></div>
+      </div>
+      <div class="col-sm-6 col-md-4">
+        <div class="form-check"><input class="form-check-input" type="checkbox" name="availability[]" value="Weekday Evenings" id="a4"><label class="form-check-label" for="a4">Weekday Evenings</label></div>
+        <div class="form-check"><input class="form-check-input" type="checkbox" name="availability[]" value="Weekend Mornings" id="a5"><label class="form-check-label" for="a5">Weekend Mornings</label></div>
+        <div class="form-check"><input class="form-check-input" type="checkbox" name="availability[]" value="Weekend Afternoons" id="a6"><label class="form-check-label" for="a6">Weekend Afternoons</label></div>
+      </div>
+    </div>
+  </fieldset>
+
+  <!-- Referred -->
+  <div class="form-check mt-3">
+    <input class="form-check-input" type="checkbox" id="ref1" name="referred_by_employee" value="Yes">
+    <label class="form-check-label" for="ref1">I was referred to this position by a current employee</label>
+  </div>
+
+
       <input type="hidden" name="employment_form" value="1">
       <!-- Honeypot (hidden to humans) -->
       <input type="text" name="company" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px;opacity:0;height:0;width:0" aria-hidden="true">
