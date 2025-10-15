@@ -1,9 +1,9 @@
 FROM php:8.2-apache
 
-# PHP extensions (add more if needed)
+# PHP extensions you likely need; add more if required
 RUN docker-php-ext-install mysqli pdo pdo_mysql && docker-php-ext-enable mysqli pdo_mysql
 
-# Apache modules
+# Enable useful Apache modules
 RUN a2enmod rewrite headers
 
 # System deps + Composer
@@ -13,26 +13,27 @@ RUN apt-get update \
  && curl -sS https://getcomposer.org/installer | php -- \
  && mv composer.phar /usr/local/bin/composer
 
-# App root
+# Work in the webroot
 WORKDIR /var/www/html
 
-# 1) Copy composer manifests from REPO ROOT (where your composer.json/lock live)
+# Copy Composer manifests from REPO ROOT (your actual locations)
 COPY composer.json composer.lock* ./
 
-# 2) Install PHP deps into /var/www/html/vendor
+# Install PHP deps inside the image
 RUN composer install --no-dev --prefer-dist --no-interaction --optimize-autoloader
 
-# 3) Copy the rest of your app (brings in nuage_site11/, .htaccess, etc.)
+# Copy the rest of your repo (includes nuage_site11/, .htaccess, etc.)
 COPY . /var/www/html
 
-# 4) Point Apache at your subfolder if that's where index.php lives
+# If your index.php is inside /nuage_site11, set Apache's DocumentRoot there:
 RUN sed -ri 's!/var/www/html!/var/www/html/nuage_site11!g' \
     /etc/apache2/sites-available/000-default.conf /etc/apache2/apache2.conf || true
 
-# 5) Symlink vendor into nuage_site11 so require "vendor/autoload.php" works there
-RUN if [ ! -e /var/www/html/nuage_site11/vendor ]; then \
-      ln -s /var/www/html/vendor /var/www/html/nuage_site11/vendor ; \
-    fi
-
-# 6) Permissions
+# Make sure Apache can read the files
 RUN chown -R www-data:www-data /var/www/html
+
+# ... previous steps ...
+WORKDIR /var/www/html
+COPY composer.json composer.lock* ./
+RUN composer install --no-dev --prefer-dist --no-interaction --optimize-autoloader \
+ && ln -s /var/www/html/vendor /var/www/html/nuage_site11/vendor
