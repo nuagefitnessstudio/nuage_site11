@@ -156,15 +156,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['__employment_form']))
         try {
             $mail = new \PHPMailer\PHPMailer\PHPMailer(true);
             $mail->isSMTP();
-            $mail->Host       = 'smtp.office365.com';
-            $mail->SMTPAuth   = true;
-            $mail->Username   = 'info@nuagefitness-studio.com';
-            $mail->Password   = 'Nuagefitness24#'; // <-- set your M365 password or app password
-            $mail->SMTPSecure = 'tls';
-            $mail->Port       = 587;
+            $mail->Host       = getenv('SMTP_HOST') ?: 'smtp.office365.com';
+            $mail->SMTPAuth = true;
+            $mail->SMTPAutoTLS = true;
+            $mail->SMTPKeepAlive = false;
 
-            $mail->setFrom('info@nuagefitness-studio.com', 'NuAge Careers');
-            $mail->addAddress('info@nuagefitness-studio.com');
+            $mail->Username   = ( getenv('SMTP_USERNAME') ?: 'info@nuagefitness-studio.com' );
+            $mail->Password   = ( getenv('SMTP_PASSWORD') ?: '' ); // <-- set your M365 password or app password
+            $mail->SMTPSecure = ( getenv('SMTP_ENCRYPTION') ?: \PHPMailer\PHPMailer\PHPMailer::ENCRYPTION_STARTTLS );
+            $mail->Port       = (int)(getenv('SMTP_PORT') ?: 587);
+
+            $mail->Sender = ( getenv('SMTP_USERNAME') ?: 'info@nuagefitness-studio.com' );
+            $mail->setFrom( ( getenv('SMTP_FROM') ?: (getenv('SMTP_USERNAME') ?: 'info@nuagefitness-studio.com') ), 'NuAge Careers');
+            $mail->addAddress( getenv('SMTP_USERNAME') ?: 'info@nuagefitness-studio.com' );
             if ($app_email) { $mail->addReplyTo($app_email, $app_name); }
 
             $mail->isHTML(false);
@@ -222,15 +226,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['__employment_form']))
         try {
             $mail = new \PHPMailer\PHPMailer\PHPMailer(true);
             $mail->isSMTP();
-            $mail->Host       = 'smtp.office365.com';
-            $mail->SMTPAuth   = true;
-            $mail->Username   = 'info@nuagefitness-studio.com';
-            $mail->Password   = 'Nuagefitness24#'; // <-- put your password or app password here
-            $mail->SMTPSecure = 'tls';
-            $mail->Port       = 587;
+            $mail->Host       = getenv('SMTP_HOST') ?: 'smtp.office365.com';
+            $mail->SMTPAuth = true;
+            $mail->SMTPAutoTLS = true;
+            $mail->SMTPKeepAlive = false;
 
-            $mail->setFrom('info@nuagefitness-studio.com', 'NuAge Careers');
-            $mail->addAddress('info@nuagefitness-studio.com');
+            $mail->Username   = ( getenv('SMTP_USERNAME') ?: 'info@nuagefitness-studio.com' );
+            $mail->Password   = ( getenv('SMTP_PASSWORD') ?: '' ); // <-- put your password or app password here
+            $mail->SMTPSecure = ( getenv('SMTP_ENCRYPTION') ?: \PHPMailer\PHPMailer\PHPMailer::ENCRYPTION_STARTTLS );
+            $mail->Port       = (int)(getenv('SMTP_PORT') ?: 587);
+
+            $mail->Sender = ( getenv('SMTP_USERNAME') ?: 'info@nuagefitness-studio.com' );
+            $mail->setFrom( ( getenv('SMTP_FROM') ?: (getenv('SMTP_USERNAME') ?: 'info@nuagefitness-studio.com') ), 'NuAge Careers');
+            $mail->addAddress( getenv('SMTP_USERNAME') ?: 'info@nuagefitness-studio.com' );
             if ($app_email) {
                 $mail->addReplyTo($app_email, $app_name);
             }

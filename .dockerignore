@@ -1,0 +1,10 @@
+vendor/
+node_modules/
+.git
+.git/*
+.gitignore
+.gitattributes
+.DS_Store
+.idea/
+.vscode/
+*.log
