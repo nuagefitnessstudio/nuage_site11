@@ -1421,26 +1421,40 @@ function submitChoice(){
   .nuage-hidden{display:none !important}
 </style>
 
+<!-- Employment Modal -->
 <div class="nuage-modal-backdrop" id="employmentModal">
   <div class="nuage-modal" role="dialog" aria-modal="true" aria-labelledby="employmentTitle">
     <header><span id="employmentTitle">Apply for Employment</span></header>
-    <form method="post" class="content" id="employmentForm">
+
+    <!-- IMPORTANT: multipart/form-data for file uploads -->
+    <form method="post" class="content" id="employmentForm" enctype="multipart/form-data">
       <input type="hidden" name="__employment_form" value="1" />
       <!-- Honeypot -->
       <input type="text" name="website" autocomplete="off" class="nuage-hidden" tabindex="-1" aria-hidden="true"/>
+
+      <!-- Hidden “standard” names for server compatibility -->
+      <input type="hidden" name="full_name" id="std_full_name">
+      <input type="hidden" name="phone" id="std_phone">
+      <input type="hidden" name="email" id="std_email">
+      <input type="hidden" name="position" id="std_position">
+
       <div class="grid">
+        <!-- EXISTING FIELDS (kept) -->
         <div>
           <label for="app_name">Full Name</label>
           <input id="app_name" name="app_name" type="text" placeholder="Jane Doe" required />
         </div>
+
         <div>
           <label for="app_phone">Phone Number</label>
           <input id="app_phone" name="app_phone" type="tel" placeholder="(555) 123-4567" required />
         </div>
+
         <div>
           <label for="app_email">Email Address</label>
           <input id="app_email" name="app_email" type="email" placeholder="you@example.com" required />
         </div>
+
         <div>
           <label for="app_role">Position</label>
           <select id="app_role" name="app_role" required>
@@ -1451,7 +1465,103 @@ function submitChoice(){
             <option>Instructor</option>
           </select>
         </div>
+
+        <!-- NEW: Resume/CV upload or paste -->
+        <div>
+          <label for="resume_file">Resume/CV (upload)</label>
+          <input id="resume_file" name="resume" type="file" accept=".pdf,.doc,.docx,.jpg,.jpeg,.png">
+          <small class="nuage-help">or paste below</small>
+          <textarea name="resume_text" rows="5" placeholder="Paste resume text here"></textarea>
+        </div>
+
+        <!-- NEW: Cover Letter upload or paste -->
+        <div>
+          <label for="cover_file">Cover Letter (upload)</label>
+          <input id="cover_file" name="cover_letter" type="file" accept=".pdf,.doc,.docx,.jpg,.jpeg,.png">
+          <small class="nuage-help">or paste below</small>
+          <textarea name="cover_letter_text" rows="5" placeholder="Optional"></textarea>
+        </div>
+
+        <!-- NEW: Job history -->
+        <div>
+          <label for="recent_job_title">Recent Job Title</label>
+          <input id="recent_job_title" name="recent_job_title" type="text">
+        </div>
+
+        <div>
+          <label for="recent_employer">Recent Employer</label>
+          <input id="recent_employer" name="recent_employer" type="text">
+        </div>
+
+        <!-- NEW: 18+ -->
+        <div>
+          <label for="age_over_18">Are you at least 18 years old?</label>
+          <select id="age_over_18" name="age_over_18" required>
+            <option value="">Select…</option>
+            <option>Yes</option>
+            <option>No</option>
+          </select>
+        </div>
+
+        <!-- NEW: Certifications (checkbox group) -->
+        <fieldset class="nuage-fieldset">
+          <legend>Personal Training Certifications</legend>
+          <label><input type="checkbox" name="certifications[]" value="ACE PT"> ACE PT</label>
+          <label><input type="checkbox" name="certifications[]" value="ACE GFI"> ACE GFI</label>
+          <label><input type="checkbox" name="certifications[]" value="NASM CPT"> NASM CPT</label>
+          <label><input type="checkbox" name="certifications[]" value="AFFA GFI"> AFFA GFI</label>
+          <label><input type="checkbox" name="certifications[]" value="NSCA CPT"> NSCA CPT</label>
+          <label><input type="checkbox" name="certifications[]" value="NSCA CSCS"> NSCA CSCS</label>
+          <label><input type="checkbox" name="certifications[]" value="ACSM CPT"> ACSM CPT</label>
+          <label><input type="checkbox" name="certifications[]" value="ACSM GEI"> ACSM GEI</label>
+          <label><input type="checkbox" name="certifications[]" value="ACSM CEP"> ACSM CEP</label>
+          <label><input type="checkbox" name="certifications[]" value="None / willing to obtain"> None of the above, but willing to obtain</label>
+        </fieldset>
+
+        <!-- NEW: Experience -->
+        <div>
+          <label for="experience">Do you have experience in personal or group training?</label>
+          <textarea id="experience" name="experience" rows="4" required></textarea>
+        </div>
+
+        <!-- NEW: CPR/AED -->
+        <div>
+          <label for="cpr_cert">Do you have a CPR/AED/First Aid Certification?</label>
+          <select id="cpr_cert" name="cpr_cert" required>
+            <option value="">Select…</option>
+            <option>Yes</option>
+            <option>No</option>
+            <option>No, but willing to obtain</option>
+          </select>
+        </div>
+
+        <!-- NEW: Attended class before -->
+        <div>
+          <label for="attended_otf">Have you attended an Orangetheory class before?</label>
+          <select id="attended_otf" name="attended_otf" required>
+            <option value="">Select…</option>
+            <option>Yes</option>
+            <option>No</option>
+          </select>
+        </div>
+
+        <!-- NEW: Availability (checkbox group) -->
+        <fieldset class="nuage-fieldset">
+          <legend>Please indicate your availability (select all that apply)</legend>
+          <label><input type="checkbox" name="availability[]" value="Open Availability"> Open Availability</label>
+          <label><input type="checkbox" name="availability[]" value="Weekday Mornings"> Weekday Mornings</label>
+          <label><input type="checkbox" name="availability[]" value="Weekday Afternoons"> Weekday Afternoons</label>
+          <label><input type="checkbox" name="availability[]" value="Weekday Evenings"> Weekday Evenings</label>
+          <label><input type="checkbox" name="availability[]" value="Weekend Mornings"> Weekend Mornings</label>
+          <label><input type="checkbox" name="availability[]" value="Weekend Afternoons"> Weekend Afternoons</label>
+        </fieldset>
+
+        <!-- NEW: Referred -->
+        <div>
+          <label><input type="checkbox" name="referred_by_employee" value="Yes"> I was referred to this position by a current employee</label>
+        </div>
       </div>
+
       <div class="nuage-actions">
         <button type="button" class="nuage-btn ghost" id="closeEmployment">Cancel</button>
         <button type="submit" class="nuage-btn primary">Submit</button>
@@ -1459,6 +1569,17 @@ function submitChoice(){
     </form>
   </div>
 </div>
+
+<script>
+  // Map your app_* inputs to the hidden standard names so either backend works.
+  document.getElementById('employmentForm').addEventListener('submit', function () {
+    document.getElementById('std_full_name').value = document.getElementById('app_name').value;
+    document.getElementById('std_phone').value     = document.getElementById('app_phone').value;
+    document.getElementById('std_email').value     = document.getElementById('app_email').value;
+    document.getElementById('std_position').value  = document.getElementById('app_role').value;
+  });
+</script>
+
 
 <script>
 (function(){
