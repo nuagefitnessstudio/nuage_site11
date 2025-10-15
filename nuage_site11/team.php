@@ -1,28 +1,18 @@
 <?php
 
-// Robust PHPMailer loader (no hard exit on GET)
-$autoload = __DIR__ . '/vendor/autoload.php';
-if (is_file($autoload)) {
-    require_once $autoload;
+// Robust Composer autoloader: works from repo root or inside nuage_site11/
+$__autoload_paths = [
+  __DIR__ . '/vendor/autoload.php',      // when vendor is alongside this script (symlink case)
+  __DIR__ . '/../vendor/autoload.php',   // when vendor is at repo root and this file is in nuage_site11/
+];
+$__autoload_loaded = false;
+foreach ($__autoload_paths as $__p) {
+  if (is_file($__p)) { require_once $__p; $__autoload_loaded = true; break; }
 }
-if (!class_exists('\PHPMailer\PHPMailer\PHPMailer')) {
-    $base = __DIR__ . '/vendor/phpmailer/phpmailer/src';
-    if (is_file($base.'/PHPMailer.php')) {
-        require_once $base.'/Exception.php';
-        require_once $base.'/PHPMailer.php';
-        require_once $base.'/SMTP.php';
-    }
-}
-if (!class_exists('\PHPMailer\PHPMailer\PHPMailer')) {
-    // Only block when the form is actually submitted
-    $isEmploymentSubmit = ($_SERVER['REQUEST_METHOD'] ?? '') === 'POST'
-        && isset($_POST['__employment_form']);
-    if ($isEmploymentSubmit) {
-        http_response_code(500);
-        exit('PHPMailer not installed (vendor/ missing). Rebuild image with Composer or include PHPMailer.');
-    } else {
-        error_log('PHPMailer not installed (vendor/ missing). Page continues for GET.');
-    }
+if (!$__autoload_loaded) {
+  http_response_code(500);
+  error_log('Composer autoload.php not found by team.php');
+  exit('Server misconfiguration: dependencies missing.');
 }
 
 
