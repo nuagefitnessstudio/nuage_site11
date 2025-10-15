@@ -15,6 +15,9 @@ if (!function_exists('__configure_ms365_smtp')) {
         ));
 
         $mail->isSMTP();
+// Injected: enforce Microsoft 365 SMTP config without changing your flow
+__configure_ms365_smtp($mail);
+
         $mail->Host        = $host;
         $mail->Port        = $port;
         $mail->SMTPAuth    = true;
