@@ -1,38 +1,11 @@
-# VCS & metadata
 .git
 .gitignore
 .github
-.gitattributes
-*.md
-*.txt
-
-# Local OS/editor junk
 .DS_Store
-Thumbs.db
-*.swp
-*.swo
-.vscode
-.idea
-
-# Build artifacts & deps
-/vendor
-/node_modules
+vendor
+node_modules
 composer.phar
-
-# Logs, caches, temp
-storage/logs
-storage/framework/cache
-storage/framework/sessions
-storage/framework/views
-var/cache
-var/log
-tmp
-*.log
-
-# Docker files (don’t send Dockerfile into context layers)
 Dockerfile
 .dockerignore
-
-# Env files (keep secrets out of the build context)
 .env
 .env.*
