@@ -1,6 +1,5 @@
 <?php
 
-<?php
 // Load Composer autoloader or direct PHPMailer includes (fallback)
 $autoload = __DIR__ . '/vendor/autoload.php';
 if (file_exists($autoload)) {
