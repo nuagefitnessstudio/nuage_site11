@@ -1,4 +1,22 @@
 <?php
+
+<?php
+// Load Composer autoloader or direct PHPMailer includes (fallback)
+$autoload = __DIR__ . '/vendor/autoload.php';
+if (file_exists($autoload)) {
+    require_once $autoload;
+}
+if (!class_exists('\PHPMailer\PHPMailer\PHPMailer')) {
+    $base = __DIR__ . '/vendor/phpmailer/phpmailer/src';
+    if (file_exists($base.'/PHPMailer.php')) {
+        require_once $base . '/Exception.php';
+        require_once $base . '/PHPMailer.php';
+        require_once $base . '/SMTP.php';
+    } else {
+        error_log('PHPMailer not found under vendor/.');
+    }
+}
+
 // =====================================
 // Employment form handler (in-page)
 // =====================================
