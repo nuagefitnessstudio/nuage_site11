@@ -1,7 +1,7 @@
 FROM php:8.2-apache
 WORKDIR /var/www/html
 
-# Tools for Composer and zip fallback
+# Tools for composer & zip
 RUN apt-get update \
  && apt-get install -y --no-install-recommends git unzip curl \
  && rm -rf /var/lib/apt/lists/*
@@ -10,35 +10,26 @@ RUN apt-get update \
 RUN curl -sS https://getcomposer.org/installer | php -- \
  && mv composer.phar /usr/local/bin/composer
 
-# --- CHANGE THIS IF NEEDED ---
-# If composer.json lives at the REPO ROOT, change the next 2 COPY lines to:
+# ===== CHOOSE ONE of the following COPY patterns =====
+# If composer.json is at REPO ROOT (same folder as Dockerfile), use:
 # COPY composer.json composer.lock* /var/www/html/
-# Otherwise, if it's inside nuage_site11 (as in your messages), keep:
+
+# If composer.json is inside your nuage_site11 folder (what you showed), use:
 COPY nuage_site11/composer.json nuage_site11/composer.lock* /var/www/html/
-# --------------------------------
+# =====================================================
 
-# Install PHP deps (creates vendor/)
-RUN composer install --no-dev --prefer-dist --no-interaction --no-progress || true
+# Install PHP deps (creates /var/www/html/vendor)
+RUN composer install --no-dev --prefer-dist --no-interaction --no-progress
 
-# Copy the rest of the app (WITHOUT local vendor/)
+# Now copy the rest of the app (WITHOUT local vendor/)
 COPY nuage_site11/ /var/www/html/
 
-# If vendor/ was clobbered or composer failed, add PHPMailer via zip (fallback)
+# (Safety) If your repo accidentally contains a vendor/ that overwrote ours, fix it:
 RUN if [ ! -f /var/www/html/vendor/autoload.php ]; then \
-      echo "Composer vendor missing, installing PHPMailer via zip fallback..." ; \
-      mkdir -p /var/www/html/vendor/phpmailer && \
-      curl -L -o /tmp/phpmailer.zip https://github.com/PHPMailer/PHPMailer/archive/refs/tags/v6.11.1.zip && \
-      unzip -q /tmp/phpmailer.zip -d /tmp && \
-      mv /tmp/PHPMailer-6.11.1 /var/www/html/vendor/phpmailer/phpmailer && \
-      rm -f /tmp/phpmailer.zip && \
-      printf "%s\n" "<?php" \
-      "require_once __DIR__ . '/phpmailer/phpmailer/src/Exception.php';" \
-      "require_once __DIR__ . '/phpmailer/phpmailer/src/PHPMailer.php';" \
-      "require_once __DIR__ . '/phpmailer/phpmailer/src/SMTP.php';" \
-      > /var/www/html/vendor/autoload.php ; \
+      rm -rf /var/www/html/vendor && composer install --no-dev --prefer-dist --no-interaction --no-progress ; \
     fi
 
-# Apache on 8080 + rewrite + index priority
+# Apache 8080 + rewrite
 RUN sed -ri 's/Listen 80/Listen 8080/g' /etc/apache2/ports.conf \
  && sed -ri 's/:80>/:8080>/g' /etc/apache2/sites-available/000-default.conf \
  && a2enmod rewrite \

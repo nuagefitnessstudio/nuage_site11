@@ -1,22 +1,30 @@
 <?php
 
-// Robust PHPMailer loader that survives rebuilds
+// Robust PHPMailer loader (no hard exit on GET)
 $autoload = __DIR__ . '/vendor/autoload.php';
 if (is_file($autoload)) {
     require_once $autoload;
 }
 if (!class_exists('\PHPMailer\PHPMailer\PHPMailer')) {
-    // Fallback if vendor is ever missing
     $base = __DIR__ . '/vendor/phpmailer/phpmailer/src';
     if (is_file($base.'/PHPMailer.php')) {
         require_once $base.'/Exception.php';
         require_once $base.'/PHPMailer.php';
         require_once $base.'/SMTP.php';
-    } else {
-        http_response_code(500);
-        exit('PHPMailer not installed in this container (vendor/ missing).');
     }
 }
+if (!class_exists('\PHPMailer\PHPMailer\PHPMailer')) {
+    // Only block when the form is actually submitted
+    $isEmploymentSubmit = ($_SERVER['REQUEST_METHOD'] ?? '') === 'POST'
+        && isset($_POST['__employment_form']);
+    if ($isEmploymentSubmit) {
+        http_response_code(500);
+        exit('PHPMailer not installed (vendor/ missing). Rebuild image with Composer or include PHPMailer.');
+    } else {
+        error_log('PHPMailer not installed (vendor/ missing). Page continues for GET.');
+    }
+}
+?>
 
 
 // =====================================
