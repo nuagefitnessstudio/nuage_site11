@@ -1675,62 +1675,6 @@ function submitChoice(){
   .nuage-hidden{display:none !important}
 </style>
 
-<!-- Modal sizing/scrolling fix (non-destructive override) -->
-<style id="employment-modal-fix">
-  /* Backdrop centers modal */
-  .nuage-modal-backdrop{
-    position:fixed; inset:0;
-    display:none;                 /* your JS toggles to flex */
-    align-items:center; justify-content:center;
-    background:rgba(0,0,0,.5);
-    z-index:9999;
-  }
-
-  /* Modal becomes a flex column, constrained to viewport */
-  .nuage-modal{
-    width:min(720px,94vw);
-    max-height:92vh;              /* keep inside screen */
-    display:flex; flex-direction:column;
-    border-radius:16px; overflow:hidden;
-    background:#fff; box-shadow:0 20px 60px rgba(0,0,0,.25);
-  }
-
-  /* Keep header visible while content scrolls */
-  .nuage-modal header{
-    padding:18px 22px;
-    background:#002D72; color:#fff; font-weight:700;
-    position:sticky; top:0; z-index:2;
-  }
-
-  /* Only the inner content scrolls */
-  .nuage-modal .content{
-    padding:20px;
-    overflow-y:auto;
-    max-height:calc(92vh - 120px); /* header (~56) + actions (~64) */
-  }
-
-  /* Action bar pinned to bottom */
-  .nuage-actions{
-    display:flex; gap:10px; justify-content:flex-end;
-    padding:14px 20px; background:#fff; border-top:1px solid #eee;
-    position:sticky; bottom:0; z-index:2;
-  }
-
-  /* Keep inputs tidy */
-  .nuage-modal label{font-size:.9rem;font-weight:600;margin:.25rem 0 .4rem}
-  .nuage-modal input,.nuage-modal select,.nuage-modal textarea{
-    width:100%; padding:12px 14px; border:1.5px solid #e5e4e1; border-radius:10px; font-size:1rem; outline:none;
-  }
-  .nuage-modal input:focus,.nuage-modal select:focus,.nuage-modal textarea:focus{border-color:#002D72}
-
-  /* Checkbox groups breathe less on small screens */
-  @media (max-width:540px){
-    .nuage-modal{ width:96vw; }
-    fieldset .form-check{ margin-bottom:6px; }
-  }
-</style>
-
-
 <div class="nuage-modal-backdrop" id="employmentModal">
   <div class="nuage-modal" role="dialog" aria-modal="true" aria-labelledby="employmentTitle">
     <header><span id="employmentTitle">Apply for Employment</span></header>
@@ -1825,5 +1769,40 @@ function submitChoice(){
 })();
 </script>
 
+
+<script>
+(function () {
+  const form = document.getElementById('employmentForm');
+  if (!form) return;
+
+  const byIdOrName = (id, name) =>
+    document.getElementById(id) || form.querySelector(`[name="${name}"]`);
+
+  form.addEventListener('submit', function (e) {
+    const name  = (byIdOrName('app_name','full_name')?.value || '').trim();
+    const email = (byIdOrName('app_email','email')?.value || '').trim();
+    const phone = (byIdOrName('app_phone','phone')?.value || '').trim();
+    const role  = (byIdOrName('app_role','position')?.value || '').trim();
+
+    const errs = [];
+    if (!name)  errs.push('Name is required.');
+    if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) errs.push('Valid email is required.');
+    if (!phone) errs.push('Phone is required.');
+    if (!role)  errs.push('Position selection is required.');
+
+    if (errs.length) {
+      e.preventDefault();
+      alert('Please fix the following:\n' + errs.join('\n'));
+      return false;
+    }
+
+    const set = (id, v) => { const el = document.getElementById(id); if (el) el.value = v; };
+    set('std_full_name', name);
+    set('std_email',     email);
+    set('std_phone',     phone);
+    set('std_position',  role);
+  }, { passive:false });
+})();
+</script>
 </body>
 </html>
