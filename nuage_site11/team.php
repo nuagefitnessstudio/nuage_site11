@@ -1,4 +1,32 @@
 <?php
+
+// Robust PHPMailer loader (no hard exit on GET)
+$autoload = __DIR__ . '/vendor/autoload.php';
+if (is_file($autoload)) {
+    require_once $autoload;
+}
+if (!class_exists('\PHPMailer\PHPMailer\PHPMailer')) {
+    $base = __DIR__ . '/vendor/phpmailer/phpmailer/src';
+    if (is_file($base.'/PHPMailer.php')) {
+        require_once $base.'/Exception.php';
+        require_once $base.'/PHPMailer.php';
+        require_once $base.'/SMTP.php';
+    }
+}
+if (!class_exists('\PHPMailer\PHPMailer\PHPMailer')) {
+    // Only block when the form is actually submitted
+    $isEmploymentSubmit = ($_SERVER['REQUEST_METHOD'] ?? '') === 'POST'
+        && isset($_POST['__employment_form']);
+    if ($isEmploymentSubmit) {
+        http_response_code(500);
+        exit('PHPMailer not installed (vendor/ missing). Rebuild image with Composer or include PHPMailer.');
+    } else {
+        error_log('PHPMailer not installed (vendor/ missing). Page continues for GET.');
+    }
+}
+
+
+
 // =====================================
 // Employment form handler (in-page)
 // =====================================
@@ -107,8 +135,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['employment_form'])) {
 // ================================
 // Employment Application Mailer (PHPMailer over Microsoft 365)
 // ================================
-use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\Exception;
+
 
 require __DIR__ . '/vendor/autoload.php';
 
@@ -135,17 +162,21 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['__employment_form']))
 
     if ($ok) {
         try {
-            $mail = new PHPMailer(true);
+            $mail = new \PHPMailer\PHPMailer\PHPMailer(true);
             $mail->isSMTP();
-            $mail->Host       = 'smtp.office365.com';
-            $mail->SMTPAuth   = true;
-            $mail->Username   = 'info@nuagefitness-studio.com';
-            $mail->Password   = 'REPLACE_WITH_EMAIL_PASSWORD_OR_APP_PASSWORD'; // <-- set your M365 password or app password
-            $mail->SMTPSecure = 'tls';
-            $mail->Port       = 587;
+            $mail->Host       = getenv('SMTP_HOST') ?: 'smtp.office365.com';
+            $mail->SMTPAuth = true;
+            $mail->SMTPAutoTLS = true;
+            $mail->SMTPKeepAlive = false;
 
-            $mail->setFrom('info@nuagefitness-studio.com', 'NuAge Careers');
-            $mail->addAddress('info@nuagefitness-studio.com');
+            $mail->Username   = ( getenv('SMTP_USERNAME') ?: 'info@nuagefitness-studio.com' );
+            $mail->Password   = ( getenv('SMTP_PASSWORD') ?: '' ); // <-- set your M365 password or app password
+            $mail->SMTPSecure = ( getenv('SMTP_ENCRYPTION') ?: \PHPMailer\PHPMailer\PHPMailer::ENCRYPTION_STARTTLS );
+            $mail->Port       = (int)(getenv('SMTP_PORT') ?: 587);
+
+            $mail->Sender = ( getenv('SMTP_USERNAME') ?: 'info@nuagefitness-studio.com' );
+            $mail->setFrom( ( getenv('SMTP_FROM') ?: (getenv('SMTP_USERNAME') ?: 'info@nuagefitness-studio.com') ), 'NuAge Careers');
+            $mail->addAddress( getenv('SMTP_USERNAME') ?: 'info@nuagefitness-studio.com' );
             if ($app_email) { $mail->addReplyTo($app_email, $app_name); }
 
             $mail->isHTML(false);
@@ -174,10 +205,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['__employment_form']))
 // ================================
 // Employment Application Mailer (PHPMailer SMTP)
 // ================================
-use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\Exception;
 
-require __DIR__ . '/vendor/autoload.php';
+
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['__employment_form'])) {
     // Simple sanitizers
@@ -203,17 +232,21 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['__employment_form']))
 
     if ($ok) {
         try {
-            $mail = new PHPMailer(true);
+            $mail = new \PHPMailer\PHPMailer\PHPMailer(true);
             $mail->isSMTP();
-            $mail->Host       = 'smtp.office365.com';
-            $mail->SMTPAuth   = true;
-            $mail->Username   = 'info@nuagefitness-studio.com';
-            $mail->Password   = 'REPLACE_WITH_EMAIL_PASSWORD_OR_APP_PASSWORD'; // <-- put your password or app password here
-            $mail->SMTPSecure = 'tls';
-            $mail->Port       = 587;
+            $mail->Host       = getenv('SMTP_HOST') ?: 'smtp.office365.com';
+            $mail->SMTPAuth = true;
+            $mail->SMTPAutoTLS = true;
+            $mail->SMTPKeepAlive = false;
 
-            $mail->setFrom('info@nuagefitness-studio.com', 'NuAge Careers');
-            $mail->addAddress('info@nuagefitness-studio.com');
+            $mail->Username   = ( getenv('SMTP_USERNAME') ?: 'info@nuagefitness-studio.com' );
+            $mail->Password   = ( getenv('SMTP_PASSWORD') ?: '' ); // <-- put your password or app password here
+            $mail->SMTPSecure = ( getenv('SMTP_ENCRYPTION') ?: \PHPMailer\PHPMailer\PHPMailer::ENCRYPTION_STARTTLS );
+            $mail->Port       = (int)(getenv('SMTP_PORT') ?: 587);
+
+            $mail->Sender = ( getenv('SMTP_USERNAME') ?: 'info@nuagefitness-studio.com' );
+            $mail->setFrom( ( getenv('SMTP_FROM') ?: (getenv('SMTP_USERNAME') ?: 'info@nuagefitness-studio.com') ), 'NuAge Careers');
+            $mail->addAddress( getenv('SMTP_USERNAME') ?: 'info@nuagefitness-studio.com' );
             if ($app_email) {
                 $mail->addReplyTo($app_email, $app_name);
             }
@@ -1422,6 +1455,48 @@ function submitChoice(){
 })();
 </script>
 
+
+<!-- === Employment Modal (popup) === -->
+<div id="nuage-emp-backdrop" aria-hidden="true" style="position:fixed;inset:0;background:rgba(0,0,0,.5);display:none;align-items:center;justify-content:center;z-index:9999">
+  <div id="nuage-emp-modal" role="dialog" aria-modal="true" aria-labelledby="nuage-emp-title" style="background:#fff;max-width:540px;width:92%;border-radius:16px;box-shadow:0 20px 60px rgba(0,0,0,.25);overflow:hidden">
+    <header style="padding:16px 20px;background:#002D72;color:#fff;font-weight:700"><span id="nuage-emp-title">Apply for Employment</span></header>
+    <form method="post" id="nuage-emp-form" class="content" style="padding:20px">
+      <input type="hidden" name="__employment_form" value="1" />
+      <input type="text" name="website" autocomplete="off" style="display:none" tabindex="-1" aria-hidden="true"/>
+      <div class="grid" style="display:grid;grid-template-columns:1fr;gap:12px">
+        <div><label for="emp_name" style="font-weight:600">Full Name</label><input id="emp_name" name="app_name" type="text" required style="width:100%;padding:12px 14px;border:1.5px solid #e5e4e1;border-radius:10px"></div>
+        <div><label for="emp_phone" style="font-weight:600">Phone Number</label><input id="emp_phone" name="app_phone" type="tel" required style="width:100%;padding:12px 14px;border:1.5px solid #e5e4e1;border-radius:10px"></div>
+        <div><label for="emp_email" style="font-weight:600">Email Address</label><input id="emp_email" name="app_email" type="email" required style="width:100%;padding:12px 14px;border:1.5px solid #e5e4e1;border-radius:10px"></div>
+        <div>
+          <label for="emp_role" style="font-weight:600">Position</label>
+          <select id="emp_role" name="app_role" required style="width:100%;padding:12px 14px;border:1.5px solid #e5e4e1;border-radius:10px">
+            <option value="">Select a position…</option>
+            <option>Trainer</option>
+            <option>Sales</option>
+            <option>Manager</option>
+            <option>Instructor</option>
+          </select>
+        </div>
+      </div>
+      <div class="actions" style="display:flex;gap:10px;justify-content:flex-end;padding:16px 0 0;margin-top:12px;border-top:1px solid #eee">
+        <button type="button" id="nuage-emp-close" style="padding:10px 14px;border-radius:10px;border:2px solid #e9e6e1;background:#fff;cursor:pointer">Cancel</button>
+        <button type="submit" style="padding:10px 14px;border-radius:10px;border:2px solid transparent;background:#EB1F48;color:#fff;font-weight:700;cursor:pointer">Submit</button>
+      </div>
+    </form>
+  </div>
+</div>
+<script>
+(function(){
+  const b = document.getElementById('nuage-emp-backdrop');
+  const c = document.getElementById('nuage-emp-close');
+  function openM(){b.style.display='flex';document.body.style.overflow='hidden';b.setAttribute('aria-hidden','false');}
+  function closeM(){b.style.display='none';document.body.style.overflow='';b.setAttribute('aria-hidden','true');}
+  // Your existing Apply button just needs: data-open-employment
+  document.querySelectorAll('[data-open-employment]').forEach(el=>{el.addEventListener('click',e=>{e.preventDefault();openM();});});
+  if (c) c.addEventListener('click',closeM);
+  if (b) b.addEventListener('click',e=>{if(e.target===b) closeM();});
+})();
+</script>
+
 </body>
 </html>
-
