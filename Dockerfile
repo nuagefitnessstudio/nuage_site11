@@ -1,31 +1,42 @@
 FROM php:8.2-apache
 
-# Set working directory
+# Needed libs + Composer inside the image (no composer.phar in repo required)
+RUN apt-get update \
+ && apt-get install -y --no-install-recommends git unzip curl libzip-dev \
+ && rm -rf /var/lib/apt/lists/* \
+ && docker-php-ext-configure zip \
+ && docker-php-ext-install zip mysqli pdo pdo_mysql \
+ && docker-php-ext-enable mysqli pdo_mysql \
+ && curl -sS https://getcomposer.org/installer | php -- \
+ && mv composer.phar /usr/local/bin/composer
+
+# Web root
 WORKDIR /var/www/html
 
-# Copy ONLY the contents of nuage_site11 into the docroot
+# Copy your app (exactly what you had)
 COPY nuage_site11/ /var/www/html/
 
-# Fix ownership and permissions
-RUN chown -R www-data:www-data /var/www/html \
- && find /var/www/html -type d -exec chmod 755 {} \; \
- && find /var/www/html -type f -exec chmod 644 {} \;
+# Bring composer manifests from repo root into the web root
+COPY composer.json composer.lock* /var/www/html/
 
-# Switch Apache to port 8080 for App Platform
-RUN sed -ri 's/Listen 80/Listen 8080/g' /etc/apache2/ports.conf \
- && sed -ri 's/:80>/:8080>/g' /etc/apache2/sites-available/000-default.conf
+# Install vendor/ so /var/www/html/vendor/autoload.php exists
+RUN composer install --no-dev --prefer-dist --no-interaction --optimize-autoloader
 
-# Enable URL rewriting and make sure index.php loads first
-RUN a2enmod rewrite \
- && printf '%s\n' \
-   '<Directory /var/www/html>' \
-   '  Options Indexes FollowSymLinks' \
-   '  AllowOverride All' \
-   '  Require all granted' \
-   '</Directory>' \
-   'DirectoryIndex index.php index.html' \
-   > /etc/apache2/conf-available/app.conf \
- && a2enconf app
+# Allow .htaccess, keep your Index order
+RUN a2enmod rewrite headers && \
+    printf '%s\n' \
+      '<Directory /var/www/html>' \
+      '  Options Indexes FollowSymLinks' \
+      '  AllowOverride All' \
+      '  Require all granted' \
+      '</Directory>' \
+      'DirectoryIndex index.php index.html' \
+      > /etc/apache2/conf-available/app.conf && \
+    a2enconf app
 
-EXPOSE 8080
+# Simple health endpoint for DO
+RUN bash -lc 'echo "<?php http_response_code(200); echo \"OK\";" > /var/www/html/healthz.php'
+
+# (Keep Apache on 80; DO expects 80 by default)
+EXPOSE 80
 CMD ["apache2-foreground"]

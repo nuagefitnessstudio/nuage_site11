@@ -1,27 +1,38 @@
-# VCS & meta
+# --- VCS & metadata ---
 .git
 .gitignore
 .github
 .gitattributes
+
+# --- OS / editor junk ---
 .DS_Store
 Thumbs.db
+.vscode
+.idea
+*.swp
+*.swo
 
-# Deps built inside the image
+# --- Dependencies (rebuilt inside the image) ---
 vendor
 node_modules
 composer.phar
 
-# Logs / caches
+# --- Logs / caches / temp ---
 *.log
+tmp
+cache
 var/log
 var/cache
 storage/logs
 storage/framework/*
 
-# Docker files themselves
-Dockerfile
-.dockerignore
+# --- Build artifacts (if you add a frontend later) ---
+dist
+build
+coverage
+.next
+.nuxt
 
-# Secrets (never send these)
+# --- Secrets (never send these) ---
 .env
 .env.*
