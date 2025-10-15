@@ -24,7 +24,7 @@ if (!class_exists('\PHPMailer\PHPMailer\PHPMailer')) {
         error_log('PHPMailer not installed (vendor/ missing). Page continues for GET.');
     }
 }
-?>
+
 
 
 // =====================================
