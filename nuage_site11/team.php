@@ -1395,21 +1395,21 @@ function submitChoice(){
 
       <!-- Injected fields: keep names aligned with server handler -->
       <!-- Basic contact -->
-      <div class="mb-3">
-        <label class="form-label">Full Name*</label>
-        <input class="form-control" name="full_name" required>
-      </div>
-
-      <div class="row g-3">
-        <div class="col-md-6">
-          <label class="form-label">Phone Number</label>
-          <input class="form-control" name="phone" type="tel" placeholder="(555) 123-4567">
+       <!-- Honeypot -->
+       <input type="text" name="website" autocomplete="off" class="nuage-hidden" tabindex="-1" aria-hidden="true"/>
+      <div class="grid">
+        <div>
+          <label for="app_name">Full Name</label>
+          <input id="app_name" name="app_name" type="text" placeholder="Jane Doe" required />
         </div>
-        <div class="col-md-6">
-          <label class="form-label">Email Address*</label>
-          <input class="form-control" name="email" type="email" required>
+        <div>
+          <label for="app_phone">Phone Number</label>
+          <input id="app_phone" name="app_phone" type="tel" placeholder="(555) 123-4567" required />
         </div>
-      </div>
+        <div>
+          <label for="app_email">Email Address</label>
+          <input id="app_email" name="app_email" type="email" placeholder="you@example.com" required />
+        </div>
 
       <div class="mb-3 mt-3">
         <label class="form-label">Position*</label>
