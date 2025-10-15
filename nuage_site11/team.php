@@ -107,8 +107,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['employment_form'])) {
 // ================================
 // Employment Application Mailer (PHPMailer over Microsoft 365)
 // ================================
-use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\Exception;
+
 
 require __DIR__ . '/vendor/autoload.php';
 
@@ -174,8 +173,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['__employment_form']))
 // ================================
 // Employment Application Mailer (PHPMailer SMTP)
 // ================================
-use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\Exception;
+
 
 require __DIR__ . '/vendor/autoload.php';
 
