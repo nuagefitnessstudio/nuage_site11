@@ -1,33 +1,40 @@
+# ---- Base image ----
 FROM php:8.2-apache
 
-# PHP extensions you likely need; add more if required
-RUN docker-php-ext-install mysqli pdo pdo_mysql && docker-php-ext-enable mysqli pdo_mysql
+# (Optional) enable useful PHP extensions; add more if your app needs them
+RUN docker-php-ext-install mysqli && docker-php-ext-enable mysqli
 
-# Enable useful Apache modules
+# Enable Apache modules (useful if you rely on .htaccess or pretty URLs)
 RUN a2enmod rewrite headers
 
-# System deps + Composer
+# System deps + Composer (install once, cache layers)
 RUN apt-get update \
  && apt-get install -y --no-install-recommends git unzip curl \
  && rm -rf /var/lib/apt/lists/* \
  && curl -sS https://getcomposer.org/installer | php -- \
  && mv composer.phar /usr/local/bin/composer
 
-# Work in the webroot
+# App directory
 WORKDIR /var/www/html
 
-# Copy Composer manifests from REPO ROOT (your actual locations)
+# Copy composer manifests first (better layer caching)
 COPY composer.json composer.lock* ./
 
-# Install PHP deps inside the image
-RUN composer install --no-dev --prefer-dist --no-interaction --optimize-autoloader
+# Install PHP deps (no dev, faster, smaller)
+RUN composer install \
+    --no-dev --prefer-dist --no-interaction --optimize-autoloader
 
-# Copy the rest of your repo (includes nuage_site11/, .htaccess, etc.)
+# Now copy the rest of the app
 COPY . /var/www/html
 
-# If your index.php is inside /nuage_site11, set Apache's DocumentRoot there:
-RUN sed -ri 's!/var/www/html!/var/www/html/nuage_site11!g' \
-    /etc/apache2/sites-available/000-default.conf /etc/apache2/apache2.conf || true
-
-# Make sure Apache can read the files
+# Ensure Apache can read app files
 RUN chown -R www-data:www-data /var/www/html
+
+# If you need a custom DocumentRoot (e.g., /var/www/html/public), uncomment:
+# RUN sed -i 's|/var/www/html|/var/www/html/public|g' /etc/apache2/sites-available/000-default.conf \
+#  && sed -i 's|/var/www/html|/var/www/html/public|g' /etc/apache2/apache2.conf
+
+# Expose HTTP
+EXPOSE 80
+
+# Apache will start by default via the base image's CMD
