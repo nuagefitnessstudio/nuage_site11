@@ -7,7 +7,6 @@
 Thumbs.db
 
 # Deps built inside the image
-vendor
 node_modules
 composer.phar
 
