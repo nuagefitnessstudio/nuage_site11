@@ -1361,45 +1361,6 @@ function submitChoice(){
   .nuage-hidden{display:none !important}
 </style>
 
-<div class="nuage-modal-backdrop" id="employmentModal">
-  <div class="nuage-modal" role="dialog" aria-modal="true" aria-labelledby="employmentTitle">
-    <header><span id="employmentTitle">Apply for Employment</span></header>
-    <form method="post" class="content" id="employmentForm">
-      <input type="hidden" name="__employment_form" value="1" />
-      <!-- Honeypot -->
-      <input type="text" name="website" autocomplete="off" class="nuage-hidden" tabindex="-1" aria-hidden="true"/>
-      <div class="grid">
-        <div>
-          <label for="app_name">Full Name</label>
-          <input id="app_name" name="app_name" type="text" placeholder="Jane Doe" required />
-        </div>
-        <div>
-          <label for="app_phone">Phone Number</label>
-          <input id="app_phone" name="app_phone" type="tel" placeholder="(555) 123-4567" required />
-        </div>
-        <div>
-          <label for="app_email">Email Address</label>
-          <input id="app_email" name="app_email" type="email" placeholder="you@example.com" required />
-        </div>
-        <div>
-          <label for="app_role">Position</label>
-          <select id="app_role" name="app_role" required>
-            <option value="">Select a position…</option>
-            <option>Trainer</option>
-            <option>Sales</option>
-            <option>Manager</option>
-            <option>Instructor</option>
-          </select>
-        </div>
-      </div>
-      <div class="nuage-actions">
-        <button type="button" class="nuage-btn ghost" id="closeEmployment">Cancel</button>
-        <button type="submit" class="nuage-btn primary">Submit</button>
-      </div>
-    </form>
-  </div>
-</div>
-
 <script>
 (function(){
   const modal = document.getElementById('employmentModal');
@@ -1442,44 +1403,6 @@ function submitChoice(){
   .nuage-hidden{display:none !important}
 </style>
 
-<div class="nuage-modal-backdrop" id="employmentModal">
-  <div class="nuage-modal" role="dialog" aria-modal="true" aria-labelledby="employmentTitle">
-    <header><span id="employmentTitle">Apply for Employment</span></header>
-    <form method="post" class="content" id="employmentForm">
-      <input type="hidden" name="__employment_form" value="1" />
-      <!-- Honeypot -->
-      <input type="text" name="website" autocomplete="off" class="nuage-hidden" tabindex="-1" aria-hidden="true"/>
-      <div class="grid">
-        <div>
-          <label for="app_name">Full Name</label>
-          <input id="app_name" name="app_name" type="text" placeholder="Jane Doe" required />
-        </div>
-        <div>
-          <label for="app_phone">Phone Number</label>
-          <input id="app_phone" name="app_phone" type="tel" placeholder="(555) 123-4567" required />
-        </div>
-        <div>
-          <label for="app_email">Email Address</label>
-          <input id="app_email" name="app_email" type="email" placeholder="you@example.com" required />
-        </div>
-        <div>
-          <label for="app_role">Position</label>
-          <select id="app_role" name="app_role" required>
-            <option value="">Select a position…</option>
-            <option>Trainer</option>
-            <option>Sales</option>
-            <option>Manager</option>
-            <option>Instructor</option>
-          </select>
-        </div>
-      </div>
-      <div class="nuage-actions">
-        <button type="button" class="nuage-btn ghost" id="closeEmployment">Cancel</button>
-        <button type="submit" class="nuage-btn primary">Submit</button>
-      </div>
-    </form>
-  </div>
-</div>
 
 <script>
 (function(){
@@ -1501,35 +1424,6 @@ function submitChoice(){
 </script>
 
 
-<!-- === Employment Modal (popup) === -->
-<div id="nuage-emp-backdrop" aria-hidden="true" style="position:fixed;inset:0;background:rgba(0,0,0,.5);display:none;align-items:center;justify-content:center;z-index:9999">
-  <div id="nuage-emp-modal" role="dialog" aria-modal="true" aria-labelledby="nuage-emp-title" style="background:#fff;max-width:540px;width:92%;border-radius:16px;box-shadow:0 20px 60px rgba(0,0,0,.25);overflow:hidden">
-    <header style="padding:16px 20px;background:#002D72;color:#fff;font-weight:700"><span id="nuage-emp-title">Apply for Employment</span></header>
-    <form method="post" id="nuage-emp-form" class="content" style="padding:20px">
-      <input type="hidden" name="__employment_form" value="1" />
-      <input type="text" name="website" autocomplete="off" style="display:none" tabindex="-1" aria-hidden="true"/>
-      <div class="grid" style="display:grid;grid-template-columns:1fr;gap:12px">
-        <div><label for="emp_name" style="font-weight:600">Full Name</label><input id="emp_name" name="app_name" type="text" required style="width:100%;padding:12px 14px;border:1.5px solid #e5e4e1;border-radius:10px"></div>
-        <div><label for="emp_phone" style="font-weight:600">Phone Number</label><input id="emp_phone" name="app_phone" type="tel" required style="width:100%;padding:12px 14px;border:1.5px solid #e5e4e1;border-radius:10px"></div>
-        <div><label for="emp_email" style="font-weight:600">Email Address</label><input id="emp_email" name="app_email" type="email" required style="width:100%;padding:12px 14px;border:1.5px solid #e5e4e1;border-radius:10px"></div>
-        <div>
-          <label for="emp_role" style="font-weight:600">Position</label>
-          <select id="emp_role" name="app_role" required style="width:100%;padding:12px 14px;border:1.5px solid #e5e4e1;border-radius:10px">
-            <option value="">Select a position…</option>
-            <option>Trainer</option>
-            <option>Sales</option>
-            <option>Manager</option>
-            <option>Instructor</option>
-          </select>
-        </div>
-      </div>
-      <div class="actions" style="display:flex;gap:10px;justify-content:flex-end;padding:16px 0 0;margin-top:12px;border-top:1px solid #eee">
-        <button type="button" id="nuage-emp-close" style="padding:10px 14px;border-radius:10px;border:2px solid #e9e6e1;background:#fff;cursor:pointer">Cancel</button>
-        <button type="submit" style="padding:10px 14px;border-radius:10px;border:2px solid transparent;background:#EB1F48;color:#fff;font-weight:700;cursor:pointer">Submit</button>
-      </div>
-    </form>
-  </div>
-</div>
 <script>
 (function(){
   const b = document.getElementById('nuage-emp-backdrop');
