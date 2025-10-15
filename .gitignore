@@ -1,1 +1,41 @@
+# --- keep Docker builds small & reproducible ---
+# Never send local vendors/node deps to Docker context
+vendor/
+node_modules/
+
+# VCS & editor junk
+.git
+.git/*
+.gitignore
+.gitattributes
+*.swp
+*.swo
+*.log
 .DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.code-workspace
+
+# OS / cache / build artifacts
+.env.local
+.env.*.local
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+coverage/
+dist/
+build/
+.cache/
+tmp/
+*.zip
+
+# Composer caches (not needed in image)
+composer.phar
+composer.lock.backup
+
+# Tests/docs not needed at runtime
+tests/
+docs/
+example/
+examples/
