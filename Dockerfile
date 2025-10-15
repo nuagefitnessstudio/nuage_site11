@@ -1,60 +1,40 @@
-# ========= Stage 1: build PHP dependencies with Composer =========
-FROM composer:2 AS vendor
-WORKDIR /app
-
-# Copy only composer manifests from the REPO ROOT
-COPY composer.json composer.lock* ./
-
-# Install production dependencies
-RUN composer install \
-    --no-dev --prefer-dist --no-interaction --optimize-autoloader
-
-# ========= Stage 2: runtime (PHP 8.2 + Apache) =========
 FROM php:8.2-apache
-
-# System packages & PHP extensions commonly needed (PHPMailer needs none special, but zip is useful)
-RUN apt-get update \
- && apt-get install -y --no-install-recommends libzip-dev \
- && rm -rf /var/lib/apt/lists/* \
- && docker-php-ext-configure zip \
- && docker-php-ext-install zip mysqli pdo pdo_mysql \
- && docker-php-ext-enable mysqli pdo_mysql
-
-# Enable useful Apache modules
-RUN a2enmod rewrite headers
-
-# App root
 WORKDIR /var/www/html
 
-# Bring in vendor/ from the Composer stage to the repo root in the image
-COPY --from=vendor /app/vendor /var/www/html/vendor
+# System deps for Composer & zips
+RUN apt-get update \
+ && apt-get install -y --no-install-recommends git unzip curl \
+ && rm -rf /var/lib/apt/lists/*
 
-# Copy the rest of your repository (includes nuage_site11/)
-COPY . /var/www/html
+# Install Composer
+RUN curl -sS https://getcomposer.org/installer | php -- \
+ && mv composer.phar /usr/local/bin/composer
 
-# Serve the subfolder where your app lives
-ENV APACHE_DOCUMENT_ROOT=/var/www/html/nuage_site11
-RUN printf '%s\n' \
-  "<VirtualHost *:80>" \
-  "  DocumentRoot ${APACHE_DOCUMENT_ROOT}" \
-  "  <Directory ${APACHE_DOCUMENT_ROOT}>" \
-  "    AllowOverride All" \
-  "    Require all granted" \
-  "    Options Indexes FollowSymLinks" \
-  "  </Directory>" \
-  "</VirtualHost>" \
-  > /etc/apache2/sites-available/000-default.conf
+# --- Cache-friendly vendor install ---
+# Copy ONLY composer files first (no app code yet)
+COPY nuage_site11/composer.json nuage_site11/composer.lock* /var/www/html/
+RUN composer install --no-dev --prefer-dist --no-interaction --no-progress
+# -------------------------------------
 
-# Health check endpoint for DigitalOcean App Platform
-RUN bash -lc 'echo "<?php http_response_code(200); echo \"OK\";" > ${APACHE_DOCUMENT_ROOT}/healthz.php'
+# Now copy the rest of your app (WITHOUT vendor)
+COPY nuage_site11/ /var/www/html/
 
-# Symlink so nuage_site11/vendor resolves to root vendor without code changes
-RUN if [ ! -e /var/www/html/nuage_site11/vendor ]; then \
-      ln -s /var/www/html/vendor /var/www/html/nuage_site11/vendor ; \
-    fi
+# (Optional) if your repo accidentally contains a vendor/ folder, wipe it:
+RUN rm -rf /var/www/html/vendor && composer install --no-dev --prefer-dist --no-interaction --no-progress
 
-# Permissions
-RUN chown -R www-data:www-data /var/www/html
+# Apache on 8080 + rewrite + index priority
+RUN sed -ri 's/Listen 80/Listen 8080/g' /etc/apache2/ports.conf \
+ && sed -ri 's/:80>/:8080>/g' /etc/apache2/sites-available/000-default.conf \
+ && a2enmod rewrite \
+ && printf '%s\n' \
+   '<Directory /var/www/html>' \
+   '  Options Indexes FollowSymLinks' \
+   '  AllowOverride All' \
+   '  Require all granted' \
+   '</Directory>' \
+   'DirectoryIndex index.php index.html' \
+   > /etc/apache2/conf-available/app.conf \
+ && a2enconf app
 
-# Expose HTTP (App Platform uses 80 by default)
-EXPOSE 80
+EXPOSE 8080
+CMD ["apache2-foreground"]
