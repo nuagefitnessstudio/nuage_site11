@@ -960,6 +960,18 @@ a, button { -webkit-tap-highlight-color: transparent; }
 <style>
   
   </style>
+
+<style id="jobModalStyles">
+.modal-overlay{display:none; position:fixed; inset:0; background:rgba(0,0,0,.45); z-index:9998;}
+.modal{display:none; position:fixed; top:50%; left:50%; transform:translate(-50%,-50%); width:min(640px,92vw); max-height:80vh; overflow:auto; background:#fff; border-radius:14px; box-shadow:0 20px 60px rgba(0,0,0,.25); z-index:9999; padding:16px 18px 96px;}
+.modal .close{position:absolute; right:10px; top:8px; font-size:24px; line-height:1; background:none; border:0; cursor:pointer;}
+.modal h3{margin:0 0 8px;}
+.modal .small{margin:0 0 12px; color:#555;}
+.modal fieldset{border:1px solid #e5e7eb; border-radius:8px; padding:8px 10px; max-height:140px; overflow:auto;}
+.modal .row{display:grid; grid-template-columns:1fr 1fr; gap:12px;}
+@media (max-width:640px){ .modal .row{grid-template-columns:1fr;} }
+.modal form > *:last-child{ margin-bottom: 16px; }
+</style>
 </head>
 <body>
 
@@ -1422,30 +1434,7 @@ function submitChoice(){
 </style>
 
 <!-- Employment Modal -->
-<div class="nuage-modal-backdrop" id="employmentModal">
-  <div class="nuage-modal" role="dialog" aria-modal="true" aria-labelledby="employmentTitle">
-    <header><span id="employmentTitle">Apply for Employment</span></header>
-
-    <!-- IMPORTANT: multipart/form-data for file uploads -->
-    <form method="post" class="content" id="employmentForm" enctype="multipart/form-data">
-      <input type="hidden" name="__employment_form" value="1" />
-      <!-- Honeypot -->
-      <input type="text" name="website" autocomplete="off" class="nuage-hidden" tabindex="-1" aria-hidden="true"/>
-
-      <!-- Hidden “standard” names for server compatibility -->
-      <input type="hidden" name="full_name" id="std_full_name">
-      <input type="hidden" name="phone" id="std_phone">
-      <input type="hidden" name="email" id="std_email">
-      <input type="hidden" name="position" id="std_position">
-
-      <div class="grid">
-        <!-- EXISTING FIELDS (kept) -->
-        <div>
-          <label for="app_name">Full Name</label>
-          <input id="app_name" name="app_name" type="text" placeholder="Jane Doe" required />
-        </div>
-
-        <div>
+<div>
           <label for="app_phone">Phone Number</label>
           <input id="app_phone" name="app_phone" type="tel" placeholder="(555) 123-4567" required />
         </div>
@@ -1623,19 +1612,7 @@ function submitChoice(){
   .nuage-hidden{display:none !important}
 </style>
 
-<div class="nuage-modal-backdrop" id="employmentModal">
-  <div class="nuage-modal" role="dialog" aria-modal="true" aria-labelledby="employmentTitle">
-    <header><span id="employmentTitle">Apply for Employment</span></header>
-    <form method="post" class="content" id="employmentForm">
-      <input type="hidden" name="__employment_form" value="1" />
-      <!-- Honeypot -->
-      <input type="text" name="website" autocomplete="off" class="nuage-hidden" tabindex="-1" aria-hidden="true"/>
-      <div class="grid">
-        <div>
-          <label for="app_name">Full Name</label>
-          <input id="app_name" name="app_name" type="text" placeholder="Jane Doe" required />
-        </div>
-        <div>
+<div>
           <label for="app_phone">Phone Number</label>
           <input id="app_phone" name="app_phone" type="tel" placeholder="(555) 123-4567" required />
         </div>
@@ -1704,19 +1681,7 @@ function submitChoice(){
   .nuage-hidden{display:none !important}
 </style>
 
-<div class="nuage-modal-backdrop" id="employmentModal">
-  <div class="nuage-modal" role="dialog" aria-modal="true" aria-labelledby="employmentTitle">
-    <header><span id="employmentTitle">Apply for Employment</span></header>
-    <form method="post" class="content" id="employmentForm">
-      <input type="hidden" name="__employment_form" value="1" />
-      <!-- Honeypot -->
-      <input type="text" name="website" autocomplete="off" class="nuage-hidden" tabindex="-1" aria-hidden="true"/>
-      <div class="grid">
-        <div>
-          <label for="app_name">Full Name</label>
-          <input id="app_name" name="app_name" type="text" placeholder="Jane Doe" required />
-        </div>
-        <div>
+<div>
           <label for="app_phone">Phone Number</label>
           <input id="app_phone" name="app_phone" type="tel" placeholder="(555) 123-4567" required />
         </div>
@@ -1842,6 +1807,39 @@ document.addEventListener('DOMContentLoaded', () => {
   // ESC key
   window.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeEmployment(e); });
 });
+</script>
+
+<script id="jobModalJS">
+(function(){
+  const overlay = document.getElementById('jobOverlay');
+  const modal = document.getElementById('jobModal');
+  if (!overlay || !modal) return;
+
+  function openJob(e){
+    if (e) e.preventDefault();
+    overlay.style.display = 'block';
+    modal.style.display = 'block';
+    document.body.style.overflow = 'hidden';
+  }
+  function closeJob(e){
+    if (e) e.preventDefault();
+    overlay.style.display = 'none';
+    modal.style.display = 'none';
+    document.body.style.overflow = '';
+  }
+  window.openJob = openJob;
+  window.closeJob = closeJob;
+
+  // Click overlay closes
+  overlay.addEventListener('click', closeJob);
+  // ESC closes
+  window.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeJob(e); });
+
+  // Wire triggers
+  const explicit = document.getElementById('employmentButton');
+  if (explicit) explicit.addEventListener('click', openJob);
+  document.querySelectorAll('[data-open-employment]').forEach(el => el.addEventListener('click', openJob));
+})();
 </script>
 </body>
 </html>
