@@ -1,6 +1,5 @@
 .git
 .gitignore
-.github
 .DS_Store
 vendor
 node_modules
