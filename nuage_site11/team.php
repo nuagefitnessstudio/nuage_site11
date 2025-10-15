@@ -1,4 +1,46 @@
 <?php
+// === Injected: helper to enforce Microsoft 365 SMTP config (idempotent) ===
+if (!function_exists('__configure_ms365_smtp')) {
+    function __configure_ms365_smtp($mail) {
+        if (!is_object($mail)) return;
+
+        $host = getenv('SMTP_HOST') ?: 'smtp.office365.com';
+        $port = (int)(getenv('SMTP_PORT') ?: 587);
+        $user = getenv('SMTP_USERNAME') ?: '';
+        $pass = getenv('SMTP_PASSWORD') ?: '';
+        $enc  = strtolower(getenv('SMTP_ENCRYPTION') ?: 'tls');
+
+        error_log(sprintf('[smtp] host=%s port=%d enc=%s user=%s pass=%s',
+            $host, $port, $enc, $user ? 'set('.strlen($user).')' : 'EMPTY', $pass ? 'SET' : 'EMPTY'
+        ));
+
+        $mail->isSMTP();
+        $mail->Host        = $host;
+        $mail->Port        = $port;
+        $mail->SMTPAuth    = true;
+        $mail->AuthType    = 'LOGIN';
+        $mail->SMTPAutoTLS = true;
+        $mail->SMTPSecure  = PHPMailer::ENCRYPTION_STARTTLS;
+
+        if ($user !== '') $mail->Username = $user;
+        if ($pass !== '') $mail->Password = $pass;
+
+        if (method_exists($mail, 'setFrom') && $user !== '') {
+            $rf = (property_exists($mail, 'From') ? $mail->From : '');
+            if (!$rf || strtolower($rf) != strtolower($user)) {
+                $mail->setFrom($user, 'NuAge Careers');
+            }
+            if (property_exists($mail, 'Sender') && (!$mail->Sender || strtolower($mail->Sender) != strtolower($user))) {
+                $mail->Sender = $user;
+            }
+        }
+    }
+}
+// === End injected helper ===
+
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+
 
 // Robust Composer autoloader with clear diagnostics
 $candidates = [
@@ -188,7 +230,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['__employment_form']))
                 error_log('SMTP cfg host='.getenv('SMTP_HOST').' port='.getenv('SMTP_PORT').' enc='.getenv('SMTP_ENCRYPTION'));
                 $u = getenv('SMTP_USERNAME'); $p = getenv('SMTP_PASSWORD');
                 error_log('SMTP user='.($u ? 'set('.strlen($u).')' : 'EMPTY').' pass='.($p ? 'SET' : 'EMPTY'));
-            $mail->send();
+            $ok__injected = $mail->send();
+error_log('PHPMailer send result: ' . ($ok__injected ? 'OK' : $mail->ErrorInfo));
             echo "<script>window.addEventListener('DOMContentLoaded',function(){alert('Thank you — your application has been submitted!');});</script>";
         } catch (Exception $e) {
             $err = addslashes($mail->ErrorInfo ?? $e->getMessage());
