@@ -1,6 +1,6 @@
 FROM php:8.2-apache
 
-# Needed libs + Composer inside the image (no composer.phar in repo required)
+# System deps + Composer
 RUN apt-get update \
  && apt-get install -y --no-install-recommends git unzip curl libzip-dev \
  && rm -rf /var/lib/apt/lists/* \
@@ -13,19 +13,21 @@ RUN apt-get update \
 # Web root
 WORKDIR /var/www/html
 
-# Copy your app (exactly what you had)
-COPY nuage_site11/ /var/www/html/
+# Copy app code
+COPY nuage_site11/ /var/www/html/nuage_site11/
 
-# Bring composer manifests from repo root into the web root
-COPY composer.json composer.lock* /var/www/html/
+# Copy composer manifests (from repo root) into nuage_site11
+COPY composer.json composer.lock* /var/www/html/nuage_site11/
 
-# Install vendor/ so /var/www/html/vendor/autoload.php exists
-RUN composer install --no-dev --prefer-dist --no-interaction --optimize-autoloader
+# Install vendor INSIDE nuage_site11 (matches your expected path)
+RUN composer install \
+    --working-dir=/var/www/html/nuage_site11 \
+    --no-dev --prefer-dist --no-interaction --optimize-autoloader
 
-# Allow .htaccess, keep your Index order
+# Allow .htaccess and set index order
 RUN a2enmod rewrite headers && \
     printf '%s\n' \
-      '<Directory /var/www/html>' \
+      '<Directory /var/www/html/nuage_site11>' \
       '  Options Indexes FollowSymLinks' \
       '  AllowOverride All' \
       '  Require all granted' \
@@ -35,8 +37,11 @@ RUN a2enmod rewrite headers && \
     a2enconf app
 
 # Simple health endpoint for DO
-RUN bash -lc 'echo "<?php http_response_code(200); echo \"OK\";" > /var/www/html/healthz.php'
+RUN bash -lc 'echo "<?php http_response_code(200); echo \"OK\";" > /var/www/html/nuage_site11/healthz.php'
 
-# (Keep Apache on 80; DO expects 80 by default)
+# Permissions (optional)
+RUN chown -R www-data:www-data /var/www/html
+
+# Keep default Apache port for DO
 EXPOSE 80
 CMD ["apache2-foreground"]
