@@ -1698,44 +1698,6 @@ function submitChoice(){
   .nuage-hidden{display:none !important}
 </style>
 
-<div class="nuage-modal-backdrop" id="employmentModal">
-  <div class="nuage-modal" role="dialog" aria-modal="true" aria-labelledby="employmentTitle">
-    <header><span id="employmentTitle">Apply for Employment</span></header>
-    <form method="post" class="content" id="employmentForm">
-      <input type="hidden" name="__employment_form" value="1" />
-      <!-- Honeypot -->
-      <input type="text" name="website" autocomplete="off" class="nuage-hidden" tabindex="-1" aria-hidden="true"/>
-      <div class="grid">
-        <div>
-          <label for="app_name">Full Name</label>
-          <input id="app_name" name="app_name" type="text" placeholder="Jane Doe" required />
-        </div>
-        <div>
-          <label for="app_phone">Phone Number</label>
-          <input id="app_phone" name="app_phone" type="tel" placeholder="(555) 123-4567" required />
-        </div>
-        <div>
-          <label for="app_email">Email Address</label>
-          <input id="app_email" name="app_email" type="email" placeholder="you@example.com" required />
-        </div>
-        <div>
-          <label for="app_role">Position</label>
-          <select id="app_role" name="app_role" required>
-            <option value="">Select a position…</option>
-            <option>Trainer</option>
-            <option>Sales</option>
-            <option>Manager</option>
-            <option>Instructor</option>
-          </select>
-        </div>
-      </div>
-      <div class="nuage-actions">
-        <button type="button" class="nuage-btn ghost" id="closeEmployment">Cancel</button>
-        <button type="submit" class="nuage-btn primary">Submit</button>
-      </div>
-    </form>
-  </div>
-</div>
 
 <script>
 (function(){
