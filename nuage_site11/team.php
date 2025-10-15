@@ -1,22 +1,29 @@
 <?php
 
-// Robust Composer autoloader: works from repo root or inside nuage_site11/
-$__autoload_paths = [
-  __DIR__ . '/vendor/autoload.php',      // when vendor is alongside this script (symlink case)
-  __DIR__ . '/../vendor/autoload.php',   // when vendor is at repo root and this file is in nuage_site11/
+// Robust Composer autoloader with clear diagnostics
+$candidates = [
+  __DIR__ . '/vendor/autoload.php',        // if vendor sits next to this file
+  __DIR__ . '/../vendor/autoload.php',     // if vendor is one level up
+  '/var/www/html/vendor/autoload.php',     // absolute path (your container docroot)
 ];
-$__autoload_loaded = false;
-foreach ($__autoload_paths as $__p) {
-  if (is_file($__p)) { require_once $__p; $__autoload_loaded = true; break; }
+
+$found = null;
+foreach ($candidates as $p) {
+  if (is_file($p)) { $found = $p; break; }
 }
-if (!$__autoload_loaded) {
+
+if ($found) {
+  require_once $found;
+} else {
+  // EXTRA diagnostics (helps you see what's actually there)
+  error_log("[autoload] tried: " . implode(' | ', $candidates));
+  $here = glob(__DIR__ . '/vendor/*', GLOB_ONLYDIR) ?: [];
+  $up   = glob(dirname(__DIR__) . '/vendor/*', GLOB_ONLYDIR) ?: [];
+  error_log("[autoload] listing __DIR__/vendor: " . json_encode(array_map('basename', $here)));
+  error_log("[autoload] listing ../vendor: " . json_encode(array_map('basename', $up)));
   http_response_code(500);
-  error_log('Composer autoload.php not found by team.php');
   exit('Server misconfiguration: dependencies missing.');
 }
-
-
-
 // =====================================
 // Employment form handler (in-page)
 // =====================================
