@@ -1,22 +1,28 @@
 FROM php:8.2-apache
-
-# Set working directory
 WORKDIR /var/www/html
 
-# Copy ONLY the contents of nuage_site11 into the docroot
+# 1) System deps for Composer + zips
+RUN apt-get update \
+ && apt-get install -y --no-install-recommends git unzip curl \
+ && rm -rf /var/lib/apt/lists/*
+
+# 2) Install Composer
+RUN curl -sS https://getcomposer.org/installer | php -- \
+ && mv composer.phar /usr/local/bin/composer
+
+# 3) Copy only composer files first to leverage cache
+COPY nuage_site11/composer.json nuage_site11/composer.lock* /var/www/html/
+
+# 4) Install vendors (creates /var/www/html/vendor/autoload.php)
+RUN composer install --no-dev --prefer-dist --no-interaction --no-progress
+
+# 5) Now copy the rest of your app
 COPY nuage_site11/ /var/www/html/
 
-# Fix ownership and permissions
-RUN chown -R www-data:www-data /var/www/html \
- && find /var/www/html -type d -exec chmod 755 {} \; \
- && find /var/www/html -type f -exec chmod 644 {} \;
-
-# Switch Apache to port 8080 for App Platform
+# 6) Apache + site setup
 RUN sed -ri 's/Listen 80/Listen 8080/g' /etc/apache2/ports.conf \
- && sed -ri 's/:80>/:8080>/g' /etc/apache2/sites-available/000-default.conf
-
-# Enable URL rewriting and make sure index.php loads first
-RUN a2enmod rewrite \
+ && sed -ri 's/:80>/:8080>/g' /etc/apache2/sites-available/000-default.conf \
+ && a2enmod rewrite \
  && printf '%s\n' \
    '<Directory /var/www/html>' \
    '  Options Indexes FollowSymLinks' \
