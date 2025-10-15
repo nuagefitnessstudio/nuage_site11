@@ -960,81 +960,6 @@ a, button { -webkit-tap-highlight-color: transparent; }
 <style>
   
   </style>
-
-<style id="employmentModalStyles">
-/* Backdrop: center the modal and dim page */
-#employmentModal.nuage-modal-backdrop {
-  position: fixed;
-  inset: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 16px;
-  background: rgba(0,0,0,.45);
-  z-index: 9999;
-}
-/* The modal card */
-#employmentModal .nuage-modal {
-  width: min(720px, 92vw);
-  max-height: min(88vh, 900px);
-  display: flex;
-  flex-direction: column;
-  overflow: hidden;
-  border-radius: 14px;
-  background: #fff;
-  box-shadow: 0 20px 60px rgba(0,0,0,.25);
-}
-/* Header */
-#employmentModal .nuage-modal > header {
-  padding: 14px 18px;
-  font-weight: 700;
-  background: #0c2a68;
-  color: #fff;
-}
-/* Scrollable body */
-#employmentModal .nuage-modal form.content {
-  padding: 16px 18px;
-  overflow-y: auto;
-  flex: 1;
-}
-/* Sticky footer */
-#employmentModal .nuage-actions {
-  position: sticky;
-  bottom: 0;
-  padding: 12px 18px;
-  border-top: 1px solid #eee;
-  background: #fff;
-  display: flex;
-  gap: 10px;
-  justify-content: flex-end;
-}
-/* Grid layout */
-#employmentModal .grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 14px;
-}
-@media (max-width: 640px) {
-  #employmentModal .grid { grid-template-columns: 1fr; }
-}
-/* Compact checkbox sections */
-#employmentModal fieldset.nuage-fieldset {
-  border: 1px solid #e5e7eb;
-  border-radius: 8px;
-  padding: 10px 12px;
-  max-height: 220px;
-  overflow: auto;
-}
-/* Controls full width */
-#employmentModal input[type="text"],
-#employmentModal input[type="email"],
-#employmentModal input[type="tel"],
-#employmentModal input[type="file"],
-#employmentModal select,
-#employmentModal textarea {
-  width: 100%;
-}
-</style>
 </head>
 <body>
 
@@ -1698,6 +1623,44 @@ function submitChoice(){
   .nuage-hidden{display:none !important}
 </style>
 
+<div class="nuage-modal-backdrop" id="employmentModal">
+  <div class="nuage-modal" role="dialog" aria-modal="true" aria-labelledby="employmentTitle">
+    <header><span id="employmentTitle">Apply for Employment</span></header>
+    <form method="post" class="content" id="employmentForm">
+      <input type="hidden" name="__employment_form" value="1" />
+      <!-- Honeypot -->
+      <input type="text" name="website" autocomplete="off" class="nuage-hidden" tabindex="-1" aria-hidden="true"/>
+      <div class="grid">
+        <div>
+          <label for="app_name">Full Name</label>
+          <input id="app_name" name="app_name" type="text" placeholder="Jane Doe" required />
+        </div>
+        <div>
+          <label for="app_phone">Phone Number</label>
+          <input id="app_phone" name="app_phone" type="tel" placeholder="(555) 123-4567" required />
+        </div>
+        <div>
+          <label for="app_email">Email Address</label>
+          <input id="app_email" name="app_email" type="email" placeholder="you@example.com" required />
+        </div>
+        <div>
+          <label for="app_role">Position</label>
+          <select id="app_role" name="app_role" required>
+            <option value="">Select a position…</option>
+            <option>Trainer</option>
+            <option>Sales</option>
+            <option>Manager</option>
+            <option>Instructor</option>
+          </select>
+        </div>
+      </div>
+      <div class="nuage-actions">
+        <button type="button" class="nuage-btn ghost" id="closeEmployment">Cancel</button>
+        <button type="submit" class="nuage-btn primary">Submit</button>
+      </div>
+    </form>
+  </div>
+</div>
 
 <script>
 (function(){
@@ -1842,26 +1805,5 @@ function submitChoice(){
 })();
 </script>
 
-
-<script id="employmentModalJS">
-(function(){
-  var backdrop = document.getElementById('employmentModal');
-  var closeBtn = document.getElementById('closeEmployment');
-  if (!backdrop) return;
-  // open: lock scroll
-  document.body.style.overflow = 'hidden';
-  function closeModal(){
-    document.body.style.overflow = '';
-    backdrop.style.display = 'none';
-  }
-  if (closeBtn) closeBtn.addEventListener('click', closeModal);
-  backdrop.addEventListener('click', function(e){
-    if (e.target === backdrop) closeModal();
-  });
-  window.addEventListener('keydown', function(e){
-    if (e.key === 'Escape') closeModal();
-  });
-})();
-</script>
 </body>
 </html>
