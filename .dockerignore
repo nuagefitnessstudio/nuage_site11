@@ -1,0 +1,27 @@
+# VCS & meta
+.git
+.gitignore
+.github
+.gitattributes
+.DS_Store
+Thumbs.db
+
+# Deps built inside the image
+vendor
+node_modules
+composer.phar
+
+# Logs / caches
+*.log
+var/log
+var/cache
+storage/logs
+storage/framework/*
+
+# Docker files themselves
+Dockerfile
+.dockerignore
+
+# Secrets (never send these)
+.env
+.env.*
