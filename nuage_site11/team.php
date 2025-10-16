@@ -1594,3 +1594,128 @@ function submitChoice(){
 
 </body>
 </html>
+
+
+
+<style>
+/* ===== NuAge Employment Modal — Focused Mobile Polish (scoped & overriding) ===== */
+#employmentModal.nuage-modal-backdrop {
+  padding: 16px;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0,0,0,0.6);
+  inset: 0;
+  position: fixed;
+  z-index: 9999;
+}
+
+#employmentModal .nuage-modal {
+  width: 100%;
+  max-width: 780px;
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 24px 60px rgba(0,0,0,.25);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+#employmentModal header {
+  background: var(--navy, #002D72);
+  color: #fff;
+  padding: 18px 22px;
+  font-weight: 700;
+  font-size: 18px;
+  letter-spacing: .02em;
+}
+
+#employmentModal .content {
+  padding: 24px;
+  max-height: 80vh;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch; /* smooth momentum scroll on iOS */
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* Scrollbar polish (non-critical) */
+#employmentModal .content::-webkit-scrollbar { width: 8px; }
+#employmentModal .content::-webkit-scrollbar-thumb { background: #cfcfcf; border-radius: 10px; }
+
+/* Inputs */
+#employmentModal .form-label { display:block; font-weight:600; margin-bottom:6px; color:#111; }
+#employmentModal .form-control,
+#employmentModal .form-select,
+#employmentModal textarea {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1.6px solid #ddd;
+  border-radius: 10px;
+  font-size: 16px;
+  background: #fff;
+  transition: border-color .2s ease, box-shadow .2s ease;
+}
+#employmentModal .form-control:focus,
+#employmentModal .form-select:focus,
+#employmentModal textarea:focus {
+  border-color: var(--navy, #002D72);
+  box-shadow: 0 0 0 3px rgba(0,45,114,0.10);
+  outline: none;
+}
+
+/* Grouping & grid */
+#employmentModal fieldset {
+  border: 1px solid #e6e6e6;
+  border-radius: 12px;
+  padding: 14px 16px;
+  background: #fafafa;
+}
+#employmentModal legend { font-size: 15px; font-weight: 600; color: #111; margin-bottom: 6px; }
+
+#employmentModal .row.g-3 {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+#employmentModal .col-md-6, 
+#employmentModal .col-md-4 {
+  flex: 1 1 260px;
+  min-width: 0;
+}
+
+/* Actions */
+#employmentModal .nuage-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  padding: 16px 22px;
+  border-top: 1px solid #eee;
+  background: #f9f9f9;
+}
+#employmentModal .nuage-btn {
+  border: none;
+  border-radius: 10px;
+  font-weight: 700;
+  cursor: pointer;
+  padding: 12px 20px;
+  transition: transform .15s ease, box-shadow .2s ease, background .2s ease;
+}
+#employmentModal .nuage-btn.primary { background: var(--coral, #EB1F48); color:#fff; }
+#employmentModal .nuage-btn.primary:hover { transform: translateY(-1px); box-shadow: 0 10px 22px rgba(235,31,72,.22); }
+#employmentModal .nuage-btn.ghost { background:#fff; border:1.5px solid #ccc; color:#333; }
+#employmentModal .nuage-btn.ghost:hover { transform: translateY(-1px); border-color: var(--navy, #002D72); color: var(--navy, #002D72); }
+
+/* Mobile stacking & sticky actions */
+@media (max-width: 640px) {
+  #employmentModal .nuage-modal { max-width: 95vw; border-radius: 14px; }
+  #employmentModal .content { padding: 18px; gap: 16px; }
+  #employmentModal .row.g-3 { flex-direction: column; }
+  #employmentModal .nuage-actions {
+    position: sticky; bottom: 0; left: 0; right: 0;
+    flex-direction: column; align-items: stretch; gap: 10px;
+  }
+  #employmentModal .nuage-btn { width: 100%; font-size: 16px; }
+}
+</style>
