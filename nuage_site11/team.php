@@ -248,12 +248,6 @@ error_log('PHPMailer send result: ' . ($ok__injected ? 'OK' : $mail->ErrorInfo))
 ?>
 <?php
 // ================================
-// Employment Application Mailer (PHPMailer SMTP)
-// ================================
-
-
-<?php
-// ================================
 // Employment Application Mailer (NuAge Fitness Studio)
 // ================================
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['__employment_form'])) {
@@ -356,7 +350,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['__employment_form']))
 }
 ?>
 
-?>
 <?php
 // ================================
 // Employment Application Mailer (conflict-free)
