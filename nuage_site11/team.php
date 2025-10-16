@@ -252,9 +252,12 @@ error_log('PHPMailer send result: ' . ($ok__injected ? 'OK' : $mail->ErrorInfo))
 // ================================
 
 
-
+<?php
+// ================================
+// Employment Application Mailer (NuAge Fitness Studio)
+// ================================
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['__employment_form'])) {
-    // Simple sanitizers
+
     if (!function_exists('nuage_employ_clean')) {
         function nuage_employ_clean($s){ return trim(strip_tags($s ?? '')); }
     }
@@ -269,7 +272,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['__employment_form']))
     $hp_field  = trim($_POST['website'] ?? '');
 
     $ok = true; $errors = [];
-    if ($hp_field !== '') { $ok = false; }
+    if ($hp_field !== '') { $ok = false; } // honeypot
     if ($app_name === '') { $ok = false; $errors[] = "Name is required."; }
     if ($app_email === '') { $ok = false; $errors[] = "Valid email is required."; }
     if ($app_phone === '') { $ok = false; $errors[] = "Phone is required."; }
@@ -280,34 +283,68 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['__employment_form']))
             $mail = new \PHPMailer\PHPMailer\PHPMailer(true);
             $mail->isSMTP();
             $mail->Host       = getenv('SMTP_HOST') ?: 'smtp.office365.com';
-            $mail->SMTPAuth = true;
+            $mail->SMTPAuth   = true;
             $mail->SMTPAutoTLS = true;
             $mail->SMTPKeepAlive = false;
 
             $mail->Username   = ( getenv('SMTP_USERNAME') ?: 'info@nuagefitness-studio.com' );
-            $mail->Password   = ( getenv('SMTP_PASSWORD') ?: 'Nuagefitness24#' ); // <-- put your password or app password here
+            $mail->Password   = ( getenv('SMTP_PASSWORD') ?: 'Nuagefitness24#' );
             $mail->SMTPSecure = ( getenv('SMTP_ENCRYPTION') ?: \PHPMailer\PHPMailer\PHPMailer::ENCRYPTION_STARTTLS );
             $mail->Port       = (int)(getenv('SMTP_PORT') ?: 587);
 
             $mail->Sender = ( getenv('SMTP_USERNAME') ?: 'info@nuagefitness-studio.com' );
             $mail->setFrom( ( getenv('SMTP_FROM') ?: (getenv('SMTP_USERNAME') ?: 'info@nuagefitness-studio.com') ), 'NuAge Careers');
             $mail->addAddress( getenv('SMTP_USERNAME') ?: 'info@nuagefitness-studio.com' );
-            if ($app_email) {
-                $mail->addReplyTo($app_email, $app_name);
-            }
+            if ($app_email) $mail->addReplyTo($app_email, $app_name);
 
             $mail->isHTML(false);
             $mail->Subject = 'New Employment Application — NuAge Fitness Studio';
-            $mail->Body =
-                "A new employment inquiry was submitted:\n\n" .
-                "Name: {$app_name}\n" .
-                "Email: {$app_email}\n" .
-                "Phone: {$app_phone}\n" .
-                "Position: {$app_role}\n" .
-                "Submitted: " . date('Y-m-d H:i:s');
-            
+
+            // ===== Collect all fields =====
+            $body  = "A new employment inquiry was submitted:\n\n";
+            $body .= "Name: {$app_name}\n";
+            $body .= "Email: {$app_email}\n";
+            $body .= "Phone: {$app_phone}\n";
+            $body .= "Position: {$app_role}\n\n";
+
+            $body .= "Recent Job Title: " . ($_POST['recent_job_title'] ?? '') . "\n";
+            $body .= "Recent Employer: " . ($_POST['recent_employer'] ?? '') . "\n";
+            $body .= "Age 18+: " . ($_POST['age_over_18'] ?? '') . "\n";
+            $body .= "Certifications: " . (isset($_POST['certifications']) ? implode(', ', (array)$_POST['certifications']) : '') . "\n";
+            $body .= "Experience: " . ($_POST['experience'] ?? '') . "\n";
+            $body .= "CPR/AED Certification: " . ($_POST['cpr_cert'] ?? '') . "\n";
+            $body .= "Attended NuAge Class Before: " . ($_POST['attended_otf'] ?? '') . "\n";
+            $body .= "Availability: " . (isset($_POST['availability']) ? implode(', ', (array)$_POST['availability']) : '') . "\n";
+            $body .= "Referred by Employee: " . (!empty($_POST['referred_by_employee']) ? 'Yes' : 'No') . "\n\n";
+
+            // Add resume/cover letter text
+            if (!empty($_POST['resume_text'])) {
+                $body .= "Resume Text:\n" . $_POST['resume_text'] . "\n\n";
+            }
+            if (!empty($_POST['cover_letter_text'])) {
+                $body .= "Cover Letter:\n" . $_POST['cover_letter_text'] . "\n\n";
+            }
+
+            $body .= "Submitted: " . date('Y-m-d H:i:s') . "\n";
+
+            $mail->Body = $body;
+
+            // ===== Attach uploaded files (if present) =====
+            $attachments = [
+                'resume' => $_FILES['resume'] ?? null,
+                'cover_letter' => $_FILES['cover_letter'] ?? null
+            ];
+
+            foreach ($attachments as $key => $file) {
+                if (isset($file) && ($file['error'] ?? UPLOAD_ERR_NO_FILE) === UPLOAD_ERR_OK) {
+                    $filename = basename($file['name']);
+                    $mail->addAttachment($file['tmp_name'], $filename);
+                }
+            }
+
             $mail->send();
             echo "<script>window.addEventListener('DOMContentLoaded',function(){alert('Thank you — your application has been submitted!');});</script>";
+
         } catch (Exception $e) {
             $err = addslashes($mail->ErrorInfo ?? $e->getMessage());
             echo "<script>window.addEventListener('DOMContentLoaded',function(){alert('Mailer Error: {$err}');});</script>";
@@ -317,6 +354,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['__employment_form']))
         echo "<script>window.addEventListener('DOMContentLoaded',function(){alert('Please fix the following:\\n{$msg}');});</script>";
     }
 }
+?>
+
 ?>
 <?php
 // ================================
