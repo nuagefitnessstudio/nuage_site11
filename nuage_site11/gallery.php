@@ -666,6 +666,7 @@ document.addEventListener('DOMContentLoaded', function(){
 </script>
 
 
+    <!-- App Download Modal -->
 <!-- App Download Modal -->
 <div id="appModal" class="modal-overlay" style="display:none;">
   <div class="modal-box">
@@ -684,11 +685,11 @@ document.addEventListener('DOMContentLoaded', function(){
     </div>
     <button class="modal-close" onclick="document.getElementById('appModal').style.display='none'">×</button>
   </div>
-</div>
+</div></div>
     
 <script>
-  function openModal(){ document.getElementById('appModal').classList.add('show'); }
-  function closeModal(){ document.getElementById('appModal').classList.remove('show'); }
+  function openModal(){ document.getElementById('appModal').style.display='block'; }
+  function closeModal(){ document.getElementById('appModal').style.display='none'; }
   function openLogin(){ openModal(); }
   // close on ESC
   document.addEventListener('keydown', (e)=>{ if(e.key==='Escape') closeModal(); });
@@ -707,6 +708,15 @@ document.addEventListener('DOMContentLoaded', function(){
       }
     });
   });
+</script>
+
+<script>
+document.addEventListener('keydown', (e)=>{ if(e.key==='Escape') closeModal(); });
+document.addEventListener('click', (e)=>{
+  const overlay = document.getElementById('appModal');
+  if (!overlay) return;
+  if (e.target === overlay) closeModal();
+});
 </script>
 </body>
 </html>
