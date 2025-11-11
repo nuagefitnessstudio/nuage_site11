@@ -695,17 +695,15 @@ a, button { -webkit-tap-highlight-color: transparent; }
      Facebook
   </a>
 </div>
+      
+    </div>
+  </section>
 
-<footer class="footer">
+  <footer class="footer">
   <div class="bottombar">
     <p>&copy; <?php echo date('Y'); ?> NuAge Fitness Studio. All rights reserved.</p>
   </div>
 </footer>
-
-
-      
-    </div>
-  </section>
 
 
 <!-- Reuse modal functions if present in pricing (optional) -->
