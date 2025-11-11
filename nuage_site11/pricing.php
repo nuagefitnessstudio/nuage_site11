@@ -581,13 +581,12 @@ a, button { -webkit-tap-highlight-color: transparent; }
 
 
 
-    /* === Pre-Sale Promo (Pricing) === */
-    /* === Pre‑Sale Promo (translucent coral, minimal) === */
+/* === Pre-Sale Promo (translucent coral, minimal) — canonical === */
 .promo-box{
   position:relative;
   width:min(92vw,980px);
-  margin:90px auto -24px; /* tucks under the pill navbar */
-  background: rgba(233,46,83,0.85); /* coral with transparency */
+  margin:30px auto -16px;         /* snug under pill navbar */
+  background: rgba(233,46,83,0.85);
   backdrop-filter: blur(6px);
   -webkit-backdrop-filter: blur(6px);
   color:#fff;
@@ -595,39 +594,14 @@ a, button { -webkit-tap-highlight-color: transparent; }
   font-weight:700;
   border-radius:14px;
   padding:14px 20px;
-  border:1px solid rgba(255,255,255,0.28); /* subtle edge, no glow */
-  box-shadow: 0 6px 18px rgba(0,0,0,0.08); /* soft drop for separation */
+  border:1px solid rgba(255,255,255,0.28);
+  box-shadow:0 6px 18px rgba(0,0,0,0.08);
   letter-spacing:.02em;
 }
-@media (max-width:640px){
-  .promo-box{ margin:82px auto -18px; font-size:14px; padding:12px 16px; }
-}.promo-box small{ display:block; font-weight:600; opacity:.95; }
-    @media (max-width:640px){ /* === Pre‑Sale Promo (translucent coral, minimal) === */
-.promo-box{
-  position:relative;
-  width:min(92vw,980px);
-  margin:90px auto -24px; /* tucks under the pill navbar */
-  background: rgba(233,46,83,0.85); /* coral with transparency */
-  backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px);
-  color:#fff;
-  text-align:center;
-  font-weight:700;
-  border-radius:14px;
-  padding:14px 20px;
-  border:1px solid rgba(255,255,255,0.28); /* subtle edge, no glow */
-  box-shadow: 0 6px 18px rgba(0,0,0,0.08); /* soft drop for separation */
-  letter-spacing:.02em;
-}
-@media (max-width:640px){ .promo-box{ margin:82px auto -18px; font-size:14px; padding:12px 16px; } }
+.promo-box small{ display:block; font-weight:600; opacity:.95; }
 
-
-  
-  
-/* promo-inline-fallback */
-.promo-box a{ color:#fff; text-decoration:underline; }
 @media (max-width:640px){
-  .promo-box{ margin:82px auto -18px !important; font-size:14px; padding:12px 16px !important; }
+  .promo-box{ margin:24px auto -12px; font-size:14px; padding:12px 16px; }
 }
 
 
