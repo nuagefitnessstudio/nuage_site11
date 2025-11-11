@@ -453,7 +453,18 @@ a, button { -webkit-tap-highlight-color: transparent; }
     .modal-actions{display:flex;gap:10px;justify-content:center;margin-top:10px}
     .modal-actions button{border:1px solid var(--line);background:#fff;border-radius:10px;padding:10px 14px;cursor:pointer}
     .modal-close{position:absolute;right:10px;top:10px;background:transparent;border:none;font-size:22px;line-height:1;cursor:pointer}
-    </style>
+    
+/* hero-ot from classes */
+.hero-ot{
+    min-height:40vh;
+    display:grid;
+    place-items:center;
+    text-align:center;
+    color:#fff;
+    background: var(--navy);
+  }
+  .hero-ot .hero-inner h1{font-size:clamp(2rem,5vw,3.5rem);margin:.25rem 0}
+</style>
 <body class="bg-bone" style="background:#fff">
 <div class="topbar" role="navigation" aria-label="Main">
   <div class="brand" aria-label="NuAge">
@@ -499,18 +510,18 @@ a, button { -webkit-tap-highlight-color: transparent; }
 
 <main>
   
-  <section class="hero-compact" style="background:var(--navy); color:#fff; padding:72px 16px;">
-    <div class="container" style="text-align:center; max-width:900px; margin:0 auto;">
-      <h1 class="title" style="font-size:clamp(36px,6vw,64px); margin:0 0 10px 0; color:#fff;">Gallery</h1>
-      <p class="muted" style="margin:0 auto 22px; color:#ffffffd9; max-width:720px;">
-        A peek inside NuAge: facilities, classes, and community.
-      </p>
+  
+  <section class="hero-ot">
+    <div class="hero-inner">
+      <h1>Gallery</h1>
+      <p>A peek inside NuAge: facilities, classes, and community.</p>
       <div class="cta-row">
         <a class="btn btn-primary" href="classes.php">View Classes</a>
         <a class="btn btn-light" href="index.php">Back Home</a>
       </div>
     </div>
   </section>
+
 
 
   <section class="section" style="padding:40px 16px;background:#fff">
