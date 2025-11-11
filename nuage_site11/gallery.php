@@ -463,9 +463,8 @@ a, button { -webkit-tap-highlight-color: transparent; }
     .modal-actions{display:flex;gap:10px;justify-content:center;margin-top:10px}
     .modal-actions button{border:1px solid var(--line);background:#fff;border-radius:10px;padding:10px 14px;cursor:pointer}
     .modal-close{position:absolute;right:10px;top:10px;background:transparent;border:none;font-size:22px;line-height:1;cursor:pointer}
-    
-/* hero-ot from classes */
-.hero-ot{
+
+    .hero-ot{
     min-height:40vh;
     display:grid;
     place-items:center;
@@ -474,6 +473,8 @@ a, button { -webkit-tap-highlight-color: transparent; }
     background: var(--navy);
   }
   .hero-ot .hero-inner h1{font-size:clamp(2rem,5vw,3.5rem);margin:.25rem 0}
+  .hero-ot .hero-inner p{opacity:.92;margin-bottom:1rem}
+  .hero-ot .cta-row{display:flex;gap:.75rem;justify-content:center;flex-wrap:wrap}
 
     /* Light band behind topbar to match Pricing header */
     
@@ -622,6 +623,19 @@ a, button { -webkit-tap-highlight-color: transparent; }
       </div>
     </div>
   </section>
+
+  <section class="hero-ot" style="min-height:30vh">
+  <div class="hero-inner">
+    <h2>Train with Intention</h2>
+    <p>Science-backed classes, motivating coaches, real results.</p>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="bottombar">
+    <p>&copy; <?php echo date('Y'); ?> NuAge Fitness Studio. All rights reserved.</p>
+  </div>
+</footer>
 
   <!-- Lightbox overlay + dialog -->
   <div id="lightboxOverlay" class="overlay" style="background:rgba(17,20,24,.6)" hidden aria-hidden="true"></div>
