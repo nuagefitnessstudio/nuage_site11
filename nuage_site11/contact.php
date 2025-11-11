@@ -653,7 +653,6 @@ a, button { -webkit-tap-highlight-color: transparent; }
       <h1>Contact</h1>
       <p>We’d love to hear from you. Reach out anytime.</p>
       <div class="cta-row">
-        <a class="btn btn-primary" href="classes.php">View Classes</a>
         <a class="btn btn-light" href="index.php">Back Home</a>
       </div>
     </div>
@@ -682,12 +681,29 @@ a, button { -webkit-tap-highlight-color: transparent; }
       <div style="margin-top:24px; text-align:center;">
         <h3 style="color:var(--navy); margin:0 0 8px;">Follow us</h3>
         <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;">
-          <a class="pill-link" href="#" aria-label="Instagram">Instagram</a>
-          <a class="pill-link" href="#" aria-label="Facebook">Facebook</a>
-          <a class="pill-link" href="#" aria-label="TikTok">TikTok</a>
-        </div>
-        <p class="muted" style="margin-top:8px;">Replace links with your official profiles when ready.</p>
-      </div>
+        <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
+  <a class="pill-link"
+     target="_blank"
+     rel="noopener"
+     href="https://www.instagram.com/nuage_fitness_studio?igsh=MWFoeXB4OXc5NDJuZg%3D%3D&utm_source=qr">
+     Instagram
+  </a>
+  <a class="pill-link"
+     target="_blank"
+     rel="noopener"
+     href="https://www.facebook.com/profile.php?id=61583193395222#">
+     Facebook
+  </a>
+</div>
+
+<footer class="footer">
+  <div class="bottombar">
+    <p>&copy; <?php echo date('Y'); ?> NuAge Fitness Studio. All rights reserved.</p>
+  </div>
+</footer>
+
+
+      
     </div>
   </section>
 
