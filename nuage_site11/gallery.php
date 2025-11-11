@@ -19,8 +19,8 @@
     h1{font-size:clamp(32px,5vw,54px);font-weight:600} h2{font-size:clamp(28px,3.5vw,40px);font-weight:600} h3{font-size:clamp(18px,2vw,22px);font-weight:600}
     a{color:inherit;text-decoration:none} .container{max-width:1200px;margin:0 auto;padding:0 24px}
 
-      /* ===== Topbar (hamburger) ===== */
-      .topbar{
+        /* ===== Topbar (hamburger) ===== */
+        .topbar{
       position:fixed;top:16px;left:50%;transform:translateX(-50%);
       display:flex;align-items:center;justify-content:center;gap:14px;
       width:min(92vw,980px);background:var(--pill);backdrop-filter:blur(8px);
@@ -136,13 +136,8 @@
     body{letter-spacing:.01em}
     h1{font-size:clamp(36px,6vw,72px); font-weight:600}
     h2{font-size:clamp(28px,4vw,44px); font-weight:600}
-    .topbar{
-      position:fixed;top:16px;left:50%;transform:translateX(-50%);
-      display:flex;align-items:center;justify-content:center;gap:14px;
-      width:min(92vw,980px);background:var(--pill);backdrop-filter:blur(8px);
-      border:1px solid rgba(0,0,0,.08);border-radius:999px;
-      padding:10px 16px;z-index:60
-    }
+    .topbar{width:min(94vw,1040px); background:var(--pill); box-shadow:var(--shadow)}
+    .topbar{ width:calc(100% - 20px); left:50%; transform:translateX(-50%); padding:10px 12px; }
     .pill-link{display:inline-flex;align-items:center;gap:10px;font-size:14px;letter-spacing:.04em;color:#2c2c2c;padding:8px 14px;border-radius:999px;transition:background .25s,transform .2s}
     .brand img{height:26px}
     .brand-name{font-weight:800;letter-spacing:.08em;color:var(--navy)}
@@ -253,14 +248,7 @@ video { display:block; object-fit: cover; }
 /* Container padding tighter on small screens */
 .container { padding-left: 16px; padding-right: 16px; }
 
-/* Topbar: full-bleed, thumb-friendly */
-.topbar{
-      position:fixed;top:16px;left:50%;transform:translateX(-50%);
-      display:flex;align-items:center;justify-content:center;gap:14px;
-      width:min(92vw,980px);background:var(--pill);backdrop-filter:blur(8px);
-      border:1px solid rgba(0,0,0,.08);border-radius:999px;
-      padding:10px 16px;z-index:60
-    }
+
 .hamburger{
       position:absolute;right:8px;top:50%;transform:translateY(-50%);
       display:inline-flex;align-items:center;justify-content:center;
@@ -463,6 +451,8 @@ a, button { -webkit-tap-highlight-color: transparent; }
 .btn{display:inline-block;font-weight:600;padding:.9rem 1.25rem;border-radius:.75rem;border:2px solid transparent;transition:transform .2s ease,opacity .2s ease}
   .btn:active{transform:scale(.98)}
   .btn-primary{background:var(--coral);color:#fff}
+  .btn-outline{border-color:#fff;color:#fff}
+  .btn-light{background:#fff;color:var(--navy)}
 
     /* === Member Login Modal (matches classes.php) === */
     .modal-overlay{display:flex;align-items:center;justify-content:center;position:fixed;inset:0;background:rgba(0,0,0,.6);align-items:center;justify-content:center;z-index:2000}
@@ -473,9 +463,8 @@ a, button { -webkit-tap-highlight-color: transparent; }
     .modal-actions{display:flex;gap:10px;justify-content:center;margin-top:10px}
     .modal-actions button{border:1px solid var(--line);background:#fff;border-radius:10px;padding:10px 14px;cursor:pointer}
     .modal-close{position:absolute;right:10px;top:10px;background:transparent;border:none;font-size:22px;line-height:1;cursor:pointer}
-    
-/* hero-ot from classes */
-.hero-ot{
+
+    .hero-ot{
     min-height:40vh;
     display:grid;
     place-items:center;
@@ -484,21 +473,30 @@ a, button { -webkit-tap-highlight-color: transparent; }
     background: var(--navy);
   }
   .hero-ot .hero-inner h1{font-size:clamp(2rem,5vw,3.5rem);margin:.25rem 0}
+  .hero-ot .hero-inner p{opacity:.92;margin-bottom:1rem}
+  .hero-ot .cta-row{display:flex;gap:.75rem;justify-content:center;flex-wrap:wrap}
 
-/* === Lightbox (fullscreen) === */
-.lightbox{position:fixed;inset:0;background:rgba(0,0,0,.88);display:none;align-items:center;justify-content:center;z-index:90;padding:24px;}
-.lightbox.open{display:flex;}
-.lightbox img{max-width:92vw;max-height:92vh;border-radius:12px;box-shadow:0 18px 48px rgba(0,0,0,.5);}
-.lightbox .lb-close{position:absolute;top:18px;right:18px;height:40px;width:40px;border-radius:999px;border:none;background:rgba(255,255,255,.12);color:#fff;font-size:22px;display:grid;place-items:center;cursor:pointer}
-.lightbox .lb-close:hover{background:rgba(255,255,255,.2)}
-/* Perf: cards don't render until needed */
-.gallery-card{content-visibility:auto;contain-intrinsic-size:260px;}
-</style>
+    /* Light band behind topbar to match Pricing header */
+    
+/* Header band to match Pricing */
+.header-band{
+  height:84px;
+  background:var(--bone);
+  box-shadow: inset 0 -1px rgba(0,0,0,0.04);
+}
+    @media (min-width:900px){ 
+/* Header band to match Pricing */
+.header-band{
+  height:84px;
+  background:var(--bone);
+  box-shadow: inset 0 -1px rgba(0,0,0,0.04);
+} }
+    </style>
 <body>
 
 <div class="topbar" role="navigation" aria-label="Main">
   <div class="brand" aria-label="NuAge">
-    <a href="#" class="glink" aria-label="Expand image"><img loading="eager" referrerpolicy="no-referrer" src="assets/IMG_2413.png" data-full="assets/IMG_2413.png" alt="NuAge logo"></a>
+    <img loading="eager" referrerpolicy="no-referrer" src="assets/IMG_2413.png" alt="NuAge logo">
     <div class="brand-name">
       <span style="color:var(--navy);">Nu</span><span style="color:var(--coral);">Age</span>
       <span style="color:var(--navy);">Fitness</span>
@@ -534,6 +532,8 @@ a, button { -webkit-tap-highlight-color: transparent; }
     <a href="classes.php">Classes</a>
     <a href="team.php">Meet the Team</a>
     <a href="pricing.php">Pricing</a>
+    <a href="gallery.php">Gym Gallery</a>
+    <a href="contact.php">Contact</a>
   </nav>
 </aside>
 
@@ -541,12 +541,12 @@ a, button { -webkit-tap-highlight-color: transparent; }
 <main>
   
   
+  <div class="header-band"></div>
   <section class="hero-ot">
     <div class="hero-inner">
       <h1>Gallery</h1>
       <p>A peek inside NuAge: facilities, classes, and community.</p>
       <div class="cta-row">
-        <a class="btn btn-primary" href="classes.php">View Classes</a>
         <a class="btn btn-light" href="index.php">Back Home</a>
       </div>
     </div>
@@ -559,71 +559,59 @@ a, button { -webkit-tap-highlight-color: transparent; }
       <div id="galleryGrid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:16px">
         
     <figure class="card" style="background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden;box-shadow:0 10px 28px rgba(0,0,0,.08);transition:transform .2s, box-shadow .2s">
-      <img src="https://picsum.photos/id/1011/1200/900" alt="" loading="lazy" style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block">
+      <img src="assets/IMG_9437.jpeg" alt="" loading="lazy" style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block">
     </figure>
 
     <figure class="card" style="background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden;box-shadow:0 10px 28px rgba(0,0,0,.08);transition:transform .2s, box-shadow .2s">
-      <img src="https://picsum.photos/id/1012/1200/900" alt="" loading="lazy" style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block">
+      <img src="assets/IMG_9440.jpeg" alt="" loading="lazy" style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block">
     </figure>
 
     <figure class="card" style="background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden;box-shadow:0 10px 28px rgba(0,0,0,.08);transition:transform .2s, box-shadow .2s">
-      <img src="https://picsum.photos/id/1025/1200/900" alt="" loading="lazy" style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block">
+      <img src="assets/IMG_9442.jpeg" alt="" loading="lazy" style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block">
     </figure>
 
     <figure class="card" style="background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden;box-shadow:0 10px 28px rgba(0,0,0,.08);transition:transform .2s, box-shadow .2s">
-      <img src="https://picsum.photos/id/1005/1200/900" alt="" loading="lazy" style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block">
+      <img src="assets/IMG_9443.jpeg" alt="" loading="lazy" style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block">
+    </figure>
+
+
+    <figure class="card" style="background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden;box-shadow:0 10px 28px rgba(0,0,0,.08);transition:transform .2s, box-shadow .2s">
+      <img src="assets/IMG_9444.jpeg" alt="" loading="lazy" style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block">
     </figure>
 
     <figure class="card" style="background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden;box-shadow:0 10px 28px rgba(0,0,0,.08);transition:transform .2s, box-shadow .2s">
-      <img src="https://picsum.photos/id/1040/1200/900" alt="" loading="lazy" style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block">
+      <img src="assets/IMG_9445.jpeg" alt="" loading="lazy" style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block">
     </figure>
 
     <figure class="card" style="background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden;box-shadow:0 10px 28px rgba(0,0,0,.08);transition:transform .2s, box-shadow .2s">
-      <img src="https://picsum.photos/id/1039/1200/900" alt="" loading="lazy" style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block">
+      <img src="assets/IMG_9446.jpeg" alt="" loading="lazy" style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block">
     </figure>
 
     <figure class="card" style="background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden;box-shadow:0 10px 28px rgba(0,0,0,.08);transition:transform .2s, box-shadow .2s">
-      <img src="https://picsum.photos/id/1027/1200/900" alt="" loading="lazy" style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block">
+      <img src="assets/IMG_9447.jpeg" alt="" loading="lazy" style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block">
     </figure>
 
     <figure class="card" style="background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden;box-shadow:0 10px 28px rgba(0,0,0,.08);transition:transform .2s, box-shadow .2s">
-      <img src="https://picsum.photos/id/1067/1200/900" alt="" loading="lazy" style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block">
+      <img src="assets/IMG_9448.jpeg" alt="" loading="lazy" style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block">
     </figure>
 
     <figure class="card" style="background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden;box-shadow:0 10px 28px rgba(0,0,0,.08);transition:transform .2s, box-shadow .2s">
-      <img src="https://picsum.photos/id/1050/1200/900" alt="" loading="lazy" style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block">
+      <img src="assets/IMG_9452.jpeg" alt="" loading="lazy" style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block">
     </figure>
 
     <figure class="card" style="background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden;box-shadow:0 10px 28px rgba(0,0,0,.08);transition:transform .2s, box-shadow .2s">
-      <img src="https://picsum.photos/id/1062/1200/900" alt="" loading="lazy" style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block">
+      <img src="assets/IMG_9454.jpeg" alt="" loading="lazy" style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block">
     </figure>
 
-    <figure class="card" style="background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden;box-shadow:0 10px 28px rgba(0,0,0,.08);transition:transform .2s, box-shadow .2s">
-      <img src="https://picsum.photos/id/1074/1200/900" alt="" loading="lazy" style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block">
-    </figure>
-
-    <figure class="card" style="background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden;box-shadow:0 10px 28px rgba(0,0,0,.08);transition:transform .2s, box-shadow .2s">
-      <img src="https://picsum.photos/id/1084/1200/900" alt="" loading="lazy" style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block">
-    </figure>
-
-    <figure class="card" style="background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden;box-shadow:0 10px 28px rgba(0,0,0,.08);transition:transform .2s, box-shadow .2s">
-      <img src="https://picsum.photos/id/1082/1200/900" alt="" loading="lazy" style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block">
-    </figure>
-
-    <figure class="card" style="background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden;box-shadow:0 10px 28px rgba(0,0,0,.08);transition:transform .2s, box-shadow .2s">
-      <img src="https://picsum.photos/id/1080/1200/900" alt="" loading="lazy" style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block">
-    </figure>
-
-    <figure class="card" style="background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden;box-shadow:0 10px 28px rgba(0,0,0,.08);transition:transform .2s, box-shadow .2s">
-      <img src="https://picsum.photos/id/1069/1200/900" alt="" loading="lazy" style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block">
-    </figure>
-
-    <figure class="card" style="background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden;box-shadow:0 10px 28px rgba(0,0,0,.08);transition:transform .2s, box-shadow .2s">
-      <img src="https://picsum.photos/id/1015/1200/900" alt="" loading="lazy" style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block">
-    </figure>
       </div>
     </div>
   </section>
+
+<footer class="footer">
+  <div class="bottombar">
+    <p>&copy; <?php echo date('Y'); ?> NuAge Fitness Studio. All rights reserved.</p>
+  </div>
+</footer>
 
   <!-- Lightbox overlay + dialog -->
   <div id="lightboxOverlay" class="overlay" style="background:rgba(17,20,24,.6)" hidden aria-hidden="true"></div>
@@ -757,41 +745,6 @@ document.addEventListener('click', (e)=>{
   const overlay = document.getElementById('appModal');
   if (!overlay) return;
   if (e.target === overlay) closeModal();
-});
-</script>
-
-<div id="lightbox" class="lightbox" aria-hidden="true" role="dialog">
-  <button class="lb-close" aria-label="Close">×</button>
-  <img id="lbImg" alt="Expanded image">
-</div>
-
-<script>
-document.addEventListener('DOMContentLoaded', function(){
-  const overlay = document.getElementById('lightbox');
-  const lbImg = document.getElementById('lbImg');
-  const closeBtn = overlay.querySelector('.lb-close');
-  function openLB(src){
-    // preload for snappier open
-    const pre = new Image();
-    pre.onload = () => { lbImg.src = src; overlay.classList.add('open'); document.body.style.overflow='hidden'; };
-    pre.src = src;
-  }
-  function closeLB(){
-    overlay.classList.remove('open');
-    document.body.style.overflow='';
-    lbImg.src = '';
-  }
-  document.querySelectorAll('.glink').forEach(a=>{
-    a.addEventListener('click', (e)=>{
-      e.preventDefault();
-      const img = a.querySelector('img');
-      const src = img?.getAttribute('data-full') || img?.getAttribute('src');
-      if (src) openLB(src);
-    });
-  });
-  closeBtn.addEventListener('click', closeLB);
-  overlay.addEventListener('click', (e)=>{ if(e.target===overlay) closeLB(); });
-  window.addEventListener('keydown', (e)=>{ if(e.key==='Escape') closeLB(); });
 });
 </script>
 </body>
