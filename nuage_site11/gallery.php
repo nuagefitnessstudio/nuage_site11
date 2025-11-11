@@ -76,7 +76,7 @@
     .hero-center{position:absolute;inset:0;display:grid;place-items:center;text-align:center;z-index:1;padding:0 16px}
     .hero-center h1{text-shadow:0 2px 16px rgba(0,0,0,.35);color:#fff}
 
-    .split{display:grid;grid-template-columns:1.15fr 1fr;min-height:90svh;background:var(--bone)}
+    .split{display:grid;grid-template-columns:1.15fr 1fr;min-height:90svh;background:#fff}
     .split .visual{position:relative;overflow:hidden}
     .split .visual img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transform:scale(1.03)}
     .split .text{padding:72px 32px;display:flex;align-items:center}
@@ -91,18 +91,18 @@
     .bleed .inner{position:relative;z-index:1;padding:48px 16px}
     .btn{display:inline-block;border:1px solid #ffffffcc;color:#fff;padding:12px 22px;border-radius:10px;letter-spacing:.08em;font-size:14px}
 
-    .tiles{background:var(--bone);padding:56px 24px 72px}
+    .tiles{background:#fff;padding:56px 24px 72px}
     .tile-grid{display:grid;gap:24px;grid-template-columns:repeat(2,minmax(0,1fr))}
     .tile{position:relative;border-radius:18px;overflow:hidden;color:#fff;min-height:52svh;display:flex;align-items:flex-end;box-shadow:0 10px 28px rgba(0,0,0,.12)}
     .tile img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:brightness(.8)}
     .tile .copy{position:relative;z-index:1;padding:24px}
     .tag{font-family:'Playfair Display',serif;font-size:clamp(28px,3.5vw,44px);font-weight:600;letter-spacing:.02em;margin-bottom:.4rem}
 
-    .amen{background:var(--bone); padding:56px 24px 72px}
+    .amen{background:#fff; padding:56px 24px 72px}
     .grid6{display:grid; grid-template-columns:repeat(6,1fr); gap:14px}
     .grid6 img{width:100%; height:160px; object-fit:cover; border-radius:12px}
 
-    .legal{background:var(--bone);padding:48px 24px 24px;color:#51493f}
+    .legal{background:#fff;padding:48px 24px 24px;color:#51493f}
     .links{display:grid;gap:24px;padding:24px;grid-template-columns:repeat(4,minmax(0,1fr))}
     .bottombar{padding:20px 24px 28px;display:flex;align-items:center;justify-content:space-between;gap:16px;color:#6a6d74;font-size:14px}
     .closing {
@@ -141,7 +141,7 @@
     .hero{height:92svh; min-height:620px}
     .hero::after{background:linear-gradient(180deg,rgba(0,0,0,.15),rgba(0,0,0,.45) 55%,rgba(0,0,0,.35))}
     .hero .hero-center h1{font-size:clamp(40px,6.2vw,84px); text-shadow:0 12px 40px rgba(0,0,0,.45)}
-    .split{background:var(--bone)}
+    .split{background:#fff}
     .split .text{padding:88px 40px}
     .eyebrow{color:#7f786e; letter-spacing:.22em}
     .divider{background:var(--line); margin:34px 0}
@@ -431,8 +431,15 @@ a, button { -webkit-tap-highlight-color: transparent; }
 .note { color: var(--muted); font-style: italic; }
 }
 
-</style>
-<body class="bg-bone" style="background:var(--bone)">
+
+    /* gallery custom */
+    #galleryGrid .card:hover{ transform:translateY(-2px); box-shadow:0 14px 34px rgba(0,0,0,.12); }
+    #galleryGrid img{ display:block; width:100%; height:100%; object-fit:cover; }
+    @media (max-width:768px){
+      .hero-compact{ padding:56px 16px; }
+    }
+    </style>
+<body class="bg-bone" style="background:#fff">
 <div class="topbar" role="navigation" aria-label="Main">
   <div class="brand" aria-label="NuAge">
     <img loading="eager" referrerpolicy="no-referrer" src="assets/IMG_2413.png" alt="NuAge logo">
@@ -452,7 +459,7 @@ a, button { -webkit-tap-highlight-color: transparent; }
 
 
 <!-- Drawer + overlay -->
-<div class="overlay" id="navOverlay" hidden></div>
+<div class="overlay" style="background:rgba(17,20,24,.6)" id="navOverlay" hidden></div>
 <aside class="drawer" id="navDrawer" hidden aria-hidden="true">
   <div class="drawer-header">
     <div class="brand">
@@ -476,103 +483,108 @@ a, button { -webkit-tap-highlight-color: transparent; }
 
 
 <main>
-  <section class="bleed" aria-label="Gallery hero">
-    <img src="assets/gallery-hero.jpg" alt="" aria-hidden="true" loading="lazy">
-    <div class="inner">
-      <h1 class="title" style="font-size:clamp(32px,5vw,56px);margin-bottom:10px;">Gallery</h1>
-      <p class="muted" style="max-width:680px;margin:0 auto 20px;">
+  
+  <section class="hero-compact" style="background:var(--navy); color:#fff; padding:72px 16px;">
+    <div class="container" style="text-align:center; max-width:900px; margin:0 auto;">
+      <h1 class="title" style="font-size:clamp(36px,6vw,64px); margin:0 0 10px 0; color:#fff;">Gallery</h1>
+      <p class="muted" style="margin:0 auto 22px; color:#ffffffd9; max-width:720px;">
         A peek inside NuAge: facilities, classes, and community.
       </p>
-      <div class="pill-row" style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:8px">
-        <button class="pill-link" data-filter="all">All</button>
-        <button class="pill-link" data-filter="facility">Facilities</button>
-        <button class="pill-link" data-filter="classes">Classes</button>
-        <button class="pill-link" data-filter="members">Members</button>
+      <div style="display:flex; gap:10px; justify-content:center; flex-wrap:wrap; margin-top:8px">
+        <button class="pill-link" data-filter="all" style="border:1px solid #ffffffcc; color:#fff; background:transparent;">All</button>
+        <button class="pill-link" data-filter="facility" style="border:1px solid #ffffffcc; color:#fff; background:transparent;">Facilities</button>
+        <button class="pill-link" data-filter="classes" style="border:1px solid #ffffffcc; color:#fff; background:transparent;">Classes</button>
+        <button class="pill-link" data-filter="members" style="border:1px solid #ffffffcc; color:#fff; background:transparent;">Members</button>
+      </div>
+      <div style="margin-top:22px; display:flex; gap:12px; justify-content:center;">
+        <a href="pricing.php" class="btn btn-primary" style="text-decoration:none;">See Pricing</a>
+        <a href="index.php" class="btn btn-light" style="text-decoration:none;">Back Home</a>
       </div>
     </div>
   </section>
 
-  <section class="section" style="padding:40px 16px;background:var(--bone)">
+
+  <section class="section" style="padding:40px 16px;background:#fff">
     <div class="container">
       <div id="galleryGrid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:16px">
         
-    <figure class="card" data-tags="facility" style="background:#fff;border:1px solid var(--line);border-radius:16px;overflow:hidden;box-shadow:0 6px 20px rgba(0,0,0,.06)">
-      <img src="https://picsum.photos/id/1011/1200/900" alt="" loading="lazy" style="width:100%;height:240px;object-fit:cover;display:block">
+    <figure class="card" style="background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden;box-shadow:0 10px 28px rgba(0,0,0,.08);transition:transform .2s, box-shadow .2s">
+      <img src="https://picsum.photos/id/1011/1200/900" alt="" loading="lazy" style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block">
       <figcaption style="padding:12px 14px;font-size:14px;color:var(--muted);text-transform:capitalize">facility</figcaption>
     </figure>
 
-    <figure class="card" data-tags="facility" style="background:#fff;border:1px solid var(--line);border-radius:16px;overflow:hidden;box-shadow:0 6px 20px rgba(0,0,0,.06)">
-      <img src="https://picsum.photos/id/1012/1200/900" alt="" loading="lazy" style="width:100%;height:240px;object-fit:cover;display:block">
+    <figure class="card" style="background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden;box-shadow:0 10px 28px rgba(0,0,0,.08);transition:transform .2s, box-shadow .2s">
+      <img src="https://picsum.photos/id/1012/1200/900" alt="" loading="lazy" style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block">
       <figcaption style="padding:12px 14px;font-size:14px;color:var(--muted);text-transform:capitalize">facility</figcaption>
     </figure>
 
-    <figure class="card" data-tags="classes" style="background:#fff;border:1px solid var(--line);border-radius:16px;overflow:hidden;box-shadow:0 6px 20px rgba(0,0,0,.06)">
-      <img src="https://picsum.photos/id/1025/1200/900" alt="" loading="lazy" style="width:100%;height:240px;object-fit:cover;display:block">
+    <figure class="card" style="background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden;box-shadow:0 10px 28px rgba(0,0,0,.08);transition:transform .2s, box-shadow .2s">
+      <img src="https://picsum.photos/id/1025/1200/900" alt="" loading="lazy" style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block">
       <figcaption style="padding:12px 14px;font-size:14px;color:var(--muted);text-transform:capitalize">classes</figcaption>
     </figure>
 
-    <figure class="card" data-tags="members" style="background:#fff;border:1px solid var(--line);border-radius:16px;overflow:hidden;box-shadow:0 6px 20px rgba(0,0,0,.06)">
-      <img src="https://picsum.photos/id/1005/1200/900" alt="" loading="lazy" style="width:100%;height:240px;object-fit:cover;display:block">
+    <figure class="card" style="background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden;box-shadow:0 10px 28px rgba(0,0,0,.08);transition:transform .2s, box-shadow .2s">
+      <img src="https://picsum.photos/id/1005/1200/900" alt="" loading="lazy" style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block">
       <figcaption style="padding:12px 14px;font-size:14px;color:var(--muted);text-transform:capitalize">members</figcaption>
     </figure>
 
-    <figure class="card" data-tags="classes" style="background:#fff;border:1px solid var(--line);border-radius:16px;overflow:hidden;box-shadow:0 6px 20px rgba(0,0,0,.06)">
-      <img src="https://picsum.photos/id/1040/1200/900" alt="" loading="lazy" style="width:100%;height:240px;object-fit:cover;display:block">
+    <figure class="card" style="background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden;box-shadow:0 10px 28px rgba(0,0,0,.08);transition:transform .2s, box-shadow .2s">
+      <img src="https://picsum.photos/id/1040/1200/900" alt="" loading="lazy" style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block">
       <figcaption style="padding:12px 14px;font-size:14px;color:var(--muted);text-transform:capitalize">classes</figcaption>
     </figure>
 
-    <figure class="card" data-tags="facility" style="background:#fff;border:1px solid var(--line);border-radius:16px;overflow:hidden;box-shadow:0 6px 20px rgba(0,0,0,.06)">
-      <img src="https://picsum.photos/id/1039/1200/900" alt="" loading="lazy" style="width:100%;height:240px;object-fit:cover;display:block">
+    <figure class="card" style="background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden;box-shadow:0 10px 28px rgba(0,0,0,.08);transition:transform .2s, box-shadow .2s">
+      <img src="https://picsum.photos/id/1039/1200/900" alt="" loading="lazy" style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block">
       <figcaption style="padding:12px 14px;font-size:14px;color:var(--muted);text-transform:capitalize">facility</figcaption>
     </figure>
 
-    <figure class="card" data-tags="members" style="background:#fff;border:1px solid var(--line);border-radius:16px;overflow:hidden;box-shadow:0 6px 20px rgba(0,0,0,.06)">
-      <img src="https://picsum.photos/id/1027/1200/900" alt="" loading="lazy" style="width:100%;height:240px;object-fit:cover;display:block">
+    <figure class="card" style="background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden;box-shadow:0 10px 28px rgba(0,0,0,.08);transition:transform .2s, box-shadow .2s">
+      <img src="https://picsum.photos/id/1027/1200/900" alt="" loading="lazy" style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block">
       <figcaption style="padding:12px 14px;font-size:14px;color:var(--muted);text-transform:capitalize">members</figcaption>
     </figure>
 
-    <figure class="card" data-tags="classes" style="background:#fff;border:1px solid var(--line);border-radius:16px;overflow:hidden;box-shadow:0 6px 20px rgba(0,0,0,.06)">
-      <img src="https://picsum.photos/id/1067/1200/900" alt="" loading="lazy" style="width:100%;height:240px;object-fit:cover;display:block">
+    <figure class="card" style="background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden;box-shadow:0 10px 28px rgba(0,0,0,.08);transition:transform .2s, box-shadow .2s">
+      <img src="https://picsum.photos/id/1067/1200/900" alt="" loading="lazy" style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block">
       <figcaption style="padding:12px 14px;font-size:14px;color:var(--muted);text-transform:capitalize">classes</figcaption>
     </figure>
 
-    <figure class="card" data-tags="facility" style="background:#fff;border:1px solid var(--line);border-radius:16px;overflow:hidden;box-shadow:0 6px 20px rgba(0,0,0,.06)">
-      <img src="https://picsum.photos/id/1050/1200/900" alt="" loading="lazy" style="width:100%;height:240px;object-fit:cover;display:block">
+    <figure class="card" style="background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden;box-shadow:0 10px 28px rgba(0,0,0,.08);transition:transform .2s, box-shadow .2s">
+      <img src="https://picsum.photos/id/1050/1200/900" alt="" loading="lazy" style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block">
       <figcaption style="padding:12px 14px;font-size:14px;color:var(--muted);text-transform:capitalize">facility</figcaption>
     </figure>
 
-    <figure class="card" data-tags="members" style="background:#fff;border:1px solid var(--line);border-radius:16px;overflow:hidden;box-shadow:0 6px 20px rgba(0,0,0,.06)">
-      <img src="https://picsum.photos/id/1062/1200/900" alt="" loading="lazy" style="width:100%;height:240px;object-fit:cover;display:block">
+    <figure class="card" style="background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden;box-shadow:0 10px 28px rgba(0,0,0,.08);transition:transform .2s, box-shadow .2s">
+      <img src="https://picsum.photos/id/1062/1200/900" alt="" loading="lazy" style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block">
       <figcaption style="padding:12px 14px;font-size:14px;color:var(--muted);text-transform:capitalize">members</figcaption>
     </figure>
 
-    <figure class="card" data-tags="classes" style="background:#fff;border:1px solid var(--line);border-radius:16px;overflow:hidden;box-shadow:0 6px 20px rgba(0,0,0,.06)">
-      <img src="https://picsum.photos/id/1074/1200/900" alt="" loading="lazy" style="width:100%;height:240px;object-fit:cover;display:block">
+    <figure class="card" style="background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden;box-shadow:0 10px 28px rgba(0,0,0,.08);transition:transform .2s, box-shadow .2s">
+      <img src="https://picsum.photos/id/1074/1200/900" alt="" loading="lazy" style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block">
       <figcaption style="padding:12px 14px;font-size:14px;color:var(--muted);text-transform:capitalize">classes</figcaption>
     </figure>
 
-    <figure class="card" data-tags="facility" style="background:#fff;border:1px solid var(--line);border-radius:16px;overflow:hidden;box-shadow:0 6px 20px rgba(0,0,0,.06)">
-      <img src="https://picsum.photos/id/1084/1200/900" alt="" loading="lazy" style="width:100%;height:240px;object-fit:cover;display:block">
+    <figure class="card" style="background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden;box-shadow:0 10px 28px rgba(0,0,0,.08);transition:transform .2s, box-shadow .2s">
+      <img src="https://picsum.photos/id/1084/1200/900" alt="" loading="lazy" style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block">
       <figcaption style="padding:12px 14px;font-size:14px;color:var(--muted);text-transform:capitalize">facility</figcaption>
     </figure>
 
-    <figure class="card" data-tags="members" style="background:#fff;border:1px solid var(--line);border-radius:16px;overflow:hidden;box-shadow:0 6px 20px rgba(0,0,0,.06)">
-      <img src="https://picsum.photos/id/1082/1200/900" alt="" loading="lazy" style="width:100%;height:240px;object-fit:cover;display:block">
+    <figure class="card" style="background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden;box-shadow:0 10px 28px rgba(0,0,0,.08);transition:transform .2s, box-shadow .2s">
+      <img src="https://picsum.photos/id/1082/1200/900" alt="" loading="lazy" style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block">
       <figcaption style="padding:12px 14px;font-size:14px;color:var(--muted);text-transform:capitalize">members</figcaption>
     </figure>
 
-    <figure class="card" data-tags="classes" style="background:#fff;border:1px solid var(--line);border-radius:16px;overflow:hidden;box-shadow:0 6px 20px rgba(0,0,0,.06)">
-      <img src="https://picsum.photos/id/1080/1200/900" alt="" loading="lazy" style="width:100%;height:240px;object-fit:cover;display:block">
+    <figure class="card" style="background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden;box-shadow:0 10px 28px rgba(0,0,0,.08);transition:transform .2s, box-shadow .2s">
+      <img src="https://picsum.photos/id/1080/1200/900" alt="" loading="lazy" style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block">
       <figcaption style="padding:12px 14px;font-size:14px;color:var(--muted);text-transform:capitalize">classes</figcaption>
     </figure>
 
-    <figure class="card" data-tags="facility" style="background:#fff;border:1px solid var(--line);border-radius:16px;overflow:hidden;box-shadow:0 6px 20px rgba(0,0,0,.06)">
-      <img src="https://picsum.photos/id/1069/1200/900" alt="" loading="lazy" style="width:100%;height:240px;object-fit:cover;display:block">
+    <figure class="card" style="background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden;box-shadow:0 10px 28px rgba(0,0,0,.08);transition:transform .2s, box-shadow .2s">
+      <img src="https://picsum.photos/id/1069/1200/900" alt="" loading="lazy" style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block">
       <figcaption style="padding:12px 14px;font-size:14px;color:var(--muted);text-transform:capitalize">facility</figcaption>
     </figure>
 
-    <figure class="card" data-tags="members" style="background:#fff;border:1px solid var(--line);border-radius:16px;overflow:hidden;box-shadow:0 6px 20px rgba(0,0,0,.06)">
-      <img src="https://picsum.photos/id/1015/1200/900" alt="" loading="lazy" style="width:100%;height:240px;object-fit:cover;display:block">
+    <figure class="card" style="background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden;box-shadow:0 10px 28px rgba(0,0,0,.08);transition:transform .2s, box-shadow .2s">
+      <img src="https://picsum.photos/id/1015/1200/900" alt="" loading="lazy" style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block">
       <figcaption style="padding:12px 14px;font-size:14px;color:var(--muted);text-transform:capitalize">members</figcaption>
     </figure>
       </div>
@@ -580,7 +592,7 @@ a, button { -webkit-tap-highlight-color: transparent; }
   </section>
 
   <!-- Lightbox overlay + dialog -->
-  <div id="lightboxOverlay" class="overlay" hidden aria-hidden="true"></div>
+  <div id="lightboxOverlay" class="overlay" style="background:rgba(17,20,24,.6)" hidden aria-hidden="true"></div>
   <dialog id="lightboxDialog" style="border:none;border-radius:16px;padding:0;max-width:min(92vw,1080px)">
     <img id="lightboxImg" src="" alt="Expanded photo" style="display:block;width:100%;height:auto">
   </dialog>
