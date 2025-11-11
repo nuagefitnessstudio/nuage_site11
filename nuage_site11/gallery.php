@@ -1,40 +1,3 @@
-<?php
-// NuAge Fitness — Gallery (auto-load all images in /assets/gallery)
-$galleryDir = __DIR__ . '/assets/gallery';
-$webPrefix  = 'assets/gallery'; // web path used in <img src>
-
-$exts = ['jpg','jpeg','png','webp','JPG','JPEG','PNG','WEBP'];
-$files = [];
-if (is_dir($galleryDir)) {
-    foreach (scandir($galleryDir) as $f) {
-        $path = $galleryDir . DIRECTORY_SEPARATOR . $f;
-        if (is_file($path)) {
-            $ext = pathinfo($path, PATHINFO_EXTENSION);
-            if (in_array($ext, $exts, true)) {
-                $files[] = $f;
-            }
-        }
-    }
-    // natural sort so "1,2,10" is correct
-    natsort($files);
-    $files = array_values($files);
-}
-
-// Optional: seed titles map (filename => caption)
-$titles = [
-    '81676E0C-A9E9-44E6-9CC8-2A6F1B81D026.jpeg' => 'Strength Zone (wide)',
-    '3A0BDC6A-0AF1-495E-A088-BA7A7A19C72D.jpeg' => 'Strength Zone (center)',
-    '008F618D-22D1-4A3D-9E7A-2868F3FAD12D.jpeg' => 'Rig & Turf',
-    '1148A97C-8A51-45BA-830F-7928769E2747.jpeg' => 'Torque Bays',
-    '63C7A6E9-51C7-4A6E-BCFF-C01B7E0D19ED.jpeg' => 'Blue Turf & Sled',
-    'A3EB1C79-E6FD-46E7-B149-E7C476E7C7F5.jpeg' => 'Cardio Corner',
-    'E82960DE-9E08-4134-BF21-2960D7651113.jpeg' => 'Dumbbells + Mirror',
-    'E61F46AB-E8F1-47B9-9733-199F9ACA8CE2.jpeg' => 'Rowers + Echo Bike',
-    'AD8C1A0B-13B3-46CD-9FA7-920320D09EDF.jpeg' => 'Cardio Lineup',
-    'E98AC29D-82B2-4D0A-977E-1D00356626C9.jpeg' => 'Strength Rigs',
-    'A8C5943E-02D5-42BB-9DF9-577B8A56FB34.jpeg' => 'Mirror Wall',
-];
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -50,7 +13,7 @@ $titles = [
     h1{font-size:clamp(40px,6vw,68px);font-weight:700}
     .container{max-width:1200px;margin:0 auto;padding:0 24px}
 
-    /* Floating rounded navbar like Classes */
+    /* Floating rounded navbar (matches Classes page) */
     .topbar{position:fixed;top:16px;left:50%;transform:translateX(-50%);width:min(92vw,980px);z-index:60}
     .topbar-inner{position:relative;height:56px;display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,.96);backdrop-filter:blur(8px);border:1px solid rgba(0,0,0,.08);border-radius:999px;box-shadow:0 10px 26px rgba(0,0,0,.08);padding:10px 16px}
     .brand{display:flex;align-items:center;gap:10px}
@@ -70,16 +33,16 @@ $titles = [
     .pill{display:inline-flex;align-items:center;justify-content:center;padding:11px 16px;border-radius:999px;border:1px solid #e8e8e8;background:#f7f7f7;font-weight:700}
     .pill.primary{background:#0d2a55;color:#fff;border-color:#0d2a55}
 
-    /* Navy hero */
+    /* Hero */
     .hero{background:var(--navy);color:#fff;text-align:center;padding:110px 16px 90px}
     .hero p{opacity:.95;margin:8px 0 0}
 
-    /* Gallery grid (classes vibe: rounded, light border) */
+    /* Gallery grid styled like Classes cards */
     .wrap{background:var(--bone);border-top:1px solid var(--line);padding:48px 0}
     .grid{display:grid;grid-template-columns:repeat(1,1fr);gap:16px}
-    @media(min-width:560px){.grid{grid-template-columns:repeat(2,1fr)}}
-    @media(min-width:900px){.grid{grid-template-columns:repeat(3,1fr)}}
-    @media(min-width:1200px){.grid{grid-template-columns:repeat(4,1fr)}}
+    @media(min-width:700px){.grid{grid-template-columns:repeat(2,1fr)}}
+    @media(min-width:1024px){.grid{grid-template-columns:repeat(3,1fr)}}
+    @media(min-width:1280px){.grid{grid-template-columns:repeat(4,1fr)}}
     .tile{position:relative;border:1px solid var(--line);border-radius:16px;overflow:hidden;background:#fff}
     .ratio{width:100%;padding-top:72%;position:relative}
     .ratio>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .35s}
@@ -91,6 +54,11 @@ $titles = [
     .lb.open{display:flex}
     .lb img{max-width:92vw;max-height:86vh;border-radius:16px;box-shadow:0 24px 80px rgba(0,0,0,.55)}
     .lb .x{position:fixed;top:18px;right:22px;font-size:34px;background:transparent;border:none;color:#fff;cursor:pointer}
+
+    /* CTA band + footer */
+    .cta-band{background:var(--navy);color:#fff;text-align:center;padding:68px 16px}
+    .cta-band p{opacity:.9;margin:8px 0 0}
+    footer{padding:30px 0;color:#7a7e85;text-align:center;font-size:14px}
   </style>
 </head>
 <body>
@@ -132,43 +100,106 @@ $titles = [
   <section class="hero">
     <div class="container">
       <h1>Gallery</h1>
-      <p>All photos load automatically from <code>/assets/gallery</code>. Just drop more in.</p>
+      <p>Replace the placeholder image paths with your own photos in <code>assets/gallery/</code>.</p>
     </div>
   </section>
 
-  <!-- Gallery Grid -->
+  <!-- Static Gallery Grid (placeholders you can replace) -->
   <section class="wrap">
     <div class="container">
       <div class="grid">
-        <?php foreach ($files as $f): 
-          $src = $webPrefix . '/' . rawurlencode($f);
-          $title = $titles[$f] ?? pathinfo($f, PATHINFO_FILENAME);
-        ?>
+        <!-- Each tile: change the src to your real file -->
         <figure class="tile">
           <div class="ratio">
-            <img src="<?php echo htmlspecialchars($src, ENT_QUOTES); ?>" alt="<?php echo htmlspecialchars($title, ENT_QUOTES); ?>" loading="lazy" onclick="openLB('<?php echo htmlspecialchars($src, ENT_QUOTES); ?>','<?php echo htmlspecialchars($title, ENT_QUOTES); ?>')">
+            <img src="assets/gallery/placeholder-01.jpg" alt="Main Floor" onclick="openLB(this.src, this.alt)" loading="lazy">
           </div>
-          <figcaption class="cap"><?php echo htmlspecialchars($title); ?></figcaption>
+          <figcaption class="cap">Main Floor</figcaption>
         </figure>
-        <?php endforeach; ?>
+        <figure class="tile">
+          <div class="ratio">
+            <img src="assets/gallery/placeholder-02.jpg" alt="Strength Rig" onclick="openLB(this.src, this.alt)" loading="lazy">
+          </div>
+          <figcaption class="cap">Strength Rig</figcaption>
+        </figure>
+        <figure class="tile">
+          <div class="ratio">
+            <img src="assets/gallery/placeholder-03.jpg" alt="Cardio Lineup" onclick="openLB(this.src, this.alt)" loading="lazy">
+          </div>
+          <figcaption class="cap">Cardio Lineup</figcaption>
+        </figure>
+        <figure class="tile">
+          <div class="ratio">
+            <img src="assets/gallery/placeholder-04.jpg" alt="Blue Turf" onclick="openLB(this.src, this.alt)" loading="lazy">
+          </div>
+          <figcaption class="cap">Blue Turf</figcaption>
+        </figure>
+        <figure class="tile">
+          <div class="ratio">
+            <img src="assets/gallery/placeholder-05.jpg" alt="Dumbbells" onclick="openLB(this.src, this.alt)" loading="lazy">
+          </div>
+          <figcaption class="cap">Dumbbells</figcaption>
+        </figure>
+        <figure class="tile">
+          <div class="ratio">
+            <img src="assets/gallery/placeholder-06.jpg" alt="Rowers & Echo Bike" onclick="openLB(this.src, this.alt)" loading="lazy">
+          </div>
+          <figcaption class="cap">Rowers & Echo Bike</figcaption>
+        </figure>
+        <figure class="tile">
+          <div class="ratio">
+            <img src="assets/gallery/placeholder-07.jpg" alt="Mirror Wall" onclick="openLB(this.src, this.alt)" loading="lazy">
+          </div>
+          <figcaption class="cap">Mirror Wall</figcaption>
+        </figure>
+        <figure class="tile">
+          <div class="ratio">
+            <img src="assets/gallery/placeholder-08.jpg" alt="Torque Bays" onclick="openLB(this.src, this.alt)" loading="lazy">
+          </div>
+          <figcaption class="cap">Torque Bays</figcaption>
+        </figure>
+        <figure class="tile">
+          <div class="ratio">
+            <img src="assets/gallery/placeholder-09.jpg" alt="Functional Zone" onclick="openLB(this.src, this.alt)" loading="lazy">
+          </div>
+          <figcaption class="cap">Functional Zone</figcaption>
+        </figure>
+        <figure class="tile">
+          <div class="ratio">
+            <img src="assets/gallery/placeholder-10.jpg" alt="Sled & Ropes" onclick="openLB(this.src, this.alt)" loading="lazy">
+          </div>
+          <figcaption class="cap">Sled & Ropes</figcaption>
+        </figure>
+        <figure class="tile">
+          <div class="ratio">
+            <img src="assets/gallery/placeholder-11.jpg" alt="Weightlifting Area" onclick="openLB(this.src, this.alt)" loading="lazy">
+          </div>
+          <figcaption class="cap">Weightlifting Area</figcaption>
+        </figure>
+        <figure class="tile">
+          <div class="ratio">
+            <img src="assets/gallery/placeholder-12.jpg" alt="Member View" onclick="openLB(this.src, this.alt)" loading="lazy">
+          </div>
+          <figcaption class="cap">Member View</figcaption>
+        </figure>
       </div>
     </div>
   </section>
 
-  <!-- CTA band (same vibe as Classes) -->
-  <section style="background:var(--navy);color:#fff;text-align:center;padding:68px 16px">
+  <!-- CTA band -->
+  <section class="cta-band">
     <div class="container">
       <h2 style="font-family:'Playfair Display',serif;margin:0 0 .25em">Train with Intention</h2>
-      <p style="opacity:.9;margin:8px 0 0">Science-backed classes, motivating coaches, real results.</p>
+      <p>Science-backed classes, motivating coaches, real results.</p>
     </div>
   </section>
 
-  <footer class="container" style="color:#7a7e85;text-align:center;padding:30px 0;font-size:14px">
-    © <?php echo date('Y'); ?> NuAge Fitness Studio. All rights reserved.
-  </footer>
+  <footer class="container">© <span id="y"></span> NuAge Fitness Studio. All rights reserved.</footer>
 
 <script>
-// Drawer behavior
+// Year
+document.getElementById('y').textContent = new Date().getFullYear();
+
+// Drawer behavior (same IDs as Classes page)
 const navToggle = document.getElementById('navToggle');
 const navDrawer = document.getElementById('navDrawer');
 const navOverlay = document.getElementById('navOverlay');
@@ -192,13 +223,13 @@ function openModal(){ alert('Login modal would open here.'); }
 
 // Lightbox
 const lb = document.createElement('div'); lb.className='lb'; lb.innerHTML = '<button class="x" aria-label="Close">×</button>'; document.body.appendChild(lb);
-const img = document.createElement('img'); lb.appendChild(img);
+const lbImg = document.createElement('img'); lb.appendChild(lbImg);
 lb.querySelector('.x').onclick = ()=> lb.classList.remove('open');
 lb.addEventListener('click', (e)=>{ if(e.target === lb) lb.classList.remove('open'); });
 document.addEventListener('keydown', (e)=>{ if(e.key==='Escape') lb.classList.remove('open'); });
 
 function openLB(src, title){
-  img.src = src; img.alt = title || '';
+  lbImg.src = src; lbImg.alt = title || '';
   lb.classList.add('open');
 }
 </script>
