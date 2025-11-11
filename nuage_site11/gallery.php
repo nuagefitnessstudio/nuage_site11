@@ -1,5 +1,5 @@
 <?php
-// NuAge Fitness — Simple Gallery (no tabs/filters, themed to Classes page)
+// NuAge Fitness — Gallery (with same navbar & styling rhythm as Classes page)
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -12,42 +12,62 @@
     :root{ --ink:#111418; --muted:#6a6d74; --line:#e9e6e1; --bone:#faf7f2; --navy:#002D72; --coral:#EB1F48; }
     *{box-sizing:border-box} html,body{height:100%}
     body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,Helvetica,sans-serif;line-height:1.6;background:#fff;color:var(--ink)}
-    h1{font-family:'Playfair Display',serif;font-weight:700;letter-spacing:.02em;font-size:clamp(40px,6vw,72px);line-height:1.15;margin:0}
+    h1,h2{font-family:'Playfair Display',serif;letter-spacing:.02em;line-height:1.15;margin:0 0 .25em}
+    h1{font-size:clamp(40px,6vw,72px);font-weight:800}
     .container{max-width:1200px;margin:0 auto;padding:0 24px}
 
-    /* Topbar (center brand like Classes page) */
-    .topbar{position:sticky;top:0;z-index:60;height:64px;background:#fff;border-bottom:1px solid #f1f1f1}
-    .topbar-inner{position:relative;max-width:1200px;margin:0 auto;height:64px;display:flex;align-items:center;justify-content:center}
+    /* ===== Floating Rounded Navbar (matches Classes look) ===== */
+    .topbar{position:sticky;top:12px;z-index:70;background:transparent}
+    .bar{
+      position:relative;height:56px;display:flex;align-items:center;justify-content:center;
+      background:rgba(255,255,255,.96);backdrop-filter:blur(6px);
+      border:1px solid rgba(0,0,0,.06); border-radius:999px;
+      box-shadow:0 12px 32px rgba(0,0,0,.08);
+    }
     .brand-name{font-family:'Playfair Display',serif;font-weight:700;letter-spacing:.04em;font-size:18px;color:#0d2a55}
-    .hamburger{position:absolute;right:8px;top:50%;transform:translateY(-50%);display:inline-flex;align-items:center;justify-content:center;width:42px;height:42px;border-radius:999px;border:1px solid rgba(0,0,0,.08);background:#fff9;backdrop-filter:blur(6px);cursor:pointer}
+    .hamburger{
+      position:absolute;right:8px;top:50%;transform:translateY(-50%);
+      display:inline-flex;align-items:center;justify-content:center;
+      width:42px;height:42px;border-radius:999px;border:1px solid rgba(0,0,0,.08);
+      background:#fff9; backdrop-filter:blur(6px); cursor:pointer;
+      transition:transform .15s ease, background .2s ease;
+    }
+    .hamburger:active{transform:translateY(-50%) scale(.98)}
+    .hamburger svg{width:22px;height:22px}
 
-    /* Drawer */
+    /* Drawer + overlay */
     .overlay{position:fixed;inset:0;background:rgba(17,20,24,.4);backdrop-filter:blur(2px);opacity:0;pointer-events:none;transition:opacity .25s ease;z-index:59}
     .overlay.show{opacity:1;pointer-events:auto}
-    .drawer{position:fixed;top:0;right:0;height:100%;width:min(88vw,360px);background:#fff;border-left:1px solid var(--line);box-shadow:0 10px 32px rgba(0,0,0,.16);transform:translateX(100%);transition:transform .28s ease;z-index:60;display:flex;flex-direction:column}
+    .drawer{
+      position:fixed;top:0;right:0;height:100%;width:min(88vw,360px);
+      background:#fff;border-left:1px solid var(--line);box-shadow:0 10px 32px rgba(0,0,0,.16);
+      transform:translateX(100%);transition:transform .28s ease;z-index:60;display:flex;flex-direction:column;
+    }
     .drawer.show{transform:none}
-    .drawer-nav{padding:14px;display:grid;gap:10px}
+    .drawer-header{display:flex;align-items:center;justify-content:space-between;padding:16px 18px;border-bottom:1px solid var(--line)}
+    .drawer-close{background:transparent;border:none;font-size:28px;line-height:1;cursor:pointer;padding:6px;border-radius:8px}
+    .drawer-nav{padding:10px 14px;display:grid;gap:10px}
     .pill-link{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:11px 16px;border-radius:999px;border:1px solid #e8e8e8;background:#f7f7f7;color:#222;font-weight:700}
-    .pill-link.primary{background:#0d2a55;color:#fff;border-color:#0d2a55}
+    .pill-link.primary{background:#0d2a55;color:#fff;border:1px solid #0d2a55}
 
-    /* Hero band */
-    .hero{background:var(--navy);color:#fff;text-align:center;padding:72px 16px 72px}
-    .hero p{opacity:.9;margin:10px 0 0}
+    /* ===== Navy Hero ===== */
+    .hero{background:var(--navy);color:#fff;text-align:center;padding:92px 16px 86px}
+    .hero p{opacity:.9;margin:8px 0 0}
 
-    /* Simple Gallery Grid */
+    /* ===== Simple Gallery (image-first) ===== */
     .wrap{background:var(--bone);border-top:1px solid var(--line)}
     .grid{display:grid;grid-template-columns:repeat(1, 1fr);gap:14px;padding:34px 0}
     @media(min-width:560px){.grid{grid-template-columns:repeat(2, 1fr)}}
     @media(min-width:900px){.grid{grid-template-columns:repeat(3, 1fr)}}
     @media(min-width:1200px){.grid{grid-template-columns:repeat(4, 1fr)}}
     .tile{position:relative;border-radius:18px;overflow:hidden;background:#fff;border:1px solid var(--line)}
-    .ratio{position:relative;width:100%;padding-top:72%} /* uniform 4:3 aspect for clean rows */
+    .ratio{position:relative;width:100%;padding-top:72%} /* uniform 4:3 aspect */
     .ratio>img,.ratio>video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
     .ratio>img{transition:transform .35s ease}
     .tile:hover .ratio>img{transform:scale(1.02)}
     .cap{position:absolute;left:10px;bottom:10px;background:rgba(17,20,24,.6);color:#fff;padding:6px 10px;border-radius:12px;font-weight:700;font-size:12px;backdrop-filter:blur(2px)}
 
-    /* Lightbox */
+    /* ===== Lightbox ===== */
     .lightbox{position:fixed;inset:0;background:rgba(6,10,18,.92);display:none;align-items:center;justify-content:center;z-index:70}
     .lightbox.open{display:flex}
     .lb-content{position:relative;max-width:min(92vw,1200px);max-height:86vh;display:grid;place-items:center}
@@ -58,24 +78,31 @@
     .lb-next{right:-56px;top:50%;transform:translateY(-50%)}
     @media(max-width:700px){.lb-prev{left:6px}.lb-next{right:6px}.lb-close{top:8px;right:8px}}
 
-    /* Footer */
-    footer{color:#7a7e85;text-align:center;padding:30px 0;font-size:14px}
+    /* ===== Footer ===== */
+    footer{color:#7a7e85;text-align:center;padding:34px 0;font-size:14px}
   </style>
 </head>
 <body>
 
-  <header class="topbar">
-    <div class="topbar-inner">
-      <div class="brand-name">NuAge Fitness Studios</div>
-      <button class="hamburger" aria-label="Menu" onclick="toggleDrawer()">
-        <svg viewBox="0 0 24 24" fill="none"><path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
-      </button>
+  <!-- Floating Rounded Navbar -->
+  <div class="topbar">
+    <div class="container">
+      <div class="bar">
+        <div class="brand-name">NuAge Fitness Studios</div>
+        <button class="hamburger" aria-label="Menu" onclick="toggleDrawer()">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        </button>
+      </div>
     </div>
-  </header>
+  </div>
 
   <!-- Drawer -->
   <div id="overlay" class="overlay" onclick="toggleDrawer(false)"></div>
   <aside id="drawer" class="drawer" aria-hidden="true">
+    <div class="drawer-header">
+      <div class="brand-name">NuAge</div>
+      <button class="drawer-close" aria-label="Close" onclick="toggleDrawer(false)">×</button>
+    </div>
     <nav class="drawer-nav">
       <a class="pill-link" href="index.php">Home</a>
       <a class="pill-link" href="classes.php">Classes</a>
