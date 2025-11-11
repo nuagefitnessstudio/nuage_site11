@@ -626,13 +626,6 @@ a, button { -webkit-tap-highlight-color: transparent; }
     </div>
   </section>
 
-  <section class="hero-ot" style="min-height:30vh">
-  <div class="hero-inner">
-    <h2>Train with Intention</h2>
-    <p>Science-backed classes, motivating coaches, real results.</p>
-  </div>
-</section>
-
 <footer class="footer">
   <div class="bottombar">
     <p>&copy; <?php echo date('Y'); ?> NuAge Fitness Studio. All rights reserved.</p>
