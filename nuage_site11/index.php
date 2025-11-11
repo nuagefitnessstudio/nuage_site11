@@ -799,10 +799,8 @@ window.addEventListener("load", function() {
       <a href="#"><img src="assets/googleplay_badge.png" alt="Get it on Google Play" style="height:60px;"></a>
     </div>
     -->
-  </div>
-</section>
 
-<!-- Inside the Studio — Homepage Gallery -->
+   <!-- Inside the Studio — Homepage Gallery -->
 <section class="section-studio" id="inside-studio">
   <div class="wrap">
     <h2>Inside the Studio</h2>
@@ -818,6 +816,11 @@ window.addEventListener("load", function() {
 
   </div>
 </section>
+
+  </div>
+</section>
+
+
 
 
   <!-- PREVIEWS -->
