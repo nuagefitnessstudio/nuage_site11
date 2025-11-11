@@ -465,7 +465,8 @@ a, button { -webkit-tap-highlight-color: transparent; }
   }
   .hero-ot .hero-inner h1{font-size:clamp(2rem,5vw,3.5rem);margin:.25rem 0}
 </style>
-<body class="bg-bone" style="background:#fff">
+<body>
+
 <div class="topbar" role="navigation" aria-label="Main">
   <div class="brand" aria-label="NuAge">
     <img loading="eager" referrerpolicy="no-referrer" src="assets/IMG_2413.png" alt="NuAge logo">
