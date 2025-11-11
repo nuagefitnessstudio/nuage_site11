@@ -619,10 +619,8 @@ a, button { -webkit-tap-highlight-color: transparent; }
   box-shadow: 0 6px 18px rgba(0,0,0,0.08); /* soft drop for separation */
   letter-spacing:.02em;
 }
-@media (max-width:640px){
-  .promo-box{ margin:82px auto -18px; font-size:14px; padding:12px 16px; }
-}}
-    </style>
+@media (max-width:640px){ .promo-box{ margin:82px auto -18px; font-size:14px; padding:12px 16px; } }
+</style>
   <link rel="stylesheet" href="style.css?v=5" />
 
 <style>
