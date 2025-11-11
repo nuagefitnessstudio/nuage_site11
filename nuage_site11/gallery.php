@@ -1,228 +1,217 @@
+<?php
+// NuAge Fitness — Simple Gallery (no tabs/filters, themed to Classes page)
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Gallery — NuAge Fitness Studios</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Gallery — NuAge Fitness Studio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
-    :root{ --ink:#111418; --muted:#6a6d74; --line:#e9e6e1; --bone:#faf7f2; --navy:#002D72; --coral:#EB1F48; --pill:#efebe6cc; }
+    :root{ --ink:#111418; --muted:#6a6d74; --line:#e9e6e1; --bone:#faf7f2; --navy:#002D72; --coral:#EB1F48; }
     *{box-sizing:border-box} html,body{height:100%}
-    body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,Helvetica,sans-serif;background:#fff;color:var(--ink);line-height:1.6}
-    h1,h2,h3{font-family:'Playfair Display',serif;margin:0 0 .25em;line-height:1.15;letter-spacing:.02em}
-    h1{font-size:clamp(40px,6vw,68px);font-weight:700}
-    h2{font-size:clamp(22px,3.2vw,28px);font-weight:700;color:var(--navy)}
+    body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,Helvetica,sans-serif;line-height:1.6;background:#fff;color:var(--ink)}
+    h1{font-family:'Playfair Display',serif;font-weight:700;letter-spacing:.02em;font-size:clamp(40px,6vw,72px);line-height:1.15;margin:0}
     .container{max-width:1200px;margin:0 auto;padding:0 24px}
-    a{color:inherit;text-decoration:none}
 
-    /* ===== Floating pill topbar (exact rhythm) ===== */
-    .topbar{position:fixed;top:16px;left:50%;transform:translateX(-50%);width:min(92vw,980px);z-index:60}
-    .topbar-inner{position:relative;height:56px;display:flex;align-items:center;justify-content:center;background:var(--pill);backdrop-filter:blur(8px);border:1px solid rgba(0,0,0,.08);border-radius:999px;box-shadow:0 10px 26px rgba(0,0,0,.08);padding:10px 16px}
-    .brand{display:flex;align-items:center;gap:10px}
-    .brand img{height:24px}
-    .brand-name{font-family:'Playfair Display',serif;font-weight:700;letter-spacing:.08em;color:var(--navy)}
-    .brand-name .age{color:var(--coral)}
+    /* Topbar (center brand like Classes page) */
+    .topbar{position:sticky;top:0;z-index:60;height:64px;background:#fff;border-bottom:1px solid #f1f1f1}
+    .topbar-inner{position:relative;max-width:1200px;margin:0 auto;height:64px;display:flex;align-items:center;justify-content:center}
+    .brand-name{font-family:'Playfair Display',serif;font-weight:700;letter-spacing:.04em;font-size:18px;color:#0d2a55}
     .hamburger{position:absolute;right:8px;top:50%;transform:translateY(-50%);display:inline-flex;align-items:center;justify-content:center;width:42px;height:42px;border-radius:999px;border:1px solid rgba(0,0,0,.08);background:#fff9;backdrop-filter:blur(6px);cursor:pointer}
-    .hamburger svg{width:22px;height:22px;color:#000}
 
     /* Drawer */
-    .overlay{position:fixed;inset:0;background:rgba(17,20,24,.4);backdrop-filter:blur(2px);opacity:0;pointer-events:none;transition:.25s ease;z-index:59}
+    .overlay{position:fixed;inset:0;background:rgba(17,20,24,.4);backdrop-filter:blur(2px);opacity:0;pointer-events:none;transition:opacity .25s ease;z-index:59}
     .overlay.show{opacity:1;pointer-events:auto}
     .drawer{position:fixed;top:0;right:0;height:100%;width:min(88vw,360px);background:#fff;border-left:1px solid var(--line);box-shadow:0 10px 32px rgba(0,0,0,.16);transform:translateX(100%);transition:transform .28s ease;z-index:60;display:flex;flex-direction:column}
     .drawer.show{transform:none}
+    .drawer-nav{padding:14px;display:grid;gap:10px}
+    .pill-link{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:11px 16px;border-radius:999px;border:1px solid #e8e8e8;background:#f7f7f7;color:#222;font-weight:700}
+    .pill-link.primary{background:#0d2a55;color:#fff;border-color:#0d2a55}
+
+    /* Hero band */
+    .hero{background:var(--navy);color:#fff;text-align:center;padding:72px 16px 72px}
+    .hero p{opacity:.9;margin:10px 0 0}
+
+    /* Simple Gallery Grid */
+    .wrap{background:var(--bone);border-top:1px solid var(--line)}
+    .grid{display:grid;grid-template-columns:repeat(1, 1fr);gap:14px;padding:34px 0}
+    @media(min-width:560px){.grid{grid-template-columns:repeat(2, 1fr)}}
+    @media(min-width:900px){.grid{grid-template-columns:repeat(3, 1fr)}}
+    @media(min-width:1200px){.grid{grid-template-columns:repeat(4, 1fr)}}
+    .tile{position:relative;border-radius:18px;overflow:hidden;background:#fff;border:1px solid var(--line)}
+    .ratio{position:relative;width:100%;padding-top:72%} /* uniform 4:3 aspect for clean rows */
+    .ratio>img,.ratio>video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+    .ratio>img{transition:transform .35s ease}
+    .tile:hover .ratio>img{transform:scale(1.02)}
+    .cap{position:absolute;left:10px;bottom:10px;background:rgba(17,20,24,.6);color:#fff;padding:6px 10px;border-radius:12px;font-weight:700;font-size:12px;backdrop-filter:blur(2px)}
+
+    /* Lightbox */
+    .lightbox{position:fixed;inset:0;background:rgba(6,10,18,.92);display:none;align-items:center;justify-content:center;z-index:70}
+    .lightbox.open{display:flex}
+    .lb-content{position:relative;max-width:min(92vw,1200px);max-height:86vh;display:grid;place-items:center}
+    .lb-img,.lb-video{max-width:100%;max-height:86vh;border-radius:16px;box-shadow:0 24px 80px rgba(0,0,0,.55)}
+    .lb-btn{position:absolute;background:rgba(255,255,255,.12);color:#fff;border:none;border-radius:12px;padding:10px 14px;cursor:pointer;font-weight:800}
+    .lb-close{top:-52px;right:0}
+    .lb-prev{left:-56px;top:50%;transform:translateY(-50%)}
+    .lb-next{right:-56px;top:50%;transform:translateY(-50%)}
+    @media(max-width:700px){.lb-prev{left:6px}.lb-next{right:6px}.lb-close{top:8px;right:8px}}
+
+    /* Footer */
+    footer{color:#7a7e85;text-align:center;padding:30px 0;font-size:14px}
+  
+/* ===== Drawer CSS from classes.php ===== */
+.overlay{
+      position:fixed;inset:0;background:rgba(17,20,24,.4);backdrop-filter:blur(2px);
+      opacity:0;pointer-events:none;transition:opacity .25s ease;z-index:59;
+    }
+    .overlay.show{opacity:1;pointer-events:auto}
+    .drawer{
+      position:fixed;top:0;right:0;height:100%;width:min(88vw,360px);
+      background:#fff;border-left:1px solid var(--line);box-shadow:0 10px 32px rgba(0,0,0,.16);
+      transform:translateX(100%);transition:transform .28s ease;z-index:60;display:flex;flex-direction:column;
+    }
+    .drawer.show{transform:none}
     .drawer-header{display:flex;align-items:center;justify-content:space-between;padding:16px 18px;border-bottom:1px solid var(--line)}
+    .drawer-header .brand img{height:24px}
+    .drawer-close{background:transparent;border:none;font-size:28px;line-height:1;cursor:pointer;padding:6px;border-radius:8px}
     .drawer-nav{padding:10px 14px;display:grid;gap:10px}
-    .pill{display:inline-flex;align-items:center;justify-content:center;padding:11px 16px;border-radius:999px;border:1px solid #e8e8e8;background:#f7f7f7;font-weight:700}
-    .pill.primary{background:#0d2a55;color:#fff;border-color:#0d2a55}
+    .drawer .pill-link{background:#f7f7f7}
+    .drawer .pill-link.primary{background:#0d2a55;color:#fff;border:1px solid #0d2a55}
 
-    /* ===== Hero (navy) ===== */
-    .hero{background:var(--navy);color:#fff;text-align:center;padding:110px 16px 90px}
-    .hero p{opacity:.95;margin:8px 0 0}
-    .cta-row{display:flex;gap:14px;justify-content:center;margin-top:18px;flex-wrap:wrap}
-    .btn{display:inline-flex;align-items:center;justify-content:center;padding:14px 22px;border-radius:12px;font-weight:800;border:1px solid transparent}
-    .btn.coral{background:var(--coral);color:#fff;border-color:var(--coral)}
-    .btn.light{background:#fff;color:#16223a;border-color:#eee}
-
-    /* ===== Card grid (exact spacing & borders) ===== */
-    .cards{background:var(--bone);border-top:1px solid var(--line);padding:50px 0}
-    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px}
-    .card{background:#fff;border:1px solid var(--line);border-radius:16px;overflow:hidden;display:flex;flex-direction:column;box-shadow:0 1px 0 rgba(0,0,0,.02)}
-    .card .img-wrap{width:100%;aspect-ratio:4/3;background:#f3f3f3;overflow:hidden}
-    .card .img-wrap img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .35s ease}
-    .card:hover .img-wrap img{transform:scale(1.02)}
-    .card .content{padding:18px}
-    .card h3{font-size:clamp(18px,2.2vw,22px);color:var(--navy);margin:0 0 6px}
-    .card p{color:#494c53;margin:0 0 12px}
-    .card .cta{margin-top:auto;padding:0 18px 18px}
-
-    /* ===== CTA band & footer ===== */
-    .cta-band{background:var(--navy);color:#fff;text-align:center;padding:68px 16px}
-    .cta-band p{opacity:.9;margin:8px 0 0}
-    footer{padding:30px 0;color:#7a7e85;text-align:center;font-size:14px}
-  </style>
+    
+</style>
 </head>
 <body>
 
-  <!-- Topbar -->
-  <div class="topbar" role="navigation" aria-label="Main">
+  <header class="topbar">
     <div class="topbar-inner">
-      <div class="brand">
-        <img src="assets/IMG_2413.png" alt="NuAge logo" />
-        <div class="brand-name"><span>Nu</span><span class="age">Age</span> Fitness Studios</div>
-      </div>
-      <button class="hamburger" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="navDrawer">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      <div class="brand-name">NuAge Fitness Studios</div>
+      <button class="hamburger" aria-label="Menu" onclick="toggleDrawer()">
+        <svg viewBox="0 0 24 24" fill="none"><path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
       </button>
     </div>
-  </div>
+  </header>
 
+  <!-- Drawer -->
+  <div id="overlay" class="overlay" onclick="toggleDrawer(false)"></div>
   <!-- Drawer + overlay -->
-  <div id="navOverlay" class="overlay" hidden></div>
-  <aside id="navDrawer" class="drawer" hidden aria-hidden="true">
-    <div class="drawer-header">
-      <div class="brand">
-        <img src="assets/IMG_2413.png" alt="NuAge logo" />
-        <div class="brand-name"><span>Nu</span><span class="age">Age</span> Fitness Studios</div>
+<div class="overlay" id="navOverlay" hidden></div>
+<aside class="drawer" id="navDrawer" hidden aria-hidden="true">
+  <div class="drawer-header">
+    <div class="brand">
+      <img loading="eager" src="assets/IMG_2413.png" alt="NuAge logo">
+      <div class="brand-name">
+        <span style="color:var(--navy);">Nu</span><span style="color:var(--coral);">Age</span>
+        <span style="color:var(--navy);">Fitness</span>
+        <span style="color:var(--navy);">Studios</span>
       </div>
-      <button id="navClose" aria-label="Close menu" style="background:transparent;border:none;font-size:28px;line-height:1;cursor:pointer;">×</button>
     </div>
-    <nav class="drawer-nav">
-      <a class="pill primary" href="location.php">Find a Location</a>
-      <a class="pill" href="javascript:void(0)" onclick="openModal()">Member Login</a>
-      <a class="pill" href="classes.php">Classes</a>
-      <a class="pill" href="team.php">Meet the Team</a>
-      <a class="pill" href="pricing.php">Pricing</a>
-      <a class="pill" href="gallery.php" aria-current="page">Gallery</a>
-    </nav>
-  </aside>
+    <button class="drawer-close" id="navClose" aria-label="Close menu">&times;</button>
+  </div>
+  <nav class="drawer-nav">
+    <a href="location.php" class="pill-link primary"><span style="font-weight:700">Find a Location</span></a>
+    <a href="javascript:void(0)" onclick="openModal()" class="pill-link">Member Login</a>
+    <a href="classes.php">Classes</a>
+    <a href="team.php">Meet the Team</a>
+    <a href="pricing.php">Pricing</a>
+  </nav>
+</aside>
 
-  <!-- HERO -->
+  <!-- Hero -->
   <section class="hero">
     <div class="container">
       <h1>Gallery</h1>
       <p>Facilities • Classes • Community • Transformations</p>
-      <div class="cta-row">
-        <a class="btn coral" href="#photos">View Photos</a>
-        <a class="btn light" href="index.php">Back Home</a>
-      </div>
     </div>
   </section>
 
-  <!-- CARDS: image-first tiles styled like Classes cards -->
-  <section id="photos" class="cards">
-    <div class="container">
-      <div class="grid">
-        <!-- Replace src paths with your real files -->
-        <article class="card">
-          <div class="img-wrap"><img src="assets/gallery/placeholder-01.jpg" alt="Main Floor"></div>
-          <div class="content">
-            <h3>Main Floor</h3>
-            <p>Full view of the training floor and multi-bay rig.</p>
-          </div>
-          <div class="cta"><a class="btn coral" href="assets/gallery/placeholder-01.jpg" target="_blank" rel="noopener">Open Photo</a></div>
-        </article>
-
-        <article class="card">
-          <div class="img-wrap"><img src="assets/gallery/placeholder-02.jpg" alt="Strength Rig"></div>
-          <div class="content">
-            <h3>Strength Rig</h3>
-            <p>Racks, pull-up bars, and accessories ready for work.</p>
-          </div>
-          <div class="cta"><a class="btn coral" href="assets/gallery/placeholder-02.jpg" target="_blank" rel="noopener">Open Photo</a></div>
-        </article>
-
-        <article class="card">
-          <div class="img-wrap"><img src="assets/gallery/placeholder-03.jpg" alt="Cardio Lineup"></div>
-          <div class="content">
-            <h3>Cardio Lineup</h3>
-            <p>Treadmills, rowers, and bikes in our cardio zone.</p>
-          </div>
-          <div class="cta"><a class="btn coral" href="assets/gallery/placeholder-03.jpg" target="_blank" rel="noopener">Open Photo</a></div>
-        </article>
-
-        <article class="card">
-          <div class="img-wrap"><img src="assets/gallery/placeholder-04.jpg" alt="Blue Turf"></div>
-          <div class="content">
-            <h3>Blue Turf</h3>
-            <p>Sled pushes, battle ropes, and conditioning work.</p>
-          </div>
-          <div class="cta"><a class="btn coral" href="assets/gallery/placeholder-04.jpg" target="_blank" rel="noopener">Open Photo</a></div>
-        </article>
-
-        <article class="card">
-          <div class="img-wrap"><img src="assets/gallery/placeholder-05.jpg" alt="Dumbbells"></div>
-          <div class="content">
-            <h3>Dumbbells</h3>
-            <p>Full dumbbell range with benches and mirrors.</p>
-          </div>
-          <div class="cta"><a class="btn coral" href="assets/gallery/placeholder-05.jpg" target="_blank" rel="noopener">Open Photo</a></div>
-        </article>
-
-        <article class="card">
-          <div class="img-wrap"><img src="assets/gallery/placeholder-06.jpg" alt="Rowers & Echo Bike"></div>
-          <div class="content">
-            <h3>Rowers & Echo Bike</h3>
-            <p>Rogue Echos and Concept2 rowers lined up.</p>
-          </div>
-          <div class="cta"><a class="btn coral" href="assets/gallery/placeholder-06.jpg" target="_blank" rel="noopener">Open Photo</a></div>
-        </article>
-
-        <article class="card">
-          <div class="img-wrap"><img src="assets/gallery/placeholder-07.jpg" alt="Mirror Wall"></div>
-          <div class="content">
-            <h3>Mirror Wall</h3>
-            <p>Perfect for form-checks and coaching cues.</p>
-          </div>
-          <div class="cta"><a class="btn coral" href="assets/gallery/placeholder-07.jpg" target="_blank" rel="noopener">Open Photo</a></div>
-        </article>
-
-        <article class="card">
-          <div class="img-wrap"><img src="assets/gallery/placeholder-08.jpg" alt="Torque Bays"></div>
-          <div class="content">
-            <h3>Torque Bays</h3>
-            <p>Suspension trainers, kettlebells, and accessories.</p>
-          </div>
-          <div class="cta"><a class="btn coral" href="assets/gallery/placeholder-08.jpg" target="_blank" rel="noopener">Open Photo</a></div>
-        </article>
-      </div>
-    </div>
+  <!-- Gallery -->
+  <section class="wrap">
+    <main class="container">
+      <div id="grid" class="grid" aria-live="polite"></div>
+    </main>
   </section>
 
-  <!-- CTA band (same as Classes) -->
-  <section class="cta-band">
-    <div class="container">
-      <h2>Train with Intention</h2>
-      <p>Science-backed classes, motivating coaches, real results.</p>
-    </div>
-  </section>
-
-  <footer class="container">© <span id="y"></span> NuAge Fitness Studio. All rights reserved.</footer>
+  <footer class="container">© <?php echo date('Y'); ?> NuAge Fitness Studio. All rights reserved.</footer>
 
 <script>
-// Year
-document.getElementById('y').textContent = new Date().getFullYear();
-
-// Drawer controls (IDs match Classes)
-const navToggle = document.getElementById('navToggle');
-const navDrawer = document.getElementById('navDrawer');
-const navOverlay = document.getElementById('navOverlay');
-const navClose = document.getElementById('navClose');
-function setDrawer(show){
-  if(show){
-    navDrawer.removeAttribute('hidden'); navOverlay.removeAttribute('hidden');
-    requestAnimationFrame(()=>{ navDrawer.classList.add('show'); navOverlay.classList.add('show'); });
-    navToggle.setAttribute('aria-expanded','true');
-  } else {
-    navDrawer.classList.remove('show'); navOverlay.classList.remove('show'); navToggle.setAttribute('aria-expanded','false');
-    setTimeout(()=>{ navDrawer.setAttribute('hidden',''); navOverlay.setAttribute('hidden',''); }, 250);
-  }
+function toggleDrawer(force){
+  const d = document.getElementById('drawer');
+  const o = document.getElementById('overlay');
+  const show = (typeof force === 'boolean') ? force : !d.classList.contains('show');
+  d.classList.toggle('show', show);
+  o.classList.toggle('show', show);
+  d.setAttribute('aria-hidden', String(!show));
 }
-navToggle.addEventListener('click', ()=> setDrawer(!navDrawer.classList.contains('show')));
-navClose.addEventListener('click', ()=> setDrawer(false));
-navOverlay.addEventListener('click', ()=> setDrawer(false));
 
-// Optional modal stub
-function openModal(){ alert('Login modal would open here.'); }
+// Replace with your asset files
+const items = [
+  {src:'assets/gallery/facility-weights.jpg', type:'image', title:'Strength Zone'},
+  {src:'assets/gallery/class-hiit.jpg', type:'image', title:'Full Body Bootcamp'},
+  {src:'assets/gallery/members-strong.jpg', type:'image', title:'Member Spotlight'},
+  {src:'assets/gallery/transform-1.jpg', type:'image', title:'8-Week Progress'},
+  {src:'assets/gallery/videos/nuage-tour.mp4', type:'video', title:'Studio Walkthrough'},
+  {src:'assets/gallery/class-yoga.jpg', type:'image', title:'Mobility & Flow'},
+  {src:'assets/gallery/facility-cardio.jpg', type:'image', title:'Cardio Deck'},
+  {src:'assets/gallery/members-class.jpg', type:'image', title:'Group Energy'},
+  {src:'assets/gallery/transform-2.jpg', type:'image', title:'Glute Gains'}
+];
+
+const grid = document.getElementById('grid');
+function tile(item, idx){
+  const t = document.createElement('figure'); t.className='tile'; t.dataset.index=idx;
+  const r = document.createElement('div'); r.className='ratio';
+  if(item.type==='video'){
+    const v = document.createElement('video'); v.src=item.src; v.muted=true; v.playsInline=true; v.loop=true;
+    v.addEventListener('mouseenter', ()=> v.play());
+    v.addEventListener('mouseleave', ()=> v.pause());
+    v.addEventListener('click', ()=> openLB(idx));
+    r.appendChild(v);
+  } else {
+    const img = document.createElement('img'); img.src=item.src; img.alt=item.title; img.loading='lazy';
+    img.addEventListener('click', ()=> openLB(idx));
+    r.appendChild(img);
+  }
+  t.appendChild(r);
+  const cap = document.createElement('figcaption'); cap.className='cap'; cap.textContent=item.title;
+  t.appendChild(cap);
+  return t;
+}
+items.forEach((it,i)=> grid.appendChild(tile(it,i)));
+
+// Lightbox
+let cur=-1; const lb = document.createElement('div'); lb.className='lightbox'; lb.id='lb';
+lb.innerHTML = `<div class="lb-content">
+  <button class="lb-btn lb-close" aria-label="Close">✕</button>
+  <button class="lb-btn lb-prev" aria-label="Previous">‹</button>
+  <div id="lbmedia"></div>
+  <button class="lb-btn lb-next" aria-label="Next">›</button>
+</div>`;
+document.body.appendChild(lb);
+const lbm = document.getElementById('lbmedia');
+lb.addEventListener('click', (e)=>{ if(e.target.id==='lb') closeLB(); });
+lb.querySelector('.lb-close').onclick = closeLB;
+lb.querySelector('.lb-prev').onclick = ()=> navLB(-1);
+lb.querySelector('.lb-next').onclick = ()=> navLB(1);
+document.addEventListener('keydown', (e)=>{
+  if(lb.classList.contains('open')){
+    if(e.key==='Escape') closeLB();
+    if(e.key==='ArrowLeft') navLB(-1);
+    if(e.key==='ArrowRight') navLB(1);
+  }
+});
+function openLB(i){
+  cur=i; renderLB(); lb.classList.add('open'); document.body.style.overflow='hidden';
+}
+function closeLB(){ lb.classList.remove('open'); document.body.style.overflow=''; }
+function navLB(d){ cur=(cur+d+items.length)%items.length; renderLB(); }
+function renderLB(){
+  const it = items[cur]; lbm.innerHTML='';
+  if(it.type==='video'){ const v=document.createElement('video'); v.src=it.src; v.controls=true; v.autoplay=true; v.className='lb-video'; lbm.appendChild(v); }
+  else { const img=document.createElement('img'); img.src=it.src; img.alt=it.title; img.className='lb-img'; lbm.appendChild(img); }
+}
 </script>
 </body>
 </html>
