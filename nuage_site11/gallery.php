@@ -495,14 +495,8 @@ a, button { -webkit-tap-highlight-color: transparent; }
       <p class="muted" style="margin:0 auto 22px; color:#ffffffd9; max-width:720px;">
         A peek inside NuAge: facilities, classes, and community.
       </p>
-      <div style="display:flex; gap:10px; justify-content:center; flex-wrap:wrap; margin-top:8px">
-        <button class="pill-link" data-filter="all" style="border:1px solid #ffffffcc; color:#fff; background:transparent;">All</button>
-        <button class="pill-link" data-filter="facility" style="border:1px solid #ffffffcc; color:#fff; background:transparent;">Facilities</button>
-        <button class="pill-link" data-filter="classes" style="border:1px solid #ffffffcc; color:#fff; background:transparent;">Classes</button>
-        <button class="pill-link" data-filter="members" style="border:1px solid #ffffffcc; color:#fff; background:transparent;">Members</button>
-      </div>
       <div class="cta-row">
-        <a class="btn btn-primary" href="pricing.php">See Pricing</a>
+        <a class="btn btn-primary" href="classes.php">View Classes</a>
         <a class="btn btn-light" href="index.php">Back Home</a>
       </div>
     </div>
@@ -515,82 +509,66 @@ a, button { -webkit-tap-highlight-color: transparent; }
         
     <figure class="card" style="background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden;box-shadow:0 10px 28px rgba(0,0,0,.08);transition:transform .2s, box-shadow .2s">
       <img src="https://picsum.photos/id/1011/1200/900" alt="" loading="lazy" style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block">
-      <figcaption style="padding:12px 14px;font-size:14px;color:var(--muted);text-transform:capitalize">facility</figcaption>
     </figure>
 
     <figure class="card" style="background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden;box-shadow:0 10px 28px rgba(0,0,0,.08);transition:transform .2s, box-shadow .2s">
       <img src="https://picsum.photos/id/1012/1200/900" alt="" loading="lazy" style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block">
-      <figcaption style="padding:12px 14px;font-size:14px;color:var(--muted);text-transform:capitalize">facility</figcaption>
     </figure>
 
     <figure class="card" style="background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden;box-shadow:0 10px 28px rgba(0,0,0,.08);transition:transform .2s, box-shadow .2s">
       <img src="https://picsum.photos/id/1025/1200/900" alt="" loading="lazy" style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block">
-      <figcaption style="padding:12px 14px;font-size:14px;color:var(--muted);text-transform:capitalize">classes</figcaption>
     </figure>
 
     <figure class="card" style="background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden;box-shadow:0 10px 28px rgba(0,0,0,.08);transition:transform .2s, box-shadow .2s">
       <img src="https://picsum.photos/id/1005/1200/900" alt="" loading="lazy" style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block">
-      <figcaption style="padding:12px 14px;font-size:14px;color:var(--muted);text-transform:capitalize">members</figcaption>
     </figure>
 
     <figure class="card" style="background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden;box-shadow:0 10px 28px rgba(0,0,0,.08);transition:transform .2s, box-shadow .2s">
       <img src="https://picsum.photos/id/1040/1200/900" alt="" loading="lazy" style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block">
-      <figcaption style="padding:12px 14px;font-size:14px;color:var(--muted);text-transform:capitalize">classes</figcaption>
     </figure>
 
     <figure class="card" style="background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden;box-shadow:0 10px 28px rgba(0,0,0,.08);transition:transform .2s, box-shadow .2s">
       <img src="https://picsum.photos/id/1039/1200/900" alt="" loading="lazy" style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block">
-      <figcaption style="padding:12px 14px;font-size:14px;color:var(--muted);text-transform:capitalize">facility</figcaption>
     </figure>
 
     <figure class="card" style="background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden;box-shadow:0 10px 28px rgba(0,0,0,.08);transition:transform .2s, box-shadow .2s">
       <img src="https://picsum.photos/id/1027/1200/900" alt="" loading="lazy" style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block">
-      <figcaption style="padding:12px 14px;font-size:14px;color:var(--muted);text-transform:capitalize">members</figcaption>
     </figure>
 
     <figure class="card" style="background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden;box-shadow:0 10px 28px rgba(0,0,0,.08);transition:transform .2s, box-shadow .2s">
       <img src="https://picsum.photos/id/1067/1200/900" alt="" loading="lazy" style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block">
-      <figcaption style="padding:12px 14px;font-size:14px;color:var(--muted);text-transform:capitalize">classes</figcaption>
     </figure>
 
     <figure class="card" style="background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden;box-shadow:0 10px 28px rgba(0,0,0,.08);transition:transform .2s, box-shadow .2s">
       <img src="https://picsum.photos/id/1050/1200/900" alt="" loading="lazy" style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block">
-      <figcaption style="padding:12px 14px;font-size:14px;color:var(--muted);text-transform:capitalize">facility</figcaption>
     </figure>
 
     <figure class="card" style="background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden;box-shadow:0 10px 28px rgba(0,0,0,.08);transition:transform .2s, box-shadow .2s">
       <img src="https://picsum.photos/id/1062/1200/900" alt="" loading="lazy" style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block">
-      <figcaption style="padding:12px 14px;font-size:14px;color:var(--muted);text-transform:capitalize">members</figcaption>
     </figure>
 
     <figure class="card" style="background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden;box-shadow:0 10px 28px rgba(0,0,0,.08);transition:transform .2s, box-shadow .2s">
       <img src="https://picsum.photos/id/1074/1200/900" alt="" loading="lazy" style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block">
-      <figcaption style="padding:12px 14px;font-size:14px;color:var(--muted);text-transform:capitalize">classes</figcaption>
     </figure>
 
     <figure class="card" style="background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden;box-shadow:0 10px 28px rgba(0,0,0,.08);transition:transform .2s, box-shadow .2s">
       <img src="https://picsum.photos/id/1084/1200/900" alt="" loading="lazy" style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block">
-      <figcaption style="padding:12px 14px;font-size:14px;color:var(--muted);text-transform:capitalize">facility</figcaption>
     </figure>
 
     <figure class="card" style="background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden;box-shadow:0 10px 28px rgba(0,0,0,.08);transition:transform .2s, box-shadow .2s">
       <img src="https://picsum.photos/id/1082/1200/900" alt="" loading="lazy" style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block">
-      <figcaption style="padding:12px 14px;font-size:14px;color:var(--muted);text-transform:capitalize">members</figcaption>
     </figure>
 
     <figure class="card" style="background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden;box-shadow:0 10px 28px rgba(0,0,0,.08);transition:transform .2s, box-shadow .2s">
       <img src="https://picsum.photos/id/1080/1200/900" alt="" loading="lazy" style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block">
-      <figcaption style="padding:12px 14px;font-size:14px;color:var(--muted);text-transform:capitalize">classes</figcaption>
     </figure>
 
     <figure class="card" style="background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden;box-shadow:0 10px 28px rgba(0,0,0,.08);transition:transform .2s, box-shadow .2s">
       <img src="https://picsum.photos/id/1069/1200/900" alt="" loading="lazy" style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block">
-      <figcaption style="padding:12px 14px;font-size:14px;color:var(--muted);text-transform:capitalize">facility</figcaption>
     </figure>
 
     <figure class="card" style="background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden;box-shadow:0 10px 28px rgba(0,0,0,.08);transition:transform .2s, box-shadow .2s">
       <img src="https://picsum.photos/id/1015/1200/900" alt="" loading="lazy" style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block">
-      <figcaption style="padding:12px 14px;font-size:14px;color:var(--muted);text-transform:capitalize">members</figcaption>
     </figure>
       </div>
     </div>
