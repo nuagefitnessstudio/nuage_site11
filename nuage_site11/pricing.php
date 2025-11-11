@@ -580,7 +580,24 @@ a, button { -webkit-tap-highlight-color: transparent; }
 
 
 
-</style>
+
+    /* === Pre-Sale Promo (Pricing) === */
+    .promo-box{
+      position:relative;
+      width:min(92vw,980px);
+      margin:90px auto -18px; /* sits under the pill navbar */
+      background:var(--coral);
+      color:#fff;
+      text-align:center;
+      font-weight:700;
+      border-radius:14px;
+      padding:12px 16px;
+      box-shadow:0 10px 22px rgba(0,0,0,.08);
+      letter-spacing:.02em;
+    }
+    .promo-box small{ display:block; font-weight:600; opacity:.95; }
+    @media (max-width:640px){ .promo-box{ margin:82px auto -16px; font-size:14px; } }
+    </style>
   <link rel="stylesheet" href="style.css?v=5" />
 
 <style>
@@ -650,7 +667,8 @@ a, button { -webkit-tap-highlight-color: transparent; }
     <a href="gallery.php">Gym Gallery</a>
   </nav>
 </aside>
-  <section class="hero-ot" style="min-height:40vh">
+  <div class="promo-box">Pre Sale Sign Up — Get up to 20% off membership</div>
+<section class="hero-ot" style="min-height:40vh">
     <div class="hero-inner">
       <h1>Membership Pricing</h1>
       <p>Month-to-Month Contract • 30-Day Cancellation</p>
