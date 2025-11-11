@@ -496,9 +496,9 @@ a, button { -webkit-tap-highlight-color: transparent; }
         <button class="pill-link" data-filter="classes" style="border:1px solid #ffffffcc; color:#fff; background:transparent;">Classes</button>
         <button class="pill-link" data-filter="members" style="border:1px solid #ffffffcc; color:#fff; background:transparent;">Members</button>
       </div>
-      <div style="margin-top:22px; display:flex; gap:12px; justify-content:center;">
-        <a href="pricing.php" class="btn btn-primary" style="text-decoration:none;">See Pricing</a>
-        <a href="index.php" class="btn btn-light" style="text-decoration:none;">Back Home</a>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="pricing.php">See Pricing</a>
+        <a class="btn btn-light" href="index.php">Back Home</a>
       </div>
     </div>
   </section>
