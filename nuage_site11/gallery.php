@@ -491,19 +491,7 @@ a, button { -webkit-tap-highlight-color: transparent; }
   background:var(--bone);
   box-shadow: inset 0 -1px rgba(0,0,0,0.04);
 } }
-    
-/* Ensure lightbox and close button are visible on top */
-.lightbox{ z-index: 9999; }
-.lightbox .lb-close{
-  position:absolute; top:18px; right:18px;
-  height:40px; width:40px; border-radius:999px; border:none;
-  background:rgba(255,255,255,.14); color:#fff; font-size:22px;
-  display:grid; place-items:center; cursor:pointer; line-height:1;
-  z-index:10000;
-}
-.lightbox .lb-close:hover{ background:rgba(255,255,255,.22); }
-
-</style>
+    </style>
 <body>
 
 <div class="topbar" role="navigation" aria-label="Main">
@@ -757,23 +745,6 @@ document.addEventListener('click', (e)=>{
   const overlay = document.getElementById('appModal');
   if (!overlay) return;
   if (e.target === overlay) closeModal();
-});
-</script>
-
-<script>
-document.addEventListener('DOMContentLoaded', function(){
-  const overlay = document.getElementById('lightbox');
-  const lbImg = document.getElementById('lbImg');
-  const closeBtn = overlay ? overlay.querySelector('.lb-close') : null;
-
-  function closeLB(){
-    overlay.classList.remove('open');
-    document.body.style.overflow = '';
-    if (lbImg) setTimeout(()=>{ lbImg.src=''; }, 120);
-  }
-  if (closeBtn){ closeBtn.addEventListener('click', closeLB); }
-  if (overlay){ overlay.addEventListener('click', (e)=>{ if (e.target === overlay) closeLB(); }); }
-  window.addEventListener('keydown', (e)=>{ if (e.key === 'Escape') closeLB(); });
 });
 </script>
 </body>
