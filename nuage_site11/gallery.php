@@ -443,8 +443,17 @@ a, button { -webkit-tap-highlight-color: transparent; }
 .btn{display:inline-block;font-weight:600;padding:.9rem 1.25rem;border-radius:.75rem;border:2px solid transparent;transition:transform .2s ease,opacity .2s ease}
   .btn:active{transform:scale(.98)}
   .btn-primary{background:var(--coral);color:#fff}
-  .btn-light{background:#fff;color:var(--navy)}
-</style>
+
+    /* === Member Login Modal (matches classes.php) === */
+    .modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.6);display:none;align-items:center;justify-content:center;z-index:2000}
+    .modal-overlay.show{display:flex}
+    .modal-box{background:#fff;padding:24px;border-radius:12px;max-width:420px;width:92%;text-align:center;position:relative;box-shadow:0 20px 60px rgba(0,0,0,.25)}
+    .modal-box h2{margin:0 0 8px;font-weight:700;color:var(--navy)}
+    .modal-box p{color:var(--muted);margin:0 0 14px}
+    .modal-actions{display:flex;gap:10px;justify-content:center;margin-top:10px}
+    .modal-actions button{border:1px solid var(--line);background:#fff;border-radius:10px;padding:10px 14px;cursor:pointer}
+    .modal-close{position:absolute;right:10px;top:10px;background:transparent;border:none;font-size:22px;line-height:1;cursor:pointer}
+    </style>
 <body class="bg-bone" style="background:#fff">
 <div class="topbar" role="navigation" aria-label="Main">
   <div class="brand" aria-label="NuAge">
@@ -480,11 +489,10 @@ a, button { -webkit-tap-highlight-color: transparent; }
   </div>
   <nav class="drawer-nav">
     <a href="location.php" class="pill-link primary"><span style="font-weight:700">Find a Location</span></a>
-    <a href="javascript:void(0)" onclick="openLogin()" class="pill-link">Member Login</a>
+    <a href="javascript:void(0)" onclick="openModal()" class="pill-link">Member Login</a>
     <a href="classes.php">Classes</a>
     <a href="team.php">Meet the Team</a>
     <a href="pricing.php">Pricing</a>
-    <a href="gallery.php">Gym Gallery</a>
   </nav>
 </aside>
 
@@ -657,5 +665,42 @@ document.addEventListener('DOMContentLoaded', function(){
 });
 </script>
 
+
+    <!-- Member Login Modal -->
+    <div id="appModal" class="modal-overlay" aria-hidden="true">
+      <div class="modal-box">
+        <button class="modal-close" aria-label="Close" onclick="closeModal()">&times;</button>
+        <h2>Download the Glofox App</h2>
+        <p>Please download the Glofox app, search <strong>NuAge Fitness Studio</strong> and register.<br>
+        Once logged in you can access your account, purchase memberships, and book classes.</p>
+        <div class="modal-actions">
+          <button onclick="window.open('https://apps.apple.com/us/app/glofox/id916224471','_blank')">Apple</button>
+          <button onclick="window.open('https://play.google.com/store/apps/details?id=com.zappy.fennec.oneapp_glofox&hl=en_US','_blank')">Google</button>
+        </div>
+      </div>
+    </div>
+    
+<script>
+  function openModal(){ document.getElementById('appModal').classList.add('show'); }
+  function closeModal(){ document.getElementById('appModal').classList.remove('show'); }
+  function openLogin(){ openModal(); }
+  // close on ESC
+  document.addEventListener('keydown', (e)=>{ if(e.key==='Escape') closeModal(); });
+  // close on overlay click
+  document.addEventListener('click', (e)=>{
+    const overlay = document.getElementById('appModal');
+    if (!overlay) return;
+    if (e.target === overlay) closeModal();
+  });
+  // wire any "Member Login" anchors without inline onclick
+  document.addEventListener('DOMContentLoaded', ()=>{
+    document.querySelectorAll('a,button').forEach(el=>{
+      const t = (el.textContent||'').trim().toLowerCase();
+      if (t === 'member login' && !el.getAttribute('onclick')) {
+        el.addEventListener('click', (ev)=>{ ev.preventDefault(); openModal(); });
+      }
+    });
+  });
+</script>
 </body>
 </html>
