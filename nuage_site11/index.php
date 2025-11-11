@@ -472,6 +472,40 @@ a, button { -webkit-tap-highlight-color: transparent; }
 .note { color: var(--muted); font-style: italic; }
 }
 
+
+/* — Inside the Studio (Homepage Gallery) — */
+.section-studio{ background:#fff; padding:40px 16px 56px; }
+.section-studio .wrap{ max-width:1100px; margin:0 auto; }
+.section-studio h2{ 
+  color:var(--navy); 
+  text-align:center; 
+  margin:0 0 8px; 
+  font-size:clamp(28px,3.6vw,40px);
+}
+.section-studio p.sub{ 
+  text-align:center; 
+  margin:0 0 18px; 
+  color:#4b5563;
+}
+.studio-grid{
+  display:grid; gap:14px;
+  grid-template-columns:repeat(auto-fit, minmax(240px,1fr));
+}
+.studio-card{
+  border:1px solid var(--line);
+  background:#fff;
+  border-radius:18px;
+  overflow:hidden;
+  box-shadow:0 10px 24px rgba(0,0,0,.06);
+}
+.studio-card img{
+  width:100%; height:240px; object-fit:cover; display:block;
+}
+@media (min-width:900px){ .studio-card img{ height:260px; } }
+.studio-actions{
+  margin-top:16px; text-align:center;
+  display:flex; gap:10px; justify-content:center; flex-wrap:wrap;
+}
 </style>
   <link rel="stylesheet" href="style.css?v=5" />
 
@@ -889,6 +923,28 @@ window.addEventListener("load", function() {
   <div class="bottombar">
     <p>&copy; <?php echo date('Y'); ?> NuAge Fitness Studio. All rights reserved.</p>
   </div>
+
+<!-- Inside the Studio — Homepage Gallery -->
+<section class="section-studio" id="inside-studio">
+  <div class="wrap">
+    <h2>Inside the Studio</h2>
+    <p class="sub">A peek at the space, equipment, and training zones.</p>
+
+    <div class="studio-grid">
+      <div class="studio-card"><img src="assets/nuage-gym-1.jpg" alt="NuAge Studio photo 1"></div>
+      <div class="studio-card"><img src="assets/nuage-gym-2.jpg" alt="NuAge Studio photo 2"></div>
+      <div class="studio-card"><img src="assets/nuage-gym-3.jpg" alt="NuAge Studio photo 3"></div>
+      <div class="studio-card"><img src="assets/nuage-gym-4.jpg" alt="NuAge Studio photo 4"></div>
+      <div class="studio-card"><img src="assets/nuage-gym-5.jpg" alt="NuAge Studio photo 5"></div>
+    </div>
+
+    <div class="studio-actions">
+      <a class="btn btn-primary" href="classes.php">View Classes</a>
+      <a class="btn btn-light" href="contact.php">Contact</a>
+    </div>
+  </div>
+</section>
+
 </footer>
 
 <script>
