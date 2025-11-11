@@ -445,7 +445,7 @@ a, button { -webkit-tap-highlight-color: transparent; }
   .btn-primary{background:var(--coral);color:#fff}
 
     /* === Member Login Modal (matches classes.php) === */
-    .modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.6);display:none;align-items:center;justify-content:center;z-index:2000}
+    .modal-overlay{display:flex;align-items:center;justify-content:center;position:fixed;inset:0;background:rgba(0,0,0,.6);align-items:center;justify-content:center;z-index:2000}
     .modal-overlay.show{display:flex}
     .modal-box{background:#fff;padding:24px;border-radius:12px;max-width:420px;width:92%;text-align:center;position:relative;box-shadow:0 20px 60px rgba(0,0,0,.25)}
     .modal-box h2{margin:0 0 8px;font-weight:700;color:var(--navy)}
@@ -688,7 +688,7 @@ document.addEventListener('DOMContentLoaded', function(){
 </div></div>
     
 <script>
-  function openModal(){ document.getElementById('appModal').style.display='block'; }
+  function openModal(){ document.getElementById('appModal').style.display='flex'; }
   function closeModal(){ document.getElementById('appModal').style.display='none'; }
   function openLogin(){ openModal(); }
   // close on ESC
