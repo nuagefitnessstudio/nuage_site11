@@ -19,7 +19,6 @@
     h1{font-size:clamp(32px,5vw,54px);font-weight:600} h2{font-size:clamp(28px,3.5vw,40px);font-weight:600} h3{font-size:clamp(18px,2vw,22px);font-weight:600}
     a{color:inherit;text-decoration:none} .container{max-width:1200px;margin:0 auto;padding:0 24px}
 
-    /* ===== Topbar (hamburger) ===== */
       /* ===== Topbar (hamburger) ===== */
       .topbar{
       position:fixed;top:16px;left:50%;transform:translateX(-50%);
