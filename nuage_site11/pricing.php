@@ -585,7 +585,7 @@ a, button { -webkit-tap-highlight-color: transparent; }
 .promo-box{
   position:relative;
   width:min(92vw,980px);
-  margin:30px auto -16px;         /* snug under pill navbar */
+  margin: 10px auto -10px;         /* snug under pill navbar */
   background: rgba(233,46,83,0.85);
   backdrop-filter: blur(6px);
   -webkit-backdrop-filter: blur(6px);
@@ -593,15 +593,14 @@ a, button { -webkit-tap-highlight-color: transparent; }
   text-align:center;
   font-weight:700;
   border-radius:14px;
-  padding:14px 20px;
+  padding: 12px 18px;
   border:1px solid rgba(255,255,255,0.28);
   box-shadow:0 6px 18px rgba(0,0,0,0.08);
   letter-spacing:.02em;
 }
 .promo-box small{ display:block; font-weight:600; opacity:.95; }
 
-@media (max-width:640px){
-  .promo-box{ margin:24px auto -12px; font-size:14px; padding:12px 16px; }
+@media (max-width: 640px){ .promo-box{ margin: 10px auto -10px; font-size:14px; padding:10px 14px; }
 }
 
 
@@ -688,8 +687,7 @@ a, button { -webkit-tap-highlight-color: transparent; }
   
 <style>/* promo-inline-fallback */
 .promo-box a{ color:#fff; text-decoration:underline; }
-@media (max-width:640px){
-  .promo-box{ margin:82px auto -18px !important; font-size:14px; padding:12px 16px !important; }
+@media (max-width: 640px){ .promo-box{ margin: 10px auto -10px; font-size:14px; padding:10px 14px; }
 }
 </style>
 <div class="promo-box" style="background:rgba(233,46,83,0.85);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);color:#fff;padding:14px 20px;border-radius:14px;width:min(92vw,980px);margin:90px auto -24px;box-shadow:0 6px 18px rgba(0,0,0,.08);border:1px solid rgba(255,255,255,.28);text-align:center;font-weight:700;letter-spacing:.02em;">Pre Sale Sign Up — Get up to 20% off membership</div>
