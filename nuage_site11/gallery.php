@@ -445,56 +445,12 @@ a, button { -webkit-tap-highlight-color: transparent; }
   .btn-primary{background:var(--coral);color:#fff}
 
     /* === Member Login Modal (matches classes.php) === */
-    .modal-overlay {
-  position: fixed; inset: 0;
-  background: rgba(0,0,0,0.6);
-  display: flex; align-items: center; justify-content: center;
-  z-index: 2000;
-}
-.modal-box {
-  background: #fff;
-  padding: 24px;
-  border-radius: 12px;
-  max-width: 420px;
-  width: 90%;
-  text-align: center;
-  position: relative;
-}
-.modal-actions button {
-  margin: 10px;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 6px;
-  background: var(--navy);
-  color: #fff;
-  cursor: pointer;
-}
-.modal-close {
-  position: absolute; top: 10px; right: 10px;
-  border: none; background: transparent;
-  font-size: 24px; cursor: pointer;
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-  .footer .links {
-    grid-template-columns: 1fr 1fr;
-  }
-}
-@media (max-width: 480px) {
-  .footer .links {
-    grid-template-columns: 1fr;
-  }
-  .footer .bottombar {
-    flex-direction: column;
-    align-items: center; /* keep centered on small screens */
-  }
-
-  
-
-
-
-
+    .modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.6);display:none;align-items:center;justify-content:center;z-index:2000}
+    .modal-overlay.show{display:flex}
+    .modal-box{background:#fff;padding:24px;border-radius:12px;max-width:420px;width:92%;text-align:center;position:relative;box-shadow:0 20px 60px rgba(0,0,0,.25)}
+    .modal-box h2{margin:0 0 8px;font-weight:700;color:var(--navy)}
+    .modal-box p{color:var(--muted);margin:0 0 14px}
+    .modal-actions{display:flex;gap:10px;justify-content:center;margin-top:10px}
     .modal-actions button{border:1px solid var(--line);background:#fff;border-radius:10px;padding:10px 14px;cursor:pointer}
     .modal-close{position:absolute;right:10px;top:10px;background:transparent;border:none;font-size:22px;line-height:1;cursor:pointer}
     
@@ -720,12 +676,12 @@ document.addEventListener('DOMContentLoaded', function(){
 </script>
 
 
-    <!-- Member Login Modal -->
-    <div id="appModal" class="modal-overlay" style="display:none;">
+<!-- App Download Modal -->
+<div id="appModal" class="modal-overlay" style="display:none;">
   <div class="modal-box">
     <h2>Download the Glofox App</h2>
     <p>
-    Please download the Glofox app, search <strong>NuAge Fitness Studio</strong> and register.<br>
+      Please download the Glofox app, search <strong>NuAge Fitness Studio</strong> and register.<br>
       Once logged in, you’ll be able to:<br>
       • Access your account<br>
       • Purchase membership<br>
@@ -739,12 +695,10 @@ document.addEventListener('DOMContentLoaded', function(){
     <button class="modal-close" onclick="document.getElementById('appModal').style.display='none'">×</button>
   </div>
 </div>
-      </div>
-    </div>
-    
+
 <script>
-  function openModal(){ document.getElementById("appModal").classList.add("show"); }
-  function closeModal(){ document.getElementById("appModal").classList.remove("show"); }
+  function openModal(){ document.getElementById('appModal').classList.add('show'); }
+  function closeModal(){ document.getElementById('appModal').classList.remove('show'); }
   function openLogin(){ openModal(); }
   // close on ESC
   document.addEventListener('keydown', (e)=>{ if(e.key==='Escape') closeModal(); });
