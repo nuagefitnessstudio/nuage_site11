@@ -48,7 +48,9 @@
       transition:transform .15s ease, background .2s ease;
     }
     .hamburger:active{transform:translateY(-50%) scale(.98)}
-    .hamburger svg{width:22px;height:22px}
+    .hamburger svg {
+  color: #000 !important;
+    }
 
     /* Drawer + overlay */
     .overlay{
@@ -134,10 +136,16 @@
     body{letter-spacing:.01em}
     h1{font-size:clamp(36px,6vw,72px); font-weight:600}
     h2{font-size:clamp(28px,4vw,44px); font-weight:600}
-    .topbar{width:min(94vw,1040px); background:var(--pill); box-shadow:var(--shadow)}
-    .pill-link{font-weight:600}
+    .topbar{
+      position:fixed;top:16px;left:50%;transform:translateX(-50%);
+      display:flex;align-items:center;justify-content:center;gap:14px;
+      width:min(92vw,980px);background:var(--pill);backdrop-filter:blur(8px);
+      border:1px solid rgba(0,0,0,.08);border-radius:999px;
+      padding:10px 16px;z-index:60
+    }
+    .pill-link{display:inline-flex;align-items:center;gap:10px;font-size:14px;letter-spacing:.04em;color:#2c2c2c;padding:8px 14px;border-radius:999px;transition:background .25s,transform .2s}
     .brand img{height:26px}
-    .brand-name{font-family:'Playfair Display',serif; font-weight:700; letter-spacing:.04em; font-size:18px}
+    .brand-name{font-weight:800;letter-spacing:.08em;color:var(--navy)}
     .hero{height:92svh; min-height:620px}
     .hero::after{background:linear-gradient(180deg,rgba(0,0,0,.15),rgba(0,0,0,.45) 55%,rgba(0,0,0,.35))}
     .hero .hero-center h1{font-size:clamp(40px,6.2vw,84px); text-shadow:0 12px 40px rgba(0,0,0,.45)}
@@ -246,8 +254,20 @@ video { display:block; object-fit: cover; }
 .container { padding-left: 16px; padding-right: 16px; }
 
 /* Topbar: full-bleed, thumb-friendly */
-.topbar{ width:calc(100% - 20px); left:50%; transform:translateX(-50%); padding:10px 12px; }
-.hamburger{ width:44px; height:44px; }
+.topbar{
+      position:fixed;top:16px;left:50%;transform:translateX(-50%);
+      display:flex;align-items:center;justify-content:center;gap:14px;
+      width:min(92vw,980px);background:var(--pill);backdrop-filter:blur(8px);
+      border:1px solid rgba(0,0,0,.08);border-radius:999px;
+      padding:10px 16px;z-index:60
+    }
+.hamburger{
+      position:absolute;right:8px;top:50%;transform:translateY(-50%);
+      display:inline-flex;align-items:center;justify-content:center;
+      width:42px;height:42px;border-radius:999px;border:1px solid rgba(0,0,0,.08);
+      background:#fff9; backdrop-filter:blur(6px); cursor:pointer;
+      transition:transform .15s ease, background .2s ease;
+    }
 
 /* Hero: reduce minimum height on narrow devices */
 .hero { min-height: 70svh; }
@@ -486,7 +506,7 @@ a, button { -webkit-tap-highlight-color: transparent; }
 
 
 <!-- Drawer + overlay -->
-<div class="overlay" style="background:rgba(17,20,24,.6)" id="navOverlay" hidden></div>
+<div class="overlay" id="navOverlay" hidden></div>
 <aside class="drawer" id="navDrawer" hidden aria-hidden="true">
   <div class="drawer-header">
     <div class="brand">
