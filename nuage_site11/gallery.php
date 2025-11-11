@@ -666,19 +666,25 @@ document.addEventListener('DOMContentLoaded', function(){
 </script>
 
 
-    <!-- Member Login Modal -->
-    <div id="appModal" class="modal-overlay" aria-hidden="true">
-      <div class="modal-box">
-        <button class="modal-close" aria-label="Close" onclick="closeModal()">&times;</button>
-        <h2>Download the Glofox App</h2>
-        <p>Please download the Glofox app, search <strong>NuAge Fitness Studio</strong> and register.<br>
-        Once logged in you can access your account, purchase memberships, and book classes.</p>
-        <div class="modal-actions">
-          <button onclick="window.open('https://apps.apple.com/us/app/glofox/id916224471','_blank')">Apple</button>
-          <button onclick="window.open('https://play.google.com/store/apps/details?id=com.zappy.fennec.oneapp_glofox&hl=en_US','_blank')">Google</button>
-        </div>
-      </div>
+<!-- App Download Modal -->
+<div id="appModal" class="modal-overlay" style="display:none;">
+  <div class="modal-box">
+    <h2>Download the Glofox App</h2>
+    <p>
+      Please download the Glofox app, search <strong>NuAge Fitness Studio</strong> and register.<br>
+      Once logged in, you’ll be able to:<br>
+      • Access your account<br>
+      • Purchase membership<br>
+      • Book classes<br>
+      • And more.
+    </p>
+    <div class="modal-actions">
+      <button onclick="window.open('https://apps.apple.com/app/id916224471','_blank')">Apple</button>
+      <button onclick="window.open('https://play.google.com/store/apps/details?id=ie.zappy.fennec.oneapp_glofox&hl=en_US','_blank')">Google</button>
     </div>
+    <button class="modal-close" onclick="document.getElementById('appModal').style.display='none'">×</button>
+  </div>
+</div>
     
 <script>
   function openModal(){ document.getElementById('appModal').classList.add('show'); }
