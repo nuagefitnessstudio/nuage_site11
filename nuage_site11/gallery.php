@@ -484,7 +484,11 @@ a, button { -webkit-tap-highlight-color: transparent; }
     background: var(--navy);
   }
   .hero-ot .hero-inner h1{font-size:clamp(2rem,5vw,3.5rem);margin:.25rem 0}
-</style>
+
+    /* Light band behind topbar to match Pricing header */
+    .header-band{height:72px;background:var(--bone);}
+    @media (min-width:900px){ .header-band{height:84px;} }
+    </style>
 <body>
 
 <div class="topbar" role="navigation" aria-label="Main">
@@ -532,6 +536,7 @@ a, button { -webkit-tap-highlight-color: transparent; }
 <main>
   
   
+  <div class="header-band"></div>
   <section class="hero-ot">
     <div class="hero-inner">
       <h1>Gallery</h1>
