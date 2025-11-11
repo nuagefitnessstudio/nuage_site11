@@ -492,14 +492,17 @@ a, button { -webkit-tap-highlight-color: transparent; }
   box-shadow: inset 0 -1px rgba(0,0,0,0.04);
 } }
     
-/* === Lightbox (non-destructive) === */
-.lightbox{position:fixed;inset:0;background:rgba(0,0,0,.88);display:none;align-items:center;justify-content:center;z-index:90;padding:24px;}
-.lightbox.open{display:flex;}
-.lightbox img{max-width:92vw;max-height:92vh;border-radius:12px;box-shadow:0 18px 48px rgba(0,0,0,.5);}
-.lightbox .lb-close{position:absolute;top:18px;right:18px;height:40px;width:40px;border-radius:999px;border:none;background:rgba(255,255,255,.12);color:#fff;font-size:22px;display:grid;place-items:center;cursor:pointer}
-.lightbox .lb-close:hover{background:rgba(255,255,255,.2)}
-/* Perf: avoid layout cost until scrolled in */
-.gallery-card{content-visibility:auto;contain-intrinsic-size:260px;}
+/* Ensure lightbox and close button are visible on top */
+.lightbox{ z-index: 9999; }
+.lightbox .lb-close{
+  position:absolute; top:18px; right:18px;
+  height:40px; width:40px; border-radius:999px; border:none;
+  background:rgba(255,255,255,.14); color:#fff; font-size:22px;
+  display:grid; place-items:center; cursor:pointer; line-height:1;
+  z-index:10000;
+}
+.lightbox .lb-close:hover{ background:rgba(255,255,255,.22); }
+
 </style>
 <body>
 
@@ -757,39 +760,20 @@ document.addEventListener('click', (e)=>{
 });
 </script>
 
-<div id="lightbox" class="lightbox" aria-hidden="true" role="dialog">
-  <button class="lb-close" aria-label="Close">×</button>
-  <img id="lbImg" alt="Expanded image">
-</div>
-
 <script>
 document.addEventListener('DOMContentLoaded', function(){
   const overlay = document.getElementById('lightbox');
   const lbImg = document.getElementById('lbImg');
   const closeBtn = overlay ? overlay.querySelector('.lb-close') : null;
-  function openLB(src){
-    const pre = new Image();
-    pre.onload = () => { lbImg.src = src; overlay.classList.add('open'); document.body.style.overflow='hidden'; };
-    pre.src = src;
-  }
+
   function closeLB(){
     overlay.classList.remove('open');
-    document.body.style.overflow='';
-    lbImg.src = '';
+    document.body.style.overflow = '';
+    if (lbImg) setTimeout(()=>{ lbImg.src=''; }, 120);
   }
-  document.querySelectorAll('img.lbimg').forEach(img=>{
-    img.style.cursor='zoom-in';
-    img.addEventListener('click', (e)=>{
-      e.preventDefault();
-      const src = img.getAttribute('data-full') || img.src;
-      if (src) openLB(src);
-    });
-  });
-  if (closeBtn){
-    closeBtn.addEventListener('click', closeLB);
-    overlay.addEventListener('click', (e)=>{ if(e.target===overlay) closeLB(); });
-    window.addEventListener('keydown', (e)=>{ if(e.key==='Escape') closeLB(); });
-  }
+  if (closeBtn){ closeBtn.addEventListener('click', closeLB); }
+  if (overlay){ overlay.addEventListener('click', (e)=>{ if (e.target === overlay) closeLB(); }); }
+  window.addEventListener('keydown', (e)=>{ if (e.key === 'Escape') closeLB(); });
 });
 </script>
 </body>
