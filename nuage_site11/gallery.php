@@ -505,7 +505,7 @@ a, button { -webkit-tap-highlight-color: transparent; }
 
 <div class="topbar" role="navigation" aria-label="Main">
   <div class="brand" aria-label="NuAge">
-    <img sizes="(max-width:640px) 100vw, (max-width:1024px) 50vw, 33vw" loading="eager" referrerpolicy="no-referrer" src="assets/IMG_2413.png" alt="NuAge logo">
+    <img loading="eager" referrerpolicy="no-referrer" src="assets/IMG_2413.png" alt="NuAge logo">
     <div class="brand-name">
       <span style="color:var(--navy);">Nu</span><span style="color:var(--coral);">Age</span>
       <span style="color:var(--navy);">Fitness</span>
@@ -526,7 +526,7 @@ a, button { -webkit-tap-highlight-color: transparent; }
 <aside class="drawer" id="navDrawer" hidden aria-hidden="true">
   <div class="drawer-header">
     <div class="brand">
-      <img sizes="(max-width:640px) 100vw, (max-width:1024px) 50vw, 33vw" loading="eager" src="assets/IMG_2413.png" alt="NuAge logo">
+      <img loading="eager" src="assets/IMG_2413.png" alt="NuAge logo">
       <div class="brand-name">
         <span style="color:var(--navy);">Nu</span><span style="color:var(--coral);">Age</span>
         <span style="color:var(--navy);">Fitness</span>
@@ -568,48 +568,48 @@ a, button { -webkit-tap-highlight-color: transparent; }
       <div id="galleryGrid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:16px">
         
     <figure class="card" style="background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden;box-shadow:0 10px 28px rgba(0,0,0,.08);transition:transform .2s, box-shadow .2s">
-      <img sizes="(max-width:640px) 100vw, (max-width:1024px) 50vw, 33vw" src="assets/IMG_9437.jpeg" alt="" loading="lazy" style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block">
+      <img src="assets/IMG_9437.jpeg" alt="" loading="lazy" style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block">
     </figure>
 
     <figure class="card" style="background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden;box-shadow:0 10px 28px rgba(0,0,0,.08);transition:transform .2s, box-shadow .2s">
-      <img sizes="(max-width:640px) 100vw, (max-width:1024px) 50vw, 33vw" src="assets/IMG_9440.jpeg" alt="" loading="lazy" style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block">
+      <img src="assets/IMG_9440.jpeg" alt="" loading="lazy" style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block">
     </figure>
 
     <figure class="card" style="background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden;box-shadow:0 10px 28px rgba(0,0,0,.08);transition:transform .2s, box-shadow .2s">
-      <img sizes="(max-width:640px) 100vw, (max-width:1024px) 50vw, 33vw" src="assets/IMG_9442.jpeg" alt="" loading="lazy" style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block">
+      <img src="assets/IMG_9442.jpeg" alt="" loading="lazy" style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block">
     </figure>
 
     <figure class="card" style="background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden;box-shadow:0 10px 28px rgba(0,0,0,.08);transition:transform .2s, box-shadow .2s">
-      <img sizes="(max-width:640px) 100vw, (max-width:1024px) 50vw, 33vw" src="assets/IMG_9443.jpeg" alt="" loading="lazy" style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block">
+      <img src="assets/IMG_9443.jpeg" alt="" loading="lazy" style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block">
     </figure>
 
 
     <figure class="card" style="background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden;box-shadow:0 10px 28px rgba(0,0,0,.08);transition:transform .2s, box-shadow .2s">
-      <img sizes="(max-width:640px) 100vw, (max-width:1024px) 50vw, 33vw" src="assets/IMG_9444.jpeg" alt="" loading="lazy" style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block">
+      <img src="assets/IMG_9444.jpeg" alt="" loading="lazy" style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block">
     </figure>
 
     <figure class="card" style="background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden;box-shadow:0 10px 28px rgba(0,0,0,.08);transition:transform .2s, box-shadow .2s">
-      <img sizes="(max-width:640px) 100vw, (max-width:1024px) 50vw, 33vw" src="assets/IMG_9445.jpeg" alt="" loading="lazy" style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block">
+      <img src="assets/IMG_9445.jpeg" alt="" loading="lazy" style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block">
     </figure>
 
     <figure class="card" style="background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden;box-shadow:0 10px 28px rgba(0,0,0,.08);transition:transform .2s, box-shadow .2s">
-      <img sizes="(max-width:640px) 100vw, (max-width:1024px) 50vw, 33vw" src="assets/IMG_9446.jpeg" alt="" loading="lazy" style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block">
+      <img src="assets/IMG_9446.jpeg" alt="" loading="lazy" style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block">
     </figure>
 
     <figure class="card" style="background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden;box-shadow:0 10px 28px rgba(0,0,0,.08);transition:transform .2s, box-shadow .2s">
-      <img sizes="(max-width:640px) 100vw, (max-width:1024px) 50vw, 33vw" src="assets/IMG_9447.jpeg" alt="" loading="lazy" style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block">
+      <img src="assets/IMG_9447.jpeg" alt="" loading="lazy" style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block">
     </figure>
 
     <figure class="card" style="background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden;box-shadow:0 10px 28px rgba(0,0,0,.08);transition:transform .2s, box-shadow .2s">
-      <img sizes="(max-width:640px) 100vw, (max-width:1024px) 50vw, 33vw" src="assets/IMG_9448.jpeg" alt="" loading="lazy" style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block">
+      <img src="assets/IMG_9448.jpeg" alt="" loading="lazy" style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block">
     </figure>
 
     <figure class="card" style="background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden;box-shadow:0 10px 28px rgba(0,0,0,.08);transition:transform .2s, box-shadow .2s">
-      <img sizes="(max-width:640px) 100vw, (max-width:1024px) 50vw, 33vw" src="assets/IMG_9452.jpeg" alt="" loading="lazy" style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block">
+      <img src="assets/IMG_9452.jpeg" alt="" loading="lazy" style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block">
     </figure>
 
     <figure class="card" style="background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden;box-shadow:0 10px 28px rgba(0,0,0,.08);transition:transform .2s, box-shadow .2s">
-      <img sizes="(max-width:640px) 100vw, (max-width:1024px) 50vw, 33vw" src="assets/IMG_9454.jpeg" alt="" loading="lazy" style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block">
+      <img src="assets/IMG_9454.jpeg" alt="" loading="lazy" style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block">
     </figure>
 
       </div>
@@ -625,14 +625,83 @@ a, button { -webkit-tap-highlight-color: transparent; }
   <!-- Lightbox overlay + dialog -->
   <div id="lightboxOverlay" class="overlay" style="background:rgba(17,20,24,.6)" hidden aria-hidden="true"></div>
   <dialog id="lightboxDialog" style="border:none;border-radius:16px;padding:0;max-width:min(92vw,1080px)">
-    <img sizes="(max-width:640px) 100vw, (max-width:1024px) 50vw, 33vw" loading="lazy" decoding="async" fetchpriority="low" id="lightboxImg" src="" alt="Expanded photo" style="display:block;width:100%;height:auto">
+    <img id="lightboxImg" src="" alt="Expanded photo" style="display:block;width:100%;height:auto">
   </dialog>
 </main>
 
 
+<script>
 
+document.addEventListener("DOMContentLoaded", function () {
+  const navToggle = document.getElementById("navToggle");
+  const navClose = document.getElementById("navClose");
+  const navDrawer = document.getElementById("navDrawer");
+  const navOverlay = document.getElementById("navOverlay");
 
+  function openNav(){
+    if (navDrawer) { navDrawer.classList.add("show"); navDrawer.removeAttribute("hidden"); navDrawer.setAttribute("aria-hidden","false"); }
+    if (navOverlay) { navOverlay.classList.add("show"); navOverlay.removeAttribute("hidden"); }
+  }
+  function closeNav(){
+    if (navDrawer) { navDrawer.classList.remove("show"); navDrawer.setAttribute("hidden",""); navDrawer.setAttribute("aria-hidden","true"); }
+    if (navOverlay) { navOverlay.classList.remove("show"); navOverlay.setAttribute("hidden",""); }
+  }
 
+  if (navToggle) navToggle.addEventListener("click", openNav);
+  if (navClose) navClose.addEventListener("click", closeNav);
+  if (navOverlay) navOverlay.addEventListener("click", closeNav);
+
+  // ESC key to close
+  document.addEventListener("keydown", (e)=>{ if (e.key === "Escape") closeNav(); });
+});
+</script>
+
+<script>
+document.addEventListener('DOMContentLoaded', function(){
+  // Filtering
+  const buttons = document.querySelectorAll('[data-filter]');
+  const cards = document.querySelectorAll('#galleryGrid .card');
+  buttons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const f = btn.getAttribute('data-filter');
+      cards.forEach(card => {
+        const tag = card.getAttribute('data-tags');
+        const show = (f === 'all') || tag === f;
+        card.style.display = show ? '' : 'none';
+      });
+    });
+  });
+
+  // Lightbox
+  const overlay = document.getElementById('lightboxOverlay');
+  const dialog = document.getElementById('lightboxDialog');
+  const img = document.getElementById('lightboxImg');
+
+  document.getElementById('galleryGrid').addEventListener('click', (e)=>{
+    const target = e.target.closest('img');
+    if(!target) return;
+    img.src = target.src;
+    if (dialog.showModal) {
+      dialog.showModal();
+    } else {
+      // Fallback
+      dialog.setAttribute('open','');
+    }
+    overlay.classList.add('show');
+    overlay.removeAttribute('hidden');
+  });
+
+  function closeLightbox(){
+    if (dialog.close) dialog.close();
+    else dialog.removeAttribute('open');
+    overlay.classList.remove('show');
+    overlay.setAttribute('hidden','');
+  }
+
+  overlay.addEventListener('click', closeLightbox);
+  document.addEventListener('keydown', (e)=>{ if(e.key === 'Escape') closeLightbox(); });
+});
+</script>
 
 
     <!-- App Download Modal -->
@@ -690,54 +759,37 @@ document.addEventListener('click', (e)=>{
 
 <div id="lightbox" class="lightbox" aria-hidden="true" role="dialog">
   <button class="lb-close" aria-label="Close">×</button>
-  <img sizes="(max-width:640px) 100vw, (max-width:1024px) 50vw, 33vw" loading="lazy" decoding="async" fetchpriority="low" id="lbImg" alt="Expanded image">
+  <img id="lbImg" alt="Expanded image">
 </div>
-
-
 
 <script>
 document.addEventListener('DOMContentLoaded', function(){
   const overlay = document.getElementById('lightbox');
   const lbImg = document.getElementById('lbImg');
   const closeBtn = overlay ? overlay.querySelector('.lb-close') : null;
-
   function openLB(src){
-    if (!overlay || !lbImg) return;
     const pre = new Image();
-    pre.onload = () => {
-      lbImg.src = src;
-      overlay.classList.add('open');
-      document.body.style.overflow = 'hidden';
-    };
+    pre.onload = () => { lbImg.src = src; overlay.classList.add('open'); document.body.style.overflow='hidden'; };
     pre.src = src;
   }
-
   function closeLB(){
-    if (!overlay || !lbImg) return;
     overlay.classList.remove('open');
-    document.body.style.overflow = '';
-    setTimeout(()=>{ lbImg.src=''; }, 120);
+    document.body.style.overflow='';
+    lbImg.src = '';
   }
-
-  // Delegate: only intercept plain left-clicks (no ctrl/cmd/shift), middle/right clicks keep default
-  const galleryRoot = document.querySelector('.gallery-grid, .gallery-wrap, .gallery');
-  if (galleryRoot){
-    galleryRoot.addEventListener('click', function(e){
-      const isPlainLeftClick = e.button === 0 && !e.ctrlKey && !e.metaKey && !e.shiftKey && !e.altKey;
-      const img = e.target.closest('img');
-      if (!img || !isPlainLeftClick) return; // let default happen (e.g., open link in new tab)
-      // If inside a link, lightbox but don't change the href itself
-      const link = img.closest('a');
-      // Default behavior: lightbox takes over
+  document.querySelectorAll('img.lbimg').forEach(img=>{
+    img.style.cursor='zoom-in';
+    img.addEventListener('click', (e)=>{
       e.preventDefault();
-      const src = img.getAttribute('data-full') || img.getAttribute('src');
+      const src = img.getAttribute('data-full') || img.src;
       if (src) openLB(src);
     });
+  });
+  if (closeBtn){
+    closeBtn.addEventListener('click', closeLB);
+    overlay.addEventListener('click', (e)=>{ if(e.target===overlay) closeLB(); });
+    window.addEventListener('keydown', (e)=>{ if(e.key==='Escape') closeLB(); });
   }
-
-  if (closeBtn){ closeBtn.addEventListener('click', closeLB); }
-  if (overlay){ overlay.addEventListener('click', (e)=>{ if(e.target === overlay) closeLB(); }); }
-  window.addEventListener('keydown', (e)=>{ if (e.key === 'Escape') closeLB(); });
 });
 </script>
 </body>
