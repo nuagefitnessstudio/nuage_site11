@@ -580,7 +580,24 @@ a, button { -webkit-tap-highlight-color: transparent; }
 
 
 
-</style>
+
+    /* === Promo box (Pricing) === */
+    .promo-box{
+      position:relative;
+      width:min(92vw,980px);
+      margin:90px auto -24px; /* sits just under the pill navbar */
+      background:var(--coral);
+      color:#fff;
+      text-align:center;
+      font-weight:700;
+      border-radius:14px;
+      padding:12px 16px;
+      box-shadow:0 10px 22px rgba(0,0,0,.08);
+      letter-spacing:.02em;
+    }
+    .promo-box small{ display:block; font-weight:600; opacity:.95; }
+    @media (max-width:640px){ .promo-box{ margin:82px auto -20px; font-size:14px; } }
+    </style>
   <link rel="stylesheet" href="style.css?v=5" />
 
 <style>
