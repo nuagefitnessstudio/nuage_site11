@@ -20,7 +20,8 @@
     a{color:inherit;text-decoration:none} .container{max-width:1200px;margin:0 auto;padding:0 24px}
 
     /* ===== Topbar (hamburger) ===== */
-    .topbar{
+      /* ===== Topbar (hamburger) ===== */
+      .topbar{
       position:fixed;top:16px;left:50%;transform:translateX(-50%);
       display:flex;align-items:center;justify-content:center;gap:14px;
       width:min(92vw,980px);background:var(--pill);backdrop-filter:blur(8px);
