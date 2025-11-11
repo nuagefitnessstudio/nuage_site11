@@ -486,8 +486,20 @@ a, button { -webkit-tap-highlight-color: transparent; }
   .hero-ot .hero-inner h1{font-size:clamp(2rem,5vw,3.5rem);margin:.25rem 0}
 
     /* Light band behind topbar to match Pricing header */
-    .header-band{height:72px;background:var(--bone);}
-    @media (min-width:900px){ .header-band{height:84px;} }
+    
+/* Header band to match Pricing */
+.header-band{
+  height:84px;
+  background:var(--bone);
+  box-shadow: inset 0 -1px rgba(0,0,0,0.04);
+}
+    @media (min-width:900px){ 
+/* Header band to match Pricing */
+.header-band{
+  height:84px;
+  background:var(--bone);
+  box-shadow: inset 0 -1px rgba(0,0,0,0.04);
+} }
     </style>
 <body>
 
