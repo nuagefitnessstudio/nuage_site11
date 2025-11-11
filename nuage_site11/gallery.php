@@ -743,8 +743,8 @@ document.addEventListener('DOMContentLoaded', function(){
     </div>
     
 <script>
-  function openModal(){ document.getElementById("downloadModal").style.display="block"; }
-  function closeModal(){ document.getElementById("downloadModal").style.display="none"; }
+  function openModal(){ document.getElementById("appModal").classList.add("show"); }
+  function closeModal(){ document.getElementById("appModal").classList.remove("show"); }
   function openLogin(){ openModal(); }
   // close on ESC
   document.addEventListener('keydown', (e)=>{ if(e.key==='Escape') closeModal(); });
