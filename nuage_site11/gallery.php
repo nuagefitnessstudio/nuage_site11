@@ -453,6 +453,16 @@ a, button { -webkit-tap-highlight-color: transparent; }
     .modal-actions{display:flex;gap:10px;justify-content:center;margin-top:10px}
     .modal-actions button{border:1px solid var(--line);background:#fff;border-radius:10px;padding:10px 14px;cursor:pointer}
     .modal-close{position:absolute;right:10px;top:10px;background:transparent;border:none;font-size:22px;line-height:1;cursor:pointer}
+    
+    /* === Modal (taller variant & brand buttons) === */
+    .modal-box h2{font-family:'Playfair Display',serif;font-size:clamp(28px,4.6vw,40px);margin:0 0 8px;color:var(--navy)}
+    .modal-box p{margin:0 0 8px;color:var(--muted)}
+    .modal-list{list-style:disc;margin:4px auto 10px;padding-left:22px;text-align:left;max-width:28rem}
+    .modal-list li{margin:4px 0}
+    .modal-actions{display:flex;gap:12px;justify-content:center;margin-top:10px}
+    .modal-btn{border:1px solid var(--line);border-radius:10px;padding:10px 16px;font-weight:600;cursor:pointer}
+    .modal-btn.primary{background:var(--navy);color:#fff;border-color:var(--navy)}
+    .modal-btn.primary:hover{opacity:.9;transform:translateY(-1px)}
     </style>
 <body class="bg-bone" style="background:#fff">
 <div class="topbar" role="navigation" aria-label="Main">
@@ -671,12 +681,19 @@ document.addEventListener('DOMContentLoaded', function(){
       <div class="modal-box">
         <button class="modal-close" aria-label="Close" onclick="closeModal()">&times;</button>
         <h2>Download the Glofox App</h2>
-        <p>Please download the Glofox app, search <strong>NuAge Fitness Studio</strong> and register.<br>
-        Once logged in you can access your account, purchase memberships, and book classes.</p>
+        <p>Please download the Glofox app, search <strong>NuAge Fitness Studio</strong> and register.</p>
+        <p>Once logged in, you’ll be able to:</p>
+        <ul class="modal-list">
+          <li>Access your account</li>
+          <li>Purchase membership</li>
+          <li>Book classes</li>
+          <li>And more.</li>
+        </ul>
         <div class="modal-actions">
-          <button onclick="window.open('https://apps.apple.com/us/app/glofox/id916224471','_blank')">Apple</button>
-          <button onclick="window.open('https://play.google.com/store/apps/details?id=com.zappy.fennec.oneapp_glofox&hl=en_US','_blank')">Google</button>
+          <button class="modal-btn primary" onclick="window.open('https://apps.apple.com/us/app/glofox/id916224471','_blank')">Apple</button>
+          <button class="modal-btn primary" onclick="window.open('https://play.google.com/store/apps/details?id=com.zappy.fennec.oneapp_glofox&hl=en_US','_blank')">Google</button>
         </div>
+    </div>
       </div>
     </div>
     
