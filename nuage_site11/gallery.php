@@ -1,5 +1,39 @@
 <?php
-// NuAge Fitness — Gallery page styled like Classes (navbar, hero, cards, CTA band)
+// NuAge Fitness — Gallery (auto-load all images in /assets/gallery)
+$galleryDir = __DIR__ . '/assets/gallery';
+$webPrefix  = 'assets/gallery'; // web path used in <img src>
+
+$exts = ['jpg','jpeg','png','webp','JPG','JPEG','PNG','WEBP'];
+$files = [];
+if (is_dir($galleryDir)) {
+    foreach (scandir($galleryDir) as $f) {
+        $path = $galleryDir . DIRECTORY_SEPARATOR . $f;
+        if (is_file($path)) {
+            $ext = pathinfo($path, PATHINFO_EXTENSION);
+            if (in_array($ext, $exts, true)) {
+                $files[] = $f;
+            }
+        }
+    }
+    // natural sort so "1,2,10" is correct
+    natsort($files);
+    $files = array_values($files);
+}
+
+// Optional: seed titles map (filename => caption)
+$titles = [
+    '81676E0C-A9E9-44E6-9CC8-2A6F1B81D026.jpeg' => 'Strength Zone (wide)',
+    '3A0BDC6A-0AF1-495E-A088-BA7A7A19C72D.jpeg' => 'Strength Zone (center)',
+    '008F618D-22D1-4A3D-9E7A-2868F3FAD12D.jpeg' => 'Rig & Turf',
+    '1148A97C-8A51-45BA-830F-7928769E2747.jpeg' => 'Torque Bays',
+    '63C7A6E9-51C7-4A6E-BCFF-C01B7E0D19ED.jpeg' => 'Blue Turf & Sled',
+    'A3EB1C79-E6FD-46E7-B149-E7C476E7C7F5.jpeg' => 'Cardio Corner',
+    'E82960DE-9E08-4134-BF21-2960D7651113.jpeg' => 'Dumbbells + Mirror',
+    'E61F46AB-E8F1-47B9-9733-199F9ACA8CE2.jpeg' => 'Rowers + Echo Bike',
+    'AD8C1A0B-13B3-46CD-9FA7-920320D09EDF.jpeg' => 'Cardio Lineup',
+    'E98AC29D-82B2-4D0A-977E-1D00356626C9.jpeg' => 'Strength Rigs',
+    'A8C5943E-02D5-42BB-9DF9-577B8A56FB34.jpeg' => 'Mirror Wall',
+];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -7,19 +41,16 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Gallery — NuAge Fitness Studios</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
   <style>
     :root{ --ink:#111418; --muted:#6a6d74; --line:#e9e6e1; --bone:#faf7f2; --navy:#002D72; --coral:#EB1F48; }
     *{box-sizing:border-box} html,body{height:100%}
     body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,Helvetica,sans-serif;background:#fff;color:var(--ink);line-height:1.6}
-    h1,h2,h3{font-family:'Playfair Display',serif;margin:0 0 .25em;line-height:1.15}
+    h1,h2{font-family:'Playfair Display',serif;margin:0 0 .25em;line-height:1.15}
     h1{font-size:clamp(40px,6vw,68px);font-weight:700}
-    h2{font-size:clamp(22px,3.2vw,28px);font-weight:700;color:var(--navy)}
-    h3{font-size:clamp(18px,2.2vw,22px);font-weight:700;color:var(--navy)}
     .container{max-width:1200px;margin:0 auto;padding:0 24px}
-    a{color:inherit;text-decoration:none}
 
-    /* Floating rounded navbar (matches Classes) */
+    /* Floating rounded navbar like Classes */
     .topbar{position:fixed;top:16px;left:50%;transform:translateX(-50%);width:min(92vw,980px);z-index:60}
     .topbar-inner{position:relative;height:56px;display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,.96);backdrop-filter:blur(8px);border:1px solid rgba(0,0,0,.08);border-radius:999px;box-shadow:0 10px 26px rgba(0,0,0,.08);padding:10px 16px}
     .brand{display:flex;align-items:center;gap:10px}
@@ -39,28 +70,27 @@
     .pill{display:inline-flex;align-items:center;justify-content:center;padding:11px 16px;border-radius:999px;border:1px solid #e8e8e8;background:#f7f7f7;font-weight:700}
     .pill.primary{background:#0d2a55;color:#fff;border-color:#0d2a55}
 
-    /* Hero (same vibe as Classes) */
+    /* Navy hero */
     .hero{background:var(--navy);color:#fff;text-align:center;padding:110px 16px 90px}
     .hero p{opacity:.95;margin:8px 0 0}
-    .cta-row{display:flex;gap:14px;justify-content:center;margin-top:18px;flex-wrap:wrap}
-    .btn{display:inline-flex;align-items:center;justify-content:center;padding:14px 22px;border-radius:12px;font-weight:800;border:1px solid transparent}
-    .btn.coral{background:var(--coral);color:#fff;border-color:var(--coral)}
-    .btn.light{background:#fff;color:#16223a;border-color:#eee}
 
-    /* Cards section (matches Classes card look) */
-    .cards{background:var(--bone);border-top:1px solid var(--line);padding:50px 0}
-    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px}
-    .card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:20px;display:flex;flex-direction:column;gap:10px;box-shadow:0 1px 0 rgba(0,0,0,.02)}
-    .card p{color:#494c53;margin:0 0 8px}
-    .card .cta{margin-top:auto}
-    .btn.full{width:100%}
+    /* Gallery grid (classes vibe: rounded, light border) */
+    .wrap{background:var(--bone);border-top:1px solid var(--line);padding:48px 0}
+    .grid{display:grid;grid-template-columns:repeat(1,1fr);gap:16px}
+    @media(min-width:560px){.grid{grid-template-columns:repeat(2,1fr)}}
+    @media(min-width:900px){.grid{grid-template-columns:repeat(3,1fr)}}
+    @media(min-width:1200px){.grid{grid-template-columns:repeat(4,1fr)}}
+    .tile{position:relative;border:1px solid var(--line);border-radius:16px;overflow:hidden;background:#fff}
+    .ratio{width:100%;padding-top:72%;position:relative}
+    .ratio>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .35s}
+    .tile:hover .ratio>img{transform:scale(1.02)}
+    .cap{position:absolute;left:10px;bottom:10px;background:rgba(17,20,24,.6);color:#fff;padding:6px 10px;border-radius:12px;font-weight:800;font-size:12px;letter-spacing:.02em}
 
-    /* CTA band */
-    .cta-band{background:var(--navy);color:#fff;text-align:center;padding:68px 16px}
-    .cta-band p{opacity:.9;margin:8px 0 0}
-
-    /* Footer */
-    footer{border-top:1px solid var(--line);padding:32px 0;color:#7a7e85;text-align:center;font-size:14px}
+    /* Lightbox */
+    .lb{position:fixed;inset:0;display:none;align-items:center;justify-content:center;background:rgba(6,10,18,.92);z-index:70}
+    .lb.open{display:flex}
+    .lb img{max-width:92vw;max-height:86vh;border-radius:16px;box-shadow:0 24px 80px rgba(0,0,0,.55)}
+    .lb .x{position:fixed;top:18px;right:22px;font-size:34px;background:transparent;border:none;color:#fff;cursor:pointer}
   </style>
 </head>
 <body>
@@ -91,10 +121,10 @@
     <nav class="drawer-nav">
       <a class="pill primary" href="location.php">Find a Location</a>
       <a class="pill" href="javascript:void(0)" onclick="openModal()">Member Login</a>
-      <a href="classes.php" class="pill">Classes</a>
-      <a href="team.php" class="pill">Meet the Team</a>
-      <a href="pricing.php" class="pill">Pricing</a>
-      <a href="gallery.php" class="pill">Gallery</a>
+      <a class="pill" href="classes.php">Classes</a>
+      <a class="pill" href="team.php">Meet the Team</a>
+      <a class="pill" href="pricing.php">Pricing</a>
+      <a class="pill" href="gallery.php">Gallery</a>
     </nav>
   </aside>
 
@@ -102,61 +132,43 @@
   <section class="hero">
     <div class="container">
       <h1>Gallery</h1>
-      <p>Browse highlights from our facilities, classes, and community.</p>
-      <div class="cta-row">
-        <a class="btn coral" href="#collections">Open Collections</a>
-        <a class="btn light" href="index.php">Back Home</a>
-      </div>
+      <p>All photos load automatically from <code>/assets/gallery</code>. Just drop more in.</p>
     </div>
   </section>
 
-  <!-- Cards laid out like Classes (but for Gallery Collections) -->
-  <section id="collections" class="cards">
+  <!-- Gallery Grid -->
+  <section class="wrap">
     <div class="container">
       <div class="grid">
-        <article class="card">
-          <h3>Facilities</h3>
-          <p>Strength zone, cardio deck, studio rooms, recovery areas, and more.</p>
-          <div class="cta"><a class="btn coral full" href="javascript:void(0)" onclick="openCollection('facilities')">View Photos</a></div>
-        </article>
-        <article class="card">
-          <h3>Classes</h3>
-          <p>Bootcamp, mobility & flow, HIIT, and specialty sessions in action.</p>
-          <div class="cta"><a class="btn coral full" href="javascript:void(0)" onclick="openCollection('classes')">View Photos</a></div>
-        </article>
-        <article class="card">
-          <h3>Members</h3>
-          <p>Community energy — PRs, group vibes, and authentic progress.</p>
-          <div class="cta"><a class="btn coral full" href="javascript:void(0)" onclick="openCollection('members')">View Photos</a></div>
-        </article>
-        <article class="card">
-          <h3>Transformations</h3>
-          <p>Before/after moments and milestone highlights from NuAge athletes.</p>
-          <div class="cta"><a class="btn coral full" href="javascript:void(0)" onclick="openCollection('transformations')">View Photos</a></div>
-        </article>
-        <article class="card">
-          <h3>Videos</h3>
-          <p>Short studio walkthroughs, class clips, and member spotlights.</p>
-          <div class="cta"><a class="btn coral full" href="javascript:void(0)" onclick="openCollection('video')">Play Videos</a></div>
-        </article>
+        <?php foreach ($files as $f): 
+          $src = $webPrefix . '/' . rawurlencode($f);
+          $title = $titles[$f] ?? pathinfo($f, PATHINFO_FILENAME);
+        ?>
+        <figure class="tile">
+          <div class="ratio">
+            <img src="<?php echo htmlspecialchars($src, ENT_QUOTES); ?>" alt="<?php echo htmlspecialchars($title, ENT_QUOTES); ?>" loading="lazy" onclick="openLB('<?php echo htmlspecialchars($src, ENT_QUOTES); ?>','<?php echo htmlspecialchars($title, ENT_QUOTES); ?>')">
+          </div>
+          <figcaption class="cap"><?php echo htmlspecialchars($title); ?></figcaption>
+        </figure>
+        <?php endforeach; ?>
       </div>
     </div>
   </section>
 
-  <!-- CTA band -->
-  <section class="cta-band">
+  <!-- CTA band (same vibe as Classes) -->
+  <section style="background:var(--navy);color:#fff;text-align:center;padding:68px 16px">
     <div class="container">
-      <h2>Train with Intention</h2>
-      <p>Science-backed classes, motivating coaches, real results.</p>
+      <h2 style="font-family:'Playfair Display',serif;margin:0 0 .25em">Train with Intention</h2>
+      <p style="opacity:.9;margin:8px 0 0">Science-backed classes, motivating coaches, real results.</p>
     </div>
   </section>
 
-  <footer>
-    <div class="container">&copy; <?php echo date('Y'); ?> NuAge Fitness Studio. All rights reserved.</div>
+  <footer class="container" style="color:#7a7e85;text-align:center;padding:30px 0;font-size:14px">
+    © <?php echo date('Y'); ?> NuAge Fitness Studio. All rights reserved.
   </footer>
 
 <script>
-// Drawer identical behavior
+// Drawer behavior
 const navToggle = document.getElementById('navToggle');
 const navDrawer = document.getElementById('navDrawer');
 const navOverlay = document.getElementById('navOverlay');
@@ -175,48 +187,20 @@ navToggle.addEventListener('click', ()=> setDrawer(!navDrawer.classList.contains
 navClose.addEventListener('click', ()=> setDrawer(false));
 navOverlay.addEventListener('click', ()=> setDrawer(false));
 
-// Simple openModal stub (replace with real modal if present globally)
-function openModal(){
-  alert("Login modal goes here (Apple/Google options).");
-}
+// Simple login stub
+function openModal(){ alert('Login modal would open here.'); }
 
-// Gallery data
-const items = [
-  {src:'assets/gallery/facility-weights.jpg', type:'image', tag:'facilities', title:'Strength Zone'},
-  {src:'assets/gallery/class-hiit.jpg', type:'image', tag:'classes', title:'Full Body Bootcamp'},
-  {src:'assets/gallery/members-strong.jpg', type:'image', tag:'members', title:'Member Spotlight'},
-  {src:'assets/gallery/transform-1.jpg', type:'image', tag:'transformations', title:'8-Week Progress'},
-  {src:'assets/gallery/videos/nuage-tour.mp4', type:'video', tag:'video', title:'Studio Walkthrough'},
-  {src:'assets/gallery/class-yoga.jpg', type:'image', tag:'classes', title:'Mobility & Flow'},
-  {src:'assets/gallery/facility-cardio.jpg', type:'image', tag:'facilities', title:'Cardio Deck'},
-  {src:'assets/gallery/members-class.jpg', type:'image', tag:'members', title:'Group Energy'},
-  {src:'assets/gallery/transform-2.jpg', type:'image', tag:'transformations', title:'Glute Gains'}
-];
+// Lightbox
+const lb = document.createElement('div'); lb.className='lb'; lb.innerHTML = '<button class="x" aria-label="Close">×</button>'; document.body.appendChild(lb);
+const img = document.createElement('img'); lb.appendChild(img);
+lb.querySelector('.x').onclick = ()=> lb.classList.remove('open');
+lb.addEventListener('click', (e)=>{ if(e.target === lb) lb.classList.remove('open'); });
+document.addEventListener('keydown', (e)=>{ if(e.key==='Escape') lb.classList.remove('open'); });
 
-// "Pricing-style" buttons open collection slideshows
-function openCollection(tag){
-  const filtered = items.filter(it=> tag==='video' ? it.type==='video' : (it.tag===tag && it.type!=='video'));
-  if(filtered.length===0){ alert('No media in this collection yet.'); return; }
-  let idx = 0;
-  const overlay = document.createElement('div'); overlay.className='overlay show'; overlay.style.background='rgba(6,10,18,.92)'; document.body.appendChild(overlay);
-  const box = document.createElement('div'); box.style.cssText='position:fixed;inset:0;display:grid;place-items:center;z-index:71;'; overlay.appendChild(box);
-  function render(){
-    box.innerHTML='';
-    const it = filtered[idx];
-    if(it.type==='video'){ const v=document.createElement('video'); v.src=it.src; v.controls=true; v.autoplay=true; v.style.maxWidth='92vw'; v.style.maxHeight='86vh'; v.style.borderRadius='16px'; box.appendChild(v); }
-    else { const img=document.createElement('img'); img.src=it.src; img.alt=it.title||''; img.style.maxWidth='92vw'; img.style.maxHeight='86vh'; img.style.borderRadius='16px'; box.appendChild(img); }
-    const title = document.createElement('div'); title.textContent = it.title||''; title.style.cssText='color:#fff;margin-top:12px;text-align:center;font-weight:700'; box.appendChild(title);
-    const close=document.createElement('button'); close.textContent='×'; close.style.cssText='position:fixed;top:18px;right:22px;font-size:34px;background:transparent;border:none;color:#fff;cursor:pointer;z-index:72'; close.onclick=()=>{document.removeEventListener('keydown',onKey); overlay.remove();}; box.appendChild(close);
-  }
-  function onKey(e){
-    if(e.key==='Escape'){document.removeEventListener('keydown',onKey); overlay.remove();}
-    if(e.key==='ArrowRight'){ idx=(idx+1)%filtered.length; render(); }
-    if(e.key==='ArrowLeft'){ idx=(idx-1+filtered.length)%filtered.length; render(); }
-  }
-  document.addEventListener('keydown', onKey);
-  overlay.addEventListener('click', (e)=>{ if(e.target===overlay){document.removeEventListener('keydown',onKey); overlay.remove();} });
-  render();
+function openLB(src, title){
+  img.src = src; img.alt = title || '';
+  lb.classList.add('open');
 }
-  </script>
+</script>
 </body>
 </html>
