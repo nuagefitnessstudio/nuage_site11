@@ -809,11 +809,11 @@ window.addEventListener("load", function() {
     <p class="sub">A peek at the space, equipment, and training zones.</p>
 
     <div class="studio-grid">
-      <div class="studio-card"><img src="assets/nuage-gym-1.jpg" alt="NuAge Studio photo 1"></div>
-      <div class="studio-card"><img src="assets/nuage-gym-2.jpg" alt="NuAge Studio photo 2"></div>
-      <div class="studio-card"><img src="assets/nuage-gym-3.jpg" alt="NuAge Studio photo 3"></div>
-      <div class="studio-card"><img src="assets/nuage-gym-4.jpg" alt="NuAge Studio photo 4"></div>
-      <div class="studio-card"><img src="assets/nuage-gym-5.jpg" alt="NuAge Studio photo 5"></div>
+      <div class="studio-card"><img src="assets/IMG_9437.jpeg" alt="NuAge Studio photo 1"></div>
+      <div class="studio-card"><img src="assets/IMG_9440.jpeg" alt="NuAge Studio photo 2"></div>
+      <div class="studio-card"><img src="assets/IMG_9452.jpeg" alt="NuAge Studio photo 3"></div>
+      <div class="studio-card"><img src="assets/IMG_9444.jpeg" alt="NuAge Studio photo 4"></div>
+      <div class="studio-card"><img src="assets/IMG_9446.jpeg" alt="NuAge Studio photo 5"></div>
     </div>
 
   </div>
