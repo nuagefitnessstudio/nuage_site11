@@ -1,7 +1,5 @@
 <?php
-// NuAge Fitness — Gallery Page (standalone, mirrors index.php styles & topbar structure)
-// Drop your images into /assets/gallery/ and /assets/gallery/videos/ (mp4).
-// This file is self-contained (no includes) so you can move it anywhere in your site root.
+// NuAge Fitness — Gallery Page (theme-matched to index.php)
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -11,33 +9,38 @@
   <title>NuAge Fitness — Gallery</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
+    /* ===== Theme Tokens (mirrors index.php) ===== */
     :root{
       --ink:#111418; --muted:#6a6d74; --line:#e9e6e1; --bone:#faf7f2;
       --pill:#efebe6cc; --navy:#002D72; --coral:#EB1F48;
+      --navy-deep:#0d2a55;
     }
     *{box-sizing:border-box} html,body{height:100%}
     body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,Helvetica,sans-serif;line-height:1.6;background:#fff;color:var(--ink)}
     h1,h2,h3{font-family:'Playfair Display',serif;letter-spacing:.02em;line-height:1.15;margin:0 0 .25em}
-    h1{font-size:clamp(30px,5vw,46px);font-weight:700}
-    h2{font-size:clamp(22px,3.5vw,28px);font-weight:600}
+    h1{font-size:clamp(32px,5vw,52px);font-weight:600}
+    h2{font-size:clamp(22px,3.5vw,30px);font-weight:600}
     h3{font-size:clamp(16px,2.2vw,20px);font-weight:600}
     a{color:inherit;text-decoration:none}
     .container{max-width:1200px;margin:0 auto;padding:0 24px}
 
-    /* ===== Topbar / Navbar (matches index.php) ===== */
+    /* ===== Elevated Glass Topbar (like index.php) ===== */
     .topbar{
-      position:sticky;top:0;z-index:50;height:64px;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;
-      background:rgba(255,255,255,.9);backdrop-filter:saturate(120%) blur(10px);border-bottom:1px solid #f0f0f0;padding:0 12px;
+      position:sticky;top:0;z-index:60;height:68px;
+      display:grid;grid-template-columns:1fr auto 1fr;align-items:center;
+      background:rgba(255,255,255,.86);backdrop-filter:saturate(120%) blur(12px);
+      border-bottom:1px solid #f2f2f2;padding:0 12px;
     }
-    .brand{display:flex;align-items:center;gap:10px}
-    .brand .logo{width:36px;height:36px;border-radius:12px;background:linear-gradient(135deg,var(--navy),#0d2a55);display:grid;place-items:center;color:#fff;font-weight:700}
-    .brand .name{font-weight:700;letter-spacing:.3px;color:var(--navy)}
+    .brand{display:flex;align-items:center;gap:12px}
+    .brand .logo{width:38px;height:38px;border-radius:14px;background:linear-gradient(135deg,var(--navy),var(--navy-deep));display:grid;place-items:center;color:#fff;font-weight:800;letter-spacing:.3px;box-shadow:0 6px 20px rgba(0,45,114,.25)}
+    .brand .name{font-weight:800;letter-spacing:.3px;color:var(--navy)}
     .nav{display:flex;gap:10px;justify-content:center}
-    .pill-link{display:inline-flex;align-items:center;gap:8px;padding:10px 14px;border-radius:999px;border:1px solid #e8e8e8;background:#f7f7f7;color:#222;font-weight:600}
+    .pill-link{display:inline-flex;align-items:center;gap:8px;padding:10px 14px;border-radius:999px;border:1px solid #e8e8e8;background:#f7f7f7;color:#222;font-weight:700}
+    .pill-link:hover{transform:translateY(-1px);box-shadow:0 6px 16px rgba(0,0,0,.07)}
+    .pill-link:focus-visible{outline:3px solid rgba(235,31,72,.35);outline-offset:2px}
     .pill-link.primary{background:var(--navy);color:#fff;border-color:var(--navy)}
     .right{display:flex;justify-content:flex-end;gap:8px}
 
-    /* Mobile drawer button */
     .hamburger{display:none;border:1px solid #e8e8e8;padding:8px 10px;border-radius:10px;background:#fff}
     @media (max-width:900px){
       .nav{display:none}
@@ -45,52 +48,76 @@
       .topbar{grid-template-columns:auto 1fr auto}
     }
 
-    /* ===== Page Header ===== */
+    /* ===== Hero (navy/coral gradient overlay like index hero) ===== */
     .page-hero{
-      background:linear-gradient(135deg, rgba(0,45,114,.9), rgba(9,52,117,.75)), url('assets/hero/gym-hero.jpg') center/cover no-repeat;
-      color:#fff;position:relative;min-height:240px;display:grid;place-items:center;text-align:center;padding:48px 16px;
+      position:relative;min-height:260px;display:grid;place-items:center;text-align:center;padding:48px 16px;color:#fff;
+      background:#0b2b59;
     }
+    .page-hero::before{
+      content:'';position:absolute;inset:0;
+      background:
+        linear-gradient(180deg, rgba(0,0,0,.15) 0%, rgba(0,0,0,.45) 60%, rgba(0,0,0,.55)),
+        linear-gradient(135deg, rgba(0,45,114,.85), rgba(235,31,72,.25)),
+        url('assets/hero/gym-hero.jpg') center/cover no-repeat;
+      filter:saturate(105%);
+    }
+    .page-hero > *{position:relative;z-index:1}
     .breadcrumbs{font-size:13px;opacity:.9;margin-bottom:10px}
     .breadcrumbs a{opacity:.9} .breadcrumbs a:hover{opacity:1;text-decoration:underline}
 
-    /* ===== Filter Bar ===== */
-    .filters{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:center;margin:22px 0 10px}
-    .chip{border:1px solid #ddd;background:#fafafa;padding:8px 14px;border-radius:999px;font-weight:600;cursor:pointer;user-select:none}
+    /* ===== Section heading with coral underline ===== */
+    .section-title{display:inline-block;margin:24px auto 6px;position:relative}
+    .section-title::after{content:'';position:absolute;left:50%;transform:translateX(-50%);bottom:-8px;width:72px;height:3px;background:var(--coral);border-radius:6px}
+
+    /* ===== Filter Toolbar (chips same pill style) ===== */
+    .toolbar{display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:center;margin:26px 0}
+    .chip{border:1px solid #e6e6e6;background:var(--pill);padding:9px 14px;border-radius:999px;font-weight:700;cursor:pointer;user-select:none;transition:.15s}
+    .chip:hover{transform:translateY(-1px)}
     .chip.active{background:var(--coral);color:#fff;border-color:var(--coral)}
-    .search{display:flex;gap:8px;align-items:center;border:1px solid #e5e5e5;border-radius:12px;padding:8px 12px;flex:1;min-width:220px}
+    .search{display:flex;gap:8px;align-items:center;border:1px solid #eae9e7;border-radius:14px;padding:10px 12px;flex:1;min-width:240px;background:#fff}
     .search input{border:none;outline:none;width:100%;font-size:14px;background:transparent}
 
-    /* ===== Gallery Grid (masonry-like) ===== */
-    .grid{columns:1 280px;column-gap:14px;margin:10px 0 40px}
+    /* ===== Gallery Section on Bone background like index split sections ===== */
+    .gallery-wrap{background:var(--bone);border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:34px 0 40px}
+
+    /* Masonry (CSS columns) with soft cards */
+    .grid{columns:1 280px;column-gap:16px;margin:16px 0 34px}
     @media (min-width:640px){.grid{columns:2 280px}}
     @media (min-width:940px){.grid{columns:3 280px}}
     @media (min-width:1200px){.grid{columns:4 280px}}
-    .card{break-inside:avoid;padding:0;margin:0 0 14px;border-radius:18px;overflow:hidden;border:1px solid #eee;box-shadow:0 2px 10px rgba(0,0,0,.05);background:#fff}
+    .card{break-inside:avoid;margin:0 0 16px;border-radius:22px;overflow:hidden;border:1px solid #eee;background:#fff;
+      box-shadow:0 6px 24px rgba(0,0,0,.06);
+      transition:.2s transform ease, .2s box-shadow ease;
+    }
+    .card:hover{transform:translateY(-3px);box-shadow:0 16px 44px rgba(0,0,0,.10)}
     .card img,.card video{width:100%;height:auto;display:block}
-    .card .meta{display:flex;align-items:center;justify-content:space-between;padding:10px 12px;font-size:13px;color:#555}
-    .tag{display:inline-flex;align-items:center;gap:6px;padding:6px 10px;border-radius:999px;background:#f2f4f7;border:1px solid #e5e7eb;font-weight:600;font-size:12px}
-    .tag.coral{background:rgba(235,31,72,.1);color:#B61235;border-color:rgba(235,31,72,.35)}
+    .meta{display:flex;align-items:center;justify-content:space-between;padding:12px 14px;font-size:13px;color:#4b4e55;background:linear-gradient(180deg,#fff, #f9f9f9)}
+    .tag{display:inline-flex;align-items:center;gap:6px;padding:6px 10px;border-radius:999px;background:#f2f4f7;border:1px solid #e5e7eb;font-weight:700;font-size:12px}
+    .tag.coral{background:rgba(235,31,72,.08);color:#B61235;border-color:rgba(235,31,72,.35)}
 
-    /* ===== Lightbox ===== */
-    .lightbox{position:fixed;inset:0;background:rgba(0,0,0,.9);display:none;align-items:center;justify-content:center;z-index:100}
+    /* ===== Lightbox with glass controls ===== */
+    .lightbox{position:fixed;inset:0;background:rgba(6,10,18,.9);display:none;align-items:center;justify-content:center;z-index:100}
     .lightbox.open{display:flex}
     .lb-content{position:relative;max-width:min(92vw,1200px);max-height:86vh;display:grid;place-items:center}
-    .lb-img,.lb-video{max-width:100%;max-height:86vh;border-radius:12px;box-shadow:0 20px 60px rgba(0,0,0,.5)}
-    .lb-close,.lb-prev,.lb-next{
-      position:absolute;background:rgba(255,255,255,.12);color:#fff;border:none;border-radius:12px;padding:10px 14px;cursor:pointer;font-weight:700;
-      backdrop-filter:blur(2px);
-    }
-    .lb-close{top:-52px;right:0}
-    .lb-prev{left:-56px;top:50%;transform:translateY(-50%)}
-    .lb-next{right:-56px;top:50%;transform:translateY(-50%)}
+    .lb-img,.lb-video{max-width:100%;max-height:86vh;border-radius:14px;box-shadow:0 24px 80px rgba(0,0,0,.55)}
+    .control{position:absolute;background:rgba(255,255,255,.12);color:#fff;border:none;border-radius:12px;padding:10px 14px;cursor:pointer;font-weight:800;backdrop-filter:blur(3px)}
+    .close{top:-52px;right:0}
+    .prev{left:-56px;top:50%;transform:translateY(-50%)}
+    .next{right:-56px;top:50%;transform:translateY(-50%)}
     @media (max-width:700px){
-      .lb-prev{left:6px} .lb-next{right:6px} .lb-close{top:8px;right:8px}
+      .prev{left:6px} .next{right:6px} .close{top:8px;right:8px}
     }
 
+    /* ===== Drawer ===== */
+    #drawer{display:none;position:fixed;inset:0;background:rgba(0,0,0,.35);z-index:70}
+    .drawer{position:absolute;right:0;top:0;height:100%;width:min(88vw,360px);background:#fff;display:flex;flex-direction:column;gap:10px;padding:18px;border-left:1px solid #eaeaea}
+    .drawer .brand .logo{height:32px;width:32px;border-radius:10px}
+    .drawer a{margin:4px 0}
+
     /* ===== Footer ===== */
-    footer{border-top:1px solid #f0f0f0;background:#fafafa;margin-top:40px}
+    footer{border-top:1px solid #f0f0f0;background:#fafafa;margin-top:0}
     .footer-inner{max-width:1200px;margin:0 auto;padding:26px}
-    .muted{color:#6a6d74}
+    .muted{color:var(--muted)}
   </style>
 </head>
 <body>
@@ -108,16 +135,14 @@
       <a class="pill-link primary" href="gallery.php" aria-current="page">Gallery</a>
     </nav>
     <div class="right">
-      <button class="hamburger" aria-label="Open menu" title="Menu" onclick="document.getElementById('drawer').style.display='block'">
-        ☰
-      </button>
-      <a class="pill-link" href="https://apps.apple.com/" target="_blank" rel="noopener">Get the App</a>
+      <button class="hamburger" aria-label="Open menu" title="Menu" onclick="document.getElementById('drawer').style.display='block'">☰</button>
+      <a class="pill-link" href="#" onclick="alert('App links coming soon')" role="button">Get the App</a>
     </div>
   </header>
 
   <!-- Mobile Drawer -->
-  <div id="drawer" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.35);z-index:60;">
-    <div style="position:absolute;right:0;top:0;height:100%;width:min(88vw,360px);background:#fff;display:flex;flex-direction:column;gap:10px;padding:18px;border-left:1px solid #eaeaea">
+  <div id="drawer" onclick="if(event.target===this)this.style.display='none'">
+    <div class="drawer">
       <div style="display:flex;align-items:center;justify-content:space-between">
         <div class="brand">
           <div class="logo">Nu</div>
@@ -132,19 +157,19 @@
     </div>
   </div>
 
-  <!-- ===== Page Header ===== -->
+  <!-- ===== Page Hero ===== -->
   <section class="page-hero">
     <div>
       <div class="breadcrumbs"><a href="index.php">Home</a> / <strong>Gallery</strong></div>
-      <h1>Gallery</h1>
-      <p style="opacity:.9;margin:6px 0 0">Facilities • Classes • Community • Transformations</p>
+      <h1 class="section-title">Gallery</h1>
+      <p style="opacity:.95;margin:12px 0 0">Facilities • Classes • Community • Transformations</p>
     </div>
   </section>
 
-  <!-- ===== Filters & Search ===== -->
+  <!-- ===== Toolbar on white, grid on bone (like split sections) ===== -->
   <section class="container" aria-label="Filters">
-    <div style="display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:center">
-      <div class="filters" id="filterBar" role="tablist" aria-label="Filter gallery">
+    <div class="toolbar">
+      <div id="filterBar" role="tablist" aria-label="Filter gallery">
         <button class="chip active" data-filter="all" role="tab" aria-selected="true">All</button>
         <button class="chip" data-filter="classes" role="tab">Classes</button>
         <button class="chip" data-filter="facilities" role="tab">Facilities</button>
@@ -159,32 +184,32 @@
     </div>
   </section>
 
-  <!-- ===== Gallery Grid ===== -->
-  <main class="container">
-    <div id="galleryGrid" class="grid" aria-live="polite">
-      <!-- Cards are injected by JS below -->
-    </div>
-  </main>
+  <section class="gallery-wrap">
+    <main class="container">
+      <div id="galleryGrid" class="grid" aria-live="polite">
+        <!-- Cards injected by JS -->
+      </div>
+    </main>
+  </section>
 
   <!-- ===== Lightbox Viewer ===== -->
   <div class="lightbox" id="lightbox" aria-modal="true" role="dialog" aria-label="Media viewer">
     <div class="lb-content">
-      <button class="lb-close" aria-label="Close" onclick="closeLightbox()">✕</button>
-      <button class="lb-prev" aria-label="Previous" onclick="navLightbox(-1)">‹</button>
+      <button class="control close" aria-label="Close" onclick="closeLightbox()">✕</button>
+      <button class="control prev" aria-label="Previous" onclick="navLightbox(-1)">‹</button>
       <div id="lbMediaContainer"></div>
-      <button class="lb-next" aria-label="Next" onclick="navLightbox(1)">›</button>
+      <button class="control next" aria-label="Next" onclick="navLightbox(1)">›</button>
     </div>
   </div>
 
   <footer>
     <div class="footer-inner">
-      <p class="muted">© <?php echo date('Y'); ?> NuAge Fitness Studios · Built with love in navy & coral.</p>
+      <p class="muted">© <?php echo date('Y'); ?> NuAge Fitness Studios · Navy & Coral, always.</p>
     </div>
   </footer>
 
   <script>
-    // ===== Sample Data (replace with your files in /assets/gallery/) =====
-    // Each item: {src, type: 'image'|'video', tag, title}
+    // ===== Sample Data (replace with your own assets) =====
     const items = [
       {src:'assets/gallery/facility-weights.jpg', type:'image', tag:'facilities', title:'Strength Zone'},
       {src:'assets/gallery/class-hiit.jpg', type:'image', tag:'classes', title:'HIIT Burn'},
