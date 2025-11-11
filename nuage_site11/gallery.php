@@ -451,6 +451,8 @@ a, button { -webkit-tap-highlight-color: transparent; }
 .btn{display:inline-block;font-weight:600;padding:.9rem 1.25rem;border-radius:.75rem;border:2px solid transparent;transition:transform .2s ease,opacity .2s ease}
   .btn:active{transform:scale(.98)}
   .btn-primary{background:var(--coral);color:#fff}
+  .btn-outline{border-color:#fff;color:#fff}
+  .btn-light{background:#fff;color:var(--navy)}
 
     /* === Member Login Modal (matches classes.php) === */
     .modal-overlay{display:flex;align-items:center;justify-content:center;position:fixed;inset:0;background:rgba(0,0,0,.6);align-items:center;justify-content:center;z-index:2000}
