@@ -438,7 +438,12 @@ a, button { -webkit-tap-highlight-color: transparent; }
     @media (max-width:768px){
       .hero-compact{ padding:56px 16px; }
     }
-    </style>
+    
+/* injected button styles from index */
+.btn{display:inline-block;font-weight:600;padding:.9rem 1.25rem;border-radius:.75rem;border:2px solid transparent;transition:transform .2s ease,opacity .2s ease}
+  .btn:active{transform:scale(.98)}
+  .btn-primary{background:var(--coral);color:#fff}
+</style>
 <body class="bg-bone" style="background:#fff">
 <div class="topbar" role="navigation" aria-label="Main">
   <div class="brand" aria-label="NuAge">
