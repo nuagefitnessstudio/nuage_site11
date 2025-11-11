@@ -580,30 +580,47 @@ a, button { -webkit-tap-highlight-color: transparent; }
 
 
 
-    /* === Promo box (Pricing) === */
-    .promo-box{
-      position:relative;
-      width:min(92vw,980px);
-      margin:90px auto -24px; /* sits just under the pill navbar */
-      background:var(--coral);
-      color:#fff;
-      text-align:center;
-      font-weight:700;
-      border-radius:14px;
-      padding:12px 16px;
-      box-shadow:0 10px 22px rgba(0,0,0,.08);
-      letter-spacing:.02em;
-    }
-    .promo-box small{ display:block; font-weight:600; opacity:.95; }
-    @media (max-width:640px){ .promo-box{ margin:82px auto -20px; font-size:14px; } }
-    </style>
+/* === Pre-Sale Promo (translucent coral, minimal) — canonical === */
+.promo-box{
+  position:relative;
+  width:min(92vw,980px);
+  margin:30px auto -16px;         /* snug under pill navbar */
+  background: rgba(233,46,83,0.85);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  color:#fff;
+  text-align:center;
+  font-weight:700;
+  border-radius:14px;
+  padding:14px 20px;
+  border:1px solid rgba(255,255,255,0.28);
+  box-shadow:0 6px 18px rgba(0,0,0,0.08);
+  letter-spacing:.02em;
+}
+.promo-box small{ display:block; font-weight:600; opacity:.95; }
+
+@media (max-width:640px){
+  .promo-box{ margin:24px auto -12px; font-size:14px; padding:12px 16px; }
+}
+
+
+.modal { display:none; position:fixed; z-index:1000; left:0; top:0; width:100%; height:100%; background:rgba(0,0,0,.6); }
+.modal-content { background:#fff; margin:10% auto; padding:20px; border-radius:12px; max-width:420px; text-align:center; position:relative; }
+.modal-content h2 { color:var(--navy); margin-bottom:12px; }
+.modal-content p { margin-bottom:16px; color:var(--muted); }
+.modal-content ul { list-style:none; padding:0; margin:0 0 20px; text-align:left; }
+.modal-content ul li { margin-bottom:8px; }
+.btn-row { display:flex; gap:12px; justify-content:center; }
+.btn-row button { background:var(--coral); color:#fff; padding:10px 18px; border:none; border-radius:8px; cursor:pointer; }
+.close { position:absolute; right:16px; top:12px; font-size:24px; cursor:pointer; }
+}</style>
   <link rel="stylesheet" href="style.css?v=5" />
 
 <style>
   
   </style>
 </head>
-<body class="bg-bone" style="background:#fff">
+<body class="bg-bone">
 <div class="topbar" role="navigation" aria-label="Main">
   <div class="brand" aria-label="NuAge">
     <img loading="eager" referrerpolicy="no-referrer" src="assets/IMG_2413.png" alt="NuAge logo">
@@ -647,7 +664,7 @@ a, button { -webkit-tap-highlight-color: transparent; }
   </nav>
 </aside>
 
-
+  <div class="header-band"></div>
   <section class="hero-ot" style="background:var(--navy);">
     <div class="hero-inner">
       <h1>Contact</h1>
@@ -660,42 +677,54 @@ a, button { -webkit-tap-highlight-color: transparent; }
   </section>
 
   <section class="section" style="background:#fff;padding:40px 16px;">
-    <div class="container" style="max-width:900px;margin:0 auto;">
-      <div class="card-grid" style="display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));">
-        <div class="contact-card" style="background:#fff;border:1px solid var(--line);border-radius:16px;padding:18px;box-shadow:0 8px 24px rgba(0,0,0,.06);">
-          <h3 style="margin:0 0 6px;color:var(--navy)">Toll-free</h3>
-          <p style="margin:0 0 10px;font-weight:700">888.928.6610</p>
+    <div class="container" style="max-width:960px;margin:0 auto;">
+      <div class="grid" style="display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));">
+        <div class="card" style="background:#fff;border:1px solid var(--line);border-radius:16px;padding:18px;box-shadow:0 8px 24px rgba(0,0,0,.06);">
+          <h3 style="margin:0 0 6px;color:var(--navy)">Toll-Free</h3>
+          <p style="margin:0 0 12px;font-weight:700">888.928.6610</p>
           <a class="btn btn-light" href="tel:+18889286610">Call</a>
         </div>
-        <div class="contact-card" style="background:#fff;border:1px solid var(--line);border-radius:16px;padding:18px;box-shadow:0 8px 24px rgba(0,0,0,.06);">
+        <div class="card" style="background:#fff;border:1px solid var(--line);border-radius:16px;padding:18px;box-shadow:0 8px 24px rgba(0,0,0,.06);">
           <h3 style="margin:0 0 6px;color:var(--navy)">Direct</h3>
-          <p style="margin:0 0 10px;font-weight:700">(856) 315-8138</p>
+          <p style="margin:0 0 12px;font-weight:700">(856) 315-8138</p>
           <a class="btn btn-light" href="tel:+18563158138">Call</a>
         </div>
-        <div class="contact-card" style="background:#fff;border:1px solid var(--line);border-radius:16px;padding:18px;box-shadow:0 8px 24px rgba(0,0,0,.06);">
+        <div class="card" style="background:#fff;border:1px solid var(--line);border-radius:16px;padding:18px;box-shadow:0 8px 24px rgba(0,0,0,.06);">
           <h3 style="margin:0 0 6px;color:var(--navy)">Email</h3>
-          <p style="margin:0 0 10px;font-weight:700">info@nuagefitness-studio.com</p>
+          <p style="margin:0 0 12px;font-weight:700">info@nuagefitness-studio.com</p>
           <a class="btn btn-primary" href="mailto:info@nuagefitness-studio.com">Email Us</a>
         </div>
       </div>
 
-      <div style="margin-top:24px; text-align:center;">
-        <h3 style="color:var(--navy); margin:0 0 8px;">Follow us</h3>
-        <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;">
-          <a class="pill-link" href="#" aria-label="Instagram">Instagram</a>
-          <a class="pill-link" href="#" aria-label="Facebook">Facebook</a>
-          <a class="pill-link" href="#" aria-label="TikTok">TikTok</a>
+      <div style="margin-top:28px; text-align:center;">
+        <h3 style="color:var(--navy); margin:0 0 10px;">Follow us</h3>
+        <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
+          <a class="pill-link" target="_blank" rel="noopener" href="https://www.instagram.com/nuage_fitness_studio?igsh=MWFoeXB4OXc5NDJuZg%3D%3D&utm_source=qr">Instagram</a>
+          <a class="pill-link" target="_blank" rel="noopener" href="https://www.facebook.com/profile.php?id=61583193395222#">Facebook</a>
         </div>
-        <p class="muted" style="margin-top:8px;">Replace links with your official profiles when ready.</p>
       </div>
     </div>
   </section>
 
 
-<!-- Reuse modal functions if present in pricing (optional) -->
-<script>
-function openModal(){ var m=document.getElementById('appModal'); if(m) m.style.display='block'; }
-function closeModal(){ var m=document.getElementById('appModal'); if(m) m.style.display='none'; }
-</script>
+<div id="appModal" class="modal-overlay" style="display:none;">
+  <div class="modal-box">
+    <h2>Download the Glofox App</h2>
+    <p>
+      Please download the Glofox app, search <strong>NuAge Fitness Studio</strong> and register.<br>
+      Once logged in, you’ll be able to:<br>
+      • Access your account<br>
+      • Purchase membership<br>
+      • Book classes<br>
+      • And more.
+    </p>
+    <div class="modal-actions">
+      <button onclick="window.open('https://apps.apple.com/app/id916224471','_blank')">Apple</button>
+      <button onclick="window.open('https://play.google.com/store/apps/details?id=ie.zappy.fennec.oneapp_glofox&hl=en_US','_blank')">Google</button>
+    </div>
+    <button class="modal-close" onclick="document.getElementById('appModal').style.display='none'">×</button>
+  </div>
+</div>
+
 </body>
 </html>
