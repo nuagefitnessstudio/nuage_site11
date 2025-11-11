@@ -547,7 +547,6 @@ a, button { -webkit-tap-highlight-color: transparent; }
       <h1>Gallery</h1>
       <p>A peek inside NuAge: facilities, classes, and community.</p>
       <div class="cta-row">
-        <a class="btn btn-primary" href="classes.php">View Classes</a>
         <a class="btn btn-light" href="index.php">Back Home</a>
       </div>
     </div>
@@ -560,19 +559,19 @@ a, button { -webkit-tap-highlight-color: transparent; }
       <div id="galleryGrid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:16px">
         
     <figure class="card" style="background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden;box-shadow:0 10px 28px rgba(0,0,0,.08);transition:transform .2s, box-shadow .2s">
-      <img src="https://picsum.photos/id/1011/1200/900" alt="" loading="lazy" style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block">
+      <img src="assets/IMG_9437.jpeg" alt="" loading="lazy" style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block">
     </figure>
 
     <figure class="card" style="background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden;box-shadow:0 10px 28px rgba(0,0,0,.08);transition:transform .2s, box-shadow .2s">
-      <img src="https://picsum.photos/id/1012/1200/900" alt="" loading="lazy" style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block">
+      <img src="assets/IMG_9440.jpeg" alt="" loading="lazy" style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block">
     </figure>
 
     <figure class="card" style="background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden;box-shadow:0 10px 28px rgba(0,0,0,.08);transition:transform .2s, box-shadow .2s">
-      <img src="https://picsum.photos/id/1025/1200/900" alt="" loading="lazy" style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block">
+      <img src="assets/IMG_9442.jpeg" alt="" loading="lazy" style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block">
     </figure>
 
     <figure class="card" style="background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden;box-shadow:0 10px 28px rgba(0,0,0,.08);transition:transform .2s, box-shadow .2s">
-      <img src="https://picsum.photos/id/1005/1200/900" alt="" loading="lazy" style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block">
+      <img src="assets/IMG_9443.jpeg" alt="" loading="lazy" style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block">
     </figure>
 
     <figure class="card" style="background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden;box-shadow:0 10px 28px rgba(0,0,0,.08);transition:transform .2s, box-shadow .2s">
@@ -580,48 +579,33 @@ a, button { -webkit-tap-highlight-color: transparent; }
     </figure>
 
     <figure class="card" style="background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden;box-shadow:0 10px 28px rgba(0,0,0,.08);transition:transform .2s, box-shadow .2s">
-      <img src="https://picsum.photos/id/1039/1200/900" alt="" loading="lazy" style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block">
+      <img src="assets/IMG_9444.jpeg" alt="" loading="lazy" style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block">
     </figure>
 
     <figure class="card" style="background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden;box-shadow:0 10px 28px rgba(0,0,0,.08);transition:transform .2s, box-shadow .2s">
-      <img src="https://picsum.photos/id/1027/1200/900" alt="" loading="lazy" style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block">
+      <img src="assets/IMG_9445.jpeg" alt="" loading="lazy" style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block">
     </figure>
 
     <figure class="card" style="background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden;box-shadow:0 10px 28px rgba(0,0,0,.08);transition:transform .2s, box-shadow .2s">
-      <img src="https://picsum.photos/id/1067/1200/900" alt="" loading="lazy" style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block">
+      <img src="assets/IMG_9446.jpeg" alt="" loading="lazy" style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block">
     </figure>
 
     <figure class="card" style="background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden;box-shadow:0 10px 28px rgba(0,0,0,.08);transition:transform .2s, box-shadow .2s">
-      <img src="https://picsum.photos/id/1050/1200/900" alt="" loading="lazy" style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block">
+      <img src="assets/IMG_9447.jpeg" alt="" loading="lazy" style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block">
     </figure>
 
     <figure class="card" style="background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden;box-shadow:0 10px 28px rgba(0,0,0,.08);transition:transform .2s, box-shadow .2s">
-      <img src="https://picsum.photos/id/1062/1200/900" alt="" loading="lazy" style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block">
+      <img src="assets/IMG_9448.jpeg" alt="" loading="lazy" style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block">
     </figure>
 
     <figure class="card" style="background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden;box-shadow:0 10px 28px rgba(0,0,0,.08);transition:transform .2s, box-shadow .2s">
-      <img src="https://picsum.photos/id/1074/1200/900" alt="" loading="lazy" style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block">
+      <img src="assets/IMG_9452.jpeg" alt="" loading="lazy" style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block">
     </figure>
 
     <figure class="card" style="background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden;box-shadow:0 10px 28px rgba(0,0,0,.08);transition:transform .2s, box-shadow .2s">
-      <img src="https://picsum.photos/id/1084/1200/900" alt="" loading="lazy" style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block">
+      <img src="assets/IMG_9454.jpeg" alt="" loading="lazy" style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block">
     </figure>
 
-    <figure class="card" style="background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden;box-shadow:0 10px 28px rgba(0,0,0,.08);transition:transform .2s, box-shadow .2s">
-      <img src="https://picsum.photos/id/1082/1200/900" alt="" loading="lazy" style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block">
-    </figure>
-
-    <figure class="card" style="background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden;box-shadow:0 10px 28px rgba(0,0,0,.08);transition:transform .2s, box-shadow .2s">
-      <img src="https://picsum.photos/id/1080/1200/900" alt="" loading="lazy" style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block">
-    </figure>
-
-    <figure class="card" style="background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden;box-shadow:0 10px 28px rgba(0,0,0,.08);transition:transform .2s, box-shadow .2s">
-      <img src="https://picsum.photos/id/1069/1200/900" alt="" loading="lazy" style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block">
-    </figure>
-
-    <figure class="card" style="background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden;box-shadow:0 10px 28px rgba(0,0,0,.08);transition:transform .2s, box-shadow .2s">
-      <img src="https://picsum.photos/id/1015/1200/900" alt="" loading="lazy" style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block">
-    </figure>
       </div>
     </div>
   </section>
