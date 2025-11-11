@@ -26,40 +26,59 @@
     .hamburger svg{width:22px;height:22px;color:#000}
 
     /* Drawer */
-    .overlay{position:fixed;inset:0;background:rgba(17,20,24,.4);backdrop-filter:blur(2px);opacity:0;pointer-events:none;transition:.25s ease;z-index:59}
-    .overlay.show{opacity:1;pointer-events:auto}
-    .drawer{position:fixed;top:0;right:0;height:100%;width:min(88vw,360px);background:#fff;border-left:1px solid var(--line);box-shadow:0 10px 32px rgba(0,0,0,.16);transform:translateX(100%);transition:transform .28s ease;z-index:60;display:flex;flex-direction:column}
-    .drawer.show{transform:none}
-    .drawer-header{display:flex;align-items:center;justify-content:space-between;padding:16px 18px;border-bottom:1px solid var(--line)}
-    .drawer-nav{padding:10px 14px;display:grid;gap:10px}
-    .pill{display:inline-flex;align-items:center;justify-content:center;padding:11px 16px;border-radius:999px;border:1px solid #e8e8e8;background:#f7f7f7;font-weight:700}
-    .pill.primary{background:#0d2a55;color:#fff;border-color:#0d2a55}
-
-    /* ===== Hero (navy) ===== */
-    .hero{background:var(--navy);color:#fff;text-align:center;padding:110px 16px 90px}
-    .hero p{opacity:.95;margin:8px 0 0}
-    .cta-row{display:flex;gap:14px;justify-content:center;margin-top:18px;flex-wrap:wrap}
-    .btn{display:inline-flex;align-items:center;justify-content:center;padding:14px 22px;border-radius:12px;font-weight:800;border:1px solid transparent}
-    .btn.coral{background:var(--coral);color:#fff;border-color:var(--coral)}
-    .btn.light{background:#fff;color:#16223a;border-color:#eee}
-
-    /* ===== Card grid (exact spacing & borders) ===== */
-    .cards{background:var(--bone);border-top:1px solid var(--line);padding:50px 0}
-    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px}
-    .card{background:#fff;border:1px solid var(--line);border-radius:16px;overflow:hidden;display:flex;flex-direction:column;box-shadow:0 1px 0 rgba(0,0,0,.02)}
-    .card .img-wrap{width:100%;aspect-ratio:4/3;background:#f3f3f3;overflow:hidden}
-    .card .img-wrap img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .35s ease}
-    .card:hover .img-wrap img{transform:scale(1.02)}
-    .card .content{padding:18px}
-    .card h3{font-size:clamp(18px,2.2vw,22px);color:var(--navy);margin:0 0 6px}
-    .card p{color:#494c53;margin:0 0 12px}
-    .card .cta{margin-top:auto;padding:0 18px 18px}
-
-    /* ===== CTA band & footer ===== */
     .cta-band{background:var(--navy);color:#fff;text-align:center;padding:68px 16px}
     .cta-band p{opacity:.9;margin:8px 0 0}
     footer{padding:30px 0;color:#7a7e85;text-align:center;font-size:14px}
-  </style>
+  
+/* ==== Drawer styles copied from index.php ==== */
+
+      background:#fff9; backdrop-filter:blur(6px); cursor:pointer;
+      transition:transform .15s ease, background .2s ease;
+    }
+    .hamburger:active{transform:translateY(-50%) scale(.98)}
+    .hamburger svg{width:22px;height:22px}
+
+    /* Drawer + overlay */
+    .overlay{
+      position:fixed;inset:0;background:rgba(17,20,24,.4);backdrop-filter:blur(2px);
+      opacity:0;pointer-events:none;transition:opacity .25s ease;z-index:59;
+    }
+    .overlay.show{opacity:1;pointer-events:auto}
+    .drawer{
+      position:fixed;top:0;right:0;height:100%;width:min(88vw,360px);
+      background:#fff;border-left:1px solid var(--line);box-shadow:0 10px 32px rgba(0,0,0,.16);
+      transform:translateX(100%);transition:transform .28s ease;z-index:60;display:flex;flex-direction:column;
+    }
+    .drawer.show{transform:none}
+    .drawer-header{display:flex;align-items:center;justify-content:space-between;padding:16px 18px;border-bottom:1px solid var(--line)}
+    .drawer-header .brand img{height:24px}
+    .drawer-close{background:transparent;border:none;font-size:28px;line-height:1;cursor:pointer;padding:6px;border-radius:8px}
+    .drawer-nav{padding:10px 14px;display:grid;gap:10px}
+    .drawer .pill-link{background:#f7f7f7}
+    .drawer .pill-link.primary{background:#0d2a55;color:#fff;border:1px solid #0d2a55}
+
+    /* ===== Rest of original styles ===== */
+    .hero{position:relative;height:92svh;min-height:520px;overflow:hidden;color:#fff}
+    .hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+    .hero::after{content:'';position:absolute;inset:0;background:linear-gradient(to bottom, rgba(0,0,0,.18), rgba(0,0,0,.35) 55%, rgba(0,0,0,.25));pointer-events:none}
+    .hero-center{position:absolute;inset:0;display:grid;place-items:center;text-align:center;z-index:1;padding:0 16px}
+    .hero-center h1{text-shadow:0 2px 16px rgba(0,0,0,.35);color:#fff}
+
+    .split{display:grid;grid-template-columns:1.15fr 1fr;min-height:90svh;background:var(--bone)}
+    .split .visual{position:relative;overflow:hidden}
+    .split .visual img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transform:scale(1.03)}
+    .split .text{padding:72px 32px;display:flex;align-items:center}
+    .stack{width:100%}
+    .eyebrow{text-transform:uppercase;letter-spacing:.18em;font-weight:700;color:#7c756b;font-size:12px;margin-bottom:20px}
+    .divider{height:1px;background:var(--line);margin:28px 0}
+    .feature{display:grid;grid-template-columns:1fr 160px;gap:24px;align-items:center;padding:14px 0}
+    .feature img{width:160px;height:112px;object-fit:cover;border-radius:12px;box-shadow:0 4px 16px rgba(0,0,0,.08)}
+
+    .bleed{position:relative;min-height:60svh;display:grid;place-items:center;text-align:center;color:#fff;overflow:hidden}
+    .bleed img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:brightness(.75)}
+    .bleed .inner{position:relative;z-index:1;padding:48px 16px}
+    .btn{display:inline-block;border:1px solid #fffff
+</style>
 </head>
 <body>
 
@@ -77,24 +96,27 @@
   </div>
 
   <!-- Drawer + overlay -->
-  <div id="navOverlay" class="overlay" hidden></div>
-  <aside id="navDrawer" class="drawer" hidden aria-hidden="true">
-    <div class="drawer-header">
-      <div class="brand">
-        <img src="assets/IMG_2413.png" alt="NuAge logo" />
-        <div class="brand-name"><span>Nu</span><span class="age">Age</span> Fitness Studios</div>
+  <div id="navOverlay" hidden></div>
+<aside class="drawer" id="navDrawer" hidden aria-hidden="true">
+  <div class="drawer-header">
+    <div class="brand">
+      <img loading="eager" src="assets/IMG_2413.png" alt="NuAge logo">
+      <div class="brand-name">
+        <span style="color:var(--navy);">Nu</span><span style="color:var(--coral);">Age</span>
+        <span style="color:var(--navy);">Fitness</span>
+        <span style="color:var(--navy);">Studios</span>
       </div>
-      <button id="navClose" aria-label="Close menu" style="background:transparent;border:none;font-size:28px;line-height:1;cursor:pointer;">×</button>
     </div>
-    <nav class="drawer-nav">
-      <a class="pill primary" href="location.php">Find a Location</a>
-      <a class="pill" href="javascript:void(0)" onclick="openModal()">Member Login</a>
-      <a class="pill" href="classes.php">Classes</a>
-      <a class="pill" href="team.php">Meet the Team</a>
-      <a class="pill" href="pricing.php">Pricing</a>
-      <a class="pill" href="gallery.php" aria-current="page">Gallery</a>
-    </nav>
-  </aside>
+    <button class="drawer-close" id="navClose" aria-label="Close menu">&times;</button>
+  </div>
+  <nav class="drawer-nav">
+    <a href="location.php" class="pill-link primary"><span style="font-weight:700">Find a Location</span></a>
+    <a href="javascript:void(0)" onclick="openLogin()" class="pill-link">Member Login</a>
+    <a href="classes.php">Classes</a>
+    <a href="team.php">Meet the Team</a>
+    <a href="pricing.php">Pricing</a>
+  </nav>
+</aside>
 
   <!-- HERO -->
   <section class="hero">
