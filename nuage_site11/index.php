@@ -802,6 +802,23 @@ window.addEventListener("load", function() {
   </div>
 </section>
 
+<!-- Inside the Studio — Homepage Gallery -->
+<section class="section-studio" id="inside-studio">
+  <div class="wrap">
+    <h2>Inside the Studio</h2>
+    <p class="sub">A peek at the space, equipment, and training zones.</p>
+
+    <div class="studio-grid">
+      <div class="studio-card"><img src="assets/nuage-gym-1.jpg" alt="NuAge Studio photo 1"></div>
+      <div class="studio-card"><img src="assets/nuage-gym-2.jpg" alt="NuAge Studio photo 2"></div>
+      <div class="studio-card"><img src="assets/nuage-gym-3.jpg" alt="NuAge Studio photo 3"></div>
+      <div class="studio-card"><img src="assets/nuage-gym-4.jpg" alt="NuAge Studio photo 4"></div>
+      <div class="studio-card"><img src="assets/nuage-gym-5.jpg" alt="NuAge Studio photo 5"></div>
+    </div>
+
+  </div>
+</section>
+
 
   <!-- PREVIEWS -->
   <section class="previews">
@@ -924,26 +941,6 @@ window.addEventListener("load", function() {
     <p>&copy; <?php echo date('Y'); ?> NuAge Fitness Studio. All rights reserved.</p>
   </div>
 
-<!-- Inside the Studio — Homepage Gallery -->
-<section class="section-studio" id="inside-studio">
-  <div class="wrap">
-    <h2>Inside the Studio</h2>
-    <p class="sub">A peek at the space, equipment, and training zones.</p>
-
-    <div class="studio-grid">
-      <div class="studio-card"><img src="assets/nuage-gym-1.jpg" alt="NuAge Studio photo 1"></div>
-      <div class="studio-card"><img src="assets/nuage-gym-2.jpg" alt="NuAge Studio photo 2"></div>
-      <div class="studio-card"><img src="assets/nuage-gym-3.jpg" alt="NuAge Studio photo 3"></div>
-      <div class="studio-card"><img src="assets/nuage-gym-4.jpg" alt="NuAge Studio photo 4"></div>
-      <div class="studio-card"><img src="assets/nuage-gym-5.jpg" alt="NuAge Studio photo 5"></div>
-    </div>
-
-    <div class="studio-actions">
-      <a class="btn btn-primary" href="classes.php">View Classes</a>
-      <a class="btn btn-light" href="contact.php">Contact</a>
-    </div>
-  </div>
-</section>
 
 </footer>
 
