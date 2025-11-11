@@ -620,7 +620,27 @@ a, button { -webkit-tap-highlight-color: transparent; }
   letter-spacing:.02em;
 }
 @media (max-width:640px){ .promo-box{ margin:82px auto -18px; font-size:14px; padding:12px 16px; } }
-</style>
+
+
+  
+  
+/* promo-inline-fallback */
+.promo-box a{ color:#fff; text-decoration:underline; }
+@media (max-width:640px){
+  .promo-box{ margin:82px auto -18px !important; font-size:14px; padding:12px 16px !important; }
+}
+
+
+.modal { display:none; position:fixed; z-index:1000; left:0; top:0; width:100%; height:100%; background:rgba(0,0,0,.6); }
+.modal-content { background:#fff; margin:10% auto; padding:20px; border-radius:12px; max-width:420px; text-align:center; position:relative; }
+.modal-content h2 { color:var(--navy); margin-bottom:12px; }
+.modal-content p { margin-bottom:16px; color:var(--muted); }
+.modal-content ul { list-style:none; padding:0; margin:0 0 20px; text-align:left; }
+.modal-content ul li { margin-bottom:8px; }
+.btn-row { display:flex; gap:12px; justify-content:center; }
+.btn-row button { background:var(--coral); color:#fff; padding:10px 18px; border:none; border-radius:8px; cursor:pointer; }
+.close { position:absolute; right:16px; top:12px; font-size:24px; cursor:pointer; }
+}</style>
   <link rel="stylesheet" href="style.css?v=5" />
 
 <style>
@@ -690,7 +710,14 @@ a, button { -webkit-tap-highlight-color: transparent; }
     <a href="gallery.php">Gym Gallery</a>
   </nav>
 </aside>
-  <div class="promo-box">Pre Sale Sign Up — Get up to 20% off membership</div>
+  
+<style>/* promo-inline-fallback */
+.promo-box a{ color:#fff; text-decoration:underline; }
+@media (max-width:640px){
+  .promo-box{ margin:82px auto -18px !important; font-size:14px; padding:12px 16px !important; }
+}
+</style>
+<div class="promo-box" style="background:rgba(233,46,83,0.85);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);color:#fff;padding:14px 20px;border-radius:14px;width:min(92vw,980px);margin:90px auto -24px;box-shadow:0 6px 18px rgba(0,0,0,.08);border:1px solid rgba(255,255,255,.28);text-align:center;font-weight:700;letter-spacing:.02em;">Pre Sale Sign Up — Get up to 20% off membership</div>
 <section class="hero-ot" style="min-height:40vh">
     <div class="hero-inner">
       <h1>Membership Pricing</h1>
