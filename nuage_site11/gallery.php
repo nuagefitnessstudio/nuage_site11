@@ -1,5 +1,5 @@
 <?php
-// NuAge Fitness — Pure Gallery Page (theme-matched, image-first)
+// NuAge Fitness — Simple Gallery (no tabs/filters, themed to Classes page)
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -9,13 +9,13 @@
   <title>Gallery — NuAge Fitness Studio</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
-    :root{ --ink:#111418; --muted:#6a6d74; --line:#e9e6e1; --bone:#faf7f2; --pill:#efebe6cc; --navy:#002D72; --coral:#EB1F48; --shadow:0 10px 28px rgba(0,0,0,.10); }
+    :root{ --ink:#111418; --muted:#6a6d74; --line:#e9e6e1; --bone:#faf7f2; --navy:#002D72; --coral:#EB1F48; }
     *{box-sizing:border-box} html,body{height:100%}
     body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,Helvetica,sans-serif;line-height:1.6;background:#fff;color:var(--ink)}
-    h1,h2{font-family:'Playfair Display',serif;letter-spacing:.02em;line-height:1.15;margin:0 0 .25em}
-    h1{font-size:clamp(40px,6vw,72px);font-weight:700}
+    h1{font-family:'Playfair Display',serif;font-weight:700;letter-spacing:.02em;font-size:clamp(40px,6vw,72px);line-height:1.15;margin:0}
+    .container{max-width:1200px;margin:0 auto;padding:0 24px}
 
-    /* Topbar (center brand like Classes) */
+    /* Topbar (center brand like Classes page) */
     .topbar{position:sticky;top:0;z-index:60;height:64px;background:#fff;border-bottom:1px solid #f1f1f1}
     .topbar-inner{position:relative;max-width:1200px;margin:0 auto;height:64px;display:flex;align-items:center;justify-content:center}
     .brand-name{font-family:'Playfair Display',serif;font-weight:700;letter-spacing:.04em;font-size:18px;color:#0d2a55}
@@ -31,26 +31,21 @@
     .pill-link.primary{background:#0d2a55;color:#fff;border-color:#0d2a55}
 
     /* Hero band */
-    .hero{background:var(--navy);color:#fff;text-align:center;padding:72px 16px 88px}
-    .hero p{opacity:.9;margin:6px 0 0}
+    .hero{background:var(--navy);color:#fff;text-align:center;padding:72px 16px 72px}
+    .hero p{opacity:.9;margin:10px 0 0}
 
-    /* Filter row */
-    .container{max-width:1200px;margin:0 auto;padding:0 24px}
-    .toolbar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:center;background:#fff;margin:-36px auto 0;padding:12px;border-radius:999px;box-shadow:var(--shadow);width:min(92%, 860px)}
-    .chip{border:1px solid #e6e6e6;background:#f7f7f7;padding:9px 14px;border-radius:999px;font-weight:700;cursor:pointer}
-    .chip.active{background:var(--coral);color:#fff;border-color:var(--coral)}
-
-    /* Gallery (image-first) */
+    /* Simple Gallery Grid */
     .wrap{background:var(--bone);border-top:1px solid var(--line)}
     .grid{display:grid;grid-template-columns:repeat(1, 1fr);gap:14px;padding:34px 0}
     @media(min-width:560px){.grid{grid-template-columns:repeat(2, 1fr)}}
     @media(min-width:900px){.grid{grid-template-columns:repeat(3, 1fr)}}
     @media(min-width:1200px){.grid{grid-template-columns:repeat(4, 1fr)}}
-    .tile{position:relative;border-radius:18px;overflow:hidden;background:#fff;border:1px solid var(--line);box-shadow:0 2px 4px rgba(0,0,0,.03)}
-    .ratio{position:relative;width:100%;padding-top:72%} /* 4:3 look */
-    .ratio > img,.ratio > video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-    .tile:hover .ratio > img{transform:scale(1.02)} .ratio > img{transition:transform .35s ease}
-    .cap{position:absolute;left:10px;bottom:10px;background:rgba(17,20,24,.6);color:#fff;padding:8px 10px;border-radius:12px;font-weight:700;font-size:13px;backdrop-filter:blur(2px)}
+    .tile{position:relative;border-radius:18px;overflow:hidden;background:#fff;border:1px solid var(--line)}
+    .ratio{position:relative;width:100%;padding-top:72%} /* uniform 4:3 aspect for clean rows */
+    .ratio>img,.ratio>video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+    .ratio>img{transition:transform .35s ease}
+    .tile:hover .ratio>img{transform:scale(1.02)}
+    .cap{position:absolute;left:10px;bottom:10px;background:rgba(17,20,24,.6);color:#fff;padding:6px 10px;border-radius:12px;font-weight:700;font-size:12px;backdrop-filter:blur(2px)}
 
     /* Lightbox */
     .lightbox{position:fixed;inset:0;background:rgba(6,10,18,.92);display:none;align-items:center;justify-content:center;z-index:70}
@@ -63,9 +58,7 @@
     .lb-next{right:-56px;top:50%;transform:translateY(-50%)}
     @media(max-width:700px){.lb-prev{left:6px}.lb-next{right:6px}.lb-close{top:8px;right:8px}}
 
-    /* CTA band (optional, subtle) */
-    .cta-band{background:var(--navy);color:#fff;text-align:center;padding:56px 16px}
-    .cta-band p{opacity:.9}
+    /* Footer */
     footer{color:#7a7e85;text-align:center;padding:30px 0;font-size:14px}
   </style>
 </head>
@@ -98,31 +91,11 @@
     </div>
   </section>
 
-  <!-- Filters -->
-  <div class="container" style="position:relative">
-    <div class="toolbar" id="filterBar" role="tablist">
-      <button class="chip active" data-filter="all" aria-selected="true">All</button>
-      <button class="chip" data-filter="classes">Classes</button>
-      <button class="chip" data-filter="facilities">Facilities</button>
-      <button class="chip" data-filter="members">Members</button>
-      <button class="chip" data-filter="transformations">Transformations</button>
-      <button class="chip" data-filter="video">Video</button>
-    </div>
-  </div>
-
-  <!-- Gallery Grid -->
+  <!-- Gallery -->
   <section class="wrap">
     <main class="container">
       <div id="grid" class="grid" aria-live="polite"></div>
     </main>
-  </section>
-
-  <!-- CTA band -->
-  <section class="cta-band">
-    <div class="container">
-      <h2>Train with Intention</h2>
-      <p>Science-backed classes, motivating coaches, real results.</p>
-    </div>
   </section>
 
   <footer class="container">© <?php echo date('Y'); ?> NuAge Fitness Studio. All rights reserved.</footer>
@@ -137,22 +110,22 @@ function toggleDrawer(force){
   d.setAttribute('aria-hidden', String(!show));
 }
 
-// Data (swap with your assets)
+// Replace with your asset files
 const items = [
-  {src:'assets/gallery/facility-weights.jpg', type:'image', tag:'facilities', title:'Strength Zone'},
-  {src:'assets/gallery/class-hiit.jpg', type:'image', tag:'classes', title:'Full Body Bootcamp'},
-  {src:'assets/gallery/members-strong.jpg', type:'image', tag:'members', title:'Member Spotlight'},
-  {src:'assets/gallery/transform-1.jpg', type:'image', tag:'transformations', title:'8-Week Progress'},
-  {src:'assets/gallery/videos/nuage-tour.mp4', type:'video', tag:'video', title:'Studio Walkthrough'},
-  {src:'assets/gallery/class-yoga.jpg', type:'image', tag:'classes', title:'Mobility & Flow'},
-  {src:'assets/gallery/facility-cardio.jpg', type:'image', tag:'facilities', title:'Cardio Deck'},
-  {src:'assets/gallery/members-class.jpg', type:'image', tag:'members', title:'Group Energy'},
-  {src:'assets/gallery/transform-2.jpg', type:'image', tag:'transformations', title:'Glute Gains'}
+  {src:'assets/gallery/facility-weights.jpg', type:'image', title:'Strength Zone'},
+  {src:'assets/gallery/class-hiit.jpg', type:'image', title:'Full Body Bootcamp'},
+  {src:'assets/gallery/members-strong.jpg', type:'image', title:'Member Spotlight'},
+  {src:'assets/gallery/transform-1.jpg', type:'image', title:'8-Week Progress'},
+  {src:'assets/gallery/videos/nuage-tour.mp4', type:'video', title:'Studio Walkthrough'},
+  {src:'assets/gallery/class-yoga.jpg', type:'image', title:'Mobility & Flow'},
+  {src:'assets/gallery/facility-cardio.jpg', type:'image', title:'Cardio Deck'},
+  {src:'assets/gallery/members-class.jpg', type:'image', title:'Group Energy'},
+  {src:'assets/gallery/transform-2.jpg', type:'image', title:'Glute Gains'}
 ];
 
 const grid = document.getElementById('grid');
 function tile(item, idx){
-  const t = document.createElement('figure'); t.className='tile'; t.dataset.tag=item.tag; t.dataset.index=idx;
+  const t = document.createElement('figure'); t.className='tile'; t.dataset.index=idx;
   const r = document.createElement('div'); r.className='ratio';
   if(item.type==='video'){
     const v = document.createElement('video'); v.src=item.src; v.muted=true; v.playsInline=true; v.loop=true;
@@ -166,20 +139,11 @@ function tile(item, idx){
     r.appendChild(img);
   }
   t.appendChild(r);
-  const cap = document.createElement('figcaption'); cap.className='cap'; cap.textContent=item.title + '  ·  #' + item.tag;
+  const cap = document.createElement('figcaption'); cap.className='cap'; cap.textContent=item.title;
   t.appendChild(cap);
   return t;
 }
 items.forEach((it,i)=> grid.appendChild(tile(it,i)));
-
-// Filters
-document.getElementById('filterBar').addEventListener('click', (e)=>{
-  const b = e.target.closest('.chip'); if(!b) return;
-  document.querySelectorAll('.chip').forEach(c=>c.classList.remove('active'));
-  b.classList.add('active');
-  const f = b.dataset.filter;
-  [...grid.children].forEach(el=>{ el.style.display = (f==='all' || el.dataset.tag===f) ? '' : 'none'; });
-});
 
 // Lightbox
 let cur=-1; const lb = document.createElement('div'); lb.className='lightbox'; lb.id='lb';
