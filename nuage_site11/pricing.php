@@ -647,6 +647,7 @@ a, button { -webkit-tap-highlight-color: transparent; }
     <a href="classes.php">Classes</a>
     <a href="team.php">Meet the Team</a>
     <a href="pricing.php">Pricing</a>
+    <a href="gallery.php">Gym Gallery</a>
   </nav>
 </aside>
   <section class="hero-ot" style="min-height:40vh">
