@@ -532,6 +532,8 @@ a, button { -webkit-tap-highlight-color: transparent; }
     <a href="classes.php">Classes</a>
     <a href="team.php">Meet the Team</a>
     <a href="pricing.php">Pricing</a>
+    <a href="gallery.php">Gym Gallery</a>
+    <a href="contact.php">Contact</a>
   </nav>
 </aside>
 
