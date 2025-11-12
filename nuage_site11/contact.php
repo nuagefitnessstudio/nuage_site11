@@ -659,7 +659,6 @@ a, button { -webkit-tap-highlight-color: transparent; }
       <h1>Contact</h1>
       <p>We’d love to hear from you. Reach out anytime.</p>
       <div class="cta-row">
-        <a class="btn btn-primary" href="classes.php">View Classes</a>
         <a class="btn btn-light" href="index.php">Back Home</a>
       </div>
     </div>
