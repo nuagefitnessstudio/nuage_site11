@@ -694,12 +694,6 @@ a, button { -webkit-tap-highlight-color: transparent; }
       <div style="margin-top:24px; text-align:center;">
         <h3 style="color:var(--navy); margin:0 0 8px;">Follow us</h3>
 
-<div class="social-follow">
-  <div class="hint">Click an icon below to connect with us</div>
-  <div class="social-icons">
-    <a href="https://www.instagram.com/nuage_fitness_studio?igsh=MWFoeXB4OXc5NDJuZg%3D%3D&utm_source=qr" target="_blank" rel="noopener" aria-label="Visit our Instagram"><svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7zm5 3.5A5.5 5.5 0 1 1 6.5 13 5.5 5.5 0 0 1 12 7.5zm0 2A3.5 3.5 0 1 0 15.5 13 3.5 3.5 0 0 0 12 9.5zm6-3a1 1 0 1 1-1 1 1 1 0 0 1 1-1z"/></svg></a>
-    <a href="https://www.facebook.com/profile.php?id=61583193395222#" target="_blank" rel="noopener" aria-label="Visit our Facebook"><svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M13.5 22v-7h2.5l.5-3h-3V9.5c0-.9.3-1.5 1.7-1.5H16V5.3c-.3 0-1.3-.1-2.3-.1-2.2 0-3.7 1.3-3.7 3.8V12H7.5v3h2.5v7h3.5z"/></svg></a>
-  </div>
 </div>
 
 </div>
