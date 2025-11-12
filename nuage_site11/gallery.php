@@ -787,10 +787,53 @@ document.addEventListener('DOMContentLoaded', function(){
   });
   if (closeBtn){ closeBtn.addEventListener('click', closeLB); }
     if (overlay){ overlay.addEventListener('click', (e)=>{ if(e.target===overlay) closeLB(); }); }
-    window.addEventListener('keydown', (e)=>{ if(e.key==='Escape') closeLB(); }););
+    window.addEventListener('keydown', (e)=>{ if(e.key==='Escape') closeLB(); });
     window.addEventListener('keydown', (e)=>{ if(e.key==='Escape') closeLB(); });
   }
 });
 </script>
+
+<script>
+document.addEventListener('DOMContentLoaded', function(){
+  const overlay = document.getElementById('lightboxOverlay');
+  const dialog = document.getElementById('lightboxDialog');
+  const img = document.getElementById('lightboxImg');
+  const grid = document.getElementById('galleryGrid');
+
+  if (!overlay || !dialog || !img || !grid) return;
+
+  function openLightbox(src){
+    img.src = src;
+    if (dialog.showModal) dialog.showModal();
+    else dialog.setAttribute('open','');
+    overlay.classList.add('show');
+    overlay.removeAttribute('hidden');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeLightbox(){
+    if (dialog.close) dialog.close();
+    else dialog.removeAttribute('open');
+    overlay.classList.remove('show');
+    overlay.setAttribute('hidden','');
+    img.src = '';
+    document.body.style.overflow = '';
+  }
+
+  grid.addEventListener('click', (e)=>{
+    const target = e.target.closest('img');
+    if(!target) return;
+    openLightbox(target.src);
+  });
+
+  // Close when clicking overlay or dialog backdrop
+  overlay.addEventListener('click', closeLightbox);
+  dialog.addEventListener('click', (e)=>{ if (e.target === dialog) closeLightbox(); });
+
+  // Close on ESC
+  document.addEventListener('keydown', (e)=>{ if(e.key === 'Escape') closeLightbox(); });
+});
+</script>
+
 </body>
 </html>
