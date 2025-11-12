@@ -1,3 +1,9 @@
+<link rel="preload" as="image" href="assets/IMG_2413.png">
+<link rel="preload" as="image" href="assets/IMG_2413.png">
+<style>
+/* Perf: skip rendering work until scrolled into view */
+.card img, #galleryGrid img { content-visibility: auto; contain-intrinsic-size: 320px 240px; }
+</style>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -505,7 +511,7 @@ a, button { -webkit-tap-highlight-color: transparent; }
 
 <div class="topbar" role="navigation" aria-label="Main">
   <div class="brand" aria-label="NuAge">
-    <img loading="eager" referrerpolicy="no-referrer" src="assets/IMG_2413.png" alt="NuAge logo">
+    <img loading="eager" referrerpolicy="no-referrer" src="assets/IMG_2413.png" alt="NuAge logo" decoding="async" fetchpriority="high">
     <div class="brand-name">
       <span style="color:var(--navy);">Nu</span><span style="color:var(--coral);">Age</span>
       <span style="color:var(--navy);">Fitness</span>
@@ -526,7 +532,7 @@ a, button { -webkit-tap-highlight-color: transparent; }
 <aside class="drawer" id="navDrawer" hidden aria-hidden="true">
   <div class="drawer-header">
     <div class="brand">
-      <img loading="eager" src="assets/IMG_2413.png" alt="NuAge logo">
+      <img loading="eager" src="assets/IMG_2413.png" alt="NuAge logo" decoding="async" fetchpriority="high">
       <div class="brand-name">
         <span style="color:var(--navy);">Nu</span><span style="color:var(--coral);">Age</span>
         <span style="color:var(--navy);">Fitness</span>
@@ -568,48 +574,48 @@ a, button { -webkit-tap-highlight-color: transparent; }
       <div id="galleryGrid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:16px">
         
     <figure class="card" style="background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden;box-shadow:0 10px 28px rgba(0,0,0,.08);transition:transform .2s, box-shadow .2s">
-      <img src="assets/IMG_9437.jpeg" alt="" loading="lazy" style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block">
+      <img src="assets/IMG_9437.jpeg" alt="" loading="lazy" style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block" decoding="async" fetchpriority="low">
     </figure>
 
     <figure class="card" style="background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden;box-shadow:0 10px 28px rgba(0,0,0,.08);transition:transform .2s, box-shadow .2s">
-      <img src="assets/IMG_9440.jpeg" alt="" loading="lazy" style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block">
+      <img src="assets/IMG_9440.jpeg" alt="" loading="lazy" style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block" decoding="async" fetchpriority="low">
     </figure>
 
     <figure class="card" style="background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden;box-shadow:0 10px 28px rgba(0,0,0,.08);transition:transform .2s, box-shadow .2s">
-      <img src="assets/IMG_9442.jpeg" alt="" loading="lazy" style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block">
+      <img src="assets/IMG_9442.jpeg" alt="" loading="lazy" style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block" decoding="async" fetchpriority="low">
     </figure>
 
     <figure class="card" style="background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden;box-shadow:0 10px 28px rgba(0,0,0,.08);transition:transform .2s, box-shadow .2s">
-      <img src="assets/IMG_9443.jpeg" alt="" loading="lazy" style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block">
+      <img src="assets/IMG_9443.jpeg" alt="" loading="lazy" style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block" decoding="async" fetchpriority="low">
     </figure>
 
 
     <figure class="card" style="background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden;box-shadow:0 10px 28px rgba(0,0,0,.08);transition:transform .2s, box-shadow .2s">
-      <img src="assets/IMG_9444.jpeg" alt="" loading="lazy" style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block">
+      <img src="assets/IMG_9444.jpeg" alt="" loading="lazy" style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block" decoding="async" fetchpriority="low">
     </figure>
 
     <figure class="card" style="background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden;box-shadow:0 10px 28px rgba(0,0,0,.08);transition:transform .2s, box-shadow .2s">
-      <img src="assets/IMG_9445.jpeg" alt="" loading="lazy" style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block">
+      <img src="assets/IMG_9445.jpeg" alt="" loading="lazy" style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block" decoding="async" fetchpriority="low">
     </figure>
 
     <figure class="card" style="background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden;box-shadow:0 10px 28px rgba(0,0,0,.08);transition:transform .2s, box-shadow .2s">
-      <img src="assets/IMG_9446.jpeg" alt="" loading="lazy" style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block">
+      <img src="assets/IMG_9446.jpeg" alt="" loading="lazy" style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block" decoding="async" fetchpriority="low">
     </figure>
 
     <figure class="card" style="background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden;box-shadow:0 10px 28px rgba(0,0,0,.08);transition:transform .2s, box-shadow .2s">
-      <img src="assets/IMG_9447.jpeg" alt="" loading="lazy" style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block">
+      <img src="assets/IMG_9447.jpeg" alt="" loading="lazy" style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block" decoding="async" fetchpriority="low">
     </figure>
 
     <figure class="card" style="background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden;box-shadow:0 10px 28px rgba(0,0,0,.08);transition:transform .2s, box-shadow .2s">
-      <img src="assets/IMG_9448.jpeg" alt="" loading="lazy" style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block">
+      <img src="assets/IMG_9448.jpeg" alt="" loading="lazy" style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block" decoding="async" fetchpriority="low">
     </figure>
 
     <figure class="card" style="background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden;box-shadow:0 10px 28px rgba(0,0,0,.08);transition:transform .2s, box-shadow .2s">
-      <img src="assets/IMG_9452.jpeg" alt="" loading="lazy" style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block">
+      <img src="assets/IMG_9452.jpeg" alt="" loading="lazy" style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block" decoding="async" fetchpriority="low">
     </figure>
 
     <figure class="card" style="background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden;box-shadow:0 10px 28px rgba(0,0,0,.08);transition:transform .2s, box-shadow .2s">
-      <img src="assets/IMG_9454.jpeg" alt="" loading="lazy" style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block">
+      <img src="assets/IMG_9454.jpeg" alt="" loading="lazy" style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block" decoding="async" fetchpriority="low">
     </figure>
 
       </div>
@@ -625,7 +631,7 @@ a, button { -webkit-tap-highlight-color: transparent; }
   <!-- Lightbox overlay + dialog -->
   <div id="lightboxOverlay" class="overlay" style="background:rgba(17,20,24,.6)" hidden aria-hidden="true"></div>
   <dialog id="lightboxDialog" style="border:none;border-radius:16px;padding:0;max-width:min(92vw,1080px)">
-    <img id="lightboxImg" src="" alt="Expanded photo" style="display:block;width:100%;height:auto">
+    <img id="lightboxImg" src="" alt="Expanded photo" style="display:block;width:100%;height:auto" decoding="async" loading="lazy" fetchpriority="low">
   </dialog>
 </main>
 
@@ -759,7 +765,7 @@ document.addEventListener('click', (e)=>{
 
 <div id="lightbox" class="lightbox" aria-hidden="true" role="dialog">
   <button class="lb-close" aria-label="Close">×</button>
-  <img id="lbImg" alt="Expanded image">
+  <img id="lbImg" alt="Expanded image" decoding="async" loading="lazy" fetchpriority="low">
 </div>
 
 <script>
