@@ -637,7 +637,78 @@ a, button { -webkit-tap-highlight-color: transparent; }
 </main>
 
 
+<script>
 
+document.addEventListener("DOMContentLoaded", function () {
+  const navToggle = document.getElementById("navToggle");
+  const navClose = document.getElementById("navClose");
+  const navDrawer = document.getElementById("navDrawer");
+  const navOverlay = document.getElementById("navOverlay");
+
+  function openNav(){
+    if (navDrawer) { navDrawer.classList.add("show"); navDrawer.removeAttribute("hidden"); navDrawer.setAttribute("aria-hidden","false"); }
+    if (navOverlay) { navOverlay.classList.add("show"); navOverlay.removeAttribute("hidden"); }
+  }
+  function closeNav(){
+    if (navDrawer) { navDrawer.classList.remove("show"); navDrawer.setAttribute("hidden",""); navDrawer.setAttribute("aria-hidden","true"); }
+    if (navOverlay) { navOverlay.classList.remove("show"); navOverlay.setAttribute("hidden",""); }
+  }
+
+  if (navToggle) navToggle.addEventListener("click", openNav);
+  if (navClose) navClose.addEventListener("click", closeNav);
+  if (navOverlay) navOverlay.addEventListener("click", closeNav);
+
+  // ESC key to close
+  document.addEventListener("keydown", (e)=>{ if (e.key === "Escape") closeNav(); });
+});
+</script>
+
+<script>
+document.addEventListener('DOMContentLoaded', function(){
+  // Filtering
+  const buttons = document.querySelectorAll('[data-filter]');
+  const cards = document.querySelectorAll('#galleryGrid .card');
+  buttons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const f = btn.getAttribute('data-filter');
+      cards.forEach(card => {
+        const tag = card.getAttribute('data-tags');
+        const show = (f === 'all') || tag === f;
+        card.style.display = show ? '' : 'none';
+      });
+    });
+  });
+
+  // Lightbox
+  const overlay = document.getElementById('lightboxOverlay');
+  const dialog = document.getElementById('lightboxDialog');
+  const img = document.getElementById('lightboxImg');
+
+  document.getElementById('galleryGrid').addEventListener('click', (e)=>{
+    const target = e.target.closest('img');
+    if(!target) return;
+    img.src = target.src;
+    if (dialog.showModal) {
+      dialog.showModal();
+    } else {
+      // Fallback
+      dialog.setAttribute('open','');
+    }
+    overlay.classList.add('show');
+    overlay.removeAttribute('hidden');
+  });
+
+  function closeLightbox(){
+    if (dialog.close) dialog.close();
+    else dialog.removeAttribute('open');
+    overlay.classList.remove('show');
+    overlay.setAttribute('hidden','');
+  }
+
+  overlay.addEventListener('click', closeLightbox);
+  document.addEventListener('keydown', (e)=>{ if(e.key === 'Escape') closeLightbox(); });
+});
+</script>
 
 
     <!-- App Download Modal -->
@@ -695,7 +766,7 @@ document.addEventListener('click', (e)=>{
 
 <!-- Lightbox -->
 <div id="lightbox" class="lightbox" aria-hidden="true" role="dialog">
-  
+  <button class="lb-close" aria-label="Close">×</button>
   <img id="lbImg" alt="Expanded image">
 </div>
 
@@ -749,60 +820,6 @@ document.addEventListener('DOMContentLoaded', function(){
   }
   window.addEventListener('keydown', (e)=>{ if (e.key === 'Escape') closeLB(); });
 
-  window.__openLB = openLB; window.__closeLB = closeLB;
-});
-</script>
-
-<script>
-document.addEventListener('DOMContentLoaded', function(){
-  const overlay = document.getElementById('lightbox');
-  const lbImg = document.getElementById('lbImg');
-  if (!overlay || !lbImg) return;
-
-  function openLB(src){
-    const pre = new Image();
-    pre.onload = () => {
-      lbImg.src = src;
-      overlay.classList.add('open');
-      overlay.setAttribute('aria-hidden','false');
-      document.body.style.overflow = 'hidden';
-    };
-    pre.src = src;
-  }
-  function closeLB(){
-    overlay.classList.remove('open');
-    overlay.setAttribute('aria-hidden','true');
-    document.body.style.overflow = '';
-    setTimeout(()=>{ lbImg.src=''; }, 100);
-  }
-
-  // Attach open handlers to common gallery image selectors
-  const selectors = ['.gallery-grid img', '.gallery-card img', '.gallery-wrap img', '.gallery img'];
-  document.querySelectorAll(selectors.join(',')).forEach(img => {
-    img.addEventListener('click', (e) => {
-      // Only intercept plain left clicks
-      if (e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
-      e.preventDefault();
-      const src = img.getAttribute('data-full') || img.currentSrc || img.src;
-      if (src) openLB(src);
-    }, { passive: true });
-  });
-
-  // Close on overlay click (ensure it's the overlay area, not the image)
-  overlay.addEventListener('click', (e) => {
-    if (e.target === overlay) closeLB();
-  });
-  // Also handle pointer-based devices (touch)
-  let downOnOverlay = false;
-  overlay.addEventListener('pointerdown', (e) => { downOnOverlay = (e.target === overlay); });
-  overlay.addEventListener('pointerup',   (e) => { if (downOnOverlay && e.target === overlay) closeLB(); });
-
-  // Esc to close
-  window.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && overlay.classList.contains('open')) closeLB();
-  });
-
-  // Expose for debugging if needed
   window.__openLB = openLB; window.__closeLB = closeLB;
 });
 </script>
