@@ -715,21 +715,39 @@ a, button { -webkit-tap-highlight-color: transparent; }
     </h2>
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px;">
       
-      <!-- Bronze -->
-      <div class="plan">
+         <!-- Bronze -->
+         <div class="plan">
         <h3>NuAge Fit</h3>
+        <ul>
+          <li>4 Classes Monthly</li>
+          <li>avg. usage of 1x/week</li>
+          <li>Discounted Add-On Classes</li>
+          <li>Great starter plan</li>
+        </ul>
         <a class="btn btn-primary" href="javascript:void(0)" onclick="openModal()">View Pricing</a>
       </div>
 
-      <!-- Silver -->
-      <div class="plan">
+       <!-- Silver -->
+       <div class="plan">
         <h3>NuAge Grind</h3>
+        <ul>
+          <li>8 Classes Monthly</li>
+          <li>avg. usage of 2x/week</li>
+          <li>Discounted Add-On Classes</li>
+          <li>Balanced flexibility & value</li>
+        </ul>
         <a class="btn btn-primary" href="javascript:void(0)" onclick="openModal()">View Pricing</a>
       </div>
 
       <!-- Gold -->
       <div class="plan">
         <h3>NuAge Dedicated</h3>
+        <ul>
+          <li>Unlimited Classes</li>
+          <li>recommended for 3x/week or more</li>
+          <li>Discounted Add-On Classes</li>
+          <li>Best for regular training</li>
+        </ul>
         <a class="btn btn-primary" href="javascript:void(0)" onclick="openModal()">View Pricing</a>
       </div>
     </div>
@@ -755,32 +773,54 @@ a, button { -webkit-tap-highlight-color: transparent; }
     </h2>
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px;">
 
-      <!-- Intro Training -->
-      <div class="plan">
+         <!-- Intro Training -->
+         <div class="plan">
+        <h3>Intro Training</h3>
+        <ul>
+          <li>1 Personal Training Session</li>
+          <li>Perfect for beginners</li>
+        </ul>
         <a class="btn btn-primary" href="javascript:void(0)" onclick="openModal()">View Pricing</a>
       </div>
 
       <!-- Bronze PT -->
       <div class="plan">
         <h3>Bronze – Basic PT</h3>
+        <ul>
+          <li>4 Personal Training Sessions</li>
+          <li>Monthly training support</li>
+        </ul>
         <a class="btn btn-primary" href="javascript:void(0)" onclick="openModal()">View Pricing</a>
       </div>
 
-      <!-- Silver PT -->
-      <div class="plan">
+    <!-- Silver PT -->
+    <div class="plan">
         <h3>Silver – Elite PT</h3>
+        <ul>
+          <li>8 Personal Training Sessions</li>
+          <li>For steady progress</li>
+        </ul>
         <a class="btn btn-primary" href="javascript:void(0)" onclick="openModal()">View Pricing</a>
       </div>
 
-      <!-- Gold PT -->
-      <div class="plan">
+     <!-- Gold PT -->
+     <div class="plan">
         <h3>Gold – Premier PT</h3>
+        <ul>
+          <li>12 Personal Training Sessions</li>
+          <li>Best for committed clients</li>
+        </ul>
         <a class="btn btn-primary" href="javascript:void(0)" onclick="openModal()">View Pricing</a>
       </div>
 
-      <!-- Add-Ons -->
-      <div class="plan">
+    <!-- Add-Ons -->
+    <div class="plan">
         <h3>Add-Ons</h3>
+        <ul>
+          <li>2 Class Open Gym Pass</li>
+          <li>Discounted Extra Classes</li>
+          <li>Flexible extras</li>
+        </ul>
         <a class="btn btn-primary" href="javascript:void(0)" onclick="openModal()">View Pricing</a>
       </div>
     </div>
