@@ -701,12 +701,16 @@ a, button { -webkit-tap-highlight-color: transparent; }
       </a>
     </div>
   </div>
-  <p class=
-"muted" style="margin-top:8px;">Replace links with your official profiles when ready.</p>
+
       </div>
     </div>
   </section>
 
+  <footer class="footer">
+  <div class="bottombar">
+    <p>&copy; <?php echo date('Y'); ?> NuAge Fitness Studio. All rights reserved.</p>
+  </div>
+</footer>
 
 <!-- Reuse modal functions if present in pricing (optional) -->
 <script>
