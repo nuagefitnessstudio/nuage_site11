@@ -492,21 +492,21 @@ a, button { -webkit-tap-highlight-color: transparent; }
   box-shadow: inset 0 -1px rgba(0,0,0,0.04);
 } }
     
-/* Lightbox overlay */
-.lightbox{ position:fixed; inset:0; background:rgba(0,0,0,.78);
+/* === Lightbox & Close (modern translucent circle) === */
+.lightbox{ position:fixed; inset:0; background:rgba(0,0,0,.82);
   display:flex; align-items:center; justify-content:center;
-  padding:24px; z-index:9999; opacity:0; pointer-events:none;
-  transition:opacity .2s ease;
+  padding:20px; z-index:9999; opacity:0; pointer-events:none; transition:opacity .2s ease;
 }
 .lightbox.open{ opacity:1; pointer-events:auto; }
-.lightbox img{ max-width:92vw; max-height:92vh; border-radius:12px; box-shadow:0 18px 48px rgba(0,0,0,.5); }
+.lightbox img{ max-width:92vw; max-height:92vh; border-radius:14px; box-shadow:0 18px 48px rgba(0,0,0,.55); }
 .lightbox .lb-close{
-  position:absolute; top:18px; right:18px; z-index:10000;
-  height:40px; width:40px; border-radius:9999px; border:none;
-  background:rgba(255,255,255,.14); color:#fff; font-size:22px;
-  display:grid; place-items:center; cursor:pointer; line-height:1;
+  position:absolute; top:18px; right:18px;
+  width:42px; height:42px; border-radius:9999px; border:none;
+  background:rgba(255,255,255,.14); color:#fff; font-size:22px; line-height:1;
+  display:grid; place-items:center; cursor:pointer; z-index:10000;
+  transition:background .2s ease, transform .2s ease;
 }
-.lightbox .lb-close:hover{ background:rgba(255,255,255,.22); }
+.lightbox .lb-close:hover{ background:rgba(255,255,255,.24); transform:translateY(-1px); }
 </style>
 <body>
 
@@ -766,64 +766,62 @@ document.addEventListener('click', (e)=>{
 
 <!-- Lightbox -->
 <div id="lightbox" class="lightbox" aria-hidden="true" role="dialog">
-  <button class="lb-close" aria-label="Close full-screen image">×</button>
+  <button class="lb-close" aria-label="Close">×</button>
   <img id="lbImg" alt="Expanded image">
 </div>
 
 <script>
+// Lightbox open/close (with X button, overlay click, and Esc) — LIGHTBOX CLOSE HANDLERS END
 document.addEventListener('DOMContentLoaded', function(){
   const overlay = document.getElementById('lightbox');
   const lbImg = document.getElementById('lbImg');
-  const closeBtn = overlay ? overlay.querySelector('.lb-close') : null;
+  const b = overlay ? overlay.querySelector('.lb-close') : null;
 
   function openLB(src){
     if (!overlay || !lbImg) return;
-    const pre = new Image();
-    pre.onload = () => {
+    const img = new Image();
+    img.onload = function(){
       lbImg.src = src;
       overlay.classList.add('open');
       overlay.setAttribute('aria-hidden', 'false');
       document.body.style.overflow = 'hidden';
+      if (b) b.focus();
     };
-    pre.src = src;
+    img.src = src;
   }
 
   function closeLB(){
-    if (!overlay || !lbImg) return;
+    if (!overlay) return;
     overlay.classList.remove('open');
     overlay.setAttribute('aria-hidden', 'true');
     document.body.style.overflow = '';
-    setTimeout(()=>{ lbImg.src = ''; }, 120);
+    if (lbImg) setTimeout(()=>{ lbImg.src=''; }, 120);
   }
 
-  // Open on gallery image click
+  // click grid images
   const grid = document.querySelector('.gallery-grid, .gallery-wrap, .gallery');
   if (grid){
     grid.addEventListener('click', function(e){
       const img = e.target.closest('img');
       if (!img) return;
-      const isPrimary = e.button === 0 && !e.metaKey && !e.ctrlKey && !e.shiftKey && !e.altKey;
-      if (!isPrimary) return;
+      if (e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
       e.preventDefault();
       const src = img.getAttribute('data-full') || img.currentSrc || img.src;
       if (src) openLB(src);
     });
   }
 
-  // Close interactions
-  if (closeBtn){ closeBtn.addEventListener('click', closeLB); }
+  // close interactions
+  if (b) b.addEventListener('click', closeLB);
   if (overlay){
-    // Click outside the image closes
     overlay.addEventListener('click', (e)=>{
-      if (!lbImg.contains(e.target)) closeLB();
+      if (!document.getElementById('lbImg').contains(e.target)) closeLB();
     });
   }
   window.addEventListener('keydown', (e)=>{ if (e.key === 'Escape') closeLB(); });
 
-  // expose for inline use if needed
-  window.__openLB = openLB;
-  window.__closeLB = closeLB;
-}); // END LIGHTBOX
+  window.__openLB = openLB; window.__closeLB = closeLB;
+});
 </script>
 </body>
 </html>
