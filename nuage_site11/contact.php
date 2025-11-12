@@ -596,6 +596,10 @@ a, button { -webkit-tap-highlight-color: transparent; }
     }
     .promo-box small{ display:block; font-weight:600; opacity:.95; }
     @media (max-width:640px){ .promo-box{ margin:82px auto -20px; font-size:14px; } }
+    
+    /* social pill link icons */
+    .pill-link{ display:inline-flex; align-items:center; gap:8px; }
+    .pill-link svg{ width:18px; height:18px; display:block; }
     </style>
   <link rel="stylesheet" href="style.css?v=5" />
 
@@ -685,15 +689,11 @@ a, button { -webkit-tap-highlight-color: transparent; }
   <a class="pill-link"
      target="_blank"
      rel="noopener"
-     href="https://www.instagram.com/nuage_fitness_studio?igsh=MWFoeXB4OXc5NDJuZg%3D%3D&utm_source=qr">
-     Instagram
-  </a>
+     href="https://www.instagram.com/nuage_fitness_studio?igsh=MWFoeXB4OXc5NDJuZg%3D%3D&utm_source=qr"><svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7zm5 3.5A5.5 5.5 0 1 1 6.5 13 5.5 5.5 0 0 1 12 7.5zm0 2A3.5 3.5 0 1 0 15.5 13 3.5 3.5 0 0 0 12 9.5zm6-3a1 1 0 1 1-1 1 1 0 0 1 1-1z"/></svg><span>Instagram</span></a>
   <a class="pill-link"
      target="_blank"
      rel="noopener"
-     href="https://www.facebook.com/profile.php?id=61583193395222#">
-     Facebook
-  </a>
+     href="https://www.facebook.com/profile.php?id=61583193395222#"><svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M13.5 22v-7h2.5l.5-3h-3V9.5c0-.9.3-1.5 1.7-1.5H16V5.3c-.3 0-1.3-.1-2.3-.1-2.2 0-3.7 1.3-3.7 3.8V12H7.5v3h2.5v7h3.5z"/></svg><span>Facebook</span></a>
 </div>
       
     </div>
