@@ -597,18 +597,10 @@ a, button { -webkit-tap-highlight-color: transparent; }
     .promo-box small{ display:block; font-weight:600; opacity:.95; }
     @media (max-width:640px){ .promo-box{ margin:82px auto -20px; font-size:14px; } }
     
-    /* social icons inline */
-    .pill-link{ display:inline-flex; align-items:center; gap:10px; }
+    /* social pill link icons */
+    .pill-link{ display:inline-flex; align-items:center; gap:8px; }
     .pill-link svg{ width:18px; height:18px; display:block; }
-    
-/* --- Social Icon Row --- */
-.social-follow { text-align:center; margin-top: 8px; }
-.social-follow .hint { font-size: 14px; color: var(--ink-300, #6b7280); margin-top: 4px; }
-.social-icons { display:flex; justify-content:center; align-items:center; gap: 18px; margin-top: 8px; }
-.social-icons a { display:inline-flex; width:44px; height:44px; border-radius:9999px; align-items:center; justify-content:center; color: var(--ink, #0b2a4a); transition: color .18s ease, transform .18s ease; }
-.social-icons a:hover { color: var(--coral, #e92e53); transform: translateY(-1px); }
-.social-icons svg { width:28px; height:28px; display:block; }
-</style>
+    </style>
   <link rel="stylesheet" href="style.css?v=5" />
 
 <style>
@@ -665,7 +657,6 @@ a, button { -webkit-tap-highlight-color: transparent; }
       <h1>Contact</h1>
       <p>We’d love to hear from you. Reach out anytime.</p>
       <div class="cta-row">
-        <a class="btn btn-primary" href="classes.php">View Classes</a>
         <a class="btn btn-light" href="index.php">Back Home</a>
       </div>
     </div>
@@ -693,17 +684,92 @@ a, button { -webkit-tap-highlight-color: transparent; }
 
       <div style="margin-top:24px; text-align:center;">
         <h3 style="color:var(--navy); margin:0 0 8px;">Follow us</h3>
-
+        <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;">
+        <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
+  <a class="pill-link"
+     target="_blank"
+     rel="noopener"
+     href="https://www.instagram.com/nuage_fitness_studio?igsh=MWFoeXB4OXc5NDJuZg%3D%3D&utm_source=qr"><svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7zm5 3.5A5.5 5.5 0 1 1 6.5 13 5.5 5.5 0 0 1 12 7.5zm0 2A3.5 3.5 0 1 0 15.5 13 3.5 3.5 0 0 0 12 9.5zm6-3a1 1 0 1 1-1 1 1 0 0 1 1-1z"/></svg><span>Instagram</span></a>
+  <a class="pill-link"
+     target="_blank"
+     rel="noopener"
+     href="https://www.facebook.com/profile.php?id=61583193395222#"><svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M13.5 22v-7h2.5l.5-3h-3V9.5c0-.9.3-1.5 1.7-1.5H16V5.3c-.3 0-1.3-.1-2.3-.1-2.2 0-3.7 1.3-3.7 3.8V12H7.5v3h2.5v7h3.5z"/></svg><span>Facebook</span></a>
 </div>
-
-</div>
+      
+    </div>
   </section>
+
+  <footer class="footer">
+  <div class="bottombar">
+    <p>&copy; <?php echo date('Y'); ?> NuAge Fitness Studio. All rights reserved.</p>
+  </div>
+</footer>
 
 
 <!-- Reuse modal functions if present in pricing (optional) -->
 <script>
 function openModal(){ var m=document.getElementById('appModal'); if(m) m.style.display='block'; }
 function closeModal(){ var m=document.getElementById('appModal'); if(m) m.style.display='none'; }
+</script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const appLinks = document.querySelectorAll('a[href*="apps.apple.com/us/app/glofox"]');
+
+    appLinks.forEach(link => {
+      link.addEventListener("click", function (e) {
+        e.preventDefault();
+
+        const choice = prompt(
+  "Please download the Glofox app, search NuAge Fitness Studio and register.\n" +
+  "Once logged in, you’ll be able to:\n" +
+  "• Access your account\n" +
+  "• Purchase membership\n" +
+  "• Book classes\n" +
+  "• And more.\n\n" +
+  "Type A for Apple\n" +
+  "Type G for Google"
+);
+
+        if (!choice) return; // cancelled
+
+        if (choice.toLowerCase() === "a") {
+          window.open("https://apps.apple.com/us/app/glofox/id916224471", "_blank");
+        } else if (choice.toLowerCase() === "g") {
+          window.open("https://play.google.com/store/apps/details?id=ie.zappy.fennec.oneapp_glofox&hl=en_US", "_blank");
+        } else {
+          alert("Please enter A or G.");
+        }
+      });
+    });
+  });
+</script>
+
+
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const navToggle = document.getElementById("navToggle");
+  const navClose = document.getElementById("navClose");
+  const navDrawer = document.getElementById("navDrawer");
+  const navOverlay = document.getElementById("navOverlay");
+
+  function openNav(){
+    if (navDrawer) { navDrawer.classList.add("show"); navDrawer.removeAttribute("hidden"); navDrawer.setAttribute("aria-hidden","false"); }
+    if (navOverlay) { navOverlay.classList.add("show"); navOverlay.removeAttribute("hidden"); }
+  }
+  function closeNav(){
+    if (navDrawer) { navDrawer.classList.remove("show"); navDrawer.setAttribute("hidden",""); navDrawer.setAttribute("aria-hidden","true"); }
+    if (navOverlay) { navOverlay.classList.remove("show"); navOverlay.setAttribute("hidden",""); }
+  }
+
+  if (navToggle) navToggle.addEventListener("click", openNav);
+  if (navClose) navClose.addEventListener("click", closeNav);
+  if (navOverlay) navOverlay.addEventListener("click", closeNav);
+
+  // ESC key to close
+  document.addEventListener("keydown", (e)=>{ if (e.key === "Escape") closeNav(); });
+});
 </script>
 </body>
 </html>
