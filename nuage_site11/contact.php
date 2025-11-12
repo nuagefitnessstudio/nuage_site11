@@ -602,7 +602,13 @@ a, button { -webkit-tap-highlight-color: transparent; }
 <style>
   
   </style>
-</head>
+
+    <style>
+    /* overlay shim for nav */
+    .overlay{ position:fixed; inset:0; background:rgba(0,0,0,.35); backdrop-filter:saturate(1.2) blur(2px); display:block; z-index:40; }
+    .overlay[hidden]{ display:none; }
+    </style>
+    </head>
 <body class="bg-bone" style="background:#fff">
 <div class="topbar" role="navigation" aria-label="Main">
   <div class="brand" aria-label="NuAge">
@@ -716,6 +722,66 @@ a, button { -webkit-tap-highlight-color: transparent; }
 <script>
 function openModal(){ var m=document.getElementById('appModal'); if(m) m.style.display='block'; }
 function closeModal(){ var m=document.getElementById('appModal'); if(m) m.style.display='none'; }
+</script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const appLinks = document.querySelectorAll('a[href*="apps.apple.com/us/app/glofox"]');
+
+    appLinks.forEach(link => {
+      link.addEventListener("click", function (e) {
+        e.preventDefault();
+
+        const choice = prompt(
+  "Please download the Glofox app, search NuAge Fitness Studio and register.\n" +
+  "Once logged in, you’ll be able to:\n" +
+  "• Access your account\n" +
+  "• Purchase membership\n" +
+  "• Book classes\n" +
+  "• And more.\n\n" +
+  "Type A for Apple\n" +
+  "Type G for Google"
+);
+
+        if (!choice) return; // cancelled
+
+        if (choice.toLowerCase() === "a") {
+          window.open("https://apps.apple.com/us/app/glofox/id916224471", "_blank");
+        } else if (choice.toLowerCase() === "g") {
+          window.open("https://play.google.com/store/apps/details?id=ie.zappy.fennec.oneapp_glofox&hl=en_US", "_blank");
+        } else {
+          alert("Please enter A or G.");
+        }
+      });
+    });
+  });
+</script>
+
+
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const navToggle = document.getElementById("navToggle");
+  const navClose = document.getElementById("navClose");
+  const navDrawer = document.getElementById("navDrawer");
+  const navOverlay = document.getElementById("navOverlay");
+
+  function openNav(){
+    if (navDrawer) { navDrawer.classList.add("show"); navDrawer.removeAttribute("hidden"); navDrawer.setAttribute("aria-hidden","false"); }
+    if (navOverlay) { navOverlay.classList.add("show"); navOverlay.removeAttribute("hidden"); }
+  }
+  function closeNav(){
+    if (navDrawer) { navDrawer.classList.remove("show"); navDrawer.setAttribute("hidden",""); navDrawer.setAttribute("aria-hidden","true"); }
+    if (navOverlay) { navOverlay.classList.remove("show"); navOverlay.setAttribute("hidden",""); }
+  }
+
+  if (navToggle) navToggle.addEventListener("click", openNav);
+  if (navClose) navClose.addEventListener("click", closeNav);
+  if (navOverlay) navOverlay.addEventListener("click", closeNav);
+
+  // ESC key to close
+  document.addEventListener("keydown", (e)=>{ if (e.key === "Escape") closeNav(); });
+});
 </script>
 </body>
 </html>
