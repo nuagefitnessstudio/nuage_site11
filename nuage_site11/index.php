@@ -506,6 +506,31 @@ a, button { -webkit-tap-highlight-color: transparent; }
   margin-top:16px; text-align:center;
   display:flex; gap:10px; justify-content:center; flex-wrap:wrap;
 }
+
+    /* === Pre-Sale Promo (translucent coral, bolder) — canonical === */
+    .promo-box{
+      position:relative;
+      width:min(96vw,1040px);
+      margin:42px auto -10px;         /* sits just under navbar, a bit taller */
+      background: rgba(233,46,83,0.90);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      color:#fff;
+      text-align:center;
+      font-weight:700;
+      font-size:clamp(0.95rem, 2.2vw, 1.15rem);
+      border-radius:18px;
+      padding:18px 28px;
+      border:1px solid rgba(255,255,255,0.32);
+      box-shadow:0 10px 28px rgba(0,0,0,0.14);
+      letter-spacing:.04em;
+    }
+    .promo-box small{ display:block; font-weight:600; opacity:.95; }
+    
+    @media (max-width:640px){
+      .promo-box{ margin:32px auto -8px; font-size:0.95rem; padding:14px 20px; }
+    }
+
 </style>
   <link rel="stylesheet" href="style.css?v=5" />
 
@@ -716,6 +741,16 @@ window.addEventListener("load", function() {
     <a href="contact.php">Contact</a>
   </nav>
 </aside>
+
+<style>/* promo-inline-fallback */
+.promo-box a{ color:#fff; text-decoration:underline; }
+@media (max-width:640px){
+  .promo-box{ margin:72px auto -12px !important; font-size:0.95rem; padding:14px 20px !important; }
+}
+</style>
+<div class="promo-box">
+  Pre Sale Sign Up — Get up to 20% off membership
+</div>
 
   <header class="hero">
   <video id="heroVideo" autoplay muted playsinline loop>
