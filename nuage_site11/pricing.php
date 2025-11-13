@@ -693,7 +693,7 @@ a, button { -webkit-tap-highlight-color: transparent; }
 }
 </style>
 <div class="promo-box" style="
-  width:min(92vw,980px);
+width:min(92vw,980px);
   margin:30px auto 10px;
   background:rgba(233,46,83,0.9);
   backdrop-filter:blur(8px);
