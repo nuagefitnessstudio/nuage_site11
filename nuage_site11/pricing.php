@@ -581,26 +581,25 @@ a, button { -webkit-tap-highlight-color: transparent; }
 
 
 
-
-/* === Pre-Sale Promo pill (shared across pages) === */
-.promo-box{
-  width:min(92vw,980px);
-  margin:90px auto 10px;
-  background:rgba(233,46,83,0.9);
-  backdrop-filter:blur(8px);
-  -webkit-backdrop-filter:blur(8px);
-  color:#fff;
-  text-align:center;
-  font-weight:700;
-  border-radius:999px;
-  padding:14px 28px;
-  border:1px solid rgba(255,255,255,0.3);
-  box-shadow:0 10px 24px rgba(0,0,0,0.15);
-  letter-spacing:.03em;
-  position:relative;
-  z-index:50;
-}
-.promo-box small{ display:block; font-weight:600; opacity:.95; }
+/* === Pre-Sale Promo (translucent coral, bolder) — canonical === */
+    .promo-box{
+      position:relative;
+      width:min(96vw,1040px);
+      margin:42px auto -10px;         /* sits just under navbar, a bit taller */
+      background: rgba(233,46,83,0.90);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      color:#fff;
+      text-align:center;
+      font-weight:700;
+      font-size:clamp(0.95rem, 2.2vw, 1.15rem);
+      border-radius:18px;
+      padding:18px 28px;
+      border:1px solid rgba(255,255,255,0.32);
+      box-shadow:0 10px 28px rgba(0,0,0,0.14);
+      letter-spacing:.04em;
+    }
+    .promo-box small{ display:block; font-weight:600; opacity:.95; }
     
     @media (max-width:640px){
       .promo-box{ margin:32px auto -8px; font-size:0.95rem; padding:14px 20px; }
@@ -695,10 +694,7 @@ a, button { -webkit-tap-highlight-color: transparent; }
   .promo-box{ margin:82px auto -18px !important; font-size:14px; padding:12px 16px !important; }
 }
 </style>
-
-<div class="promo-box">Pre Sale Sign Up — Get up to 20% off membership
-</div>
-
+<div class="promo-box" style="background:rgba(233,46,83,0.85);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);color:#fff;padding:14px 20px;border-radius:14px;width:min(92vw,980px);margin:90px auto -24px;box-shadow:0 6px 18px rgba(0,0,0,.08);border:1px solid rgba(255,255,255,.28);text-align:center;font-weight:700;letter-spacing:.02em;">Pre Sale Sign Up — Get up to 20% off membership</div>
 <section class="hero-ot" style="min-height:40vh">
     <div class="hero-inner">
       <h1>Membership Pricing</h1>
