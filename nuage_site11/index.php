@@ -694,6 +694,27 @@ window.addEventListener("load", function() {
 
 <!-- Drawer + overlay -->
 <div class="overlay" id="navOverlay" hidden></div>
+
+<div class="promo-box" style="
+  width:min(92vw,980px);
+  margin:90px auto 10px;
+  background:rgba(233,46,83,0.9);
+  backdrop-filter:blur(8px);
+  -webkit-backdrop-filter:blur(8px);
+  color:#fff;
+  text-align:center;
+  font-weight:700;
+  border-radius:999px;
+  padding:14px 28px;
+  border:1px solid rgba(255,255,255,0.3);
+  box-shadow:0 10px 24px rgba(0,0,0,0.15);
+  letter-spacing:.03em;
+  position:relative;
+  z-index:50;
+">
+  Pre Sale Sign Up — Get up to 20% off membership
+</div>
+
 <aside class="drawer" id="navDrawer" hidden aria-hidden="true">
   <div class="drawer-header">
     <div class="brand">
