@@ -987,6 +987,7 @@ a, button { -webkit-tap-highlight-color: transparent; }
 
 
 
+
 /* ===== Employment modal bullet-proof responsive CSS ===== */
 #employmentModal .nuage-modal {
   max-width: 760px;
@@ -995,10 +996,12 @@ a, button { -webkit-tap-highlight-color: transparent; }
   display: flex;
   flex-direction: column;
 }
+
 #employmentModal .nuage-modal .content {
   padding: 16px 20px;
   overflow-y: auto;
 }
+
 #employmentModal .nuage-actions {
   display: flex;
   gap: 10px;
@@ -1007,30 +1010,68 @@ a, button { -webkit-tap-highlight-color: transparent; }
   border-top: 1px solid #eee;
   background: #fafafa;
 }
+
+/* Fieldset styling + keep everything inside the pale gray box */
 #employmentModal fieldset {
   border: 1px solid #eee;
   border-radius: 12px;
   padding: 12px 14px 16px;
+  overflow-x: hidden;
 }
+
 #employmentModal legend {
   font-size: 14px;
   font-weight: 700;
   padding: 0 6px;
 }
+
+/* Turn the existing .row/col-* structure into a clean responsive grid */
+#employmentModal fieldset .row {
+  margin-left: 0;
+  margin-right: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 8px 16px;
+}
+
+#employmentModal fieldset .row > [class*="col-"] {
+  padding-left: 0;
+  padding-right: 0;
+  width: 100%;
+  max-width: 100%;
+}
+
+/* Align checkboxes and labels on one line */
+#employmentModal fieldset .form-check {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 4px;
+}
+
+#employmentModal fieldset .form-check-input {
+  margin: 0;
+}
+
+/* Keep support for .nuage-checkbox-grid if used elsewhere */
 .nuage-checkbox-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
   gap: 8px 16px;
 }
+
 .nuage-checkbox-grid .form-check {
   display: flex;
   align-items: center;
   gap: 8px;
   margin: 0;
 }
+
 .nuage-checkbox-grid .form-check-input {
   margin: 0;
 }
+
+/* Mobile tweaks */
 @media (max-width: 640px) {
   #employmentModal .nuage-modal {
     width: 100%;
@@ -1038,21 +1079,27 @@ a, button { -webkit-tap-highlight-color: transparent; }
     border-radius: 0;
     align-self: flex-end;
   }
+
   #employmentModal .nuage-modal .content {
-    max-height: calc(100vh - 120px);
+    max-height: calc(100vh - 120px); /* header + buttons */
   }
+
+  #employmentModal fieldset .row,
   .nuage-checkbox-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr; /* single column on phones */
   }
+
   #employmentModal .nuage-actions {
     flex-direction: column;
     align-items: stretch;
   }
+
   #employmentModal .nuage-btn {
     width: 100%;
     font-size: 16px;
   }
 }
+
 
 </style>
   <link rel="stylesheet" href="style.css?v=5" />
