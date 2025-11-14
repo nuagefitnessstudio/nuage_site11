@@ -986,12 +986,148 @@ a, button { -webkit-tap-highlight-color: transparent; }
 .preview-text .link{color:var(--coral);font-weight:600}
 
 
+
+/* ===== Employment modal bullet-proof responsive CSS ===== */
+#employmentModal .nuage-modal {
+  max-width: 760px;
+  width: 92%;
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+}
+#employmentModal .nuage-modal .content {
+  padding: 16px 20px;
+  overflow-y: auto;
+}
+#employmentModal .nuage-actions {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+  padding: 16px 20px;
+  border-top: 1px solid #eee;
+  background: #fafafa;
+}
+#employmentModal fieldset {
+  border: 1px solid #eee;
+  border-radius: 12px;
+  padding: 12px 14px 16px;
+}
+#employmentModal legend {
+  font-size: 14px;
+  font-weight: 700;
+  padding: 0 6px;
+}
+.nuage-checkbox-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 8px 16px;
+}
+.nuage-checkbox-grid .form-check {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0;
+}
+.nuage-checkbox-grid .form-check-input {
+  margin: 0;
+}
+@media (max-width: 640px) {
+  #employmentModal .nuage-modal {
+    width: 100%;
+    max-width: 100%;
+    border-radius: 0;
+    align-self: flex-end;
+  }
+  #employmentModal .nuage-modal .content {
+    max-height: calc(100vh - 120px);
+  }
+  .nuage-checkbox-grid {
+    grid-template-columns: 1fr;
+  }
+  #employmentModal .nuage-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  #employmentModal .nuage-btn {
+    width: 100%;
+    font-size: 16px;
+  }
+}
+
 </style>
   <link rel="stylesheet" href="style.css?v=5" />
 
 <style>
   
-  </style>
+  
+/* ===== Employment modal bullet-proof responsive CSS ===== */
+#employmentModal .nuage-modal {
+  max-width: 760px;
+  width: 92%;
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+}
+#employmentModal .nuage-modal .content {
+  padding: 16px 20px;
+  overflow-y: auto;
+}
+#employmentModal .nuage-actions {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+  padding: 16px 20px;
+  border-top: 1px solid #eee;
+  background: #fafafa;
+}
+#employmentModal fieldset {
+  border: 1px solid #eee;
+  border-radius: 12px;
+  padding: 12px 14px 16px;
+}
+#employmentModal legend {
+  font-size: 14px;
+  font-weight: 700;
+  padding: 0 6px;
+}
+.nuage-checkbox-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 8px 16px;
+}
+.nuage-checkbox-grid .form-check {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0;
+}
+.nuage-checkbox-grid .form-check-input {
+  margin: 0;
+}
+@media (max-width: 640px) {
+  #employmentModal .nuage-modal {
+    width: 100%;
+    max-width: 100%;
+    border-radius: 0;
+    align-self: flex-end;
+  }
+  #employmentModal .nuage-modal .content {
+    max-height: calc(100vh - 120px);
+  }
+  .nuage-checkbox-grid {
+    grid-template-columns: 1fr;
+  }
+  #employmentModal .nuage-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  #employmentModal .nuage-btn {
+    width: 100%;
+    font-size: 16px;
+  }
+}
+
+</style>
 </head>
 <body>
 
@@ -1204,6 +1340,74 @@ document.addEventListener("DOMContentLoaded", function () {
 .btn-row { display:flex; gap:12px; justify-content:center; }
 .btn-row button { background:var(--coral); color:#fff; padding:10px 18px; border:none; border-radius:8px; cursor:pointer; }
 .close { position:absolute; right:16px; top:12px; font-size:24px; cursor:pointer; }
+
+/* ===== Employment modal bullet-proof responsive CSS ===== */
+#employmentModal .nuage-modal {
+  max-width: 760px;
+  width: 92%;
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+}
+#employmentModal .nuage-modal .content {
+  padding: 16px 20px;
+  overflow-y: auto;
+}
+#employmentModal .nuage-actions {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+  padding: 16px 20px;
+  border-top: 1px solid #eee;
+  background: #fafafa;
+}
+#employmentModal fieldset {
+  border: 1px solid #eee;
+  border-radius: 12px;
+  padding: 12px 14px 16px;
+}
+#employmentModal legend {
+  font-size: 14px;
+  font-weight: 700;
+  padding: 0 6px;
+}
+.nuage-checkbox-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 8px 16px;
+}
+.nuage-checkbox-grid .form-check {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0;
+}
+.nuage-checkbox-grid .form-check-input {
+  margin: 0;
+}
+@media (max-width: 640px) {
+  #employmentModal .nuage-modal {
+    width: 100%;
+    max-width: 100%;
+    border-radius: 0;
+    align-self: flex-end;
+  }
+  #employmentModal .nuage-modal .content {
+    max-height: calc(100vh - 120px);
+  }
+  .nuage-checkbox-grid {
+    grid-template-columns: 1fr;
+  }
+  #employmentModal .nuage-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  #employmentModal .nuage-btn {
+    width: 100%;
+    font-size: 16px;
+  }
+}
+
 </style>
 
 <script>
@@ -1281,6 +1485,74 @@ function submitChoice(){
       border-radius: 0;
     }
   }
+
+/* ===== Employment modal bullet-proof responsive CSS ===== */
+#employmentModal .nuage-modal {
+  max-width: 760px;
+  width: 92%;
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+}
+#employmentModal .nuage-modal .content {
+  padding: 16px 20px;
+  overflow-y: auto;
+}
+#employmentModal .nuage-actions {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+  padding: 16px 20px;
+  border-top: 1px solid #eee;
+  background: #fafafa;
+}
+#employmentModal fieldset {
+  border: 1px solid #eee;
+  border-radius: 12px;
+  padding: 12px 14px 16px;
+}
+#employmentModal legend {
+  font-size: 14px;
+  font-weight: 700;
+  padding: 0 6px;
+}
+.nuage-checkbox-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 8px 16px;
+}
+.nuage-checkbox-grid .form-check {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0;
+}
+.nuage-checkbox-grid .form-check-input {
+  margin: 0;
+}
+@media (max-width: 640px) {
+  #employmentModal .nuage-modal {
+    width: 100%;
+    max-width: 100%;
+    border-radius: 0;
+    align-self: flex-end;
+  }
+  #employmentModal .nuage-modal .content {
+    max-height: calc(100vh - 120px);
+  }
+  .nuage-checkbox-grid {
+    grid-template-columns: 1fr;
+  }
+  #employmentModal .nuage-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  #employmentModal .nuage-btn {
+    width: 100%;
+    font-size: 16px;
+  }
+}
+
 </style>
 
 
@@ -1325,6 +1597,74 @@ function submitChoice(){
   .nuage-btn.primary{background:#EB1F48;color:#fff}
   .nuage-btn.ghost{background:#fff;border-color:#e5e4e1}
   .nuage-hidden{display:none !important}
+
+/* ===== Employment modal bullet-proof responsive CSS ===== */
+#employmentModal .nuage-modal {
+  max-width: 760px;
+  width: 92%;
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+}
+#employmentModal .nuage-modal .content {
+  padding: 16px 20px;
+  overflow-y: auto;
+}
+#employmentModal .nuage-actions {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+  padding: 16px 20px;
+  border-top: 1px solid #eee;
+  background: #fafafa;
+}
+#employmentModal fieldset {
+  border: 1px solid #eee;
+  border-radius: 12px;
+  padding: 12px 14px 16px;
+}
+#employmentModal legend {
+  font-size: 14px;
+  font-weight: 700;
+  padding: 0 6px;
+}
+.nuage-checkbox-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 8px 16px;
+}
+.nuage-checkbox-grid .form-check {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0;
+}
+.nuage-checkbox-grid .form-check-input {
+  margin: 0;
+}
+@media (max-width: 640px) {
+  #employmentModal .nuage-modal {
+    width: 100%;
+    max-width: 100%;
+    border-radius: 0;
+    align-self: flex-end;
+  }
+  #employmentModal .nuage-modal .content {
+    max-height: calc(100vh - 120px);
+  }
+  .nuage-checkbox-grid {
+    grid-template-columns: 1fr;
+  }
+  #employmentModal .nuage-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  #employmentModal .nuage-btn {
+    width: 100%;
+    font-size: 16px;
+  }
+}
+
 </style>
 
 <script>
@@ -1367,6 +1707,74 @@ function submitChoice(){
   .nuage-btn.primary{background:#EB1F48;color:#fff}
   .nuage-btn.ghost{background:#fff;border-color:#e5e4e1}
   .nuage-hidden{display:none !important}
+
+/* ===== Employment modal bullet-proof responsive CSS ===== */
+#employmentModal .nuage-modal {
+  max-width: 760px;
+  width: 92%;
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+}
+#employmentModal .nuage-modal .content {
+  padding: 16px 20px;
+  overflow-y: auto;
+}
+#employmentModal .nuage-actions {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+  padding: 16px 20px;
+  border-top: 1px solid #eee;
+  background: #fafafa;
+}
+#employmentModal fieldset {
+  border: 1px solid #eee;
+  border-radius: 12px;
+  padding: 12px 14px 16px;
+}
+#employmentModal legend {
+  font-size: 14px;
+  font-weight: 700;
+  padding: 0 6px;
+}
+.nuage-checkbox-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 8px 16px;
+}
+.nuage-checkbox-grid .form-check {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0;
+}
+.nuage-checkbox-grid .form-check-input {
+  margin: 0;
+}
+@media (max-width: 640px) {
+  #employmentModal .nuage-modal {
+    width: 100%;
+    max-width: 100%;
+    border-radius: 0;
+    align-self: flex-end;
+  }
+  #employmentModal .nuage-modal .content {
+    max-height: calc(100vh - 120px);
+  }
+  .nuage-checkbox-grid {
+    grid-template-columns: 1fr;
+  }
+  #employmentModal .nuage-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  #employmentModal .nuage-btn {
+    width: 100%;
+    font-size: 16px;
+  }
+}
+
 </style>
 
 
@@ -1425,6 +1833,74 @@ function submitChoice(){
   .nuage-btn.ghost{background:#fff;border-color:#e6e6e6}
   .nuage-hidden{display:none!important}
   @media(max-width:480px){.nuage-modal .content{max-height:78vh}}
+
+/* ===== Employment modal bullet-proof responsive CSS ===== */
+#employmentModal .nuage-modal {
+  max-width: 760px;
+  width: 92%;
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+}
+#employmentModal .nuage-modal .content {
+  padding: 16px 20px;
+  overflow-y: auto;
+}
+#employmentModal .nuage-actions {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+  padding: 16px 20px;
+  border-top: 1px solid #eee;
+  background: #fafafa;
+}
+#employmentModal fieldset {
+  border: 1px solid #eee;
+  border-radius: 12px;
+  padding: 12px 14px 16px;
+}
+#employmentModal legend {
+  font-size: 14px;
+  font-weight: 700;
+  padding: 0 6px;
+}
+.nuage-checkbox-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 8px 16px;
+}
+.nuage-checkbox-grid .form-check {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0;
+}
+.nuage-checkbox-grid .form-check-input {
+  margin: 0;
+}
+@media (max-width: 640px) {
+  #employmentModal .nuage-modal {
+    width: 100%;
+    max-width: 100%;
+    border-radius: 0;
+    align-self: flex-end;
+  }
+  #employmentModal .nuage-modal .content {
+    max-height: calc(100vh - 120px);
+  }
+  .nuage-checkbox-grid {
+    grid-template-columns: 1fr;
+  }
+  #employmentModal .nuage-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  #employmentModal .nuage-btn {
+    width: 100%;
+    font-size: 16px;
+  }
+}
+
 </style>
 
 <div class="nuage-modal-backdrop" id="employmentModal">
@@ -1732,4 +2208,72 @@ function submitChoice(){
   }
   #employmentModal .nuage-btn { width: 100%; font-size: 16px; }
 }
+
+/* ===== Employment modal bullet-proof responsive CSS ===== */
+#employmentModal .nuage-modal {
+  max-width: 760px;
+  width: 92%;
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+}
+#employmentModal .nuage-modal .content {
+  padding: 16px 20px;
+  overflow-y: auto;
+}
+#employmentModal .nuage-actions {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+  padding: 16px 20px;
+  border-top: 1px solid #eee;
+  background: #fafafa;
+}
+#employmentModal fieldset {
+  border: 1px solid #eee;
+  border-radius: 12px;
+  padding: 12px 14px 16px;
+}
+#employmentModal legend {
+  font-size: 14px;
+  font-weight: 700;
+  padding: 0 6px;
+}
+.nuage-checkbox-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 8px 16px;
+}
+.nuage-checkbox-grid .form-check {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0;
+}
+.nuage-checkbox-grid .form-check-input {
+  margin: 0;
+}
+@media (max-width: 640px) {
+  #employmentModal .nuage-modal {
+    width: 100%;
+    max-width: 100%;
+    border-radius: 0;
+    align-self: flex-end;
+  }
+  #employmentModal .nuage-modal .content {
+    max-height: calc(100vh - 120px);
+  }
+  .nuage-checkbox-grid {
+    grid-template-columns: 1fr;
+  }
+  #employmentModal .nuage-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  #employmentModal .nuage-btn {
+    width: 100%;
+    font-size: 16px;
+  }
+}
+
 </style>
