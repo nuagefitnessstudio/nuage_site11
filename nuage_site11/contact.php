@@ -616,7 +616,7 @@ a, button { -webkit-tap-highlight-color: transparent; }
     <div class="brand-name">
       <span style="color:var(--navy);">Nu</span><span style="color:var(--coral);">Age</span>
       <span style="color:var(--navy);">Fitness</span>
-      <span style="color:var(--navy);">Studios</span>
+      <span style="color:var(--navy);">Studio</span>
     </div>
   </div>
   <button class="hamburger" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="navDrawer">
@@ -637,7 +637,7 @@ a, button { -webkit-tap-highlight-color: transparent; }
       <div class="brand-name">
         <span style="color:var(--navy);">Nu</span><span style="color:var(--coral);">Age</span>
         <span style="color:var(--navy);">Fitness</span>
-        <span style="color:var(--navy);">Studios</span>
+        <span style="color:var(--navy);">Studio</span>
       </div>
     </div>
     <button class="drawer-close" id="navClose" aria-label="Close menu">&times;</button>

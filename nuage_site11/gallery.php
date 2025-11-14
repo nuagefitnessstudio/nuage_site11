@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="theme-color" content="#000000">
 <meta name="apple-mobile-web-app-status-bar-style" content="black">
-  <title>NuAge Fitness Studios</title>
+  <title>NuAge Fitness Studio</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
 
@@ -509,7 +509,7 @@ a, button { -webkit-tap-highlight-color: transparent; }
     <div class="brand-name">
       <span style="color:var(--navy);">Nu</span><span style="color:var(--coral);">Age</span>
       <span style="color:var(--navy);">Fitness</span>
-      <span style="color:var(--navy);">Studios</span>
+      <span style="color:var(--navy);">Studio</span>
     </div>
   </div>
   <button class="hamburger" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="navDrawer">
@@ -530,7 +530,7 @@ a, button { -webkit-tap-highlight-color: transparent; }
       <div class="brand-name">
         <span style="color:var(--navy);">Nu</span><span style="color:var(--coral);">Age</span>
         <span style="color:var(--navy);">Fitness</span>
-        <span style="color:var(--navy);">Studios</span>
+        <span style="color:var(--navy);">Studio</span>
       </div>
     </div>
     <button class="drawer-close" id="navClose" aria-label="Close menu">&times;</button>

@@ -46,7 +46,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['inquire_form'])) {
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="theme-color" content="#000000">
 <meta name="apple-mobile-web-app-status-bar-style" content="black">
-  <title>NuAge Fitness Studios</title>
+  <title>NuAge Fitness Studio</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
 
@@ -680,7 +680,7 @@ window.addEventListener("load", function() {
     <div class="brand-name">
       <span style="color:var(--navy);">Nu</span><span style="color:var(--coral);">Age</span>
       <span style="color:var(--navy);">Fitness</span>
-      <span style="color:var(--navy);">Studios</span>
+      <span style="color:var(--navy);">Studio</span>
     </div>
   </div>
   <button class="hamburger" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="navDrawer">
@@ -722,7 +722,7 @@ window.addEventListener("load", function() {
       <div class="brand-name">
         <span style="color:var(--navy);">Nu</span><span style="color:var(--coral);">Age</span>
         <span style="color:var(--navy);">Fitness</span>
-        <span style="color:var(--navy);">Studios</span>
+        <span style="color:var(--navy);">Studio</span>
       </div>
     </div>
     <button class="drawer-close" id="navClose" aria-label="Close menu">&times;</button>
@@ -801,7 +801,7 @@ window.addEventListener("load", function() {
   <div class="container">
     <h2 style="font-family:'Playfair Display',serif;">
       <span style="color:var(--navy);">Nu</span><span style="color:var(--coral);">Age</span>
-      <span style="color:var(--navy);"> Fitness Studios App</span>
+      <span style="color:var(--navy);"> Fitness Studio App</span>
     </h2>
     <p style="max-width:640px;margin:16px auto;color:var(--navy);font-size:18px;">
   Powered by <span style="color:var(--coral);">Glofox</span> — currently in development, not yet live. 
