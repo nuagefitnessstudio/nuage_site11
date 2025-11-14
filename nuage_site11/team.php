@@ -1268,6 +1268,19 @@ function submitChoice(){
   .nuage-btn.primary{background:#EB1F48;color:#fff}
   .nuage-btn.ghost{background:#fff;border-color:#e5e4e1}
   .nuage-hidden{display:none !important}
+
+  /* Ensure employment modal form isn't cut off on smaller screens */
+  .nuage-modal{
+    max-height: 90vh;
+    overflow-y: auto;
+  }
+  @media (max-width: 576px){
+    .nuage-modal{
+      width: 100%;
+      max-width: 100%;
+      border-radius: 0;
+    }
+  }
 </style>
 
 
