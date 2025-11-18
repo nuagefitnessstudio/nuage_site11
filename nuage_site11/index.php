@@ -664,6 +664,50 @@ a, button { -webkit-tap-highlight-color: transparent; }
   border: none; background: transparent;
   font-size: 24px; cursor: pointer;
 }
+
+
+/* Shared pill style – only if you don't already have it */
+.nav-cta,
+.drawer-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  padding: 10px 22px;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+}
+
+/* Existing navy button should already look similar to this */
+.nav-cta--primary,
+.drawer-btn--primary {
+  background: #002D72;
+  color: #ffffff;
+}
+
+/* NEW coral signup button */
+.nav-cta--coral,
+.drawer-btn--coral {
+  background: #EB1F48;
+  color: #ffffff;
+  box-shadow: 0 10px 25px rgba(235, 31, 72, 0.45);
+}
+
+.nav-cta--coral:hover,
+.drawer-btn--coral:hover {
+  filter: brightness(1.05);
+  transform: translateY(-1px);
+}
+
+.nav-cta--coral:active,
+.drawer-btn--coral:active {
+  transform: translateY(0);
+  box-shadow: 0 6px 18px rgba(235, 31, 72, 0.35);
+}
+
 </style>
 
 <script>
@@ -728,6 +772,7 @@ window.addEventListener("load", function() {
     <button class="drawer-close" id="navClose" aria-label="Close menu">&times;</button>
   </div>
   <nav class="drawer-nav">
+  <a href="signup.php" class="pill-link coral"><span style="font-weight:700">Sign Up</span></a>
     <a href="location.php" class="pill-link primary"><span style="font-weight:700">Find a Location</span></a>
     <a href="javascript:void(0)" onclick="openLogin()" class="pill-link">Member Login</a>
     <a href="classes.php">Classes</a>
