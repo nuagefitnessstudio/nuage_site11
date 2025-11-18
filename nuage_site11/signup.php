@@ -22,6 +22,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         // Prepare email
         $to      = 'info@nuagefitness-studio.com';
         $subject = 'New NuAge Fitness Studio Sign Up';
+
         $body    = "A new person has signed up for NuAge Fitness Studio:\n\n"
                  . "Name: {$name}\n"
                  . "Email: {$email}\n"
@@ -29,17 +30,24 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                  . "Gym Frequency (per week): {$frequency}\n\n"
                  . "Goal they'd like to achieve:\n{$goal}\n";
 
-        // Set headers
-        $headers = "From: NuAge Fitness Studio <info@nuagefitness-studio.com>\r\n";
-        $headers .= "Reply-To: {$email}\r\n";
+        // Headers
+        $fromAddress = 'info@nuagefitness-studio.com';
 
-        // Send mail
-        if (mail($to, $subject, $body, $headers)) {
+        $headers  = "From: NuAge Fitness Studio <{$fromAddress}>\r\n";
+        $headers .= "Reply-To: {$email}\r\n";
+        $headers .= "MIME-Version: 1.0\r\n";
+        $headers .= "Content-Type: text/plain; charset=UTF-8\r\n";
+
+        // Many hosts require the envelope sender (-f) to match your domain email
+        $envelopeSender = '-f' . $fromAddress;
+
+        if (mail($to, $subject, $body, $headers, $envelopeSender)) {
             $success = 'Thank you for signing up! We will contact you soon.';
             // Clear form values after successful submit
             $name = $email = $phone = $frequency = $goal = '';
         } else {
-            $error = 'There was a problem sending your information. Please try again later.';
+            // Fallback message if mail() fails
+            $error = 'There was a problem sending your information. Please email us directly at info@nuagefitness-studio.com.';
         }
     }
 }
@@ -313,7 +321,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <div class="page-wrapper">
     <div class="card">
         <div class="logo-wrap">
-            <!-- Logo now links back to index.php -->
             <a href="index.php" title="Back to Home">
                 <img src="assets/IMG_2413.png" alt="NuAge Fitness Studio Logo">
                 <div class="brand-text">
