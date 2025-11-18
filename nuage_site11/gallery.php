@@ -381,6 +381,28 @@ a, button { -webkit-tap-highlight-color: transparent; }
   line-height: 1.4;
 }
 
+.pill-link.coral {
+    background: #EB1F48; /* NuAge coral */
+    color: #ffffff;
+    border-radius: 999px;
+    padding: 10px 22px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 10px 25px rgba(235, 31, 72, 0.45);
+    transition: all 0.15s ease;
+}
+
+.pill-link.coral:hover {
+    filter: brightness(1.06);
+    transform: translateY(-1px);
+}
+
+.pill-link.coral:active {
+    transform: translateY(0);
+    box-shadow: 0 6px 18px rgba(235, 31, 72, 0.35);
+}
+
 /* Responsive */
 @media (max-width: 768px) {
   .footer .links {
@@ -500,6 +522,7 @@ a, button { -webkit-tap-highlight-color: transparent; }
 .lightbox .lb-close:hover{background:rgba(255,255,255,.2)}
 /* Perf: avoid layout cost until scrolled in */
 .gallery-card{content-visibility:auto;contain-intrinsic-size:260px;}
+
 </style>
 <body>
 
@@ -536,6 +559,7 @@ a, button { -webkit-tap-highlight-color: transparent; }
     <button class="drawer-close" id="navClose" aria-label="Close menu">&times;</button>
   </div>
   <nav class="drawer-nav">
+  <a href="signup.php" class="pill-link coral"><span style="font-weight:700">Sign Up</span></a>
     <a href="location.php" class="pill-link primary"><span style="font-weight:700">Find a Location</span></a>
     <a href="javascript:void(0)" onclick="openModal()" class="pill-link">Member Login</a>
     <a href="classes.php">Classes</a>
