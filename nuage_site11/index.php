@@ -785,7 +785,7 @@ window.addEventListener("load", function() {
           padding:12px 24px;font-weight:600;backdrop-filter:blur(4px);" role="button">
   Find a Location
 </a>
-<a href="location.php" class="btn"
+<a href="signup.php" class="btn"
    style="background:#ffffffcc;color:var(--navy);border:2px solid #ffffff;border-radius:8px;
           padding:12px 24px;font-weight:600;backdrop-filter:blur(4px);" role="button">
   SignUp For an Account
