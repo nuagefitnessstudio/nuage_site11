@@ -100,6 +100,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             margin-bottom: 12px;
         }
 
+        .logo-wrap a {
+            display: inline-flex;
+            align-items: center;
+            text-decoration: none;
+            color: inherit;
+        }
+
         .logo-wrap img {
             height: 64px;
             width: auto;
@@ -256,6 +263,27 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             font-size: 16px;
         }
 
+        .btn-secondary {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 999px;
+            padding: 8px 18px;
+            font-size: 13px;
+            font-weight: 500;
+            border: 1px solid #d1d5db;
+            background: #ffffff;
+            color: #4b5563;
+            text-decoration: none;
+            transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease, transform 0.05s ease;
+        }
+
+        .btn-secondary:hover {
+            background: #f3f4f6;
+            border-color: #9ca3af;
+            transform: translateY(-1px);
+        }
+
         .fine-print {
             font-size: 11px;
             color: #6b7280;
@@ -285,14 +313,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <div class="page-wrapper">
     <div class="card">
         <div class="logo-wrap">
-            <!-- Update the src to match your actual logo path -->
-            <img src="assets/IMG_2413.png" alt="NuAge Fitness Studio Logo">
-            <div class="brand-text">
-                <div class="brand-main">
-                    <span class="nu">Nu</span><span class="age">Age</span>
+            <!-- Logo now links back to index.php -->
+            <a href="index.php" title="Back to Home">
+                <img src="assets/IMG_2413.png" alt="NuAge Fitness Studio Logo">
+                <div class="brand-text">
+                    <div class="brand-main">
+                        <span class="nu">Nu</span><span class="age">Age</span>
+                    </div>
+                    <div class="brand-sub">Fitness Studio</div>
                 </div>
-                <div class="brand-sub">Fitness Studio</div>
-            </div>
+            </a>
         </div>
 
         <h1 class="heading">Sign Up for NuAge Fitness Studio</h1>
@@ -367,14 +397,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             </div>
 
             <div class="full-width actions">
-                <button type="submit" class="btn-primary">
-                    <span>Submit Sign Up</span>
-                    <span class="arrow">➜</span>
-                </button>
-                <p class="fine-print">
-                    By submitting, you agree that NuAge Fitness Studio may contact you about
-                    updates, offers, and opening information. Your information stays with us.
-                </p>
+                <div>
+                    <button type="submit" class="btn-primary">
+                        <span>Submit Sign Up</span>
+                        <span class="arrow">➜</span>
+                    </button>
+                </div>
+                <div style="display:flex; flex-direction:column; gap:6px; align-items:flex-start;">
+                    <a href="index.php" class="btn-secondary">← Back to Home</a>
+                    <p class="fine-print">
+                        By submitting, you agree that NuAge Fitness Studio may contact you about
+                        updates, offers, and opening information. Your information stays with us.
+                    </p>
+                </div>
             </div>
         </form>
     </div>
