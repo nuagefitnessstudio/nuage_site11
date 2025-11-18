@@ -1,12 +1,68 @@
 <?php
-// signup.php
+// === Injected: helper to enforce Microsoft 365 SMTP config (same as team.php) ===
+if (!function_exists('__configure_ms365_smtp')) {
+    function __configure_ms365_smtp($mail) {
+        if (!is_object($mail)) return;
+
+        $host = getenv('SMTP_HOST') ?: 'smtp.office365.com';
+        $port = (int)(getenv('SMTP_PORT') ?: 587);
+        $user = getenv('SMTP_USERNAME') ?: '';
+        $pass = getenv('SMTP_PASSWORD') ?: '';
+        $enc  = strtolower(getenv('SMTP_ENCRYPTION') ?: 'tls');
+
+        // Optional debug to PHP error log
+        error_log(sprintf('[smtp] host=%s port=%d enc=%s user=%s pass=%s',
+            $host, $port, $enc, $user ? 'set('.strlen($user).')' : 'EMPTY', $pass ? 'SET' : 'EMPTY'
+        ));
+
+        $mail->isSMTP();
+        $mail->Host        = $host;
+        $mail->Port        = $port;
+        $mail->SMTPAuth    = true;
+        $mail->AuthType    = 'LOGIN';
+        $mail->SMTPAutoTLS = true;
+        $mail->SMTPSecure  = \PHPMailer\PHPMailer\PHPMailer::ENCRYPTION_STARTTLS;
+
+        if ($user !== '') $mail->Username = $user;
+        if ($pass !== '') $mail->Password = $pass;
+
+        if (method_exists($mail, 'setFrom') && $user !== '') {
+            $rf = (property_exists($mail, 'From') ? $mail->From : '');
+            if (!$rf || strtolower($rf) != strtolower($user)) {
+                $mail->setFrom($user, 'NuAge Careers');
+            }
+            if (property_exists($mail, 'Sender') && (!$mail->Sender || strtolower($mail->Sender) != strtolower($user))) {
+                $mail->Sender = $user;
+            }
+        }
+    }
+}
+// === End helper ===
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
-require __DIR__ . '/PHPMailer/src/Exception.php';
-require __DIR__ . '/PHPMailer/src/PHPMailer.php';
-require __DIR__ . '/PHPMailer/src/SMTP.php';
+// Robust Composer autoloader with the same pattern as team.php
+$autoloadLoaded = false;
+$candidates = [
+    __DIR__ . '/vendor/autoload.php',    // if vendor sits next to this file
+    __DIR__ . '/../vendor/autoload.php', // if vendor is one level up
+    '/var/www/html/vendor/autoload.php', // absolute path (container docroot)
+];
+
+foreach ($candidates as $path) {
+    if (file_exists($path)) {
+        require $path;
+        $autoloadLoaded = true;
+        break;
+    }
+}
+
+if (!$autoloadLoaded) {
+    error_log('Composer autoload.php not found for signup.php');
+    // You can also show a friendlier message if you want:
+    // die('Internal error: dependencies not loaded.');
+}
 
 // Handle form submission
 $success = '';
@@ -26,7 +82,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
         $error = 'Please enter a valid email address.';
     } else {
-        // Build email content
         $to      = 'info@nuagefitness-studio.com';
         $subject = 'New NuAge Fitness Studio Sign Up';
 
@@ -40,35 +95,29 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $mail = new PHPMailer(true);
 
         try {
-            // ============================
-            // 🔧 SMTP SETTINGS (EDIT THESE)
-            // ============================
-            $mail->isSMTP();
-            $mail->Host       = 'smtp.yourhost.com';      // e.g. smtp.office365.com, smtp.ionos.com, smtp.gmail.com
-            $mail->SMTPAuth   = true;
-            $mail->Username   = 'info@nuagefitness-studio.com';  // your full email
-            $mail->Password   = 'YOUR_EMAIL_PASSWORD';           // the mailbox password or app password
-            $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;  // or PHPMailer::ENCRYPTION_SMTPS if using port 465
-            $mail->Port       = 587;                            // 587 for STARTTLS, 465 for SMTPS
+            // Use the same Microsoft 365 config as team.php
+            __configure_ms365_smtp($mail);
 
-            // From / To
-            $mail->setFrom('info@nuagefitness-studio.com', 'NuAge Fitness Studio');
+            // Override from-name to match NuAge brand (address comes from env helper)
+            if (!empty($mail->Username)) {
+                $mail->setFrom($mail->Username, 'NuAge Fitness Studio');
+            }
+
             $mail->addAddress($to);
             $mail->addReplyTo($email, $name);
 
-            // Content
-            $mail->isHTML(false); // plain text
+            $mail->isHTML(false);
             $mail->Subject = $subject;
             $mail->Body    = $body;
 
             $mail->send();
             $success = 'Thank you for signing up! We will contact you soon.';
-            // Clear form values after successful submit
             $name = $email = $phone = $frequency = $goal = '';
         } catch (Exception $e) {
-            // For debugging, you can temporarily uncomment this:
+            // For debugging, uncomment this temporarily:
             // $error = 'Mailer Error: ' . $mail->ErrorInfo;
             $error = 'There was a problem sending your information. Please email us directly at info@nuagefitness-studio.com.';
+            error_log('Signup mailer error: ' . $mail->ErrorInfo);
         }
     }
 }
@@ -88,9 +137,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             --card-bg: #ffffff;
         }
 
-        * {
-            box-sizing: border-box;
-        }
+        * { box-sizing: border-box; }
 
         body {
             margin: 0;
@@ -117,9 +164,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
 
         @media (min-width: 768px) {
-            .card {
-                padding: 40px 48px;
-            }
+            .card { padding: 40px 48px; }
         }
 
         .logo-wrap {
@@ -141,10 +186,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             width: auto;
         }
 
-        .brand-text {
-            display: flex;
-            flex-direction: column;
-        }
+        .brand-text { display: flex; flex-direction: column; }
 
         .brand-main {
             font-family: 'Playfair Display', serif;
@@ -152,12 +194,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             letter-spacing: 0.04em;
         }
 
-        .brand-main span.nu {
-            color: var(--nuage-navy);
-        }
-        .brand-main span.age {
-            color: var(--nuage-coral);
-        }
+        .brand-main span.nu { color: var(--nuage-navy); }
+        .brand-main span.age { color: var(--nuage-coral); }
 
         .brand-sub {
             font-size: 13px;
@@ -181,9 +219,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             margin-bottom: 24px;
         }
 
-        .subheading strong {
-            color: var(--nuage-coral);
-        }
+        .subheading strong { color: var(--nuage-coral); }
 
         form {
             display: grid;
@@ -192,12 +228,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
 
         @media (min-width: 640px) {
-            form {
-                grid-template-columns: repeat(2, minmax(0, 1fr));
-            }
-            .full-width {
-                grid-column: 1 / -1;
-            }
+            form { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+            .full-width { grid-column: 1 / -1; }
         }
 
         label {
@@ -288,9 +320,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             box-shadow: 0 8px 20px rgba(235, 31, 72, 0.4);
         }
 
-        .btn-primary span.arrow {
-            font-size: 16px;
-        }
+        .btn-primary span.arrow { font-size: 16px; }
 
         .btn-secondary {
             display: inline-flex;
