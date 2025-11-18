@@ -60,27 +60,29 @@ foreach ($candidates as $path) {
 
 if (!$autoloadLoaded) {
     error_log('Composer autoload.php not found for signup.php');
-    // You can also show a friendlier message if you want:
     // die('Internal error: dependencies not loaded.');
 }
 
 // Handle form submission
 $success = '';
-$error = '';
+$error   = '';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Basic sanitizing
     $name      = trim($_POST['name'] ?? '');
     $email     = trim($_POST['email'] ?? '');
     $phone     = trim($_POST['phone'] ?? '');
+    $age       = trim($_POST['age'] ?? '');
     $frequency = trim($_POST['frequency'] ?? '');
     $goal      = trim($_POST['goal'] ?? '');
 
     // Simple validation
-    if ($name === '' || $email === '' || $phone === '' || $frequency === '' || $goal === '') {
+    if ($name === '' || $email === '' || $phone === '' || $age === '' || $frequency === '' || $goal === '') {
         $error = 'Please fill in all fields.';
     } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
         $error = 'Please enter a valid email address.';
+    } elseif (!is_numeric($age) || $age < 10 || $age > 100) {
+        $error = 'Please enter a valid age.';
     } else {
         $to      = 'info@nuagefitness-studio.com';
         $subject = 'New NuAge Fitness Studio Sign Up';
@@ -89,6 +91,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $body .= "Name: {$name}\n";
         $body .= "Email: {$email}\n";
         $body .= "Phone Number: {$phone}\n";
+        $body .= "Age: {$age}\n";
         $body .= "Gym Frequency (per week): {$frequency}\n\n";
         $body .= "Goal they'd like to achieve:\n{$goal}\n";
 
@@ -112,9 +115,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             $mail->send();
             $success = 'Thank you for signing up! We will contact you soon.';
-            $name = $email = $phone = $frequency = $goal = '';
+            // Clear form values after successful submit
+            $name = $email = $phone = $age = $frequency = $goal = '';
         } catch (Exception $e) {
-            // For debugging, uncomment this temporarily:
+            // For debugging, you can temporarily uncomment:
             // $error = 'Mailer Error: ' . $mail->ErrorInfo;
             $error = 'There was a problem sending your information. Please email us directly at info@nuagefitness-studio.com.';
             error_log('Signup mailer error: ' . $mail->ErrorInfo);
@@ -243,6 +247,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         input[type="text"],
         input[type="email"],
         input[type="tel"],
+        input[type="number"],
         select,
         textarea {
             width: 100%;
@@ -428,6 +433,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     name="phone"
                     placeholder="(856) 580-3347"
                     value="<?php echo htmlspecialchars($phone ?? ''); ?>"
+                    required
+                >
+            </div>
+
+            <div>
+                <label for="age">Age</label>
+                <input
+                    type="number"
+                    id="age"
+                    name="age"
+                    placeholder="Your age"
+                    min="10"
+                    max="100"
+                    value="<?php echo htmlspecialchars($age ?? ''); ?>"
                     required
                 >
             </div>
