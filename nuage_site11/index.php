@@ -665,48 +665,28 @@ a, button { -webkit-tap-highlight-color: transparent; }
   font-size: 24px; cursor: pointer;
 }
 
-
-/* Shared pill style – only if you don't already have it */
-.nav-cta,
-.drawer-btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 999px;
-  padding: 10px 22px;
-  font-size: 14px;
-  font-weight: 600;
-  text-decoration: none;
-  border: none;
-  cursor: pointer;
+.pill-link.coral {
+    background: #EB1F48; /* NuAge coral */
+    color: #ffffff;
+    border-radius: 999px;
+    padding: 10px 22px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 10px 25px rgba(235, 31, 72, 0.45);
+    transition: all 0.15s ease;
 }
 
-/* Existing navy button should already look similar to this */
-.nav-cta--primary,
-.drawer-btn--primary {
-  background: #002D72;
-  color: #ffffff;
+.pill-link.coral:hover {
+    filter: brightness(1.06);
+    transform: translateY(-1px);
 }
 
-/* NEW coral signup button */
-.nav-cta--coral,
-.drawer-btn--coral {
-  background: #EB1F48;
-  color: #ffffff;
-  box-shadow: 0 10px 25px rgba(235, 31, 72, 0.45);
+.pill-link.coral:active {
+    transform: translateY(0);
+    box-shadow: 0 6px 18px rgba(235, 31, 72, 0.35);
 }
 
-.nav-cta--coral:hover,
-.drawer-btn--coral:hover {
-  filter: brightness(1.05);
-  transform: translateY(-1px);
-}
-
-.nav-cta--coral:active,
-.drawer-btn--coral:active {
-  transform: translateY(0);
-  box-shadow: 0 6px 18px rgba(235, 31, 72, 0.35);
-}
 
 </style>
 
