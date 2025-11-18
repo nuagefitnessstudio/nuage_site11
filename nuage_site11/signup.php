@@ -1,17 +1,24 @@
 <?php
 // signup.php
 
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+
+require __DIR__ . '/PHPMailer/src/Exception.php';
+require __DIR__ . '/PHPMailer/src/PHPMailer.php';
+require __DIR__ . '/PHPMailer/src/SMTP.php';
+
 // Handle form submission
 $success = '';
 $error = '';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Basic sanitizing
-    $name   = trim($_POST['name'] ?? '');
-    $email  = trim($_POST['email'] ?? '');
-    $phone  = trim($_POST['phone'] ?? '');
+    $name      = trim($_POST['name'] ?? '');
+    $email     = trim($_POST['email'] ?? '');
+    $phone     = trim($_POST['phone'] ?? '');
     $frequency = trim($_POST['frequency'] ?? '');
-    $goal   = trim($_POST['goal'] ?? '');
+    $goal      = trim($_POST['goal'] ?? '');
 
     // Simple validation
     if ($name === '' || $email === '' || $phone === '' || $frequency === '' || $goal === '') {
@@ -19,34 +26,48 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
         $error = 'Please enter a valid email address.';
     } else {
-        // Prepare email
+        // Build email content
         $to      = 'info@nuagefitness-studio.com';
         $subject = 'New NuAge Fitness Studio Sign Up';
 
-        $body    = "A new person has signed up for NuAge Fitness Studio:\n\n"
-                 . "Name: {$name}\n"
-                 . "Email: {$email}\n"
-                 . "Phone Number: {$phone}\n"
-                 . "Gym Frequency (per week): {$frequency}\n\n"
-                 . "Goal they'd like to achieve:\n{$goal}\n";
+        $body  = "A new person has signed up for NuAge Fitness Studio:\n\n";
+        $body .= "Name: {$name}\n";
+        $body .= "Email: {$email}\n";
+        $body .= "Phone Number: {$phone}\n";
+        $body .= "Gym Frequency (per week): {$frequency}\n\n";
+        $body .= "Goal they'd like to achieve:\n{$goal}\n";
 
-        // Headers
-        $fromAddress = 'info@nuagefitness-studio.com';
+        $mail = new PHPMailer(true);
 
-        $headers  = "From: NuAge Fitness Studio <{$fromAddress}>\r\n";
-        $headers .= "Reply-To: {$email}\r\n";
-        $headers .= "MIME-Version: 1.0\r\n";
-        $headers .= "Content-Type: text/plain; charset=UTF-8\r\n";
+        try {
+            // ============================
+            // 🔧 SMTP SETTINGS (EDIT THESE)
+            // ============================
+            $mail->isSMTP();
+            $mail->Host       = 'smtp.yourhost.com';      // e.g. smtp.office365.com, smtp.ionos.com, smtp.gmail.com
+            $mail->SMTPAuth   = true;
+            $mail->Username   = 'info@nuagefitness-studio.com';  // your full email
+            $mail->Password   = 'YOUR_EMAIL_PASSWORD';           // the mailbox password or app password
+            $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;  // or PHPMailer::ENCRYPTION_SMTPS if using port 465
+            $mail->Port       = 587;                            // 587 for STARTTLS, 465 for SMTPS
 
-        // Many hosts require the envelope sender (-f) to match your domain email
-        $envelopeSender = '-f' . $fromAddress;
+            // From / To
+            $mail->setFrom('info@nuagefitness-studio.com', 'NuAge Fitness Studio');
+            $mail->addAddress($to);
+            $mail->addReplyTo($email, $name);
 
-        if (mail($to, $subject, $body, $headers, $envelopeSender)) {
+            // Content
+            $mail->isHTML(false); // plain text
+            $mail->Subject = $subject;
+            $mail->Body    = $body;
+
+            $mail->send();
             $success = 'Thank you for signing up! We will contact you soon.';
             // Clear form values after successful submit
             $name = $email = $phone = $frequency = $goal = '';
-        } else {
-            // Fallback message if mail() fails
+        } catch (Exception $e) {
+            // For debugging, you can temporarily uncomment this:
+            // $error = 'Mailer Error: ' . $mail->ErrorInfo;
             $error = 'There was a problem sending your information. Please email us directly at info@nuagefitness-studio.com.';
         }
     }
@@ -375,7 +396,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     type="tel"
                     id="phone"
                     name="phone"
-                    placeholder="(555) 123-4567"
+                    placeholder="(856) 580-3347"
                     value="<?php echo htmlspecialchars($phone ?? ''); ?>"
                     required
                 >
